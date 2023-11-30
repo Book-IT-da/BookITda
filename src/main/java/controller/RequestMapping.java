@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.user.*;
+import controller.book.*;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -17,7 +18,10 @@ public class RequestMapping {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
         mappings.put("/", new ForwardController("index.jsp"));
 
+        // 리뷰 관련
         
+        // 도서 검색 관련
+        mappings.put("/book/searchList", new ListBookController());
       
 
         logger.info("Initialized Request Mapping!");
