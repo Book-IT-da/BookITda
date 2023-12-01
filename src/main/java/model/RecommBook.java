@@ -1,5 +1,10 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import model.RecommBook;
+
 public class RecommBook {
 	String isbn;
     String title;
@@ -54,5 +59,32 @@ public class RecommBook {
 
     public void setAvgstar(Double avgstar) {
         this.avgstar = avgstar;
+    }
+    
+    public static List<RecommBook> getRecommBooks() {
+        List<RecommBook> recommBooks = new ArrayList<>();
+
+        RecommBook book1 = new RecommBook(null, null, null, null, null);
+        book1.setCover_path("../img/book1.jpg");
+        book1.setTitle("JAVA 마스터");
+        book1.setAuthor("송미영");
+        book1.setAvgstar(3.0);
+        recommBooks.add(book1);
+
+        RecommBook book2 = new RecommBook(null, null, null, null, null);
+        book2.setCover_path("../img/book2.jpg");
+        book2.setTitle("JAVA의 정석");
+        book2.setAuthor("남궁성");
+        book2.setAvgstar(3.0);
+        recommBooks.add(book2);
+
+        RecommBook book3 = new RecommBook(null, null, null, null, null);
+        book3.setCover_path("../img/book3.jpg");
+        book3.setTitle("Power JAVA");
+        book3.setAuthor("천인국");
+        book3.setAvgstar(3.0);
+        recommBooks.add(book3);
+
+        return recommBooks;
     }
 }
