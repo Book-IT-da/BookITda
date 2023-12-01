@@ -47,11 +47,14 @@ public class ReviewDAO {
     public List<Review> reviewList()throws SQLException {
         
         StringBuilder query = new StringBuilder();
-        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, "
-                + "onelineReview, detailReview, title, nickname, createdate ");
+        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, onelineReview, detailReview, title, nickname, createdate ");
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
-        query.append("INNER JOIN book ON review.isbn = book.isbn; ");
+        query.append("INNER JOIN book ON review.isbn = book.isbn ");
+
+
+        jdbcUtil.setSqlAndParameters(query.toString(), null);
+		
         try {
             ResultSet rs = jdbcUtil.executeQuery(); 
             
@@ -59,15 +62,11 @@ public class ReviewDAO {
             while (rs.next()) {             
                 Review review = new Review(
                         rs.getInt("reviewId"), 
-                        rs.getInt("starScore"), 
-                        rs.getString("itLevel"), 
-                        rs.getString("purpose"), 
-                        rs.getString("recommObj"), 
+                        rs.getInt("starScore"),  
                         rs.getString("onelineReview"), 
-                        rs.getString("detailReview"), 
                         rs.getString("title"), 
                         rs.getString("nickname"), 
-                        rs.getDate("SYSDATE")
+                        rs.getDate("createDate")
                     );  
                 reviewList.add(review);         
             }           
@@ -207,7 +206,7 @@ public class ReviewDAO {
         jdbcUtil.setSqlAndParameters(query.toString(), 
                 new Object[]{review.getStars(), review.getLevel(), review.getPurpose(), 
                         review.getRecommObj(), review.getKeyword(), review.getOnelineReview(),
-                        review.getMultilineReview(), review.getNickname(), review.getUserId(), review.getISBN()});
+                        review.getMultilineReview(), review.getUserId(), review.getISBN()});
         
         try {               
             int result;

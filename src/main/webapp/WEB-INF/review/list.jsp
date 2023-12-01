@@ -95,52 +95,37 @@
             <div align="right">
                 <button onclick="location.href='./bookReviewDetail.html'">작성하기</button>
             </div>
-            <div>
-                <div>
-                    <table class="book_box">
-                        <thead>
-                        <tr>
-                            <td class="book_pic" rowspan="4"> 사진 </td>
-                            <td class="book_title">제목</td>
-                        </tr>
-                        <tr>
-                            <td class="book_author">저자</td>
-                        </tr>
-                        <tr>
-                            <td class="book_stars">별점</td>
-                        </tr>
-                        <tr>
-                            <td class="book_oneline_review">한줄평</td>
-                        </tr>
-                        </thead>
-                    </table>
-                </div>
-                <table class="book_box">
-                    <thead>
-                    <tr>
-                        <td class="book_pic" rowspan="4"> 사진 </td>
-                        <td class="book_title">제목</td>
-                    </tr>
-                    <tr>
-                        <td class="book_author">저자</td>
-                    </tr>
-                    <tr>
-                        <td class="book_stars">별점</td>
-                    </tr>
-                    <tr>
-                        <td class="book_oneline_review">한줄평</td>
-                    </tr>
-                    </thead>
-                </table>
+            <div>                
+            	<c:forEach var="review" items="${reviewList}"> 
+	                <div>
+	                    <table class="book_box">
+	                        <thead>
+	                        <tr>
+	                            <td class="book_pic" rowspan="4"> 사진 </td>
+	                            <td class="book_title">${review.title}</td>
+	                        </tr>
+	                        <tr>
+	                            <td class="book_author">${review.nickname}</td>
+	                        </tr>
+	                        <tr>
+	                            <td class="book_stars">${review.stars}</td>
+	                        </tr>
+	                        <tr>
+	                            <td class="book_oneline_review">${review.onelineReview}</td>
+	                        </tr>
+	                        </thead>
+	                    </table>
+	                </div>
+	  			</c:forEach>
             </div>
-            <div align="center">
+<!--             <div align="center">
                 <hr/>
                 <button> &lt; </button>
                 <a>1</a>
                 <a>2</a>
                 <a>3</a>
                 <button> &gt; </button>
-            </div>
+            </div> -->
         </main>
 </body>
 </html>
