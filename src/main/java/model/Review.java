@@ -184,13 +184,13 @@ public class Review {
         this.createDate = createDate;
     }
 
-    @Override
-    public String toString() {
-        return "Review [reviewId=" + reviewId + ", title=" + title + ", userId=" + userId + ", nickname=" + nickname
-                + ", stars=" + stars + ", level=" + level + ", purpose=" + purpose + ", recommObj=" + recommObj
-                + ", keyword=" + keyword + ", onelineReview=" + onelineReview + ", multilineReview=" + multilineReview
-                + ", ISBN=" + ISBN + ", createDate=" + createDate + "]";
-    }
-    
+
+	@Override
+	public String toString() {
+		return "Review [reviewId=" + reviewId + ", title=" + title + ", userId=" + userId + ", nickname=" + nickname
+				+ ", stars=" + stars + ", level=" + level + ", purpose=" + purpose + ", recommObj=" + recommObj
+				+ ", keyword=" + keyword + ", onelineReview=" + onelineReview + ", multilineReview=" + multilineReview
+				+ ", ISBN=" + ISBN + ", createDate=" + createDate + "]";
+	}    
     
 }
