@@ -457,7 +457,7 @@ public class BookDAO {
 	}
 	
 	//��õ å ����Ʈ ��������
-	public List<RecommBook> findRecommList(int userId) throws SQLException {
+	public List<RecommBook> findRecommList(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
         query.append("SELECT isbn, title, cover_path, author, avgstar ");
         query.append("FROM Book b ");

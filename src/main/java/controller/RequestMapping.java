@@ -7,6 +7,10 @@ import org.slf4j.LoggerFactory;
 
 import controller.user.*;
 import controller.book.*;
+import controller.interest.CreateInterestController;
+import controller.interest.GetInterestController;
+import controller.interest.UpdateInterestCategoryController;
+import controller.interest.UpdateInterestLanguageController;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -22,8 +26,18 @@ public class RequestMapping {
         
         // 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController());
-      
-
+        // 관심사 생성
+        mappings.put("/interest/interest_createForm", new ForwardController("/interest/interest_createForm.jsp"));
+        mappings.put("/user/update/interest", new ForwardController("/interest/interest_updateForm.jsp"));
+        mappings.put("/user/interest/create", new GetInterestController());
+        // 관심사 수정 폼
+        mappings.put("/user/get/interest", new GetInterestController());
+        mappings.put("/user/update/interest", new ForwardController("/interest/interest_updateForm.jsp"));
+        //관심 카테고리, 언어 수정
+        mappings.put("/user/update/interest/category", new UpdateInterestCategoryController());
+        mappings.put("/user/update/interest/language", new UpdateInterestLanguageController());
+        
+        
         logger.info("Initialized Request Mapping!");
     }
 
