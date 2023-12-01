@@ -19,7 +19,7 @@
                 margin: 25px 30px;
                 text-align: center;
             }
-            #search_input {
+            #reviewTitle_input {
                 font-size: 16px;
                 width: 325px;
                 padding: 10px;
@@ -77,6 +77,17 @@
             }
         </style>
 </head>
+
+<script type="text/javascript">
+	function search() {
+		if (searchReviewForm.reviewTitle_input.value == "") {
+			alert("책 제목을 입력하세요");
+			history.back();
+		}
+		searchForm.submit();
+	}
+</script>
+
 <body>
 	<header>
 		<div>
@@ -88,8 +99,11 @@
 	</jsp:include>
 	<main>
 		<div align="center">
-			<input id="search_input" type="text" placeholder="검색어 입력">
-                <button id="search_button">검색하기</button>
+			<form name="searchReviewForm" method="GET"
+				action="<c:url value='/review/list' />">
+				<input id="reviewTitle_input" name="reviewTitle_input" type="text" placeholder="책 제목을 입력하세요">
+                <button id="search_button" onClick="search()">검색하기</button>
+            </form>
                 <hr/>
             </div>
             <div align="right">

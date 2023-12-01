@@ -42,7 +42,7 @@ public class Review {
         this.onelineReview = onelineReview;
     }
     
-    // 리뷰 리스트
+    // 리뷰 리스트 & 책 제목으로 검색
     public Review(int reviewId, int stars, 
             String onelineReview, String title, String nickname, Date createDate) {
         super();

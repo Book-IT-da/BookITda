@@ -51,6 +51,7 @@ public class ReviewDAO {
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
         query.append("INNER JOIN book ON review.isbn = book.isbn ");
+        query.append("ORDER BY createdate DESC");
 
 
         jdbcUtil.setSqlAndParameters(query.toString(), null);
@@ -123,9 +124,12 @@ public class ReviewDAO {
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
         query.append("INNER JOIN book ON review.isbn = book.isbn ");
-        query.append("WHERE book.title LIKE '%?%' ");
+        query.append("WHERE book.title LIKE ? ");
+        query.append("ORDER BY createdate DESC");
         
-        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {title});
+        String bookTitle = "%" + title + "%";
+        
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {bookTitle});
         try {
             ResultSet rs = jdbcUtil.executeQuery(); 
             
@@ -133,15 +137,11 @@ public class ReviewDAO {
             while (rs.next()) {             
                 Review review = new Review(
                         rs.getInt("reviewId"), 
-                        rs.getInt("starScore"), 
-                        rs.getString("itLevel"), 
-                        rs.getString("purpose"), 
-                        rs.getString("recommObj"), 
+                        rs.getInt("starScore"),  
                         rs.getString("onelineReview"), 
-                        rs.getString("detailReview"), 
                         rs.getString("title"), 
                         rs.getString("nickname"), 
-                        rs.getDate("SYSDATE")
+                        rs.getDate("createDate")
                     );  
                 reviewList.add(review);         
             }           
