@@ -42,6 +42,18 @@ public class Review {
         this.onelineReview = onelineReview;
     }
     
+    // 리뷰 리스트 & 책 제목으로 검색
+    public Review(int reviewId, int stars, 
+            String onelineReview, String title, String nickname, Date createDate) {
+        super();
+        this.reviewId = reviewId;
+        this.stars = stars;
+        this.onelineReview = onelineReview;
+        this.title = title;
+        this.nickname = nickname;
+        this.createDate = createDate; 
+    }
+    
     public Review(int reviewId, int stars, String level, String purpose,
             String recommObj, String keyword, 
             String onelineReview, String multilineReview, 
