@@ -1,8 +1,6 @@
 .user_menu {
     display: flex;
     justify-content: flex-end;
-}
-.user_menu {
     margin: 15px;
     padding: 0;
 }
