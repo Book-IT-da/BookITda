@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import controller.user.*;
 import controller.book.*;
+import controller.review.*;
 import controller.interest.CreateInterestController;
 import controller.interest.GetInterestController;
 import controller.interest.UpdateInterestCategoryController;
@@ -23,6 +24,7 @@ public class RequestMapping {
         mappings.put("/", new ForwardController("index.jsp"));
 
         // 리뷰 관련
+        mappings.put("/review/list", new ListReviewController());
         
         // 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController());
