@@ -76,17 +76,18 @@
                 font-size: 16px;
             }
         </style>
+	<script type="text/javascript">
+		function search() {
+			if (searchReviewForm.reviewTitle_input.value == "") {
+				alert("책 제목을 입력하세요");
+				searchReviewForm.reviewTitle_input.focus();
+				return false;
+			}
+			searchReviewForm.submit();
+		}
+	</script>
 </head>
 
-<script type="text/javascript">
-	function search() {
-		if (searchReviewForm.reviewTitle_input.value == "") {
-			alert("책 제목을 입력하세요");
-			history.back();
-		}
-		searchForm.submit();
-	}
-</script>
 
 <body>
 	<header>
@@ -102,7 +103,7 @@
 			<form name="searchReviewForm" method="GET"
 				action="<c:url value='/review/list' />">
 				<input id="reviewTitle_input" name="reviewTitle_input" type="text" placeholder="책 제목을 입력하세요">
-                <button id="search_button" onClick="search()">검색하기</button>
+                <input type="button" id="search_button" onClick="search()" value="검색하기">
             </form>
                 <hr/>
             </div>
