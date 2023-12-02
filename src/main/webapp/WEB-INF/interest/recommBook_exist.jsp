@@ -15,7 +15,42 @@
     <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 	<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
     <title>추천 도서 보기</title>
-    <style>     
+    <style>   
+	   	   .bigContainer {
+			    width: 800px; 
+			    height: 70px; 
+			    position: absolute;
+			    top: 70%;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			    background-color: #f7e6ff;
+			    border-radius: 10%;
+			    overflow: hidden; 
+			    transition: width 0.5s, height 0.5s; 
+			}
+			
+			.bigContainer:hover {
+			    width: 800px; 
+			    height: 650px; 
+			}
+			
+			.question {
+			    width: 500px;
+			    position: absolute;
+			    top: 5%;
+			    left: 18%;
+			    text-align: center;
+			}
+	        .container {
+	            width: 600px;
+	            height: 50%;
+	            position: absolute; 
+			    top: 30%; 
+			    left: 13%; 
+	            display: flex;
+	            justify-content: center;
+	            align-items: center; 
+	        }  
             .book_box  {
                 border-collapse:collapse;
                 border-spacing:0;
@@ -72,22 +107,29 @@
         <div align="right">
            <a href="${contextPath}/user/get/interest"><button>관심사 재설정</button></a>
         </div>
-        <div>
-            <table class="book_box">
-                <c:forEach var="recommBook" items="${recommBookList}">
-                    <tr>
-                        <td>
-                            <div class="book">
-                                <%-- <img class="bookImg" src="${recommBook.bookImage}" alt="도서 표지 이미지"> --%>
-                                <h2 class="title">${recommBook.title}</h2>
-                                <p class="author">${recommBook.author}</p>
-                                <p class="avgStar">${recommBook.avgstar}</p>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
+        <div class = "bigContainer">
+			<h2 class="question">A님께 어울리는 책을 소개할게요</h2><br>
+			 <div class="container">
+	            <table class="book_box">
+	                <c:forEach var="recommBook" items="${recommBookList}" varStatus="loop">
+	                   <c:if test="${loop.index % 4 == 0}">
+				            <tr>
+				        </c:if>
+				        <td>
+				            <div class="book">
+				                <%-- <img class="bookImg" src="${recommBook.bookImage}" alt="도서 표지 이미지"> --%>
+				                <h2 class="title">${recommBook.title}</h2>
+				                <p class="author">${recommBook.author}</p>
+				                <p class="avgStar">${recommBook.avgstar}</p>
+				            </div>
+				        </td>
+				        <c:if test="${loop.index % 4 == 3 or loop.last}">
+				            </tr>
+				        </c:if>
+	                </c:forEach>
+	            </table>
+	        </div>
+	     </div>
     </main>
 </body>
 
