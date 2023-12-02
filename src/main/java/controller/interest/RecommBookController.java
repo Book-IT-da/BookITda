@@ -21,14 +21,16 @@ public class RecommBookController implements Controller {
         String userId = (String)request.getSession().getAttribute("userId2");
         
         try {
-            List<RecommBook> recommBookList = manager.findRecommList(userId);
-
-            if (recommBookList != null) {
+        	List<RecommBook> recommBookList = manager.findRecommList(userId);
+        	if (recommBookList != null && !recommBookList.isEmpty()) {
                 HttpSession session = request.getSession();
                 session.setAttribute("recommBookList", recommBookList);
+                System.out.println("recommBookList exists.");
                 return "/interest/recommBook_exist.jsp";
+            } else {
+                System.out.println("recommBookList is null or empty.");
+                return "/interest/recommBook_not_exist.jsp";
             }
-            return "/interest/recommBook_not_exist.jsp";
         }catch (Exception e) {
         	return "/interest/recommBook_not_exist.jsp";
         }
