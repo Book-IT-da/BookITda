@@ -459,7 +459,7 @@ public class BookDAO {
 	//��õ å ����Ʈ ��������
 	public List<RecommBook> findRecommList(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
-        query.append("SELECT isbn, title, cover_path, author, avgstar ");
+        query.append("SELECT DISTINCT isbn, title, cover_path, author, avgstar ");
         query.append("FROM Book b ");
         query.append("INNER JOIN InterestCat ic ON ic.categoryId = b.categoryId ");
         query.append("INNER JOIN InterestLang il ON il.languageId = b.languageId ");
