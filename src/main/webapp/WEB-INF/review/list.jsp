@@ -48,6 +48,10 @@
                 padding:10px 5px;
                 word-break:normal;
             }
+            .book_box td a{
+    			text-decoration: none;
+    			color: black;
+            }
             .book_box th{
                 border-color:black;
                 border-style:solid;
@@ -117,7 +121,12 @@
 	                        <thead>
 	                        <tr>
 	                            <td class="book_pic" rowspan="4"> 사진 </td>
-	                            <td class="book_title">${review.title}</td>
+	                            <td class="book_title">
+		                            <a href="<c:url value='/review/view'>
+									   <c:param name='reviewId' value='${review.reviewId}'/>
+							 		 </c:url>">
+	                            ${review.title} </a>
+	                            </td>
 	                        </tr>
 	                        <tr>
 	                            <td class="book_author">${review.nickname}</td>

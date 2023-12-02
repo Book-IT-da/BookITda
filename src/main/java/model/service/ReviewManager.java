@@ -40,7 +40,7 @@ public class ReviewManager {
 	
 	// 리뷰 상세 조회
 	public Review read(int reviewId) throws SQLException {
-		return reviewDAO.read(reviewId);
+		return reviewDAO.readReview(reviewId);
 	}
 	
 	// 리뷰 생성

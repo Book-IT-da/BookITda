@@ -10,6 +10,8 @@ import java.util.*;
 public class Review {
     private int reviewId;   // 리뷰 구분 id
     private String title;   // 책 제목
+    private String author;	// 저자
+    private String publisher;	// 출판사
     private String userId;  // 사용자 아이디
     private String nickname; // 작성자(닉네임 사용)
     private int stars;  // 별점
@@ -54,10 +56,11 @@ public class Review {
         this.createDate = createDate; 
     }
     
+    // 리뷰 상세 조회
     public Review(int reviewId, int stars, String level, String purpose,
             String recommObj, String keyword, 
             String onelineReview, String multilineReview, 
-            String title, Date createDate) {
+            String title, String nickname, String author, String publisher, Date createDate) {
         super();
         this.reviewId = reviewId;
         this.stars = stars;
@@ -69,140 +72,192 @@ public class Review {
         this.multilineReview = multilineReview;
         this.title = title;
         this.nickname = nickname;
+		this.author = author;
+		this.publisher = publisher;
         this.createDate = createDate; 
     }
 
-    public Review(int reviewId, String title, String userId, String nickname, int stars, 
-            String level, String purpose, String recommObj, String keyword, 
-            String onelineReview, String multilineReview, String iSBN,
-            Date createDate) {
-        super();
-        this.reviewId = reviewId;
-        this.title = title;
-        this.userId = userId;
-        this.nickname = nickname;
-        this.stars = stars;
-        this.level = level;
-        this.purpose = purpose;
-        this.recommObj = recommObj;
-        this.keyword = keyword;
-        this.onelineReview = onelineReview;
-        this.multilineReview = multilineReview;
-        this.ISBN = iSBN;
-        this.createDate = createDate;
-    }
 
-    public int getReviewId() {
-        return reviewId;
-    }
+	public Review(int reviewId, String title, String author, String publisher, String userId, String nickname,
+			int stars, String level, String purpose, String recommObj, String keyword, String onelineReview,
+			String multilineReview, String iSBN, Date createDate) {
+		super();
+		this.reviewId = reviewId;
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
+		this.userId = userId;
+		this.nickname = nickname;
+		this.stars = stars;
+		this.level = level;
+		this.purpose = purpose;
+		this.recommObj = recommObj;
+		this.keyword = keyword;
+		this.onelineReview = onelineReview;
+		this.multilineReview = multilineReview;
+		ISBN = iSBN;
+		this.createDate = createDate;
+	}
 
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
-    }
 
-    public String getTitle() {
-        return title;
-    }
+	public int getReviewId() {
+		return reviewId;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
-    public String getUserId() {
-        return userId;
-    }
+	public void setReviewId(int reviewId) {
+		this.reviewId = reviewId;
+	}
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
-    public String getNickname() {
-        return nickname;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
 
-    public int getStars() {
-        return stars;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setStars(int stars) {
-        this.stars = stars;
-    }
 
-    public String getLevel() {
-        return level;
-    }
+	public String getAuthor() {
+		return author;
+	}
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
 
-    public String getPurpose() {
-        return purpose;
-    }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
 
-    public String getRecommObj() {
-        return recommObj;
-    }
+	public String getPublisher() {
+		return publisher;
+	}
 
-    public void setRecommObj(String recommObj) {
-        this.recommObj = recommObj;
-    }
 
-    public String getKeyword() {
-        return keyword;
-    }
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
 
-    public String getOnelineReview() {
-        return onelineReview;
-    }
+	public String getUserId() {
+		return userId;
+	}
 
-    public void setOnelineReview(String onelineReview) {
-        this.onelineReview = onelineReview;
-    }
 
-    public String getMultilineReview() {
-        return multilineReview;
-    }
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
-    public void setMultilineReview(String multilineReview) {
-        this.multilineReview = multilineReview;
-    }
 
-    public String getISBN() {
-        return ISBN;
-    }
+	public String getNickname() {
+		return nickname;
+	}
 
-    public void setISBN(String iSBN) {
-        ISBN = iSBN;
-    }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+
+	public int getStars() {
+		return stars;
+	}
+
+
+	public void setStars(int stars) {
+		this.stars = stars;
+	}
+
+
+	public String getLevel() {
+		return level;
+	}
+
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+
+	public String getPurpose() {
+		return purpose;
+	}
+
+
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
+	}
+
+
+	public String getRecommObj() {
+		return recommObj;
+	}
+
+
+	public void setRecommObj(String recommObj) {
+		this.recommObj = recommObj;
+	}
+
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+
+	public String getOnelineReview() {
+		return onelineReview;
+	}
+
+
+	public void setOnelineReview(String onelineReview) {
+		this.onelineReview = onelineReview;
+	}
+
+
+	public String getMultilineReview() {
+		return multilineReview;
+	}
+
+
+	public void setMultilineReview(String multilineReview) {
+		this.multilineReview = multilineReview;
+	}
+
+
+	public String getISBN() {
+		return ISBN;
+	}
+
+
+	public void setISBN(String iSBN) {
+		ISBN = iSBN;
+	}
+
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Review [reviewId=" + reviewId + ", title=" + title + ", userId=" + userId + ", nickname=" + nickname
-				+ ", stars=" + stars + ", level=" + level + ", purpose=" + purpose + ", recommObj=" + recommObj
-				+ ", keyword=" + keyword + ", onelineReview=" + onelineReview + ", multilineReview=" + multilineReview
-				+ ", ISBN=" + ISBN + ", createDate=" + createDate + "]";
-	}    
+		return "Review [reviewId=" + reviewId + ", title=" + title + ", author=" + author + ", publisher=" + publisher
+				+ ", userId=" + userId + ", nickname=" + nickname + ", stars=" + stars + ", level=" + level
+				+ ", purpose=" + purpose + ", recommObj=" + recommObj + ", keyword=" + keyword + ", onelineReview="
+				+ onelineReview + ", multilineReview=" + multilineReview + ", ISBN=" + ISBN + ", createDate="
+				+ createDate + "]";
+	}
+
     
 }

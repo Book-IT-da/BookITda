@@ -156,16 +156,15 @@ public class ReviewDAO {
     }
     
     // 리뷰 상세 조회
-    public Review read(int reviewId) throws SQLException {
+    public Review readReview(int reviewId) throws SQLException {
         
         StringBuilder query = new StringBuilder();
         
-        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, "
-                + "onelineReview, detailReview, title, nickname, createdate ");
+        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, onelineReview, detailReview, title, nickname, author, publisher, createdate ");
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
         query.append("INNER JOIN book ON review.isbn = book.isbn ");
-        query.append("WHERE reviewId = ?; ");
+        query.append("WHERE reviewId = ? ");
         
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {reviewId});
         
@@ -179,11 +178,14 @@ public class ReviewDAO {
                         rs.getString("itLevel"), 
                         rs.getString("purpose"), 
                         rs.getString("recommObj"), 
+                        rs.getString("keyword"),
                         rs.getString("onelineReview"), 
                         rs.getString("detailReview"), 
                         rs.getString("title"), 
                         rs.getString("nickname"), 
-                        rs.getDate("SYSDATE")
+                        rs.getString("author"), 
+                        rs.getString("publisher"), 
+                        rs.getDate("createDate")
                     );   
                 return review;        
             }                                
