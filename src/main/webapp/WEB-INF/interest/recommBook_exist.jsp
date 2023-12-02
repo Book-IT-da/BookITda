@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.RecommBook" %>
-
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%
 	List<RecommBook> recommBookList = (List<RecommBook>) request.getSession().getAttribute("recommBookList");
 	request.setAttribute("recommBookList", recommBookList);
@@ -60,7 +60,7 @@
 <body>
     <main>
         <div align="right">
-            <a href="./interest_updateForm.html"><button>관심사 재설정</button></a>
+           <a href="${contextPath}/user/get/interest"><button>관심사 재설정</button></a>
         </div>
         <div>
             <table class="book_box">
