@@ -22,6 +22,12 @@ public class RequestMapping {
     public void initMapping() {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
         mappings.put("/", new ForwardController("index.jsp"));
+	
+	// 사용자 관련
+       mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
+       mappings.put("/user/login", new LoinController());
+       mappings.put("/user/logout", new LogoutController());
+       mappings.put("/user/register", new RegisterUserController());
 
         // 리뷰 관련
         mappings.put("/review/list", new ListReviewController());
@@ -38,7 +44,7 @@ public class RequestMapping {
         //관심 카테고리, 언어 수정
         mappings.put("/user/update/interest/category", new UpdateInterestCategoryController());
         mappings.put("/user/update/interest/language", new UpdateInterestLanguageController());
-        
+        	
         
         logger.info("Initialized Request Mapping!");
     }
