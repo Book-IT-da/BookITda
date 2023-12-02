@@ -185,7 +185,7 @@ function updateInterest() {
 </script>
 </head>
 <body>
-	
+	<center>
         <h1>관심사 수정</h1>
         <hr>
         <table>
@@ -235,6 +235,6 @@ function updateInterest() {
                 </tr>
                 </form>
         </table>
-	
+	</center>
 </body>
 </html>
