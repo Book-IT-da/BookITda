@@ -1,6 +1,9 @@
 package model.service;
 
 import java.sql.SQLException;
+import java.util.List;
+
+import model.Category;
 import model.Interest;
 import model.dao.InterestDAO;
 
@@ -42,5 +45,8 @@ public class InterestManager {
    }
    public Interest findInterestById(String userId) throws SQLException {
        return interestDAO.findInterestById(userId);
+   }
+   public List<Category> findCategoryList() throws SQLException {
+	   return interestDAO.findCategoryList();	
    }
 }
