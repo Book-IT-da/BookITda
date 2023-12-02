@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Book;
+import model.RecommBook;
 import model.dao.BookDAO;
 
 public class BookManager {
@@ -94,4 +95,9 @@ public class BookManager {
 			return book;
 		}
 
+
+		public List<RecommBook> findRecommList(String userId) throws SQLException{
+		    List<RecommBook> recommBooks = bookDAO.findRecommList(userId);
+		    return recommBooks;
+		}
 }

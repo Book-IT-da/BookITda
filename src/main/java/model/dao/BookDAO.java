@@ -465,37 +465,36 @@ public class BookDAO {
 		}
 		return null;
 	}
-
-	// 추천 책 리스트 가져오기
+	
+	//��õ å ����Ʈ ��������
 	public List<RecommBook> findRecommList(String userId) throws SQLException {
-
-		        StringBuilder query = new StringBuilder();
-		        query.append("SELECT isbn, title, cover_path, author, avgstar ");
-		        query.append("FROM Book b ");
-		        query.append("INNER JOIN InterestCat ic ON ic.categoryId = b.categoryId ");
-		        query.append("INNER JOIN InterestLang il ON il.languageId = b.languageId ");
-		        query.append("INNER JOIN Member m ON m.levelId = b.levelId ");
-		        query.append("WHERE m.userId = ?");
-		        
-		        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userId}); 
-		        try {
-		            ResultSet rs = jdbcUtil.executeQuery();                 
-		            List<RecommBook> recommBookList = new ArrayList<RecommBook>();    
-		            while (rs.next()) {
-		                RecommBook recommBook = new RecommBook(   
-		                    rs.getString("isbn"),
-		                    rs.getString("title"),
-		                    rs.getString("cover_path"),
-		                    rs.getString("author"),
-		                    rs.getDouble("avgstar"));  
-		                recommBookList.add(recommBook);             
-		            }           
-		            return recommBookList;                    
-		        } catch (Exception ex) {
-		            ex.printStackTrace();
-		        } finally {
-		            jdbcUtil.close();       
-		        }
-		        return null;
-		    }
+        StringBuilder query = new StringBuilder();
+        query.append("SELECT isbn, title, cover_path, author, avgstar ");
+        query.append("FROM Book b ");
+        query.append("INNER JOIN InterestCat ic ON ic.categoryId = b.categoryId ");
+        query.append("INNER JOIN InterestLang il ON il.languageId = b.languageId ");
+        query.append("INNER JOIN Member m ON m.levelId = b.levelId ");
+        query.append("WHERE m.userId = ?");
+        
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userId}); 
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();                 
+            List<RecommBook> recommBookList = new ArrayList<RecommBook>();    
+            while (rs.next()) {
+                RecommBook recommBook = new RecommBook(   
+                    rs.getString("isbn"),
+                    rs.getString("title"),
+                    rs.getString("cover_path"),
+                    rs.getString("author"),
+                    rs.getDouble("avgstar"));  
+                recommBookList.add(recommBook);             
+            }           
+            return recommBookList;                    
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();       
+        }
+        return null;
+    } 
 }
