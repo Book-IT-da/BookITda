@@ -18,7 +18,7 @@
     <style>   
 	   	   .bigContainer {
 			    width: 800px; 
-			    height: 70px; 
+			    height: 650px; 
 			    position: absolute;
 			    top: 70%;
 			    left: 50%;
@@ -29,10 +29,10 @@
 			    transition: width 0.5s, height 0.5s; 
 			}
 			
-			.bigContainer:hover {
+/* 			.bigContainer:hover {
 			    width: 800px; 
 			    height: 650px; 
-			}
+			} */
 			
 			.question {
 			    width: 500px;

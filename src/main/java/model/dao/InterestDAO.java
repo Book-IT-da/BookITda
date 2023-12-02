@@ -2,7 +2,10 @@ package model.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
+import model.Book;
+import model.Category;
 import model.Interest;
 
 public class InterestDAO {
@@ -11,6 +14,33 @@ public class InterestDAO {
     public InterestDAO() {               
         jdbcUtil = new JDBCUtil();      
     }
+  //카테고리 리스트 반환
+    public List<Category> findCategoryList() throws SQLException {
+    	
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT categoryId, category "
+     		   + "FROM Category");
+		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {});
+		
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();					
+			List<Category> categoryList = new ArrayList<Category>();	
+			while (rs.next()) {				
+				Category category = new Category(
+						rs.getInt("categoryId"),
+						rs.getString("category")
+					);	
+				categoryList.add(category);			
+			}			
+			return categoryList;					
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();		
+		}
+		return null;
+	}
     //사용자의 흥미 언어, 카테고리, 수준 초기 생성
     public void createUserInterest(String userId, Interest userInterest) throws SQLException {
         //사용자 흥미 카테고리 설정

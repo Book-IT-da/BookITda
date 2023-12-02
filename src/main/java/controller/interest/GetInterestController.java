@@ -14,15 +14,14 @@ public class GetInterestController implements Controller {
         String userId = (String)request.getSession().getAttribute("userId2");
         
         try {
-            //임시로 lulu값 넣어놓음
-            Interest userLastInterest = interestManager.findInterestById("lulu");
-            System.out.println("userLastInterest: " + userLastInterest.toString());
+            Interest userLastInterest = interestManager.findInterestById(userId);
             if (userLastInterest != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("userLastInterest", userLastInterest);
                 return "redirect:/user/update/interest";
+            } else {
+                return "/interest/interest_updateForm.jsp";
             }
-            return "/interest/interest_updateForm.jsp";
         }catch (Exception e) {
             return "/interest/interest_updateForm.jsp";
         }
