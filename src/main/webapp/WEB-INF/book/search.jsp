@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>°Ë»ö Ã¢</title>
+<title>ê²€ìƒ‰ ì°½</title>
 
 <style>
 #logo {
@@ -39,7 +39,7 @@ input {
 	height: 40px;
 }
 
-/* Ä«Å×°í¸® ÅÍÄ¡ ÈÄ ³ª¿À´Â È­¸é */
+/* ì¹´í…Œê³ ë¦¬ í„°ì¹˜ í›„ ë‚˜ì˜¤ëŠ” í™”ë©´ */
 .subDiv {
 	border: 0px;
 	width: 510px;
@@ -66,6 +66,13 @@ input {
 	font-size: 11px;
 	text-align: left;
 }
+
+a, button{
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -74,8 +81,8 @@ input {
 <script type="text/javascript">
 	function search() {
 		if (searchForm.searchText.value == "") {
-			alert("°Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
-			history.back();
+			alert("ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
+			//history.back();
 		}
 		searchForm.submit();
 	}
@@ -83,18 +90,28 @@ input {
 
 <body>
 	<%@ include file="./menubar.jsp"%>
-	<center>
-		<form name="searchForm" method="GET"
-			action="<c:url value='/book/searchList' />">
+	<form name="searchForm" method="GET"
+		action="<c:url value='/book/searchList' />">
+		<center>
+			<a
+				href="<c:url value='/admin/book/register/form'>
+			 		   </c:url>">
+				<button type="button" id="btn_bookInfo_add">ë„ì„œ ì¶”ê°€</button>
+			</a>
 			<div class="mainDiv">
-				<input type="text" id="searchText" name="searchText"> <input type="button"
-					id="searchClick" onClick="search()">
+				<input type="text" id="searchText" name="searchText"> <input
+					type="button" id="searchClick" onClick="search()">
 			</div>
-
 			<br> <br>
-		</form>
+		</center>
 
-	</center>
+		<input type="radio" id="searchType" name="searchType"
+			value="titleType" checked>ì œëª© <input type="radio"
+			id="searchType" name="searchType" value="authorType">ì €ì <input
+			type="radio" id="searchType" name="searchType" value="publisherType">
+		ì¶œíŒì‚¬ <input type="radio" id="searchType" name="searchType"
+			value="keywordType">í‚¤ì›Œë“œ
+	</form>
 
 
 	<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,23 +59,23 @@
 	<header>
 		<div>
 			<ul class="user_menu">
-				<li><a href="mypage.html">¸¶ÀÌÆäÀÌÁö</a></li>
-				<li><a href="login.html">·Î±×ÀÎ</a></li>
-				<li><a href="signup.html">È¸¿ø°¡ÀÔ</a></li>
+				<li><a href="mypage.html">ë§ˆì´íŽ˜ì´ì§€</a></li>
+				<li><a href="login.html">ë¡œê·¸ì¸</a></li>
+				<li><a href="signup.html">íšŒì›ê°€ìž…</a></li>
 			</ul>
 		</div>
 		<div id="logo">
-			<a>Ã¥it´Ù</a>
+			<a>ì±…itë‹¤</a>
 		</div>
 	</header>
 	<nav>
 		<div>
 			<ul id="menu1">
-				<li class="selectedPage"><a href="./search.jsp">µµ¼­ °Ë»ö</a></li>
+				<li class="selectedPage"><a href="./search.jsp">ë„ì„œ ê²€ìƒ‰</a></li>
 				<li>|</li>
-				<li class="notSelectedPage"><a>µµ¼­ ÃßÃµ</a></li>
+				<li class="notSelectedPage"><a>ë„ì„œ ì¶”ì²œ</a></li>
 				<li>|</li>
-				<li class="notSelectedPage"><a href="./bookReview.html">µµ¼­ ¸®ºä</a></li>
+				<li class="notSelectedPage"><a href="./bookReview.html">ë„ì„œ ë¦¬ë·°</a></li>
 				<li>|</li>
 				<li class="notSelectedPage"><a> Q&A &nbsp; &nbsp; &nbsp;
 						&nbsp; &nbsp; &nbsp;</a></li>

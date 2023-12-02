@@ -4,28 +4,28 @@ import java.util.List;
 import java.util.Iterator;
 
 /**
- * Ã¥ Á¤º¸ °ü¸®
+ * ì±… ì •ë³´ ê´€ë¦¬
  */
 public class Book {
-	private String ISBN;
-	private String title;	//Ã¥Á¦¸ñ
-	private String author;	//ÀúÀÚ
-	private String publisher;	//ÃâÆÇ»ç
-	private String publicationDate;	//ÃâÆÇÀÏÀÚ
-	private String cover_path;	//Ã¥ Ç¥Áö
-	private String bookInfo;	//Ã¥ Á¤º¸
-	private String bookIndex;	//Ã¥ ¸ñÂ÷
-	private String authorInfo;	//ÀúÀÚ Á¤º¸
+	private String ISBN;	//ì±… ê³ ìœ  ë²ˆí˜¸
+	private String title;	// ì±… ì œëª©
+	private String author;	// ì±… ì €ì
+	private String publisher;	// ì±… ì¶œíŒì‚¬
+	private String publicationDate;		// ì±… ì¶œíŒì¼ì
+	private String cover_path;	//ì±… í‘œì§€
+	private String bookInfo;	// ì±… ì •ë³´
+	private String bookIndex;	// ì±… ëª©ì°¨
+	private String authorInfo;	// ì±… ì €ì ì •ë³´
 	private String category;
 	private String itLevel;
 	private String language;
-	private String keyword1;	//	Å°¿öµå 3°³
+	private String keyword1;	// ì±… í‚¤ì›Œë“œ
 	private String keyword2;
 	private String keyword3;
-	private float averageStar;	//ÆòÁ¡
-	private List<Review> reviews;  //¸®ºäµéÀ» reviews¿¡ ¸ğ¾ÆµĞ´Ù.
+	private float averageStar;	// ì±… ì´ í‰ì 
+	private List<Review> reviews; //ë¦¬ë·°ë“¤ì„ reviewsì— ëª¨ì•„ë‘”ë‹¤.
 		
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public Book() {}
 	
 	public Book(String iSBN, String title, String author, String publisher, String publicationDate, String cover_path,
@@ -49,6 +49,29 @@ public class Book {
 		this.keyword3 = keyword3;
 		this.averageStar = averageStar;
 		this.reviews = reviews;
+	}
+	
+	//reviewsê°€ ì—†ëŠ” ìƒì„±ì
+	public Book(String iSBN, String title, String author, String publisher, String publicationDate, String cover_path,
+			String bookInfo, String bookIndex, String authorInfo, String category, String itLevel, String language,
+			String keyword1, String keyword2, String keyword3, float averageStar) {
+		super();
+		ISBN = iSBN;
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
+		this.publicationDate = publicationDate;
+		this.cover_path = cover_path;
+		this.bookInfo = bookInfo;
+		this.bookIndex = bookIndex;
+		this.authorInfo = authorInfo;
+		this.category = category;
+		this.itLevel = itLevel;
+		this.language = language;
+		this.keyword1 = keyword1;
+		this.keyword2 = keyword2;
+		this.keyword3 = keyword3;
+		this.averageStar = averageStar;
 	}
 	
 	
@@ -221,7 +244,7 @@ public class Book {
 		this.keyword3 = keyword3;
 	}
 
-	//ÆòÁ¡ °è»ê ÈÄ ÀúÀå , ¸®ºä°¡ °»½ÅµÉ ¶§¸¶´Ù È£ÃâµÇ¾î¾ß ÇÔ.
+	//í‰ì  ê³„ì‚° í›„ ì €ì¥ , ë¦¬ë·°ê°€ ê°±ì‹ ë  ë•Œë§ˆë‹¤ í˜¸ì¶œë˜ì–´ì•¼ í•¨.
 	public void setAverageStar() {
 		Iterator<Review> iterator= reviews.iterator();
 		int total=0;

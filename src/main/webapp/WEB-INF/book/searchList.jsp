@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>°Ë»ö ÈÄ °á°ú È­¸é(µµ¼­ ¸®½ºÆ®)</title>
+<title>ê²€ìƒ‰ í›„ ê²°ê³¼ í™”ë©´(ë„ì„œ ë¦¬ìŠ¤íŠ¸)</title>
 
 <style>
 #showListCate {
@@ -27,8 +27,8 @@
 
 .book {
 	border: 1px solid;
-	width: 240px;
-	height: 250px;
+	width: 290px;
+	height: 270px;
 	margin: 10px;
 	padding: 7px;
 	display: inline-block;
@@ -39,6 +39,10 @@
 	height: 130px;
 }
 
+figure {
+	cursor: pointer;
+}
+
 figcaption {
 	text-align: left;
 }
@@ -46,38 +50,46 @@ figcaption {
 .starScore {
 	color: red;
 }
+
+#bookClick {
+	border: 0;
+	outline: 0;
+	padding: 0;
+	background: none;
+	font: inherit;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
 </style>
 </head>
+
 <body>
 	<%@ include file="./search.jsp"%>
 	&nbsp; &nbsp;&nbsp; &nbsp;
-	<form>
-		<input type="checkbox" name="showCheck" value="book_title" checked>Á¦¸ñ
-		<input type="checkbox" name="showCheck" value="author">ÀúÀÚ <input
-			type="checkbox" name="showCheck" value="publisher"> ÃâÆÇ»ç <input
-			type="checkbox" name="showCheck" value="keyword">Å°¿öµå &nbsp;
-		&nbsp;
-		<button type="button" id="checkSetting">¼³Á¤</button>
-	</form>
 	<br>
 
 	<div id="bookInfoList">
-
 		<c:forEach var="b" items="${books}">
-			<figure class="book">
-				<a href="<c:url value='/book/info'>
-					<img id="book_cover" src="./images/book_cover.PNG">
-				</c:url>"></a>
-				<figcaption>
-					<p>[ "${b.title}" } ]</p>
-					<p>[ "${b.author}" ] &nbsp; &lt; "${b.publisher}" &gt;</p>
-					<p class="starScore">
-						<img src="./img/search_star.PNG"> "{b.averageStar}"
-					</p>
-				</figcaption>
-			</figure>
+			<a
+				href="<c:url value='/book/bookInfo'>
+					   <c:param name='ISBN' value='${b.ISBN}'/>
+			 		   </c:url>">
+				<figure class="book">
+					<img id="book_cover" src="../../images/book_cover.PNG">
+					<figcaption>
+						<p>[ ${b.title} ]</p>
+						<p>[ ${b.author} ] &nbsp; &lt; ${b.publisher} &gt;</p>
+						<p class="starScore">
+							<img src="../../images/search_star.PNG"> {b.averageStar}
+						</p>
+					</figcaption>
+				</figure>
+			</a>
 		</c:forEach>
-
 	</div>
 
 	<div class="btnMoveToTop" />
