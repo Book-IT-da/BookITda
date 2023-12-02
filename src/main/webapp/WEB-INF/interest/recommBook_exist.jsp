@@ -4,8 +4,8 @@
 <%@ page import="model.RecommBook" %>
 
 <%
-	List<RecommBook> recommBooks = RecommBook.getRecommBooks();
-	request.setAttribute("recommBooks", recommBooks);
+	List<RecommBook> recommBookList = (List<RecommBook>) request.getSession().getAttribute("recommBookList");
+	request.setAttribute("recommBookList", recommBookList);
 %>
 
 <!DOCTYPE html>
@@ -64,7 +64,7 @@
         </div>
         <div>
             <table class="book_box">
-                <c:forEach var="recommBook" items="${recommBooks}">
+                <c:forEach var="recommBook" items="${recommBookList}">
                     <tr>
                         <td>
                             <div class="book">

@@ -51,6 +51,10 @@ public class RequestMapping {
         mappings.put("/user/update/interest/category", new UpdateInterestCategoryController());
         mappings.put("/user/update/interest/language", new UpdateInterestLanguageController());
         mappings.put("/user/update/interest/level", new UpdateUserLevelController());	
+        //도서 추천
+        mappings.put("/recommBook/view", new RecommBookController());
+        mappings.put("/recommBook_exist", new ForwardController("/interest/recommBook_exist.jsp"));
+        mappings.put("/recommBook_not_exist", new ForwardController("/interest/recommBook_not_exist.jsp"));
         
         logger.info("Initialized Request Mapping!");
     }
