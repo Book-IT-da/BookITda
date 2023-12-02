@@ -38,17 +38,17 @@ public class RequestMapping {
         // 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController());
         // 관심사 생성
+        mappings.put("/get/caegoryList", new GetCategoryListController());
         mappings.put("/interest/interest_createForm", new ForwardController("/interest/interest_createForm.jsp"));
-        mappings.put("/user/update/interest", new ForwardController("/interest/interest_updateForm.jsp"));
         mappings.put("/user/interest/create", new GetInterestController());
         // 관심사 수정 폼
         mappings.put("/user/get/interest", new GetInterestController());
         mappings.put("/user/update/interest", new ForwardController("/interest/interest_updateForm.jsp"));
-        //관심 카테고리, 언어, 수준 수정
+        // 관심 카테고리, 언어, 수준 수정
         mappings.put("/user/update/interest/category", new UpdateInterestCategoryController());
         mappings.put("/user/update/interest/language", new UpdateInterestLanguageController());
         mappings.put("/user/update/interest/level", new UpdateUserLevelController());	
-        //도서 추천
+        // 도서 추천
         mappings.put("/recommBook/view", new RecommBookController());
         mappings.put("/recommBook_exist", new ForwardController("/interest/recommBook_exist.jsp"));
         mappings.put("/recommBook_not_exist", new ForwardController("/interest/recommBook_not_exist.jsp"));

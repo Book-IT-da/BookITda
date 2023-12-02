@@ -5,22 +5,37 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.function.Function" %>
+<%@ page import="javax.servlet.http.HttpServletRequest" %>
+<%@ page import="javax.servlet.http.HttpServletResponse" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="model.Category" %>
 
 	<%
-     String[] categoryData = {
-        "1", "프로그래밍",
+     /* String[] categoryData = {
+        "1", "프로그래밍 언어",
         "2", "OS",
         "3", "네트워크",
         "4", "해킹",
         "5", "보안",
         "6", "모바일",
-        "7", "DB",
+        "7", "데이터베이스",
         "8", "시스템 서버",
         "9", "컴퓨터 공학",
         "10", "게임",
-        "11", "WEB",
+        "11", "웹",
         "12", "그래픽"
-    };
+    }; */
+    
+    // categoryTable에 있는 categoryList 불러오기
+    List<Category> categoryList = (List<Category>) session.getAttribute("categoryList");   
+    String[] categoryData = new String[categoryList.size() * 2]; 
+
+    int index = 0;
+
+    for (Category category : categoryList) {
+        categoryData[index++] = String.valueOf(category.getCategoryId());
+        categoryData[index++] = category.getCategory();
+    }
     
     List<Map<String, String>> interestCategories = new ArrayList<>();
 
@@ -37,8 +52,8 @@
     request.setAttribute("interestCategories", interestCategories);
 
     String[] languageData = {
-            "1", "Python",
-            "2", "Java",
+            "1", "Java",
+            "2", "Python",
             "3", "C",
             "4", "C++",
             "5", "Kotlin",
