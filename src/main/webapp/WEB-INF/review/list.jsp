@@ -132,7 +132,18 @@
 	                            <td class="book_author">${review.nickname}</td>
 	                        </tr>
 	                        <tr>
-	                            <td class="book_stars">${review.stars}</td>
+	                            <td class="book_stars">
+			                        <c:choose> 
+										<c:when test="${review.stars eq 0}">☆☆☆☆☆</c:when> 
+										<c:when test="${review.stars eq 1}">★☆☆☆☆</c:when> 
+										<c:when test="${review.stars eq 2}">★★☆☆☆</c:when> 
+										<c:when test="${review.stars eq 3}">★★★☆☆</c:when> 
+										<c:when test="${review.stars eq 4}">★★★★☆</c:when> 
+										<c:otherwise>
+										★★★★★
+										</c:otherwise> 
+									</c:choose> 
+								</td>
 	                        </tr>
 	                        <tr>
 	                            <td class="book_oneline_review">${review.onelineReview}</td>

@@ -122,9 +122,28 @@
                       </tr>
                       <tr>
                         <td>별점</td>
-                        <td><%=review.getStars()%></td>
+                        <td>
+                        <c:choose> 
+							<c:when test="${review.getStars() eq 0}">☆☆☆☆☆</c:when> 
+							<c:when test="${review.getStars() eq 1}">★☆☆☆☆</c:when> 
+							<c:when test="${review.getStars() eq 2}">★★☆☆☆</c:when> 
+							<c:when test="${review.getStars() eq 3}">★★★☆☆</c:when> 
+							<c:when test="${review.getStars() eq 4}">★★★★☆</c:when> 
+							<c:otherwise>
+							★★★★★
+							</c:otherwise> 
+						</c:choose> 
+						</td>
                         <td>난이도</td>
-                        <td><%=review.getLevel()%></td>
+                        <td>
+                        <c:choose> 
+							<c:when test="${review.getLevel() eq 1}">초급</c:when> 
+							<c:when test="${review.getLevel() eq 2}">중급</c:when> 
+							<c:otherwise>
+							고급
+							</c:otherwise> 
+						</c:choose> 
+                        </td>
                       </tr>
                       <tr>
                         <td>독서 목적</td>
