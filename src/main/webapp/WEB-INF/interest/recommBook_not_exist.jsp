@@ -1,10 +1,29 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
     <link>
+    	<link rel="stylesheet" href="../css/menu.css" type="text/css">
+    	<link rel="stylesheet" href="../css/user_menu.css">   
         <meta charset="UTF-8">
-        <title> 관심 도서 보기</title>
-        <style>     
+        <title>관심 도서 보기</title>
+        <style>
+        	li a {
+                color: black;
+            } 
+            #top {
+                margin: 10px 0 15px 30px;
+            }        
+            #logo {
+                margin: 25px 30px;
+                text-align: center;
+            }
+            #comment_input {
+                font-size: 16px;
+                width: 325px;
+                padding: 10px;
+            }     
             .book_box  {
                 border-collapse:collapse;
                 border-spacing:0;
@@ -20,7 +39,7 @@
 	            margin: 5px 0 0 0;
 	            text-align: center;
 	        }
-	        input[type="submit"] {
+	        /* input[type="submit"] {
 	       		margin: 0 auto; 
     			display: block;
 	            margin-top: 30px;
@@ -30,7 +49,20 @@
 	            border-radius: 6px;
 	            font-size: 20px;
 	            font-weight: bold;
-        	}
+        	} */
+        	.custom-button {
+	            display: block;
+	            margin: 30px auto 0 auto;
+	            width: 200px;
+	            height: 30px;
+	            border: 0;
+	            border-radius: 6px;
+	            font-size: 20px;
+	            font-weight: bold;
+	            text-align: center;
+	            text-decoration: none;
+	            cursor: pointer;
+	        }
         </style>
         <script>
 	        function updateInterest{  
@@ -40,6 +72,31 @@
     </head>
 
     <body>
+        <header>
+	        <div>
+	            <ul class="user_menu">
+	                <li><a href="mypage.html">마이페이지</a></li>
+	                <li><a href="login.html">로그인</a></li>
+	                <li><a href="signup.html">회원가입</a></li>
+	            </ul>
+	        </div>
+	        <div id="logo">
+	            <a>책it다</a>
+	        </div>
+	    </header>
+        <nav>
+            <div>
+                <ul id="menu1">
+                    <li class="notSelectedPage"><a>도서 검색</a></li>
+                    <li>|</li>
+                    <li class="notSelectedPage"><a href="./bookReview.html">도서 리뷰</a></li>
+                    <li>|</li>
+                    <li class="selectedPage"><a href="./RecommendBookMain.jsp">추천 도서</li>
+                    <li>|</li>
+                    <li class="notSelectedPage"><a> Q&A &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a></li>
+                </ul>
+            </div>    
+        </nav>
         <main>
             <div>
                 <table class="book_box">
@@ -50,9 +107,10 @@
 			 		</tr>
 			 		<tr>
 			 			<td> 
-				 			<form id="interestForm" action="<c:url value='/user/get/interest'/>" method="GET">
+				 			<%-- <form action="<c:url value='${contextPath}/user/get/interest'/>" method="POST">
                                 <input type="submit" value="관심사 수정하기" onClick="updateInterest()"/>
-                            </form>
+                            </form> --%>
+                            <a href="${contextPath}/user/get/interest"  class="custom-button"><button>관심사 수정하기</button></a>
 	    				</td>
 			 		</tr>
                   </table>
