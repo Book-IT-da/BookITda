@@ -49,8 +49,8 @@ public class ReviewManager {
 	}
 	
 	// 리뷰 수정
-	public int update(Review review, int reviewId) throws SQLException {
-		return reviewDAO.modifyReview(review, reviewId);
+	public int update(Review review) throws SQLException {
+		return reviewDAO.modifyReview(review);
 	}
 	
 	// 리뷰 삭제

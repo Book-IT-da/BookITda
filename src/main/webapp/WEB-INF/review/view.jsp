@@ -94,7 +94,11 @@
 	</jsp:include>
 	<main>
             <div align="right">
-                <button>수정하기</button>
+			<form name="updateReviewForm" method="GET"
+				action="<c:url value='/review/update' />">
+    			<input type="hidden" name="reviewId" value="<%=review.getReviewId()%>">
+    			<button type="submit">수정하기</button>
+            </form>
                 <button>삭제하기</button>
             </div>
             <div>
@@ -146,8 +150,7 @@
                         <td class="book_multiline_review" colspan="5"><%=review.getMultilineReview()%></td>
                       </tr>
                     </tbody>
-                    </table>
-                </div>
+                </table>
             </div>
             <div align="center">
                 <input id="comment_input" type="text" placeholder="댓글을 입력하세요">

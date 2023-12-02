@@ -247,7 +247,7 @@ public class ReviewDAO {
     }
     
     // 리뷰 수정
-    public int modifyReview(Review review, int reviewId) throws SQLException {
+    public int modifyReview(Review review) throws SQLException {
         StringBuilder query = new StringBuilder();
         query.append("UPDATE review SET ");
         query.append("starscore = ?, ");
@@ -258,12 +258,12 @@ public class ReviewDAO {
         query.append("onelineReview = ?, ");
         query.append("detailReview = ?, ");
         query.append("ISBN = ? ");
-        query.append("WHERE reviewId = ?; ");
+        query.append("WHERE reviewId = ? ");
         
         jdbcUtil.setSqlAndParameters(query.toString(), 
                 new Object[]{review.getStars(), review.getLevel(), review.getPurpose(), 
                         review.getRecommObj(), review.getKeyword(), review.getOnelineReview(),
-                        review.getMultilineReview(), review.getISBN(), reviewId});
+                        review.getMultilineReview(), review.getISBN(), review.getReviewId()});
 
         try {
             int result = jdbcUtil.executeUpdate();
