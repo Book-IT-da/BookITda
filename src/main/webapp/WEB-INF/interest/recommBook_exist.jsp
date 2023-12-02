@@ -12,6 +12,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+	<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
     <title>추천 도서 보기</title>
     <style>     
             .book_box  {
@@ -58,6 +60,14 @@
 </head>
 
 <body>
+	<header>
+		<div>
+			<jsp:include page="../top/logo.jsp" /> 
+		</div>
+	</header>
+	<jsp:include page="../top/menubar.jsp">
+    	<jsp:param name="selected" value="review" />
+	</jsp:include>
     <main>
         <div align="right">
            <a href="${contextPath}/user/get/interest"><button>관심사 재설정</button></a>
