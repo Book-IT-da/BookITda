@@ -51,7 +51,7 @@ public class UserDAO {
         query.append("SET password = ?, name = ?, nickname = ?, email = ? ");
         query.append("WHERE userid = ? ");
         
-        Object[] param = new Object[] {user.getPassword(), user.getName(), user.getNickname(), user.getEmail()};
+        Object[] param = new Object[] {user.getPassword(), user.getName(), user.getNickname(), user.getEmail(), user.getUserId()};
         jdbcUtil.setSqlAndParameters(query.toString(), param);
         
         try {
