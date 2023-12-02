@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 
 <title>로그인</title>
 
@@ -59,9 +58,6 @@ a {
 </head>
 
 <body>
-	<div>
-		<jsp:include page="../user/userMenubar.jsp" /> 
-    </div>
 	<center>
 		<form name="form" method="POST" action="<c:url value='/user/login'/>">
 			<h2>로그인</h2>
