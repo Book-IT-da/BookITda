@@ -47,10 +47,10 @@ public class RequestMapping {
         // 관심사 수정 폼
         mappings.put("/user/get/interest", new GetInterestController());
         mappings.put("/user/update/interest", new ForwardController("/interest/interest_updateForm.jsp"));
-        //관심 카테고리, 언어 수정
+        //관심 카테고리, 언어, 수준 수정
         mappings.put("/user/update/interest/category", new UpdateInterestCategoryController());
         mappings.put("/user/update/interest/language", new UpdateInterestLanguageController());
-        	
+        mappings.put("/user/update/interest/level", new UpdateUserLevelController());	
         
         logger.info("Initialized Request Mapping!");
     }
