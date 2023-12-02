@@ -89,7 +89,6 @@ a, button{
 </script>
 
 <body>
-	<%@ include file="./menubar.jsp"%>
 	<form name="searchForm" method="GET"
 		action="<c:url value='/book/searchList' />">
 		<center>

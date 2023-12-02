@@ -126,7 +126,7 @@ public class BookDAO {
 
 		try {
 			int result = jdbcUtil.executeUpdate();
-			System.out.print(result);
+			System.out.print("!!!result!는 "+result+"이다");
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();

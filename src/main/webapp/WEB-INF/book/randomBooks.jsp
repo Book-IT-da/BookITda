@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />"
+	type="text/css">
 <title>메인 페이지(랜덤 도서 리스트)</title>
 
 <style>
@@ -26,8 +30,8 @@
 
 .book {
 	border: 1px solid;
-	width: 290px;
-	height: 270px;
+	width: 300px;
+	height: 290px;
 	margin: 10px;
 	padding: 7px;
 	display: inline-block;
@@ -58,15 +62,23 @@ figcaption {
 	font: inherit;
 }
 
-a{
+a {
 	text-decoration: none;
 	color: black;
 }
-
 </style>
 </head>
 
 <body>
+	<header>
+		<div>
+			<jsp:include page="../top/logo.jsp" />
+		</div>
+	</header>
+	<jsp:include page="../top/menubar.jsp">
+		<jsp:param name="selected" value="search" />
+	</jsp:include>
+
 	<%@ include file="./search.jsp"%>
 	&nbsp; &nbsp;&nbsp; &nbsp;
 	<br>

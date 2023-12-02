@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="EUC-KR">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />"
+	type="text/css">
 <title>검색 후 결과 화면(도서 리스트)</title>
 
 <style>
@@ -59,15 +61,22 @@ figcaption {
 	font: inherit;
 }
 
-a{
+a {
 	text-decoration: none;
 	color: black;
 }
-
 </style>
 </head>
 
 <body>
+	<header>
+		<div>
+			<jsp:include page="../top/logo.jsp" />
+		</div>
+	</header>
+	<jsp:include page="../top/menubar.jsp">
+		<jsp:param name="selected" value="search" />
+	</jsp:include>
 	<%@ include file="./search.jsp"%>
 	&nbsp; &nbsp;&nbsp; &nbsp;
 	<br>
