@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import controller.user.*;
 import controller.book.*;
+import controller.review.*;
 import controller.interest.CreateInterestController;
 import controller.interest.GetInterestController;
 import controller.interest.UpdateInterestCategoryController;
@@ -21,8 +22,21 @@ public class RequestMapping {
     public void initMapping() {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
         mappings.put("/", new ForwardController("index.jsp"));
+	
+       // 사용자 관련
+       mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
+       mappings.put("/user/login", new LoginController());
+       mappings.put("/user/logout", new LogoutController());
+       mappings.put("/user/register", new RegisterUserController());
+
+      // 마이페이지 관련
+       mappings.put("/user/mypage", new ForwardController("/user/mypage.jsp"));
+       mappings.put("/user/update", new UpdateUserController());
 
         // 리뷰 관련
+        mappings.put("/review/list", new ListReviewController());
+        mappings.put("/review/view", new ReadReviewController());
+        mappings.put("/review/update", new UpdateReviewController());
         
         // 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController());
@@ -36,7 +50,7 @@ public class RequestMapping {
         //관심 카테고리, 언어 수정
         mappings.put("/user/update/interest/category", new UpdateInterestCategoryController());
         mappings.put("/user/update/interest/language", new UpdateInterestLanguageController());
-        
+        	
         
         logger.info("Initialized Request Mapping!");
     }
