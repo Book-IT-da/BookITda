@@ -49,7 +49,7 @@ public class ViewModifyBookInfoController implements Controller {
 			);
 			request.setAttribute("book", book);
 			System.out.print("modift info_post에 왔음");
-			manager.updateBook(book);
+			manager.modifyBook(book);
 			
 			return "redirect:/book/searchList";
 		}

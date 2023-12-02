@@ -99,7 +99,7 @@ a, button{
 	<div id="bookTotalInfo">
 		<table>
 			<tr>
-				<th rowspan="9"><img id="book_cover" src="./img/book_cover.PNG">
+				<th rowspan="9"> <img id="book_cover" src="<c:url value='/images/bookCover/${book.cover_path}' />" />
 				</th>
 				<td>&nbsp; ISBN : ${book.ISBN}</td>
 			</tr>
@@ -121,7 +121,7 @@ a, button{
 			</tr>
 
 			<tr>
-				<td>&nbsp <img src="./img/search_star.PNG"> 평점
+				<td>&nbsp <img src="<c:url value='/images/search_star.PNG' />" /> 평점
 				</td>
 			</tr>
 		</table>

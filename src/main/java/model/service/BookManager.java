@@ -29,7 +29,7 @@ public class BookManager {
 	}
 
 	// 책 수정
-	public int updateBook(Book book) throws SQLException {
+	public int modifyBook(Book book) throws SQLException {
 		return bookDAO.ModifyBook(book);
 	}
 

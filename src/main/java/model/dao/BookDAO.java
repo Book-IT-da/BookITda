@@ -116,9 +116,10 @@ public class BookDAO {
 
 		// 책 생성
 		StringBuilder query = new StringBuilder();
-		query.append("INSERT INTO Book(ISBN, title, author, publisher, publicationDate"
-				+ ", cover_path, bookInfo, bookIndex, authorInfo, keywordId1, categoryId, "
-				+ "levelId, languageId, keywordId2, keywordId3) " + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		query.append("INSERT INTO Book(ISBN, title, author, publisher, PUBLICATIONDATE, "
+				+ "cover_path, bookInfo, bookIndex, authorInfo, keywordId1, categoryId, "
+				+ "LEVELID, LANGUAGEID, keywordId2, keywordId3) " 
+				+ "VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?)");
 
 		Object[] param = new Object[] { book.getISBN(), book.getTitle(), book.getAuthor(), book.getPublisher(),
 				publicationDate, book.getcover_path(), book.getBookInfo(), book.getBookIndex(), book.getAuthorInfo(),
