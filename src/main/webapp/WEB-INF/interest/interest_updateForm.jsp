@@ -219,7 +219,7 @@ function updateInterest() {
 					</td>
                 </tr>
                </form>
-               <form action=../html/interestForm.html>
+               <form action="<c:url value='/user/update/interest/level'/>" onClick="updateInterest()">
                 <tr>
                     <td class="td1">it 수준<input type="submit" value="수정 완료"></td>
                     <td class="td2">
@@ -227,7 +227,7 @@ function updateInterest() {
 						<c:if test="${loop.index % 4 == 0 && loop.index != 0}">
 					        <br><br>
 					    </c:if>
-					    <input type="checkbox" name="userLevel" value="${level.value}" 
+					    <input type="radio" name="userLevel" value="${level.value}" 
        								${level.value == selectedLevel ? 'checked' : ''}>
 					    ${level.label}
 					</c:forEach>
