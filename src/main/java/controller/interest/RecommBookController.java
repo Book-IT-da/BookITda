@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 import model.Interest;
+import model.RecommBook;
 import model.service.BookManager;
 import model.service.InterestManager;
 
@@ -20,10 +21,16 @@ public class RecommBookController implements Controller {
         String userId = (String)request.getSession().getAttribute("userId2");
         
         try {
-            manager.findRecommList(userId);
-            return "redirect:/recommBook/view";
+            List<RecommBook> recommBookList = manager.findRecommList(userId);
+
+            if (recommBookList != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("recommBookList", recommBookList);
+                return "/interest/recommBook_exist.jsp";
+            }
+            return "/interest/recommBook_not_exist.jsp";
         }catch (Exception e) {
-            return "/interest/interest_createForm.jsp";
+        	return "/interest/recommBook_not_exist.jsp";
         }
     }
 }
