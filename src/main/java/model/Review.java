@@ -15,7 +15,7 @@ public class Review {
     private String userId;  // 사용자 아이디
     private String nickname; // 작성자(닉네임 사용)
     private int stars;  // 별점
-    private String level;   // 난이도 (초급 : 중급 : 고급)
+    private String level;   // 난이도 (초급1 : 중급2 : 고급3)
     private String purpose; // 독서 목적
     private String recommObj;   // 추천 대상
     private String keyword; // 책 키워드 

@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 import controller.user.*;
 import controller.book.*;
 import controller.review.*;
-import controller.interest.CreateInterestController;
-import controller.interest.GetInterestController;
-import controller.interest.UpdateInterestCategoryController;
-import controller.interest.UpdateInterestLanguageController;
+import controller.interest.*;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
