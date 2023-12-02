@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
     <link>
-    	<link rel="stylesheet" href="../css/menu.css" type="text/css">
-    	<link rel="stylesheet" href="../css/user_menu.css">   
+    	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">  
         <meta charset="UTF-8">
         <title>관심 도서 보기</title>
         <style>
@@ -73,30 +73,13 @@
 
     <body>
         <header>
-	        <div>
-	            <ul class="user_menu">
-	                <li><a href="mypage.html">마이페이지</a></li>
-	                <li><a href="login.html">로그인</a></li>
-	                <li><a href="signup.html">회원가입</a></li>
-	            </ul>
-	        </div>
-	        <div id="logo">
-	            <a>책it다</a>
-	        </div>
-	    </header>
-        <nav>
-            <div>
-                <ul id="menu1">
-                    <li class="notSelectedPage"><a>도서 검색</a></li>
-                    <li>|</li>
-                    <li class="notSelectedPage"><a href="./bookReview.html">도서 리뷰</a></li>
-                    <li>|</li>
-                    <li class="selectedPage"><a href="./RecommendBookMain.jsp">추천 도서</li>
-                    <li>|</li>
-                    <li class="notSelectedPage"><a> Q&A &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a></li>
-                </ul>
-            </div>    
-        </nav>
+			<div>
+				<jsp:include page="../top/logo.jsp" /> 
+			</div>
+		</header>
+		<jsp:include page="../top/menubar.jsp">
+	    	<jsp:param name="selected" value="review" />
+		</jsp:include>
         <main>
             <div>
                 <table class="book_box">
