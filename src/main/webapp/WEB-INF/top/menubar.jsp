@@ -8,11 +8,11 @@
                 <ul id="menu1">
                     <li class="${selected eq 'search' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/book/searchList">도서 검색</a></li>
                     <li>|</li>
-                    <li class="${selected eq 'recomm' ? 'selectedPage' : 'notSelectedPage'}"><a href="">도서 추천</a></li>
+                    <li class="${selected eq 'recomm' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/recommBook/view">도서 추천</a></li>
                     <li>|</li>
                     <li class="${selected eq 'review' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/review/list">도서 리뷰</a></li>
                     <li>|</li>
-                    <li class="${selected eq 'qna' ? 'selectedPage' : 'notSelectedPage'}"><a href="">&nbsp;&nbsp; Q&A &nbsp;&nbsp;</a></li>
+                    <li class="${selected eq 'qna' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/question/list">&nbsp;&nbsp; Q&A &nbsp;&nbsp;</a></li>
                 	<li>|</li>
                 	<li class="notSelectedPage">
           				<a>&nbsp;&nbsp; 관리 &nbsp;&nbsp;</a>
