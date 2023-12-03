@@ -34,6 +34,7 @@ public class RequestMapping {
         mappings.put("/review/list", new ListReviewController());
         mappings.put("/review/view", new ReadReviewController());
         mappings.put("/review/update", new UpdateReviewController());
+        mappings.put("/review/delete", new DeleteReviewController());
         
         //// 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController()); // 검색한 책 리스트
