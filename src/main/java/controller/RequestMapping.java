@@ -9,6 +9,7 @@ import controller.user.*;
 import controller.book.*;
 import controller.review.*;
 import controller.interest.*;
+import controller.question.*;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -29,11 +30,23 @@ public class RequestMapping {
       // 마이페이지 관련
        mappings.put("/user/mypage", new ForwardController("/user/mypage.jsp"));
        mappings.put("/user/update", new UpdateUserController());
+       mappings.put("/user/delete", new DeleteUserController());
+       mappings.put("/user/question", new QuestionUserController());
+       mappings.put("/user/answer", new AnswerUserController());
+	
+	// Q&A 게시판 관련
+       mappings.put("/question/list", new ListQuestionController());
+        mappings.put("/question/view", new ReadQuestionController());
+        mappings.put("/question/create", new CreateQuestionController());
+        mappings.put("/question/update", new UpdateQuestionController());
+        mappings.put("/question/delete", new DeleteQuestionController());
 
         // 리뷰 관련
         mappings.put("/review/list", new ListReviewController());
         mappings.put("/review/view", new ReadReviewController());
         mappings.put("/review/update", new UpdateReviewController());
+        mappings.put("/review/delete", new DeleteReviewController());
+        mappings.put("/review/create", new CreateReviewController());
         
         //// 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController()); // 검색한 책 리스트

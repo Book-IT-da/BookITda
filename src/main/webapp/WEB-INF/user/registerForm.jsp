@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+
 <title>회원가입</title>
 
 <script>
@@ -87,6 +89,9 @@ input[type="submit"] {
 
 <%-- 아이디, 닉네임 중복 확인 구현 필요함  --%>
 <body>
+	<div>
+		<%@ include file="../top/logo.jsp"%>
+	</div>
 	<center>
 		<h1>회원가입</h1>
 		<hr>

@@ -17,13 +17,6 @@
             li a {
                 color: black;
             } 
-            #top {
-                margin: 10px 0 15px 30px;
-            }        
-            #logo {
-                margin: 25px 30px;
-                text-align: center;
-            }
             #comment_input {
                 font-size: 16px;
                 width: 325px;
@@ -82,6 +75,16 @@
                 height: 100px;
             }
         </style>
+        <script>
+			function reviewRemove() {
+				var answer = confirm("정말 삭제하시겠습니까?");
+
+				if(answer){
+					deleteReviewForm.submit();
+				}
+				return false;
+			}
+			</script>
 	</head>
 <body>
 	<header>
@@ -99,7 +102,12 @@
     			<input type="hidden" name="reviewId" value="<%=review.getReviewId()%>">
     			<button type="submit">수정하기</button>
             </form>
-                <button>삭제하기</button>
+            <form name="deleteReviewForm" method="GET"
+				action="<c:url value='/review/delete' />">
+    			<input type="hidden" name="reviewId" value="<%=review.getReviewId()%>">
+                <input type="button" value="삭제하기"  onClick="reviewRemove()">
+    			<!-- <button type="submit">삭제하기</button> -->
+            </form>
             </div>
             <div>
                 <table class="book_box">

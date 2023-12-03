@@ -312,30 +312,30 @@ public class ReviewDAO {
         }
         
         StringBuilder query = new StringBuilder();
-        query.append("DELETE FROM Review WHERE reviewId = ?;");
+        query.append("DELETE FROM Review WHERE reviewId = ?");
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {reviewId});    
         
         try {               
             int result = jdbcUtil.executeUpdate();  
             
-            //책 평점 매기기
-            Float starAvg = this.setupBookStar(ISBN);
-            //팩 평점 수정
-            if(starAvg != -1) {
-                StringBuilder query3 = new StringBuilder();
-                query3.append("UPDATE Book set AVGSTAR = ? ");
-                query3.append("WHERE ISBN =?");
-                
-                jdbcUtil.setSqlAndParameters(query3.toString(), new Object[]{starAvg, ISBN});
-                jdbcUtil.executeUpdate();      
-            }else {
-                StringBuilder query3 = new StringBuilder();
-                query3.append("UPDATE Book set AVGSTAR = NULL ");
-                query3.append("WHERE ISBN =?");
-                
-                jdbcUtil.setSqlAndParameters(query3.toString(), new Object[]{ISBN});
-                jdbcUtil.executeUpdate();
-            }
+//            //책 평점 매기기
+//            Float starAvg = this.setupBookStar(ISBN);
+//            //팩 평점 수정
+//            if(starAvg != -1) {
+//                StringBuilder query3 = new StringBuilder();
+//                query3.append("UPDATE Book set AVGSTAR = ? ");
+//                query3.append("WHERE ISBN =?");
+//                
+//                jdbcUtil.setSqlAndParameters(query3.toString(), new Object[]{starAvg, ISBN});
+//                jdbcUtil.executeUpdate();      
+//            }else {
+//                StringBuilder query3 = new StringBuilder();
+//                query3.append("UPDATE Book set AVGSTAR = NULL ");
+//                query3.append("WHERE ISBN =?");
+//                
+//                jdbcUtil.setSqlAndParameters(query3.toString(), new Object[]{ISBN});
+//                jdbcUtil.executeUpdate();
+//            }
             
             return result;
         } catch (Exception ex) {
