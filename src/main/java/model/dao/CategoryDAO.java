@@ -22,6 +22,7 @@ public class CategoryDAO {
 		
 		try {				
 			int result = jdbcUtil.executeUpdate();	
+			System.out.println(result);
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();

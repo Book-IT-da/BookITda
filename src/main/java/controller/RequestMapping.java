@@ -62,7 +62,8 @@ public class RequestMapping {
         
         ////카테고리 관련
         mappings.put("/admin/category/list", new ListCategoryController()); //카테고리 관리로 가기
-        mappings.put("/admin/category/modify", new ModifyCategoryController());
+        mappings.put("/admin/category/modify", new ModifyCategoryController()); //카테고리 추가
+        mappings.put("/admin/category/register", new RegisterCategoryController()); //카테고리 추가
         
         // 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController());
