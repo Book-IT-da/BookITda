@@ -121,12 +121,17 @@
 				            <tr>
 				        </c:if>
 				        <td>
+				        <c:url var="bookInfoURL" value="../book/bookInfo">
+						   <c:param name="ISBN" value="${recommBook.isbn}"/>
+						</c:url>
+						<a href="${bookInfoURL}">
 				            <div class="book">
 				                <%-- <img class="bookImg" src="${recommBook.bookImage}" alt="도서 표지 이미지"> --%>
 				                <h2 class="title">${recommBook.title}</h2>
 				                <p class="author">${recommBook.author}</p>
 				                <p class="avgStar">${recommBook.avgstar}</p>
 				            </div>
+				           </a>
 				        </td>
 				        <c:if test="${loop.index % 4 == 3 or loop.last}">
 				            </tr>
