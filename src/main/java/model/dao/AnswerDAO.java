@@ -89,12 +89,14 @@ public class AnswerDAO {
     // 답변 리스트
     public List<Answer> findAnswerList(int qId) throws SQLException {
         StringBuilder query = new StringBuilder();
-        query.append("SELECT aId, answer, m.nickname, createDate ");
+        query.append("SELECT aId, answer, m.nickname, a.createDate ");
         query.append("FROM ANSWER a ");
         query.append("JOIN MEMBER m ON a.userId = m.userId ");
+        query.append("JOIN QUESTION q ON a.QID = q.QID ");
+        query.append("WHERE a.qId = ? ");
         query.append("ORDER BY createDate DESC ");
         
-        jdbcUtil.setSqlAndParameters(query.toString(), null);
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {qId});
         
         try {
             ResultSet rs = jdbcUtil.executeQuery();
