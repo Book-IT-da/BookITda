@@ -77,10 +77,10 @@ textarea {
 		<div>
 			<jsp:include page="../top/logo.jsp" />
 		</div>
-		<div>
-			<jsp:include page="../top/menubar.jsp" />
-		</div>
 	</header>
+	<jsp:include page="../top/menubar.jsp">
+	    	<jsp:param name="selected" value="review" />
+	</jsp:include>
 	<center>
 		<!-- 질문 글 -->
 		<table>

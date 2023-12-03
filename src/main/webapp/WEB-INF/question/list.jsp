@@ -68,10 +68,10 @@ a {
 		<div>
 			<jsp:include page="../top/logo.jsp" />
 		</div>
-		<div>
-			<jsp:include page="../top/menubar.jsp" />
-		</div>
 	</header>
+	<jsp:include page="../top/menubar.jsp">
+	    	<jsp:param name="selected" value="review" />
+	</jsp:include>
 	<center>
 		<form name="form" mehtod="GET"
 			action="<c:url value='/question/list'/>">
