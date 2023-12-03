@@ -143,26 +143,26 @@ function bookRegister() {
 				<tr class="bookType_cate">
 					<th>카테고리</th>
 					<td>&nbsp;<input type="text" name="category"
-						value="${book.category}">
+						value="${book.category}" placeholder="모바일">
 					</td>
 				</tr>
 				<tr class="bookType">
 					<th>수준</th>
 					<td>&nbsp;<input type="text" name="itLevel"
-						value="${book.itLevel}"></td>
+						value="${book.itLevel}" placeholder="초보자"></td>
 				</tr>
 				<tr class="bookType">
 					<th>언어</th>
 					<td>&nbsp;<input type="text" name="language"
-						value="${book.language}">
+						value="${book.language}" placeholder="kotlin">
 					</td>
 				</tr>
 				<tr class="bookType">
 					<th>키워드 <br> (최대 3개)
 					</th>
 					<td>1. <input type="text" name="keyword1"
-						value="${book.keyword1}"> 2. <input type="text"
-						name="keyword2" value="${book.keyword2}"> 3. <input
+						value="${book.keyword1}" placeholder="자바 입문"> 2. <input type="text"
+						name="keyword2" value="${book.keyword2}" placeholder="없다면 X(엑스)"> 3. <input
 						type="text" name="keyword3" value="${book.keyword3}">
 					</td>
 				</tr>
