@@ -29,6 +29,13 @@ public class RequestMapping {
       // 마이페이지 관련
        mappings.put("/user/mypage", new ForwardController("/user/mypage.jsp"));
        mappings.put("/user/update", new UpdateUserController());
+	
+	// Q&A 게시판 관련
+	mappings.put("/question/list", new ListQuestionController());
+        mappings.put("/question/view", new ReadQuestionController());
+        mappings.put("/question/create", new CreateQuestionController());
+        mappings.put("/question/update", new UpdateQuestionController());
+        mappings.put("/question/delete", new DeleteQuestionController());
 
         // 리뷰 관련
         mappings.put("/review/list", new ListReviewController());
