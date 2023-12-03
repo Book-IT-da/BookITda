@@ -59,7 +59,7 @@ public class CategoryDAO {
 	
 	
 	//카테고리 삭제
-	public int removeCategory(String category) throws SQLException {
+	public int deleteCategory(String category) throws SQLException {
 		StringBuilder query = new StringBuilder();
 		query.append("DELETE FROM Category WHERE category=?");
 		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {category});	

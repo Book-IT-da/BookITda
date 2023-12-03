@@ -33,8 +33,8 @@ public class CategoryManager {
 	}
 	
 	//카테고리 삭제
-	public int removeCategory(String category) throws SQLException{
-		return categoryDAO.removeCategory(category);
+	public int deleteCategory(String category) throws SQLException{
+		return categoryDAO.deleteCategory(category);
 	}
 	
 	//모든 카테고리 리스트

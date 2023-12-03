@@ -51,10 +51,11 @@ tr {
 	function modifyCate() {
 		modifyCateForm.submit();
 	}
-	
-	function registerCate(){
+
+	function registerCate() {
 		registerCateForm.submit();
 	}
+
 </script>
 
 <body>
@@ -99,14 +100,21 @@ tr {
 					<input type="text" class="textType" name="renew">
 					<button type="button" class="endButton" onClick="modifyCate()">수정</button>
 				</form>
-				
-				<form name="registerCateForm" method="GET" action="<c:url value='/admin/category/register' />">
-					<br> <input type="text" class="textType" name="newCate">
+
+				<br>
+				<form name="registerCateForm" method="GET"
+					action="<c:url value='/admin/category/register' />">
+					<input type="text" class="textType" name="newCate">
 					<button type="button" class="endButton" onClick="registerCate()">추가</button>
 				</form>
-				
-				<br> <br> <input type="text" class="textType">
-				<button type="button" class="endButton">삭제</button>
+
+				<br>
+				<form name="deleteCategoryForm" method="GET"
+					action="<c:url value='/admin/category/delete' />">
+					<input type="text" class="textType" name="deleteCate">
+					<button type="submit" class="endButton" onClicg="deleteCate()">삭제</button>
+				</form>
+
 			</div>
 
 		</div>
