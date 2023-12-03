@@ -135,7 +135,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>관심사 수정</title>
 <style>
         hr {
             margin-top: 30px;

@@ -1,9 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="javax.servlet.http.HttpServletRequest" %>
+<%@ page import="javax.servlet.http.HttpServletResponse" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.RecommBook" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="userId" value="${userId2}" />
 <%
+	String userId = (String)request.getSession().getAttribute("userId2");
 	List<RecommBook> recommBookList = (List<RecommBook>) request.getSession().getAttribute("recommBookList");
 	request.setAttribute("recommBookList", recommBookList);
 %>
@@ -108,7 +113,7 @@
            <a href="${contextPath}/user/get/interest"><button>관심사 재설정</button></a>
         </div>
         <div class = "bigContainer">
-			<h2 class="question">A님께 어울리는 책을 소개할게요</h2><br>
+			<h2 class="question">${userId}님께 어울리는 책을 소개할게요</h2><br>
 			 <div class="container">
 	            <table class="book_box">
 	                <c:forEach var="recommBook" items="${recommBookList}" varStatus="loop">
