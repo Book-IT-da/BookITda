@@ -18,7 +18,7 @@ public class CreateInterestController implements Controller {
         if (request.getMethod().equals("GET")) {
             return "/interest/interest_createForm.jsp";
         }
-        String userId = (String)request.getSession().getAttribute("userId2");
+        String userId = (String)request.getSession().getAttribute("userId");
         // 체크박스 그룹에 대한 값을 List로 받아옴
         String[] interestCategories = request.getParameterValues("interestCategory");
         String[] interestLanguages = request.getParameterValues("interestLanguages");
