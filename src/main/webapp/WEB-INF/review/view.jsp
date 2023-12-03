@@ -17,13 +17,6 @@
             li a {
                 color: black;
             } 
-            #top {
-                margin: 10px 0 15px 30px;
-            }        
-            #logo {
-                margin: 25px 30px;
-                text-align: center;
-            }
             #comment_input {
                 font-size: 16px;
                 width: 325px;

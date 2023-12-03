@@ -12,13 +12,6 @@
             li a {
                 color: black;
             } 
-            #top {
-                margin: 10px 0 15px 30px;
-            }        
-            #logo {
-                margin: 25px 30px;
-                text-align: center;
-            }
             #reviewTitle_input {
                 font-size: 16px;
                 width: 325px;
@@ -81,13 +74,17 @@
             }
         </style>
 	<script type="text/javascript">
-		function search() {
+		function searchReview() {
 			if (searchReviewForm.reviewTitle_input.value == "") {
 				alert("책 제목을 입력하세요");
 				searchReviewForm.reviewTitle_input.focus();
 				return false;
 			}
 			searchReviewForm.submit();
+		}
+
+		function createReview() {
+			createReviewForm.submit();
 		}
 	</script>
 </head>
@@ -107,12 +104,15 @@
 			<form name="searchReviewForm" method="GET"
 				action="<c:url value='/review/list' />">
 				<input id="reviewTitle_input" name="reviewTitle_input" type="text" placeholder="책 제목을 입력하세요">
-                <input type="button" id="search_button" onClick="search()" value="검색하기">
+                <input type="button" id="search_button" onClick="searchReview()" value="검색하기">
             </form>
                 <hr/>
             </div>
             <div align="right">
-                <button onclick="location.href='./bookReviewDetail.html'">작성하기</button>
+				<form name="createReviewForm" method="GET"
+					action="<c:url value='/review/create' />">
+                	<input type="button" onClick="createReview()" value="작성하기">
+            	</form>
             </div>
             <div>                
             	<c:forEach var="review" items="${reviewList}"> 
