@@ -87,6 +87,22 @@ td:first-child {
 			href="<c:url value='/question/delete'><c:param name='qId' value='${ques.qId}'/></c:url>"
 			onclick="return questionRemove();">삭제</a> <a
 			href="<c:url value='/question/list'/>" class="button">목록</a>
+
+		<!-- 답변 글 -->
+		<table>
+			<tr>
+				<td colspan="2">답변내용</td>
+			</tr>
+			<c:forEach var="answer" items="${answerList}">
+				<tr>
+					<td>닉네임: ${answer.nickname}</td>
+					<td>등록일: ${answer.createDate}</td>
+				</tr>
+				<tr>
+					<td colspan="2">글 내용<br>${answer.answer}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</center>
 </body>
 </html>
