@@ -81,7 +81,7 @@ input[type="submit"] {
 		</div>
 	</header>
 	<jsp:include page="../top/menubar.jsp">
-	    	<jsp:param name="selected" value="review" />
+	    	<jsp:param name="selected" value="qna" />
 	</jsp:include>
 	<center>
 		<hr>
