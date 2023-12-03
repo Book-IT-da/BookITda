@@ -113,11 +113,7 @@
                 selectedLanguages = selectedLanguageList != null
                     ? selectedLanguageList.stream().map(String::valueOf).collect(java.util.stream.Collectors.toList())
                     : new ArrayList<>();
-                selectedLevel = userLastInterest.getLevelId();
-                
-                System.out.println("selectedCategories: " + selectedCategories);
-                System.out.println("selectedLanguages: " + selectedLanguages);
-                System.out.println("userLastInterest: " + userLastInterest.toString());
+                selectedLevel = userLastInterest.getLevelId();              
                 
             } else {
                 selectedCategories = new ArrayList<>();
