@@ -17,6 +17,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
     <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 	<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
     <title>추천 도서 보기</title>
@@ -25,7 +26,7 @@
 			    width: 800px; 
 			    height: 650px; 
 			    position: absolute;
-			    top: 70%;
+			    top: 80%;
 			    left: 50%;
 			    transform: translate(-50%, -50%);
 			    background-color: #f7e6ff;
@@ -102,6 +103,9 @@
 <body>
 	<header>
 		<div>
+			<jsp:include page="../top/userMenubar.jsp" />
+		</div>
+		<div>
 			<jsp:include page="../top/logo.jsp" /> 
 		</div>
 	</header>
@@ -126,7 +130,7 @@
 						</c:url>
 						<a href="${bookInfoURL}">
 				            <div class="book">
-				                <%-- <img class="bookImg" src="${recommBook.bookImage}" alt="도서 표지 이미지"> --%>
+				                <%-- <img class="bookImg" src="${recommBook.bookImage}" alt="${recommBook.cover_path}"> --%>
 				                <h2 class="title">${recommBook.title}</h2>
 				                <p class="author">${recommBook.author}</p>
 				                <p class="avgStar">${recommBook.avgstar}</p>
