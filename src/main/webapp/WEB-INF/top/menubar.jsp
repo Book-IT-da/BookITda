@@ -8,7 +8,7 @@
                 <ul id="menu1">
                     <li class="${selected eq 'random' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/book/randomBooks">HOME</a></li>
                     <li>|</li>
-                    <li class="${selected eq 'search' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/book/searchList">도서 검색</a></li>
+                    <li class="${selected eq 'search' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/book/allList">도서 검색</a></li>
                     <li>|</li>
                     <li class="${selected eq 'recomm' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/recommBook/view">도서 추천</a></li>
                     <li>|</li>

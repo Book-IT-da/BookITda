@@ -375,6 +375,34 @@ public class BookDAO {
 		}
 		return null;
 	}
+	
+	//모든 책 리스트
+	public List<Book> findAllBook() throws SQLException {
+		System.out.println("BookDAO의 findAllBook");
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT ISBN,title, cover_path, author, publisher, AVGSTAR ");
+		query.append("FROM Book");
+		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {});
+
+		try {
+			System.out.print("execute 전");
+			ResultSet rs = jdbcUtil.executeQuery();
+
+			List<Book> bookList = new ArrayList<Book>();
+			while (rs.next()) {
+				Book book = new Book(rs.getString("ISBN"), rs.getString("title"), rs.getString("author"),
+						rs.getString("publisher"), rs.getString("cover_path"), rs.getFloat("AVGSTAR"));
+				bookList.add(book);
+			}
+			System.out.print("execute 완료");
+			return bookList;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();
+		}
+		return null;
+	}
 
 	// 리스트에서 특정 책을 클릭(책 자세히 보기)
 	public Book findBookInfo(String ISBN) throws SQLException {

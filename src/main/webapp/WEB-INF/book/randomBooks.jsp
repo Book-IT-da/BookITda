@@ -5,6 +5,12 @@
 <!doctype html>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap"
+	rel="stylesheet">
+
 <meta charset="UTF-8">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
@@ -26,6 +32,17 @@
 #bookInfoList {
 	border: 0px;
 	text-align: center;
+}
+
+#intro {
+	background-color: pink;
+	width: 90%;
+	height: 90px;
+	font-size: 25px;
+	font-family: 'Hahmlet', serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .book {
@@ -82,11 +99,17 @@ a {
 		</div>
 	</header>
 	<jsp:include page="../top/menubar.jsp">
-		<jsp:param name="selected" value="search" />
+		<jsp:param name="selected" value="random" />
 	</jsp:include>
 
 	<%@ include file="./search.jsp"%>
 	&nbsp; &nbsp;&nbsp; &nbsp;
+	<br>
+
+	<br>
+	<center>
+		<div id="intro">개발자들의 선택</div>
+	</center>
 	<br>
 
 	<div id="bookInfoList">

@@ -69,35 +69,51 @@ public class BookManager {
 		return books;
 	}
 
-	public Book findBookInfo() throws SQLException {
-		Book book = null;
+	// 도서 상세 정보
+//	public Book findBookInfo() throws SQLException {
+//		Book book = null;
+//
+//		book = bookDAO.findBookInfo(null);
+//		if (book == null) {
+//			System.out.println("book은 null이다.");
+//		}
+//
+//		return book;
+//	}
 
-		book = bookDAO.findBookInfo(null);
+	// 도서 삭제
+	public int deleteBook(String ISBN) throws SQLException {
+		return bookDAO.removeBook(ISBN);
+	}
+
+	// 책 세부 정보
+	public Book findBookInfo(String ISBN) throws SQLException {
+		Book book = bookDAO.findBookInfo(ISBN);
+
 		if (book == null) {
 			System.out.println("book은 null이다.");
 		}
 
 		return book;
 	}
+	
+	// 모든 도서 불러오기
+	public List<Book> findAllBook() throws SQLException{
+		List<Book> books = null;
 
-	public int deleteBook(String ISBN) throws SQLException {
-		return bookDAO.removeBook(ISBN);
+		books = bookDAO.findAllBook();
+
+		if (books == null) {
+			System.out.println("book은 null이다.");
+		}
+
+		return books;
 	}
 
-	//책 세부 정보
-	public Book findBookInfo(String ISBN) throws SQLException{
-			Book book = bookDAO.findBookInfo(ISBN);
-			
-			if(book == null) {
-				System.out.println("book은 null이다.");
-			}
-			
-			return book;
-		}
-
-
-		public List<RecommBook> findRecommList(String userId) throws SQLException{
-		    List<RecommBook> recommBooks = bookDAO.findRecommList(userId);
-		    return recommBooks;
-		}
+	public List<RecommBook> findRecommList(String userId) throws SQLException {
+		List<RecommBook> recommBooks = bookDAO.findRecommList(userId);
+		return recommBooks;
+	}
+	
+	
 }
