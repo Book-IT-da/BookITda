@@ -9,6 +9,7 @@
 <%@ page import="javax.servlet.http.HttpServletResponse" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="model.Category" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 	<%
      /* String[] categoryData = {
@@ -101,7 +102,7 @@
             }
 
             request.setAttribute("userLevel", userLevel);
-            session.setAttribute("userId2", "lulu");
+            session.setAttribute("userId2", "lulu2");
 	%>
 <html>
 <head>
@@ -199,7 +200,7 @@ function createInterest() {
         </table>
 	    <div class="button_container">
 		    <input type="submit" value="설정 완료" onClick="createInterest()">
-		    <input type="submit" value="건너뛰기">
+		    <input type="submit" value="건너뛰기" formaction="${contextPath}/book/searchList">
 	   </div>
 	</form>
 	</center>
