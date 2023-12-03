@@ -115,7 +115,6 @@
                     : new ArrayList<>();
                 selectedLevel = userLastInterest.getLevelId();
                 
-             // Log the values for debugging
                 System.out.println("selectedCategories: " + selectedCategories);
                 System.out.println("selectedLanguages: " + selectedLanguages);
                 System.out.println("userLastInterest: " + userLastInterest.toString());
@@ -130,7 +129,7 @@
             request.setAttribute("selectedLanguages", selectedLanguages);
             request.setAttribute("userLevel", userLevel);
             request.setAttribute("selectedLevel", selectedLevel);
-            session.setAttribute("userId2", "lulu");
+            /* session.setAttribute("userId2", "lulu"); */
 	%>
 <html>
 <head>
