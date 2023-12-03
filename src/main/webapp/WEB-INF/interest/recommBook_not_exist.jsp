@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
     	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">  
         <meta charset="UTF-8">
@@ -73,6 +74,9 @@
 
     <body>
         <header>
+        	<div>
+				<jsp:include page="../top/userMenubar.jsp" />
+			</div>
 			<div>
 				<jsp:include page="../top/logo.jsp" /> 
 			</div>
