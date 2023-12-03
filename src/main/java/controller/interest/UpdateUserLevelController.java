@@ -16,7 +16,7 @@ import model.service.InterestManager;
 public class UpdateUserLevelController implements Controller {
     private InterestManager interestManager = InterestManager.getInstance();
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String userId = (String)request.getSession().getAttribute("userId2");
+        String userId = (String)request.getSession().getAttribute("userId");
         // 체크박스 그룹에 대한 값을 List로 받아옴
         String[] userLevels = request.getParameterValues("userLevel");
         // 임시값

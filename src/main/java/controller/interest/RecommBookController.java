@@ -18,7 +18,7 @@ public class RecommBookController implements Controller {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         BookManager manager = BookManager.getInstance();
-        String userId = (String)request.getSession().getAttribute("userId2");
+        String userId = (String)request.getSession().getAttribute("userId");
         
         try {
         	List<RecommBook> recommBookList = manager.findRecommList(userId);

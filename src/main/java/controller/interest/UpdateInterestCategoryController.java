@@ -15,7 +15,7 @@ import model.service.InterestManager;
 public class UpdateInterestCategoryController implements Controller {
     private InterestManager interestManager = InterestManager.getInstance();
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String userId = (String)request.getSession().getAttribute("userId2");
+        String userId = (String)request.getSession().getAttribute("userId");
         // 체크박스 그룹에 대한 값을 List로 받아옴
         String[] interestCategories = request.getParameterValues("interestCategory");
 
