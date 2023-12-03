@@ -34,12 +34,13 @@ public class RequestMapping {
        mappings.put("/user/question", new QuestionUserController());
        mappings.put("/user/answer", new AnswerUserController());
 	
-	// Q&A 게시판 관련
-       mappings.put("/question/list", new ListQuestionController());
+	   // Q&A 게시판 관련
+        mappings.put("/question/list", new ListQuestionController());
         mappings.put("/question/view", new ReadQuestionController());
         mappings.put("/question/create", new CreateQuestionController());
         mappings.put("/question/update", new UpdateQuestionController());
         mappings.put("/question/delete", new DeleteQuestionController());
+        mappings.put("/answer/create", new CreateAnswerController());
 
         // 리뷰 관련
         mappings.put("/review/list", new ListReviewController());
