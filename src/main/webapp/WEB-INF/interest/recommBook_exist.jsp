@@ -6,9 +6,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.RecommBook" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<c:set var="userId" value="${userId2}" />
+<c:set var="userId" value="${userId}" />
 <%
-	String userId = (String)request.getSession().getAttribute("userId2");
+	String userId = (String)request.getSession().getAttribute("userId");
 	List<RecommBook> recommBookList = (List<RecommBook>) request.getSession().getAttribute("recommBookList");
 	request.setAttribute("recommBookList", recommBookList);
 %>
