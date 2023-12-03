@@ -529,8 +529,8 @@ public class BookDAO {
                 RecommBook recommBook = new RecommBook(   
                     rs.getString("isbn"),
                     rs.getString("title"),
-                    rs.getString("cover_path"),
                     rs.getString("author"),
+                    rs.getString("cover_path"),
                     rs.getDouble("avgstar"));  
                 recommBookList.add(recommBook);             
             }           
