@@ -20,8 +20,10 @@
           				<a>&nbsp;&nbsp; 관리 &nbsp;&nbsp;</a>
 						<ul class="sub_menu">
 							<li><a href="">회원 관리</a></li><br/>
-							<li><a href="">책 관리</a></li><br/>
-							<li><a href="">카테고리 관리</a></li><br/>
+							<li><a href="<c:url value='/admin/book/register/form'>
+			 		   </c:url>">도서 추가</a></li><br/>
+							<li><a href="<c:url value='/admin/category/list'>
+			 		   </c:url>">카테고리 관리</a></li><br/>
 						</ul>
 			        </li>
                 </ul>

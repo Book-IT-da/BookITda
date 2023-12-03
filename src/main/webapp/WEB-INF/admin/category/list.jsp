@@ -112,7 +112,7 @@ tr {
 				<form name="deleteCategoryForm" method="GET"
 					action="<c:url value='/admin/category/delete' />">
 					<input type="text" class="textType" name="deleteCate">
-					<button type="submit" class="endButton" onClicg="deleteCate()">삭제</button>
+					<button type="submit" class="endButton">삭제</button>
 				</form>
 
 			</div>

@@ -68,12 +68,11 @@ input {
 	text-align: left;
 }
 
-a, button{
+a, button {
 	text-decoration: none;
 	color: black;
 	cursor: pointer;
 }
-
 </style>
 </head>
 <body>
@@ -93,6 +92,7 @@ a, button{
 	<form name="searchForm" method="GET"
 		action="<c:url value='/book/searchList' />">
 		<center>
+			<!-- 
 			<a
 				href="<c:url value='/admin/book/register/form'>
 			 		   </c:url>">
@@ -105,6 +105,9 @@ a, button{
 				<button type="button" id="btn_category">카테고리 관리</button>
 			</a>
 			
+			
+			 -->
+
 			<div class="mainDiv">
 				<input type="text" id="searchText" name="searchText"> <input
 					type="button" id="searchClick" onClick="search()">
