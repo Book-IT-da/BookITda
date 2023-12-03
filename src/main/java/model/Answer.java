@@ -69,6 +69,14 @@ public class Answer {
         this.userId = userId;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     public Date getCreateDate() {
         return createDate;
     }
