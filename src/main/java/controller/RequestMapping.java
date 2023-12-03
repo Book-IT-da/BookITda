@@ -34,12 +34,13 @@ public class RequestMapping {
        mappings.put("/user/question", new QuestionUserController());
        mappings.put("/user/answer", new AnswerUserController());
 	
-	// Q&A 게시판 관련
-       mappings.put("/question/list", new ListQuestionController());
+	   // Q&A 게시판 관련
+        mappings.put("/question/list", new ListQuestionController());
         mappings.put("/question/view", new ReadQuestionController());
         mappings.put("/question/create", new CreateQuestionController());
         mappings.put("/question/update", new UpdateQuestionController());
         mappings.put("/question/delete", new DeleteQuestionController());
+        mappings.put("/answer/create", new CreateAnswerController());
 
         // 리뷰 관련
         mappings.put("/review/list", new ListReviewController());
@@ -62,7 +63,7 @@ public class RequestMapping {
         // 관심사 생성
         mappings.put("/get/caegoryList", new GetCategoryListController());
         mappings.put("/interest/interest_createForm", new ForwardController("/interest/interest_createForm.jsp"));
-        mappings.put("/user/interest/create", new GetInterestController());
+        mappings.put("/user/interest/create", new CreateInterestController());
         // 관심사 수정 폼
         mappings.put("/user/get/interest", new GetInterestController());
         mappings.put("/user/update/interest", new ForwardController("/interest/interest_updateForm.jsp"));

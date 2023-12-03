@@ -113,12 +113,7 @@
                 selectedLanguages = selectedLanguageList != null
                     ? selectedLanguageList.stream().map(String::valueOf).collect(java.util.stream.Collectors.toList())
                     : new ArrayList<>();
-                selectedLevel = userLastInterest.getLevelId();
-                
-             // Log the values for debugging
-                System.out.println("selectedCategories: " + selectedCategories);
-                System.out.println("selectedLanguages: " + selectedLanguages);
-                System.out.println("userLastInterest: " + userLastInterest.toString());
+                selectedLevel = userLastInterest.getLevelId();              
                 
             } else {
                 selectedCategories = new ArrayList<>();
@@ -130,12 +125,12 @@
             request.setAttribute("selectedLanguages", selectedLanguages);
             request.setAttribute("userLevel", userLevel);
             request.setAttribute("selectedLevel", selectedLevel);
-            session.setAttribute("userId2", "lulu");
+            /* session.setAttribute("userId2", "lulu"); */
 	%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>관심사 수정</title>
 <style>
         hr {
             margin-top: 30px;
