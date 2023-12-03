@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
 <title>검색 후 결과 화면(도서 리스트)</title>
