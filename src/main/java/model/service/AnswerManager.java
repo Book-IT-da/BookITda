@@ -27,6 +27,11 @@ public class AnswerManager {
 	    return answerDAO.findAnswerList(qId);
 	}
 	
+	// 답변 생성
+	public int create(int qId, Answer ans) throws SQLException {
+	    return answerDAO.createAnswer(qId, ans);
+	}
+	
 	// 마이페이지 - 사용자가 작성한 모든 답변
 	public List<Answer> findAnswerByUser(String userId) throws SQLException {
 		return answerDAO.findAnswerByUser(userId);
