@@ -3,11 +3,11 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
-    <link>
+	<head>
     	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">  
         <meta charset="UTF-8">
-        <title>관심 도서 보기</title>
+        <title>추천 도서 보기</title>
         <style>
         	li a {
                 color: black;
@@ -100,5 +100,4 @@
              </div>
         </main>
     </body>
-
 </html>
