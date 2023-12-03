@@ -10,6 +10,7 @@ import controller.book.*;
 import controller.review.*;
 import controller.interest.*;
 import controller.question.*;
+import controller.category.*;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -59,6 +60,9 @@ public class RequestMapping {
         mappings.put("/admin/book/register/form",new ForwardController("/admin/book/register/registerForm.jsp")); //책 추가 폼으로 가기 
         mappings.put("/book/allList", new ViewAllBookController()); // 메뉴바 도서 검색 (모든 도서 리스트)
         
+        ////카테고리 관련
+        mappings.put("/admin/category/list", new ListCategoryController()); //카테고리 관리로 가기
+        mappings.put("/admin/category/modify", new ModifyCategoryController());
         
         // 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController());

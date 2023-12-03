@@ -98,6 +98,13 @@ a, button{
 			 		   </c:url>">
 				<button type="button" id="btn_bookInfo_add">도서 추가</button>
 			</a>
+			
+			<a
+				href="<c:url value='/admin/category/list'>
+			 		   </c:url>">
+				<button type="button" id="btn_category">카테고리 관리</button>
+			</a>
+			
 			<div class="mainDiv">
 				<input type="text" id="searchText" name="searchText"> <input
 					type="button" id="searchClick" onClick="search()">
