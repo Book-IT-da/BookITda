@@ -104,15 +104,17 @@ public class BookDAO {
 				book.getKeyword3());
 
 		// date로 포맷
-		String pDate = book.getPublicationDate();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date publicationDate = null;
+		String stringDate = book.getPublicationDate();
+		System.out.println(stringDate);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");	
+		java.sql.Date date = null;
 		try {
-			publicationDate = dateFormat.parse(pDate);
+		    Date buffDate = sdf.parse(stringDate);
+		    date = new java.sql.Date(buffDate.getTime());
+		    System.out.println(date);
 		} catch (ParseException e) {
-			e.printStackTrace();
+		    e.printStackTrace();
 		}
-		System.out.print(publicationDate + "!!" + book.getISBN() + "!!!!");
 
 		// 책 생성
 		StringBuilder query = new StringBuilder();
@@ -122,9 +124,11 @@ public class BookDAO {
 				+ "VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?)");
 
 		Object[] param = new Object[] { book.getISBN(), book.getTitle(), book.getAuthor(), book.getPublisher(),
-				publicationDate, book.getcover_path(), book.getBookInfo(), book.getBookIndex(), book.getAuthorInfo(),
+				date, book.getcover_path(), book.getBookInfo(), book.getBookIndex(), book.getAuthorInfo(),
 				keyword1, category, level, language, keyword2, keyword3 };
 
+		jdbcUtil.setSqlAndParameters(query.toString(), param);
+		
 		try {
 			int result = jdbcUtil.executeUpdate();
 			System.out.print("!!!result!는 "+result+"이다");
@@ -144,34 +148,46 @@ public class BookDAO {
 	public int ModifyBook(Book book) throws SQLException {
 		// id들 찾기
 		System.out.print("문제1");
-		System.out.println("cateeeeeeeeeee :" + book.getItLevel());
 		findId(book.getCategory(), book.getItLevel(), book.getLanguage(), book.getKeyword1(), book.getKeyword2(),
 				book.getKeyword3());
 
 		// 책 수정
 		System.out.print("문제2");
 		StringBuilder query = new StringBuilder();
-		query.append("UPDATE Book set title=?, author=?, publisher=?, publicationDate=?, "
-				+ "cover_path=?, bookInfo=?, BookIndex=?, authorInfo=?, keywordId1=?, categoryId=?, "
-				+ " levelId=?, languageId=?, keywordId2=?, keywordId3=? " + "WHERE ISBN=?");
-
-		String pDate = book.getPublicationDate();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date publicationDate = null;
+		query.append("UPDATE Book set TITLE=?, AUTHOR=?, PUBLISHER=?, PUBLICATIONDATE=?, ");
+		query.append("COVER_PATH=?, BOOKINFO=?, BOOKINDEX=?, AUTHORINFO=?, ");
+		query.append("KEYWORDID1=?, CATEGORYID=?, LEVELID=?, LANGUAGEID=?, ");
+		query.append("KEYWORDID2=?, KEYWORDID3=? WHERE ISBN=? ");
+	
+		String stringDate = book.getPublicationDate();
+		System.out.println(stringDate);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");	
+		java.sql.Date date = null;
 		try {
-			publicationDate = dateFormat.parse(pDate);
+		    Date buffDate = sdf.parse(stringDate);
+		    date = new java.sql.Date(buffDate.getTime());
+		    System.out.println(date);
 		} catch (ParseException e) {
-			e.printStackTrace();
+		    e.printStackTrace();
 		}
-		System.out.print(publicationDate + "!!");
 
 		System.out.print("문제3");
 		System.out.println("++" + book.getISBN());
 		System.out.print("바꿈" + book.getAuthor());
-		Object[] param = new Object[] { book.getTitle(), book.getAuthor(), book.getPublisher(), publicationDate,
-				book.getcover_path(), book.getBookInfo(), book.getBookIndex(), book.getAuthorInfo(), keyword1, category,
+		Object[] param = new Object[] { book.getTitle(), book.getAuthor(), book.getPublisher(), 
+				date, book.getcover_path(), book.getBookInfo(), book.getBookIndex(), 
+				book.getAuthorInfo(), keyword1, category,
 				level, language, keyword2, keyword3, book.getISBN() };
 		System.out.print("문제4");
+		
+//		System.out.println(book.getTitle().getClass().getName()+",  "+
+//		book.getAuthor().getClass().getName()+",  "+
+//		book.getPublisher().getClass().getName()+",  "+
+//		publicationDate.getClass().getName()+",  "+
+//		book.getcover_path().getClass().getName()+",  "+
+//		book.getBookInfo().getClass().getName());
+				
+		
 		jdbcUtil.setSqlAndParameters(query.toString(), param);
 
 		try {

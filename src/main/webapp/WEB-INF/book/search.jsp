@@ -22,7 +22,8 @@
 #searchClick {
 	width: 60px;
 	height: 46px;
-	background-image: url(./images/search_img.PNG);
+	background-image: url('/images/search_img.PNG');
+	cursor: pointer;
 }
 
 #searchText {

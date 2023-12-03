@@ -95,7 +95,7 @@ function bookRegister() {
 				<tr>
 					<th>표지(경로)</th>
 					<td>&nbsp;<input type="text" name="cover_path"
-						value="${book.cover_path}"></td>
+						value="${book.cover_path}" placeholder="ex)파일명.jpg"></td>
 				</tr>
 				<tr>
 					<th>ISBN</th>
@@ -119,7 +119,7 @@ function bookRegister() {
 				<tr>
 					<th>출판 날짜</th>
 					<td>&nbsp;<input type="text" name="publicationDate"
-						value="${book.publicationDate }">
+						value="${book.publicationDate }" placeholder="ex)2023-01-10">
 					</td>
 				</tr>
 				<tr>

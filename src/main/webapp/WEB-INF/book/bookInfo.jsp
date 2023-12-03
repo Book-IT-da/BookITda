@@ -121,7 +121,7 @@ a, button{
 			</tr>
 
 			<tr>
-				<td>&nbsp <img src="<c:url value='/images/search_star.PNG' />" /> 평점
+				<td>&nbsp <img src="<c:url value='/images/search_star.PNG' />" /> ${book.averageStar}
 				</td>
 			</tr>
 		</table>
