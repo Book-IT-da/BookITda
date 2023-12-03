@@ -15,14 +15,10 @@ public class DeleteReviewController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-
 		ReviewManager manager = ReviewManager.getInstance();
 		String reviewId = request.getParameter("reviewId");
 
-		Review review = null;
-		review = manager.read(Integer.parseInt(reviewId));
-
-		request.setAttribute("review", review);
+		manager.remove(Integer.parseInt(reviewId));
 
         return "redirect:/review/list";
 	}
