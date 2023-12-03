@@ -9,6 +9,7 @@ import controller.user.*;
 import controller.book.*;
 import controller.review.*;
 import controller.interest.*;
+import controller.question.*;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -34,7 +35,7 @@ public class RequestMapping {
        mappings.put("/user/answer", new AnswerUserController());
 	
 	// Q&A 게시판 관련
-	mappings.put("/question/list", new ListQuestionController());
+       mappings.put("/question/list", new ListQuestionController());
         mappings.put("/question/view", new ReadQuestionController());
         mappings.put("/question/create", new CreateQuestionController());
         mappings.put("/question/update", new UpdateQuestionController());
