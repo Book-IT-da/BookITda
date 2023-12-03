@@ -5,6 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
 		<title>리뷰 작성</title>
@@ -97,6 +98,9 @@
 	</head>
 <body>
 		<header>
+			<div>
+				<jsp:include page="../top/userMenubar.jsp" />
+			</div>
 			<div>
 				<jsp:include page="../top/logo.jsp" /> 
 			</div>
