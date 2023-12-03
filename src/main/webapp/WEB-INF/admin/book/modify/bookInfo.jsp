@@ -170,7 +170,6 @@ function bookModify() {
 
 			<p />			
 			<button type="button" id="btn_modify" onClick="bookModify()">수정</button>
-			<!-- <button type="button" id="btn_delete" onClick="bookDelete('<c:url value='/admin/book/delete' />')">삭제</button> -->
 			
 			<a
 			href="<c:url value='/admin/book/delete'>

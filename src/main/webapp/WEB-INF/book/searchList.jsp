@@ -45,7 +45,7 @@ figure {
 	cursor: pointer;
 }
 
-figure > * {
+figure>* {
 	flex: 1;
 }
 
@@ -74,6 +74,12 @@ a {
 
 <body>
 	<header>
+		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
+
+		<div>
+			<jsp:include page="../top/userMenubar.jsp" />
+		</div>
 		<div>
 			<jsp:include page="../top/logo.jsp" />
 		</div>
@@ -92,12 +98,14 @@ a {
 					   <c:param name='ISBN' value='${b.ISBN}'/>
 			 		   </c:url>">
 				<figure class="book">
-					<img id="book_cover" src="<c:url value='/images/bookCover/${b.cover_path}' />" />
+					<img id="book_cover"
+						src="<c:url value='/images/bookCover/${b.cover_path}' />" />
 					<figcaption>
 						<p>[ ${b.title} ]</p>
 						<p>[ ${b.author} ] &nbsp; &lt; ${b.publisher} &gt;</p>
 						<p class="starScore">
-							<img src="<c:url value='/images/search_star.PNG' />" /> ${b.averageStar}
+							<img src="<c:url value='/images/search_star.PNG' />" />
+							${b.averageStar}
 						</p>
 					</figcaption>
 				</figure>
