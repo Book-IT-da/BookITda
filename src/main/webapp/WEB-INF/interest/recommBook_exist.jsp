@@ -130,7 +130,7 @@
 						</c:url>
 						<a href="${bookInfoURL}">
 				            <div class="book">
-				                <%-- <img class="bookImg" src="${recommBook.bookImage}" alt="${recommBook.cover_path}"> --%>
+				                <img class="bookImg" src="<c:url value='/images/bookCover/${recommBook.cover_path}' />" > 
 				                <h2 class="title">${recommBook.title}</h2>
 				                <p class="author">${recommBook.author}</p>
 				                <p class="avgStar">${recommBook.avgstar}</p>
