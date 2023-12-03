@@ -6,11 +6,11 @@ import java.util.List;
 import model.ReviewComment;
 import model.dao.ReviewCommentDAO;
 
-public class ReviewCommentManager {
-	private static ReviewCommentManager commentMan = new ReviewCommentManager();
+public class CommentManager {
+	private static CommentManager commentMan = new CommentManager();
 	private ReviewCommentDAO reviewCommentDAO;
 
-	private ReviewCommentManager() {
+	private CommentManager() {
 		try {
 			reviewCommentDAO = new ReviewCommentDAO();
 		} catch (Exception e) {
@@ -18,7 +18,7 @@ public class ReviewCommentManager {
 		}			
 	}
 
-	public static ReviewCommentManager getInstance() {
+	public static CommentManager getInstance() {
 		return commentMan;
 	}
 	

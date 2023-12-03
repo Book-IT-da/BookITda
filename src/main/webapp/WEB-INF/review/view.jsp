@@ -75,6 +75,9 @@
             .comment_detail{
                 height: 100px;
             }
+            td form { 
+            	float: right; 
+            }
         </style>
         <script>
 			function reviewRemove() {
@@ -110,7 +113,6 @@
 				action="<c:url value='/review/delete' />">
     			<input type="hidden" name="reviewId" value="<%=review.getReviewId()%>">
                 <input type="button" value="삭제하기"  onClick="reviewRemove()">
-    			<!-- <button type="submit">삭제하기</button> -->
             </form>
             </div>
             <div>
@@ -186,20 +188,34 @@
             <div align="center">
                 <input id="comment_input" type="text" placeholder="댓글을 입력하세요">
                 <button>댓글달기</button>
-                <div>
-                    <table class="comment_box">
-                        <thead>
-                          <tr>
-                            <td class="tg-0pky">닉네임</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="comment_detail">댓글 내용</td>
-                          </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <c:forEach var="comment" items="${commentList}"> 
+	                <div>
+	                    <table class="comment_box">
+	                        <thead>
+	                          <tr>
+	                            <td>${comment.nickname}</td>
+	                            <td>
+						            <form name="deleteCommentForm" method="GET"
+										action="<c:url value='/comment/delete' />">
+						    			<input type="hidden" name="commentId" value="">
+						                <input type="button" value="삭제"  onClick="commentodify()">
+						            </form>
+						            <form name="updateCommentForm" method="GET"
+										action="<c:url value='/comment/update' />">
+						    			<input type="hidden" name="commentId" value="">
+						                <input type="button" value="수정"  onClick="commentRemove()">
+						            </form>
+	                            </td>
+	                          </tr>
+	                        </thead>
+	                        <tbody>
+	                          <tr>
+	                            <td class="comment_detail" colspan="2">${comment.rContent}</td>
+	                          </tr>
+	                        </tbody>
+	                    </table>
+	                </div>
+                </c:forEach>
             </div>
         </main>
 </body>
