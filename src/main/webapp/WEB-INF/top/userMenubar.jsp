@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div>
 	<ul class="user_menu">
-		<li><a href="">마이페이지</a></li>
+		<li><a href="<c:url value='/user/mypage'/>">마이페이지</a></li>
 		<c:if test="${sessionScope.userId==null}">
 			<li><a href="<c:url value='/user/login/form'/>">로그인</a></li>
 		</c:if>
