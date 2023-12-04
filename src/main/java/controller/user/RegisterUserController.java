@@ -29,8 +29,7 @@ public class RegisterUserController implements Controller {
 			System.out.println("Create User");
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", request.getParameter("userId"));
-			
-			return "redirect:/book/searchList"; // 관심분야 설정으로 변경해야 함
+			return "redirect:/get/caegoryList"; // 관심분야 설정으로 변경해야 함
 		} catch (ExistingUserException e) {
 			request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
