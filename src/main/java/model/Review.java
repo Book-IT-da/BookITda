@@ -12,6 +12,7 @@ public class Review {
     private String title;   // 책 제목
     private String author;	// 저자
     private String publisher;	// 출판사
+	private String cover_path;	//책 표지
     private String userId;  // 사용자 아이디
     private String nickname; // 작성자(닉네임 사용)
     private int stars;  // 별점
@@ -46,12 +47,13 @@ public class Review {
     
     // 리뷰 리스트 & 책 제목으로 검색
     public Review(int reviewId, int stars, 
-            String onelineReview, String title, String nickname, Date createDate) {
+            String onelineReview, String title, String cover_path, String nickname, Date createDate) {
         super();
         this.reviewId = reviewId;
         this.stars = stars;
         this.onelineReview = onelineReview;
         this.title = title;
+        this.cover_path = cover_path;
         this.nickname = nickname;
         this.createDate = createDate; 
     }
@@ -60,7 +62,7 @@ public class Review {
     public Review(int reviewId, int stars, String level, String purpose,
             String recommObj, String keyword, 
             String onelineReview, String multilineReview, 
-            String title, String nickname, String author, String publisher, Date createDate) {
+            String title, String cover_path, String nickname, String author, String publisher, Date createDate) {
         super();
         this.reviewId = reviewId;
         this.stars = stars;
@@ -71,6 +73,7 @@ public class Review {
         this.onelineReview = onelineReview;
         this.multilineReview = multilineReview;
         this.title = title;
+        this.cover_path = cover_path;
         this.nickname = nickname;
 		this.author = author;
 		this.publisher = publisher;
@@ -78,14 +81,15 @@ public class Review {
     }
 
 
-	public Review(int reviewId, String title, String author, String publisher, String userId, String nickname,
-			int stars, String level, String purpose, String recommObj, String keyword, String onelineReview,
-			String multilineReview, String iSBN, Date createDate) {
+	public Review(int reviewId, String title, String author, String publisher, String cover_path, String userId,
+			String nickname, int stars, String level, String purpose, String recommObj, String keyword,
+			String onelineReview, String multilineReview, String iSBN, Date createDate) {
 		super();
 		this.reviewId = reviewId;
 		this.title = title;
 		this.author = author;
 		this.publisher = publisher;
+		this.cover_path = cover_path;
 		this.userId = userId;
 		this.nickname = nickname;
 		this.stars = stars;
@@ -137,6 +141,16 @@ public class Review {
 
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+
+
+	public String getCover_path() {
+		return cover_path;
+	}
+
+
+	public void setCover_path(String cover_path) {
+		this.cover_path = cover_path;
 	}
 
 
@@ -253,11 +267,10 @@ public class Review {
 	@Override
 	public String toString() {
 		return "Review [reviewId=" + reviewId + ", title=" + title + ", author=" + author + ", publisher=" + publisher
-				+ ", userId=" + userId + ", nickname=" + nickname + ", stars=" + stars + ", level=" + level
-				+ ", purpose=" + purpose + ", recommObj=" + recommObj + ", keyword=" + keyword + ", onelineReview="
-				+ onelineReview + ", multilineReview=" + multilineReview + ", ISBN=" + ISBN + ", createDate="
-				+ createDate + "]";
+				+ ", cover_path=" + cover_path + ", userId=" + userId + ", nickname=" + nickname + ", stars=" + stars
+				+ ", level=" + level + ", purpose=" + purpose + ", recommObj=" + recommObj + ", keyword=" + keyword
+				+ ", onelineReview=" + onelineReview + ", multilineReview=" + multilineReview + ", ISBN=" + ISBN
+				+ ", createDate=" + createDate + "]";
 	}
-
     
 }

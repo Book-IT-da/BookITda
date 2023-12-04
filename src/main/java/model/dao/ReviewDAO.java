@@ -47,7 +47,7 @@ public class ReviewDAO {
     public List<Review> reviewList()throws SQLException {
         
         StringBuilder query = new StringBuilder();
-        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, onelineReview, detailReview, title, nickname, createdate ");
+        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, onelineReview, detailReview, title, cover_path, nickname, createdate ");
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
         query.append("INNER JOIN book ON review.isbn = book.isbn ");
@@ -66,6 +66,7 @@ public class ReviewDAO {
                         rs.getInt("starScore"),  
                         rs.getString("onelineReview"), 
                         rs.getString("title"), 
+                        rs.getString("cover_path"),
                         rs.getString("nickname"), 
                         rs.getDate("createDate")
                     );  
@@ -120,7 +121,7 @@ public class ReviewDAO {
         StringBuilder query = new StringBuilder();
         
         query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, "
-                + "onelineReview, detailReview, title, nickname, createdate ");
+                + "onelineReview, detailReview, title, cover_path, nickname, createdate ");
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
         query.append("INNER JOIN book ON review.isbn = book.isbn ");
@@ -140,6 +141,7 @@ public class ReviewDAO {
                         rs.getInt("starScore"),  
                         rs.getString("onelineReview"), 
                         rs.getString("title"), 
+                        rs.getString("cover_path"),
                         rs.getString("nickname"), 
                         rs.getDate("createDate")
                     );  
@@ -160,7 +162,7 @@ public class ReviewDAO {
         
         StringBuilder query = new StringBuilder();
         
-        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, onelineReview, detailReview, title, nickname, author, publisher, createdate ");
+        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, onelineReview, detailReview, title, cover_path, nickname, author, publisher, createdate ");
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
         query.append("INNER JOIN book ON review.isbn = book.isbn ");
@@ -182,6 +184,7 @@ public class ReviewDAO {
                         rs.getString("onelineReview"), 
                         rs.getString("detailReview"), 
                         rs.getString("title"), 
+                        rs.getString("cover_path"),
                         rs.getString("nickname"), 
                         rs.getString("author"), 
                         rs.getString("publisher"), 

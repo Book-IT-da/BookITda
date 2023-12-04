@@ -40,6 +40,7 @@ public class UpdateReviewController implements Controller {
 				request.getParameter("onelineReview"), 
 				request.getParameter("multilineReview"), 
 				request.getParameter("title"), 
+				request.getParameter("cover_path"),
 				request.getParameter("nickname"), 
 				request.getParameter("author"),
 				request.getParameter("publisher"),

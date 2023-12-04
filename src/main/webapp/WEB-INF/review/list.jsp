@@ -60,6 +60,9 @@
             .book_pic{
                 width: 20%;
             }
+            .book_cover {
+				width: 200px;
+			}
             .book_title{
                 font-size: 18px;
                 font-weight: bold;
@@ -124,7 +127,7 @@
 	                    <table class="book_box">
 	                        <thead>
 	                        <tr>
-	                            <td class="book_pic" rowspan="4"> 사진 </td>
+	                            <td class="book_pic" rowspan="4"><%-- <img class="book_cover" src="<c:url value='/images/bookCover/${review.cover_path}' />" /> --%></td>
 	                            <td class="book_title">
 		                            <a href="<c:url value='/review/view'>
 									   <c:param name='reviewId' value='${review.reviewId}'/>
