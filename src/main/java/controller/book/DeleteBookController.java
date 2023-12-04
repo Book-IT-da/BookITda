@@ -18,7 +18,7 @@ public class DeleteBookController implements Controller {
 		System.out.print("책 삭제 컨트롤러에 왔음");
 		manager.deleteBook(ISBN);
 
-		return "redirect:/book/searchList";
+		return "redirect:/book/allList";
 
 	}
 }

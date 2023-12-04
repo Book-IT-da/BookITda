@@ -21,12 +21,14 @@
 	height: 40px;
 }
 
+/*
 .btnMoveToTop {
 	position: fixed;
 	width: 30px;
 	height: 50px;
 	background-image: url(./img/moveToTop.PNG);
 }
+*/
 
 #bookInfoList {
 	border: 0px;

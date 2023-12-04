@@ -51,7 +51,7 @@ public class ViewModifyBookInfoController implements Controller {
 			System.out.print("modift info_post에 왔음");
 			manager.modifyBook(book);
 			
-			return "redirect:/book/searchList";
+			return "redirect:/book/allList";
 		}
 	}
 }

@@ -7,6 +7,7 @@ import controller.Controller;
 import model.Category;
 import model.service.CategoryManager;
 
+//카테고리 수정
 public class ModifyCategoryController implements Controller{
 	
 	@Override

@@ -94,7 +94,6 @@ public class BookDAO {
 		} finally {
 			jdbcUtil.close();
 		}
-
 	}
 
 	// 새로운 책 생성
@@ -172,21 +171,11 @@ public class BookDAO {
 		}
 
 		System.out.print("문제3");
-		System.out.println("++" + book.getISBN());
-		System.out.print("바꿈" + book.getAuthor());
 		Object[] param = new Object[] { book.getTitle(), book.getAuthor(), book.getPublisher(), 
 				date, book.getcover_path(), book.getBookInfo(), book.getBookIndex(), 
 				book.getAuthorInfo(), keyword1, category,
 				level, language, keyword2, keyword3, book.getISBN() };
 		System.out.print("문제4");
-		
-//		System.out.println(book.getTitle().getClass().getName()+",  "+
-//		book.getAuthor().getClass().getName()+",  "+
-//		book.getPublisher().getClass().getName()+",  "+
-//		publicationDate.getClass().getName()+",  "+
-//		book.getcover_path().getClass().getName()+",  "+
-//		book.getBookInfo().getClass().getName());
-				
 		
 		jdbcUtil.setSqlAndParameters(query.toString(), param);
 
@@ -312,7 +301,6 @@ public class BookDAO {
 
 	// 키워드로 책 검색
 	public List<Book> findBookByKeyword(String keyword) throws SQLException {
-		// Ű����1 id�� ã�´�,
 		int keywordId = 0;
 		StringBuilder query1 = new StringBuilder();
 		query1.append("SELECT keywordId FROM keyword WHERE keyword=?");
@@ -511,7 +499,8 @@ public class BookDAO {
 		return null;
 	}
 	
-	//��õ å ����Ʈ ��������
+	//도서 추천을 위함
+	///��õ å ����Ʈ ���������
 	public List<RecommBook> findRecommList(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
         
