@@ -31,7 +31,7 @@
 table {
 	margin-top: 30px;
 	width: 1000px;
-	border-collapse: collapse; 
+	border-collapse: collapse;
 }
 
 td {
@@ -115,16 +115,18 @@ a {
 			</tr>
 		</table>
 		<p />
-		<a
-			href="<c:url value='/question/update'><c:param name='qId' value='${ques.qId}'/></c:url>"
-			class="button">수정</a> <a
-			href="<c:url value='/question/delete'><c:param name='qId' value='${ques.qId}'/></c:url>"
-			onclick="return questionRemove();" class="button">삭제</a> <a
-			href="<c:url value='/question/list'/>" class="button">목록</a>
+		<c:if test="${sessionScope.userId == ques.userId}">
+			<a
+				href="<c:url value='/question/update'><c:param name='qId' value='${ques.qId}'/></c:url>"
+				class="button">수정</a>
+			<a
+				href="<c:url value='/question/delete'><c:param name='qId' value='${ques.qId}'/></c:url>"
+				onclick="return questionRemove();" class="button">삭제</a>
+		</c:if>
+		<a href="<c:url value='/question/list'/>" class="button">목록</a>
 
 		<p />
-		<br>
-		<br>
+		<br> <br>
 
 		<!-- 답변 글 작성 -->
 		<form name="form" method="POST"
@@ -134,9 +136,9 @@ a {
 				required></textarea>
 			<input type="button" value="작성" onClick="answerCreate()">
 		</form>
-		
+
 		<br>
-		
+
 		<!-- 답변 글 보기  -->
 		<c:choose>
 			<c:when test="${not empty answerList}">
@@ -145,14 +147,18 @@ a {
 						<tr>
 							<td>작성자: ${answer.nickname}</td>
 							<td>등록일: ${answer.createDate}</td>
-							<td><a
-								href="<c:url value=''><c:param name='qId' value='${ques.qId}'/></c:url>"
-								onclick="">수정</a> <a
-								href="<c:url value=''><c:param name='qId' value='${ques.qId}'/></c:url>"
-								onclick="">삭제</a></td>
+							<c:if test="${sessionScope.userId == answer.userId}">
+								<td><a
+									href="<c:url value=''><c:param name='qId' value='${ques.qId}'/></c:url>"
+									onclick="">수정</a> <a
+									href="<c:url value=''><c:param name='qId' value='${ques.qId}'/></c:url>"
+									onclick="">삭제</a></td>
+							</c:if>
 						</tr>
 						<tr>
-							<td colspan="3">글 내용<p /> ${answer.answer}</td>
+							<td colspan="3">글 내용
+								<p /> ${answer.answer}
+							</td>
 						</tr>
 					</c:forEach>
 				</table>
