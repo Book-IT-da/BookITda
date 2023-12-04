@@ -514,12 +514,15 @@ public class BookDAO {
 	//��õ å ����Ʈ ��������
 	public List<RecommBook> findRecommList(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
+        
         query.append("SELECT DISTINCT isbn, title, cover_path, author, avgstar ");
         query.append("FROM Book b ");
         query.append("INNER JOIN InterestCat ic ON ic.categoryId = b.categoryId ");
         query.append("INNER JOIN InterestLang il ON il.languageId = b.languageId ");
         query.append("INNER JOIN Member m ON m.levelId = b.levelId ");
-        query.append("WHERE m.userId = ?");
+        query.append("WHERE m.userId = ? ");
+        query.append("AND ic.userId = m.userId ");
+        query.append("AND il.userId = m.userId ");
         
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userId}); 
         try {
