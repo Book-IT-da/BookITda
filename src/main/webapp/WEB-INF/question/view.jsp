@@ -149,9 +149,9 @@ a {
 							<td>등록일: ${answer.createDate}</td>
 							<c:if test="${sessionScope.userId == answer.userId}">
 								<td><a
-									href="<c:url value=''><c:param name='qId' value='${ques.qId}'/></c:url>"
+									href="<c:url value='/answer/update'><c:param name='aId' value='${answer.aId}'/></c:url>"
 									onclick="">수정</a> <a
-									href="<c:url value=''><c:param name='qId' value='${ques.qId}'/></c:url>"
+									href="<c:url value='/answer/delete'><c:param name='aId' value='${answer.aId}'/></c:url>"
 									onclick="">삭제</a></td>
 							</c:if>
 						</tr>
