@@ -149,18 +149,44 @@
             font-size: 20px;
             font-weight: bold;
         }
+        input[type="button"] {
+        	margin-top: 30px;
+			width: 100px;
+            height: 30px;
+		}
     </style>
 <script>
-function createInterest() {	
-	form.submit();
-}
+	function createInterest() {	
+	    var categoryCheckboxes = document.getElementsByName("interestCategory");
+	    var languageCheckboxes = document.getElementsByName("interestLanguages");
+	    var levelCheckboxes = document.getElementsByName("userLevel");
+	
+	    if (!isAtLeastOneChecked(categoryCheckboxes) || !isAtLeastOneChecked(languageCheckboxes) || !isAtLeastOneChecked(levelCheckboxes)) {
+	        alert("관심사를 모두 설정해주세요.");
+	        return false;
+	    }
+	    form.submit();
+	}
+	
+	function isAtLeastOneChecked(checkboxes) {
+	    for (var i = 0; i < checkboxes.length; i++) {
+	        if (checkboxes[i].checked) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+	
+	function skip() {
+	    window.location.href = "${contextPath}/book/searchList";
+	}
 </script>
 </head>
 <body>
 	<center>
         <h1>관심사 생성</h1>
         <hr>
-	<form method="POST" action="<c:url value='/user/interest/create' />">
+	<form name="form" method="POST" action="<c:url value='/user/interest/create'/>">
         <table>
 			<tr>
             	<td class="td1">관심 분야</td>
@@ -199,8 +225,8 @@ function createInterest() {
                 </tr>
         </table>
 	    <div class="button_container">
-		    <input type="submit" value="설정 완료" onClick="createInterest()">
-		    <input type="submit" value="건너뛰기" formaction="${contextPath}/book/searchList">
+		    <input type="button" value="설정 완료" onClick="createInterest()">
+		    <input type="button" value="건너뛰기" onClick="skip()">
 	   </div>
 	</form>
 	</center>
