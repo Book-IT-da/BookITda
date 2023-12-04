@@ -93,11 +93,6 @@ input[type="submit"] {
 					<th colspan="2">글쓰기</th>
 				</tr>
 				<tr>
-					<td>작성자 닉네임</td>
-					<td><input type="text" name="nickname"
-						value="${ques.nickname}" required readonly></td>
-				</tr>
-				<tr>
 					<td>제목</td>
 					<td><input type="text" name="title" value="${ques.title}"
 						required></td>
