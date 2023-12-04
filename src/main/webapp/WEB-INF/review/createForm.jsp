@@ -51,6 +51,12 @@
         </style>
         
         <script>
+        	function findBook() {
+        		window.name = "parentForm";
+                
+                openWin = window.open("Child.html", "childForm", "width=570, height=350, resizable = no, scrollbars = no");  
+        	}
+        	
 			function reviewCreate() {
 				if (form.title.value == "") {
 					alert("제목을 입력하세요.");
@@ -119,7 +125,8 @@
                             <tr>
                                 <td>제목</td>
                                 <td>
-                                    <input class="input_text" name="title" type="text" placeholder="제목을 검색하세요">
+                                    <input class="input_text" name="title" type="text" placeholder="제목을 검색하세요" disabled>
+                        			<input type="button" value="검색하기" onClick="findBook()">
                                 </td>
                             </tr>
                             <tr>
