@@ -65,11 +65,19 @@
 	            cursor: pointer;
 	        }
         </style>
-        <script>
-	        function updateInterest{  
-	            form.submit();
-	        }
-		</script>
+		<script>
+		    function updateInterest() {
+		        var userId = '<%= session.getAttribute("userId") %>';
+		        
+		        if (userId == '') {
+		        	console.log("userId22!!sms" + userId);
+		            window.location.href = '${contextPath}/user/get/interest';
+		        } else {
+		        	console.log("userId22!!" + userId);
+		            window.location.href = '${contextPath}/user/login/form';
+		        }
+		    }
+	</script>
     </head>
 
     <body>
@@ -94,10 +102,7 @@
 			 		</tr>
 			 		<tr>
 			 			<td> 
-				 			<%-- <form action="<c:url value='${contextPath}/user/get/interest'/>" method="POST">
-                                <input type="submit" value="관심사 수정하기" onClick="updateInterest()"/>
-                            </form> --%>
-                            <a href="${contextPath}/user/get/interest"  class="custom-button"><button>관심사 수정하기</button></a>
+                        	<input class="custom-button" type="button" value="관심사 수정하기" onClick="updateInterest()"/>
 	    				</td>
 			 		</tr>
                   </table>
