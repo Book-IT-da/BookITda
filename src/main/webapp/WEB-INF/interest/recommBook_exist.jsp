@@ -21,7 +21,10 @@
     <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 	<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
     <title>추천 도서 보기</title>
-    <style>   
+    <style>  
+		li a {
+		    color: black;
+		}  
 	   	   .bigContainer {
 			    width: 800px; 
 			    height: 650px; 
