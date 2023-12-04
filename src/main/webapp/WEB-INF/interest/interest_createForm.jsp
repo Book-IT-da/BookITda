@@ -106,7 +106,10 @@
 	%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
+    <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+	<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
 <title>관심사 설정</title>
 	<style>
         hr {
@@ -183,11 +186,24 @@
 </script>
 </head>
 <body>
+	<header>
+		<div>
+			<jsp:include page="../top/userMenubar.jsp" />
+		</div>
+		<div>
+			<jsp:include page="../top/logo.jsp" /> 
+		</div> 
+	</header>
+	<jsp:include page="../top/menubar.jsp">
+    	<jsp:param name="selected" value="recomm" />
+	</jsp:include>
 	<center>
-        <h1>관심사 생성</h1>
-        <hr>
+	<br>
 	<form name="form" method="POST" action="<c:url value='/user/interest/create'/>">
         <table>
+        	<tr>
+        		<td colspan="2">&nbsp;&nbsp;&nbsp;관심사를 설정하세요!</td>
+        	</tr>
 			<tr>
             	<td class="td1">관심 분야</td>
 				<td class="td2">
