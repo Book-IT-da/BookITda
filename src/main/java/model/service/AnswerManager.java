@@ -32,6 +32,11 @@ public class AnswerManager {
 	    return answerDAO.createAnswer(qId, ans);
 	}
 	
+	// 답변 삭제
+	public int remove(int aId) throws SQLException {
+	    return answerDAO.removeAnswer(aId);
+	}
+	
 	// 마이페이지 - 사용자가 작성한 모든 답변
 	public List<Answer> findAnswerByUser(String userId) throws SQLException {
 		return answerDAO.findAnswerByUser(userId);
