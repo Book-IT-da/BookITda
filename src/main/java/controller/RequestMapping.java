@@ -69,7 +69,7 @@ public class RequestMapping {
         // 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController());
         // 관심사 생성
-        mappings.put("/get/caegoryList", new GetCategoryListController());
+        mappings.put("/get/categoryList", new GetCategoryListController());
         mappings.put("/interest/interest_createForm", new ForwardController("/interest/interest_createForm.jsp"));
         mappings.put("/user/interest/create", new CreateInterestController());
         // 관심사 수정 폼
