@@ -7,6 +7,7 @@ import controller.Controller;
 import model.Category;
 import model.service.CategoryManager;
 
+//모든 카테고리 리스트 
 public class ListCategoryController implements Controller{
 
 	@Override

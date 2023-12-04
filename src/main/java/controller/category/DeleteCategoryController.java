@@ -7,6 +7,7 @@ import controller.Controller;
 import model.Category;
 import model.service.CategoryManager;
 
+//카테고리 삭제를 위한 컨트롤러
 public class DeleteCategoryController implements Controller{
 	
 	@Override

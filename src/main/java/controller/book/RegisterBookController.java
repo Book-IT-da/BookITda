@@ -29,7 +29,7 @@ public class RegisterBookController implements Controller {
 		request.setAttribute("book", book);
 		manager.createBook(book);
 		
-		return "redirect:/book/randomBooks";
+		return "redirect:/book/allList";
 	}
 
 }

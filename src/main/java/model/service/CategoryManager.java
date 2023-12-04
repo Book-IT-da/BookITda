@@ -41,6 +41,4 @@ public class CategoryManager {
 	public List<Category> findAllCategory() throws SQLException{
 		return categoryDAO.findAllCategory();
 	}
-	
-
 }
