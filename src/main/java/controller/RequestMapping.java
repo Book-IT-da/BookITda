@@ -43,12 +43,14 @@ public class RequestMapping {
         mappings.put("/question/delete", new DeleteQuestionController());
         mappings.put("/answer/create", new CreateAnswerController());
 
-        // 리뷰 관련
+        // 리뷰&댓글 관련
         mappings.put("/review/list", new ListReviewController());
         mappings.put("/review/view", new ReadReviewController());
         mappings.put("/review/update", new UpdateReviewController());
         mappings.put("/review/delete", new DeleteReviewController());
         mappings.put("/review/create", new CreateReviewController());
+        mappings.put("/review/comment/create", new CreateCommentController());
+        
         
         //// 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController()); // 검색한 책 리스트
