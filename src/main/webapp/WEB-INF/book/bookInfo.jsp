@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />"
+	type="text/css">
+	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <title>도서 정보 열람</title>
 
 <style>
@@ -82,16 +85,30 @@ hr {
 	background-color: red;
 }
 
-a, button{
+a, button {
 	text-decoration: none;
 	color: black;
 	cursor: pointer;
 }
-
 </style>
 </head>
 <body>
+	<header>
+		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
 
+		<div>
+			<jsp:include page="../top/userMenubar.jsp" />
+		</div>
+		<div>
+			<jsp:include page="../top/logo.jsp" />
+		</div>
+	</header>
+	<jsp:include page="../top/menubar.jsp">
+		<jsp:param name="selected" value="search" />
+	</jsp:include>
+	
+	<br>
 	<!--도서 정보-->
 	<div id="first">| &nbsp; ${book.category} &nbsp; | &nbsp;
 		${book.itLevel} &nbsp; | &nbsp; ${book.language} &nbsp; |</div>
@@ -99,8 +116,8 @@ a, button{
 	<div id="bookTotalInfo">
 		<table>
 			<tr>
-				<th rowspan="9"> <img id="book_cover" src="<c:url value='/images/bookCover/${book.cover_path}' />" />
-				</th>
+				<th rowspan="9"><img id="book_cover"
+					src="<c:url value='/images/bookCover/${book.cover_path}' />" /></th>
 				<td>&nbsp; ISBN : ${book.ISBN}</td>
 			</tr>
 
@@ -121,7 +138,8 @@ a, button{
 			</tr>
 
 			<tr>
-				<td>&nbsp <img src="<c:url value='/images/search_star.PNG' />" /> ${book.averageStar}
+				<td>&nbsp <img src="<c:url value='/images/search_star.PNG' />" />
+					${book.averageStar}
 				</td>
 			</tr>
 		</table>

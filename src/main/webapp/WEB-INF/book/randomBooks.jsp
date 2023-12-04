@@ -10,10 +10,9 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap"
 	rel="stylesheet">
-
-<meta charset="UTF-8">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
+<meta charset="UTF-8">
 <title>메인 페이지(랜덤 도서 리스트)</title>
 
 <style>

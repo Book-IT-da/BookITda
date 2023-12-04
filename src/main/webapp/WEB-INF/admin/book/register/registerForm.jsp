@@ -5,6 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />"
+	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />"
+	type="text/css">
 <title>관리자 책 정보 추가</title>
 
 <style>
@@ -62,21 +66,20 @@ textarea {
 	height: 50px;
 }
 
-a, button{
+a, button {
 	cursor: pointer;
 }
-
 </style>
 
 <script>
-function bookRegister() {
-	registerForm.submit();
-}
+	function bookRegister() {
+		registerForm.submit();
+	}
 
-//function bookDelete(targetUri){
-//	updateForm.action = targetUri;
-//	updateForm.submit();
-//}
+	//function bookDelete(targetUri){
+	//	updateForm.action = targetUri;
+	//	updateForm.submit();
+	//}
 </script>
 
 </script>
@@ -84,13 +87,26 @@ function bookRegister() {
 </head>
 <body>
 	<header>
-		<center>
-			<h3>&lt; 도서 정보 추가 &gt;</h3>
-		</center>
+		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
+
+		<div>
+			<jsp:include page="../../../top/userMenubar.jsp" />
+		</div>
+		<div>
+			<jsp:include page="../../../top/logo.jsp" />
+		</div>
 	</header>
+	<jsp:include page="../../../top/menubar.jsp">
+		<jsp:param name="selected" value="search" />
+	</jsp:include>
+
+	<br>
 
 	<center>
-		<form name="registerForm" method="POST" action="<c:url value='/admin/book/register' />">
+		<h3>&lt; 도서 정보 추가 &gt;</h3>
+		<form name="registerForm" method="POST"
+			action="<c:url value='/admin/book/register' />">
 			<table>
 				<tr>
 					<th>표지(경로)</th>
@@ -161,17 +177,18 @@ function bookRegister() {
 					<th>키워드 <br> (최대 3개)
 					</th>
 					<td>1. <input type="text" name="keyword1"
-						value="${book.keyword1}" placeholder="자바 입문"> 2. <input type="text"
-						name="keyword2" value="${book.keyword2}" placeholder="없다면 X(엑스)"> 3. <input
-						type="text" name="keyword3" value="${book.keyword3}">
+						value="${book.keyword1}" placeholder="자바 입문"> 2. <input
+						type="text" name="keyword2" value="${book.keyword2}"
+						placeholder="없다면 X(엑스)"> 3. <input type="text"
+						name="keyword3" value="${book.keyword3}">
 					</td>
 				</tr>
 			</table>
 
-			<p />			
+			<p />
 			<button type="button" id="btn_modify" onClick="bookRegister()">추가</button>
-			
-		</a>
+
+			</a>
 		</form>
 	</center>
 

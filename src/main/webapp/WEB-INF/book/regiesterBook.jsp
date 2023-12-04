@@ -58,9 +58,9 @@ textarea {
 }
 </style>
 <script>
-function bookAdd(){
-	updateForm.commit();
-}
+	function bookAdd() {
+		updateForm.commit();
+	}
 </script>
 </head>
 <body>
@@ -117,11 +117,18 @@ function bookAdd(){
 			<br> <br>
 
 			<table>
+				<!-- 
 				<tr class="bookType_cate">
 					<th>카테고리</th>
-					<td>&nbsp;<input type="text" name="category">
+					<td>&nbsp; <select name="categories">
+							<c:forEach var="cate" items="< cateList %>">
+								<option value="< cate ">< cate%></option>
+							</c:forEach></td>
+					</select>
+
 					</td>
 				</tr>
+				 -->
 				<tr class="bookType">
 					<th>수준</th>
 					<td>&nbsp;<input type="text" name="itLevel"></td>
@@ -133,9 +140,9 @@ function bookAdd(){
 				<tr class="bookType">
 					<th>키워드 <br> (최대 3개)
 					</th>
-					<td>1. <input type="text" name="keyword1"> 
-						2. <input type="text"name="keyword2"> 
-						3. <input type="text" name="keyword3">
+					<td>1. <input type="text" name="keyword1"> 2. <input
+						type="text" name="keyword2"> 3. <input type="text"
+						name="keyword3">
 					</td>
 				</tr>
 			</table>

@@ -5,8 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />"
+	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />"
+	type="text/css">
 <title>관리자 책 정보 수정</title>
-
 <style>
 table {
 	border: 1px solid;
@@ -62,21 +65,20 @@ textarea {
 	height: 50px;
 }
 
-a, button{
+a, button {
 	cursor: pointer;
 }
-
 </style>
 
 <script>
-function bookModify() {
-	updateForm.submit();
-}
+	function bookModify() {
+		updateForm.submit();
+	}
 
-//function bookDelete(targetUri){
-//	updateForm.action = targetUri;
-//	updateForm.submit();
-//}
+	//function bookDelete(targetUri){
+	//	updateForm.action = targetUri;
+	//	updateForm.submit();
+	//}
 </script>
 
 </script>
@@ -84,13 +86,26 @@ function bookModify() {
 </head>
 <body>
 	<header>
-		<center>
-			<h3>&lt; 도서 정보 수정 &gt;</h3>
-		</center>
+		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
+
+		<div>
+			<jsp:include page="../../../top/userMenubar.jsp" />
+		</div>
+		<div>
+			<jsp:include page="../../../top/logo.jsp" />
+		</div>
 	</header>
+	<jsp:include page="../../../top/menubar.jsp">
+		<jsp:param name="selected" value="search" />
+	</jsp:include>
+
+	<br>
 
 	<center>
-		<form name="updateForm" method="POST" action="<c:url value='/admin/book/modify' />">
+		<h3>&lt; 도서 정보 수정 &gt;</h3>
+		<form name="updateForm" method="POST"
+			action="<c:url value='/admin/book/modify' />">
 			<table>
 				<tr>
 					<th>표지(경로)</th>
@@ -168,15 +183,15 @@ function bookModify() {
 				</tr>
 			</table>
 
-			<p />			
+			<p />
 			<button type="button" id="btn_modify" onClick="bookModify()">수정</button>
-			
+
 			<a
-			href="<c:url value='/admin/book/delete'>
+				href="<c:url value='/admin/book/delete'>
 					   <c:param name='ISBN' value='${book.ISBN}'/>
 			 		   </c:url>">
-			<button type="button" id="btn_delete">삭제</button>
-		</a>
+				<button type="button" id="btn_delete">삭제</button>
+			</a>
 		</form>
 	</center>
 

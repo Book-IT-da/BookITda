@@ -5,8 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />"
+	type="text/css">
+	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <title>관리자 - 카테고리 리스트</title>
-
 <style>
 table {
 	border: 1px solid;
@@ -59,14 +61,21 @@ tr {
 </script>
 
 <body>
-	<link rel=stylesheet href="<c:url value='/css/logo.css' />"
-		type="text/css">
 	<header>
+		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
+
+		<div>
+			<jsp:include page="../../top/userMenubar.jsp" />
+		</div>
 		<div>
 			<jsp:include page="../../top/logo.jsp" />
 		</div>
 	</header>
-	<hr>
+	<jsp:include page="../../top/menubar.jsp">
+		<jsp:param name="selected" value="search" />
+	</jsp:include>
+	
 	<br>
 
 	<center>
