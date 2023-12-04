@@ -18,11 +18,16 @@
 			<td>내용</td>
 			<td>작성일</td>
 		</tr>
-		
+
 		<c:forEach var="answer" items="${answerList}">
 			<tr>
 				<!-- 타이틀에 링크 넣어야 함 -->
-				<td>${answer.answer} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<c:out value="${answer.qId}" />
+				<td><a
+					href="<c:url value='/question/view'>
+					   <c:param name='qId' value='${answer.qId}'/>
+			 		 </c:url>">
+						${answer.answer}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>${answer.createDate}</td>
 			</tr>
 		</c:forEach>
