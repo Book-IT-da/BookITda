@@ -22,8 +22,11 @@
 		
 		<c:forEach var="question" items="${questionList}">
 			<tr>
-				<!-- 타이틀에 링크 넣어야 함 -->
-				<td>${question.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><a
+					href="<c:url value='/question/view'>
+					   <c:param name='qId' value='${question.qId}'/>
+			 		 </c:url>">
+						${question.title}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>${question.views}</td>
 				<td>${question.createDate}</td>
 			</tr>
