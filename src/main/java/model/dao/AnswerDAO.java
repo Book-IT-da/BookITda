@@ -123,7 +123,7 @@ public class AnswerDAO {
     // 마이페이지 - 사용자가 작성한 모든 답변 글을 List에 저장 및 반환
     public List<Answer> findAnswerByUser(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
-        query.append("SELECT a.aId, a.answer, a.createDate ");
+        query.append("SELECT a.aId, a.answer, a.qId, a.createDate ");
         query.append("FROM ANSWER a ");
         query.append("JOIN QUESTION q ON a.QID = q.QID ");
         query.append("JOIN MEMBER m ON a.USERID = m.USERID ");
@@ -138,6 +138,7 @@ public class AnswerDAO {
                 Answer answer = new Answer(
                         rs.getInt("aId"),
                         rs.getString("answer"),
+                        rs.getInt("qId"),
                         rs.getDate("createDate"));
                 answers.add(answer);
             }
