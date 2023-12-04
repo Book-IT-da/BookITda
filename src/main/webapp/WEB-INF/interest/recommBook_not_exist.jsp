@@ -65,19 +65,19 @@
 	            cursor: pointer;
 	        }
         </style>
-		<script>
+<%-- 		<script>
 		    function updateInterest() {
 		        var userId = '<%= session.getAttribute("userId") %>';
 		        
-		        if (userId == '') {
-		        	console.log("userId22!!sms" + userId);
-		            window.location.href = '${contextPath}/user/get/interest';
-		        } else {
-		        	console.log("userId22!!" + userId);
+		        if (userId === '' || userId === null) {
+		            console.log("userId is empty or null: " + userId);
 		            window.location.href = '${contextPath}/user/login/form';
+		        } else {
+		            console.log("userId: " + userId);
+		            window.location.href = '${contextPath}/user/get/interest';
 		        }
 		    }
-	</script>
+	</script> --%>
     </head>
 
     <body>
@@ -102,7 +102,13 @@
 			 		</tr>
 			 		<tr>
 			 			<td> 
-                        	<input class="custom-button" type="button" value="관심사 수정하기" onClick="updateInterest()"/>
+                        	<!-- <input class="custom-button" type="button" value="관심사 수정하기" onClick="updateInterest()"/> -->
+                        	<c:if test="${sessionScope.userId!=null}">
+								<a class="custom-button" href="<c:url value='/user/get/interest'/>">관심사 수정하기</a>
+							</c:if>
+							<c:if test="${sessionScope.userId==null}">
+								<a class="custom-button" href="<c:url value='/user/login/form'/>">로그인하러 가기</a>
+							</c:if>
 	    				</td>
 			 		</tr>
                   </table>
