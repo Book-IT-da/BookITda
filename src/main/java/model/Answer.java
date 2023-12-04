@@ -31,10 +31,11 @@ public class Answer {
         this.createDate = createDate;
     }
 
-    public Answer(int aId, String answer, Date createDate) {
+    public Answer(int aId, String answer, int qId, Date createDate) {
         super();
         this.aId = aId;
         this.answer = answer;
+        this.qId = qId;
         this.createDate = createDate;
     }
 
