@@ -19,7 +19,7 @@ public class LoginController implements Controller {
         	HttpSession session = request.getSession();
         	session.setAttribute("userId", userId);
         	
-        	return "redirect:/book/searchList";
+        	return "redirect:/";
     	} catch (Exception e) {
     		request.setAttribute("loginFailed", true);
     		request.setAttribute("exception", e);
