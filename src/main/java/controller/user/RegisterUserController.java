@@ -2,6 +2,7 @@ package controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 import model.User;
@@ -22,11 +23,13 @@ public class RegisterUserController implements Controller {
 				request.getParameter("nickname"),
 				request.getParameter("email"));
 		
-		
 		try {
 			UserManager userMan = UserManager.getInstance();
 			userMan.create(user);
 			System.out.println("Create User");
+			HttpSession session = request.getSession();
+			session.setAttribute("userId", request.getParameter("userId"));
+			
 			return "redirect:/book/searchList"; // 관심분야 설정으로 변경해야 함
 		} catch (ExistingUserException e) {
 			request.setAttribute("registerFailed", true);
