@@ -15,11 +15,6 @@
 
 <script>
 	function questionCreate() {
-		if (form.userId.value == "") {
-			alert("아이디를 입력하세요.");
-			form.userId.focus();
-			return false;
-		}
 		if (form.title.value == "") {
 			alert("제목을 입력하세요.");
 			form.title.focus();
@@ -95,10 +90,6 @@ input[type="submit"] {
 			<table>
 				<tr>
 					<th colspan="2">글쓰기</th>
-				</tr>
-				<tr>
-					<td>작성자 아이디</td>
-					<td><input type="text" name="userId" required></td>
 				</tr>
 				<tr>
 					<td>제목</td>
