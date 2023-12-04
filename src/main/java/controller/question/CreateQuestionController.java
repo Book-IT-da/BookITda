@@ -2,6 +2,7 @@ package controller.question;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 import model.Question;
@@ -13,17 +14,19 @@ public class CreateQuestionController implements Controller {
 			return "/question/createForm.jsp";
 		}
 		
-		// 문제: 아이디당 1개의 질문 글만 입력됨.
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		
 		Question question = new Question(
 				0, request.getParameter("title"),
 				request.getParameter("content"),
-				0, request.getParameter("userId"), null);
+				0, userId, null);
 		
 		try {
 			QuestionManager quesMan = QuestionManager.getInstance();
 			quesMan.create(question);
 			System.out.println("Create Question");
-			return "redirect:/question/list"; // 추후에 view로 변경하기
+			return "redirect:/question/list"; 
 		} catch (Exception e) {
 			request.setAttribute("exception", e);
 			return "/question/list.jsp";

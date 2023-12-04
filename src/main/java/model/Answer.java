@@ -21,10 +21,11 @@ public class Answer {
         this.createDate = createDate;
     }
 
-    public Answer(int aId, String answer, String nickname, int qId, Date createDate) {
+    public Answer(int aId, String answer, String userId, String nickname, int qId, Date createDate) {
         super();
         this.aId = aId;
         this.answer = answer;
+        this.userId = userId;
         this.nickname = nickname;
         this.qId = qId;
         this.createDate = createDate;

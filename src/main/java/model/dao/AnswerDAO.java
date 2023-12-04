@@ -89,7 +89,7 @@ public class AnswerDAO {
     // 답변 리스트
     public List<Answer> findAnswerList(int qId) throws SQLException {
         StringBuilder query = new StringBuilder();
-        query.append("SELECT aId, answer, m.nickname, a.createDate ");
+        query.append("SELECT aId, answer, m.userId, m.nickname, a.createDate ");
         query.append("FROM ANSWER a ");
         query.append("JOIN MEMBER m ON a.userId = m.userId ");
         query.append("JOIN QUESTION q ON a.QID = q.QID ");
@@ -105,6 +105,7 @@ public class AnswerDAO {
                 Answer ans = new Answer(
                         rs.getInt("aId"),
                         rs.getString("answer"),
+                        rs.getString("userId"),
                         rs.getString("nickname"),
                         qId,
                         rs.getDate("createDate"));
