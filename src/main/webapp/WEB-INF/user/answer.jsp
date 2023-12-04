@@ -21,7 +21,6 @@
 
 		<c:forEach var="answer" items="${answerList}">
 			<tr>
-				<!-- 타이틀에 링크 넣어야 함 -->
 				<td><a
 					href="<c:url value='/question/view'>
 					   <c:param name='qId' value='${answer.qId}'/>
