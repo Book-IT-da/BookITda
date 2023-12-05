@@ -136,7 +136,7 @@
 				                <img class="bookImg" src="<c:url value='/images/bookCover/${recommBook.cover_path}' />" > 
 				                <h2 class="title">${recommBook.title}</h2>
 				                <p class="author">${recommBook.author}</p>
-				                <p class="avgStar">${recommBook.avgstar}</p>
+				                <p class="avgStar">★${recommBook.avgstar}</p>
 				            </div>
 				           </a>
 				        </td>
