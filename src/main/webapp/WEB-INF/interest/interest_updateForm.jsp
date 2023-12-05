@@ -43,8 +43,8 @@
     /* request.setAttribute("selectedCategories", selectedCategories); */
 
     String[] languageData = {
-            "1", "Python",
-            "2", "Java",
+            "1", "Java",
+            "2", "Python",
             "3", "C",
             "4", "C++",
             "5", "Kotlin",
