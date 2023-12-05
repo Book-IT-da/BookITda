@@ -203,7 +203,7 @@
 	            <form name="form" method="POST"
 					action="<c:url value='/review/comment/create'/>">
 					<input type="hidden" name="reviewId" value="${review.reviewId}">
-					<input type="hidden" name="userId" value="${review.userId}">
+					<input type="hidden" name="userId" value="${userId}">
 					<textarea id="comment_input" name="rContent" placeholder="답변을 입력해주세요"
 						required></textarea>
 					<input type="button" value="작성" onClick="commentCreate()">
