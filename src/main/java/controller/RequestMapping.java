@@ -52,6 +52,7 @@ public class RequestMapping {
         mappings.put("/review/delete", new DeleteReviewController());
         mappings.put("/review/create", new CreateReviewController());
         mappings.put("/review/comment/create", new CreateCommentController());
+        mappings.put("/review/comment/delete", new DeleteCommentController());
         
         
         //// 도서 검색 관련

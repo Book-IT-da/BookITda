@@ -103,6 +103,15 @@
 				}
 				form.submit();
 			}
+			
+			function commentRemove(){
+				var answer = confirm("정말 삭제하시겠습니까?");
+
+				if(answer){
+					deleteCommentForm.submit();
+				}
+				return false;
+			}
 			</script>
 	</head>
 <body>
@@ -222,16 +231,19 @@
 	                            <td class="comment_nick">${comment.nickname}</td>
 	                            <td>${comment.createDate}</td>
 	                            <td>
-						            <form name="deleteCommentForm" method="GET"
-										action="<c:url value='/comment/delete' />">
-						    			<input type="hidden" name="commentId" value="">
-						                <input type="button" value="삭제"  onClick="commentodify()">
-						            </form>
-						            <form name="updateCommentForm" method="GET"
-										action="<c:url value='/comment/update' />">
-						    			<input type="hidden" name="commentId" value="">
-						                <input type="button" value="수정"  onClick="commentRemove()">
-						            </form>
+									<c:if test="${sessionScope.userId == comment.userId}">
+							            <form name="deleteCommentForm" method="GET"
+											action="<c:url value='/review/comment/delete' />">
+											<input type="hidden" name="reviewId" value="${review.reviewId}">
+							    			<input type="hidden" name="commentId" value="${comment.commentId}">
+							                <input type="button" value="삭제"  onClick="commentRemove()">
+							            </form>
+							            <form name="updateCommentForm" method="GET"
+											action="<c:url value='/comment/update' />">
+							    			<input type="hidden" name="commentId" value="">
+							                <input type="button" value="수정"  onClick="commentModify()">
+							            </form>
+						            </c:if>
 	                            </td>
 	                          </tr>
 	                        </thead>

@@ -114,7 +114,7 @@ public class ReviewCommentDAO {
     }
     
     //리뷰 댓글 삭제
-    public int reviewComment (int commentId) {
+    public int removeComment (int commentId) {
         
         StringBuilder query = new StringBuilder();
         

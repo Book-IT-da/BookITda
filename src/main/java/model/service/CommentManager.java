@@ -39,8 +39,8 @@ public class CommentManager {
     }
 
     //리뷰 댓글 삭제
-    public int reviewComment (int commentId) {
-    	return reviewCommentDAO.reviewComment(commentId);
+    public int removeComment (int commentId) {
+    	return reviewCommentDAO.removeComment(commentId);
     }
     
     // 마이페이지 - 사용자가 작성한 모든 리뷰 댓글 
