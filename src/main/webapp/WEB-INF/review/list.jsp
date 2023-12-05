@@ -52,11 +52,6 @@
                 border-width:1px;
                 padding:10px 5px;
             }
-            .tg .tg-0pky{
-                border-color:inherit;
-                text-align:left;
-                vertical-align:top
-            }
             .book_pic{
                 width: 20%;
             }
@@ -75,6 +70,10 @@
             }
             .book_oneline_review{
                 font-size: 16px;
+            }
+            .review_date{
+                font-size: 12px;
+            	
             }
         </style>
 	<script type="text/javascript">
@@ -127,12 +126,15 @@
 	                    <table class="book_box">
 	                        <thead>
 	                        <tr>
-	                            <td class="book_pic" rowspan="4"><%-- <img class="book_cover" src="<c:url value='/images/bookCover/${review.cover_path}' />" /> --%></td>
-	                            <td class="book_title">
+	                            <td class="book_pic" rowspan="5"><%-- <img class="book_cover" src="<c:url value='/images/bookCover/${review.cover_path}' />" /> --%></td>
+	                            <td class="review_date">${review.createDate }</td>
+	                        </tr>
+	                        <tr>
+	                        	<td class="book_title">
 		                            <a href="<c:url value='/review/view'>
 									   <c:param name='reviewId' value='${review.reviewId}'/>
 							 		 </c:url>">
-	                            ${review.title} </a>
+	                            	${review.title} </a>
 	                            </td>
 	                        </tr>
 	                        <tr>

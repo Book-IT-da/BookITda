@@ -25,6 +25,7 @@ public class ReviewCommentDAO {
         query.append("INNER JOIN member ON r.userId = member.userId ");
         query.append("INNER JOIN review ON r.reviewId = review.reviewId ");
         query.append("WHERE review.reviewId = ? ");
+        query.append("ORDER BY r.createdate DESC");
 
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {reviewId});
         

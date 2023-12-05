@@ -78,6 +78,9 @@
             .comment_detail{
                 height: 100px;
             }
+            .comment_nick{
+            	width: 500px;
+            }
             td form { 
             	float: right; 
             }
@@ -134,7 +137,9 @@
                     <tbody>
                       <tr>
                         <td>작정자</td>
-                        <td colspan="4"><%=review.getNickname()%></td>
+                        <td colspan="2"><%=review.getNickname()%></td>
+                        <td>작성일</td>
+                        <td><%=review.getCreateDate()%></td>
                       </tr>
                       <tr>
                         <td colspan="5"><%=review.getTitle()%></td>
@@ -214,7 +219,8 @@
 	                    <table class="comment_box">
 	                        <thead>
 	                          <tr>
-	                            <td>${comment.nickname}</td>
+	                            <td class="comment_nick">${comment.nickname}</td>
+	                            <td>${comment.createDate}</td>
 	                            <td>
 						            <form name="deleteCommentForm" method="GET"
 										action="<c:url value='/comment/delete' />">
@@ -231,7 +237,7 @@
 	                        </thead>
 	                        <tbody>
 	                          <tr>
-	                            <td class="comment_detail" colspan="2">${comment.rContent}</td>
+	                            <td class="comment_detail" colspan="3">${comment.rContent}</td>
 	                          </tr>
 	                        </tbody>
 	                    </table>
