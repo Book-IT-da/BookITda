@@ -512,6 +512,7 @@ public class BookDAO {
         query.append("WHERE m.userId = ? ");
         query.append("AND ic.userId = m.userId ");
         query.append("AND il.userId = m.userId ");
+        query.append("ORDER BY b.avgstar DESC ");
         
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userId}); 
         try {
