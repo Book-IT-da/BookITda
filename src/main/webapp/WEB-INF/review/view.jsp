@@ -91,6 +91,15 @@
 				}
 				return false;
 			}
+			
+			function commentCreate() {
+				if (form.rContent.value == "") {
+					alert("댓글을 입력하세요.");
+					form.rContent.focus();
+					return false;
+				}
+				form.submit();
+			}
 			</script>
 	</head>
 <body>
@@ -106,6 +115,7 @@
     	<jsp:param name="selected" value="review" />
 	</jsp:include>
 	<main>
+		<c:if test="${sessionScope.userId == review.userId}">
             <div align="right">
 			<form name="updateReviewForm" method="GET"
 				action="<c:url value='/review/update' />">
@@ -118,6 +128,7 @@
                 <input type="button" value="삭제하기"  onClick="reviewRemove()">
             </form>
             </div>
+       </c:if> 
             <div>
                 <table class="book_box">
                     <tbody>
@@ -189,8 +200,15 @@
                 </table>
             </div>
             <div align="center">
-                <input id="comment_input" type="text" placeholder="댓글을 입력하세요">
-                <button>댓글달기</button>
+	            <form name="form" method="POST"
+					action="<c:url value='/review/comment/create'/>">
+					<input type="hidden" name="reviewId" value="${review.reviewId}">
+					<input type="hidden" name="userId" value="${review.userId}">
+					<textarea id="comment_input" name="rContent" placeholder="답변을 입력해주세요"
+						required></textarea>
+					<input type="button" value="작성" onClick="commentCreate()">
+				</form>
+                
                 <c:forEach var="comment" items="${commentList}"> 
 	                <div>
 	                    <table class="comment_box">

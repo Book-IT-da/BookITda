@@ -16,10 +16,11 @@ public class ReviewComment {
     public ReviewComment() { }
 
     public ReviewComment(int commentId, int reviewId, 
-            String rContent, Date createDate) {
+    		String userId, String rContent, Date createDate) {
         super();
         this.commentId = commentId;
         this.reviewId = reviewId;
+        this.userId = userId;
         this.rContent = rContent;
         this.createDate = createDate;
     }

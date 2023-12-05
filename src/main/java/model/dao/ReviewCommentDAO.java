@@ -62,6 +62,7 @@ public class ReviewCommentDAO {
         query.append("INSERT INTO reviewComment ");
         query.append("VALUES(sequence_commentid.nextval, ?, ?, ?, SYSDATE)");
         
+        System.out.println("확확 " + reviewComment.getrContent() + " " +  reviewId + " " +  reviewComment.getUserId());
         jdbcUtil.setSqlAndParameters(query.toString(), 
                 new Object[]{reviewComment.getrContent(), reviewId, reviewComment.getUserId()});
         
@@ -154,6 +155,7 @@ public class ReviewCommentDAO {
                 ReviewComment reviewComment = new ReviewComment(
                         rs.getInt("commentId"),
                         rs.getInt("reviewId"),
+                        rs.getString("userId"),
                         rs.getString("rcontent"),
                         rs.getDate("createDate"));
                 reviewComments.add(reviewComment);

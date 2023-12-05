@@ -16,16 +16,21 @@ public class CreateCommentController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String reviewId = request.getParameter("reviewId");
+		String userId = request.getParameter("userId");
 		
-		ReviewComment createReview = new ReviewComment(
+		HttpSession session = request.getSession();
+		session.setAttribute("reviewId", reviewId);
+		
+		ReviewComment createComment = new ReviewComment(
 				0,
 				Integer.parseInt(reviewId),
+				userId,
 				request.getParameter("rContent"), 
 				null
 		);
 
 		CommentManager manager = CommentManager.getInstance();
-		manager.create(createReview, Integer.parseInt(reviewId));
+		manager.create(createComment, Integer.parseInt(reviewId));
 
 		
         return "redirect:/review/view";

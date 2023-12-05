@@ -21,13 +21,15 @@ public class UpdateCommentController implements Controller {
 		
 		ReviewComment reviewComment = null;
 		String commentId = request.getParameter("commentId");
+		String userId = request.getParameter("userId");
 		Date createDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("createDate"));
 		
 		// POST request
 		ReviewComment updateComment = new ReviewComment(
 				0,
 				Integer.parseInt(commentId),
-				request.getParameter("rContent"), 
+				request.getParameter("rContent"),
+				userId,
 				null
 		);
 
