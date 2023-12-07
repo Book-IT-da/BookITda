@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Question;
-import model.dao.QuestionDAO;
+import model.dao.jdbc.QuestionDAO;
 
 public class QuestionManager {
 	private static QuestionManager quesMan = new QuestionManager();

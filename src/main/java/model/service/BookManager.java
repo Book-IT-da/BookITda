@@ -5,7 +5,7 @@ import java.util.List;
 
 import model.Book;
 import model.RecommBook;
-import model.dao.BookDAO;
+import model.dao.jdbc.BookDAO;
 
 public class BookManager {
 	private static BookManager bookM = new BookManager();

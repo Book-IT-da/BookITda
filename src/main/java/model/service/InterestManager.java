@@ -5,7 +5,7 @@ import java.util.List;
 
 import model.Category;
 import model.Interest;
-import model.dao.InterestDAO;
+import model.dao.jdbc.InterestDAO;
 
 
 /**

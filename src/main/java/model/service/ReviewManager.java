@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Review;
-import model.dao.ReviewDAO;
+import model.dao.jdbc.ReviewDAO;
 
 public class ReviewManager {
 	private static ReviewManager reviewMan = new ReviewManager();

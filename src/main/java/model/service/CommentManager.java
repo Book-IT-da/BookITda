@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.ReviewComment;
-import model.dao.ReviewCommentDAO;
+import model.dao.jdbc.ReviewCommentDAO;
 
 public class CommentManager {
 	private static CommentManager commentMan = new CommentManager();

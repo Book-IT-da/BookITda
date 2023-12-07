@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.User;
-import model.dao.UserDAO;
+import model.dao.jdbc.UserDAO;
 
 public class UserManager {
 	private static UserManager userMan = new UserManager();

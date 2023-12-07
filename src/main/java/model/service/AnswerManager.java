@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Answer;
-import model.dao.AnswerDAO;
+import model.dao.jdbc.AnswerDAO;
 
 public class AnswerManager {
 	private static AnswerManager ansMan = new AnswerManager();

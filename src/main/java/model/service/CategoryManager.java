@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Category;
-import model.dao.CategoryDAO;
+import model.dao.jdbc.CategoryDAO;
 
 public class CategoryManager {
 	private static CategoryManager cateM = new CategoryManager();
