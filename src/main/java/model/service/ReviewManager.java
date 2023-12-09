@@ -29,7 +29,7 @@ public class ReviewManager {
 	
 	
 	// 책 정보 조회 아래 리뷰 목록
-	public List<Review> findReviewList(int isbn) throws SQLException {
+	public List<Review> findReviewList(String isbn) throws SQLException {
 		return reviewDAO.findReviewList(isbn);
 	}
 	

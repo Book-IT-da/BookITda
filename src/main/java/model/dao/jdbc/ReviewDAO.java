@@ -83,14 +83,17 @@ public class ReviewDAO {
     }
     
     // 책 정보 조회 아래 리뷰 목록
-    public List<Review> findReviewList(int isbn){
+    public List<Review> findReviewList(String isbn){
 
         StringBuilder query = new StringBuilder();
-        query.append("SELECT reviewId, starscore, itLevel, keyword, onelinereview ");
+        query.append("SELECT reviewId, starscore, itLevel, onelinereview, nickname, createdate ");
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
         query.append("INNER JOIN book ON review.isbn = book.isbn ");
-        query.append("WHERE review.isbn = ?; ");
+        query.append("WHERE review.isbn = ? ");
+        
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {isbn});
+        
         try {
             ResultSet rs = jdbcUtil.executeQuery(); 
             
@@ -100,8 +103,9 @@ public class ReviewDAO {
                         rs.getInt("reviewId"), 
                         rs.getInt("starScore"), 
                         rs.getString("itLevel"),  
-                        rs.getString("onelineReview"), 
-                        rs.getString("nickname")
+                        rs.getString("nickname"),  
+                        rs.getString("onelineReview"),
+                        rs.getDate("createDate")
                     );  
                 reviewList.add(review);         
             }           

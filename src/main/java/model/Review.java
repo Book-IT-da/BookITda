@@ -36,13 +36,15 @@ public class Review {
         this.createDate = createDate;
     }
     
+    // 챙 정보 하단 리뷰 목록
     public Review(int reviewId, int stars, String level, 
-            String keyword, String onelineReview) {
+            String nickname, String onelineReview, Date createDate) {
         this.reviewId = reviewId;
         this.stars = stars;
         this.level = level;
-        this.keyword = keyword;
+        this.nickname = nickname;
         this.onelineReview = onelineReview;
+        this.createDate = createDate; 
     }
     
     // 리뷰 리스트 & 책 제목으로 검색

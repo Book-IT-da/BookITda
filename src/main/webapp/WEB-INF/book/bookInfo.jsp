@@ -9,6 +9,7 @@
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
 	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+	<link rel=stylesheet href="<c:url value='/css/review/bookInfo_reviewList.css' />" type="text/css">
 <title>도서 정보 열람</title>
 
 <style>
@@ -171,6 +172,8 @@ a, button {
 			#${book.keyword3}</p>
 
 
+		<jsp:include page="../review/bookInfo_reviewList.jsp" /> 
+		
 		<a
 			href="<c:url value='/admin/book/modify'>
 					   <c:param name='ISBN' value='${book.ISBN}'/>
