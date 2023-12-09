@@ -6,13 +6,14 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.function.Function" %>
 <%@ page import="model.Interest" %>
+<%@ page import="model.Category" %>
 
 	<%
     /* List<String> selectedCategories = new ArrayList<>();
     selectedCategories.add("1");
     selectedCategories.add("2"); */
 
-     String[] categoryData = {
+    /*  String[] categoryData = {
         "1", "프로그래밍",
         "2", "OS",
         "3", "네트워크",
@@ -25,7 +26,18 @@
         "10", "게임",
         "11", "WEB",
         "12", "그래픽"
-    };
+    }; */
+    
+ // categoryTable에 있는 categoryList 불러오기
+    List<Category> categoryList = (List<Category>) session.getAttribute("categoryList");   
+    String[] categoryData = new String[categoryList.size() * 2]; 
+    
+    int index = 0;
+
+    for (Category category : categoryList) {
+        categoryData[index++] = String.valueOf(category.getCategoryId());
+        categoryData[index++] = category.getCategory();
+    }
     
     List<Map<String, String>> interestCategories = new ArrayList<>();
 

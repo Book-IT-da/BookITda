@@ -104,7 +104,15 @@
 			 			<td> 
                         	<!-- <input class="custom-button" type="button" value="관심사 수정하기" onClick="updateInterest()"/> -->
                         	<c:if test="${sessionScope.userId!=null}">
-								<a class="custom-button" href="<c:url value='/user/get/interest'/>">관심사 수정하기</a>
+							    <form id="postForm" action="<c:url value='/get/categoryList'/>" method="post">
+							        <button class="custom-button" type="button" onclick="submitForm()">관심사 수정하기</button>
+							    </form>
+							
+							    <script>
+							        function submitForm() {
+							            document.getElementById("postForm").submit();
+							        }
+							    </script>
 							</c:if>
 							<c:if test="${sessionScope.userId==null}">
 								<a class="custom-button" href="<c:url value='/user/login/form'/>">로그인하러 가기</a>
