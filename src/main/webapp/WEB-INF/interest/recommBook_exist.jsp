@@ -117,7 +117,10 @@
 	</jsp:include>
     <main>
         <div align="right">
-           <a href="${contextPath}/user/get/interest"><button>관심사 재설정</button></a>
+	        <form action="${contextPath}/get/categoryList" method="POST">
+			    <button type="submit">관심사 재설정</button>
+			</form>
+           <%-- <a href="${contextPath}/get/categoryList"><button>관심사 재설정</button></a> --%>
         </div>
         <div class = "bigContainer">
 			<h2 class="question">${userId}님께 어울리는 책을 소개할게요</h2><br>
