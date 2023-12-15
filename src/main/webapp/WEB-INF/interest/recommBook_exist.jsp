@@ -49,17 +49,13 @@
 			    left: 18%;
 			    text-align: center;
 			}
-			 .i {
-		        position: absolute;
-			    top: 10%;
-			    left: 73%;
-			    font-size:10px;
-		    }
 		    .question-info {
 		    	position: absolute;
-			    top: 12%;
-			    left: 10%;
+			    top: 12.5%;
+			    left: 25%;
 			    text-align: center;
+			    color: gray;
+			    font-size: 10px;
 		    }
 	        .container {
 	            width: 600px;
@@ -117,9 +113,6 @@
 			    left: 0.5%;
 			    z-index: 1;
 			}
-	        .question-info {
-	            display: none;
-	        }
         </style>
 </head>
 
@@ -145,7 +138,6 @@
         </div>
         <div class = "bigContainer" align="center">
 			<h2 class="question">${userId}님께 어울리는 책을 추천할게요</h2><br>
-			<div class="i">추천 기준</div>
 	        <div class="question-info">
 	            사용자의 수준에 일치하는 책 중 관심 분야 및 수준에 더 일치하는 순서로 제시하였습니다.
 	        </div>
@@ -175,21 +167,6 @@
 	            </table>
 	        </div>
 	     </div>
-         <script>
-            var questionInfo = document.querySelector('.question-info');
-            var iElement = document.querySelector('.i');
-
-            function showQuestionInfo() {
-                questionInfo.style.display = 'block';
-            }
-
-            function hideQuestionInfo() {
-                questionInfo.style.display = 'none';
-            }
-
-            iElement.addEventListener('mouseover', showQuestionInfo);
-            iElement.addEventListener('mouseout', hideQuestionInfo);
-      </script>
 </body>
 
 </html>
