@@ -20,7 +20,7 @@ public class UpdateReviewController implements Controller {
 			String reviewId = request.getParameter("reviewId");
     		
     		ReviewManager manager = ReviewManager.getInstance();
-    		Review review = manager.read(Integer.parseInt(reviewId));
+    		Review review = manager.readReview(Integer.parseInt(reviewId));
     		request.setAttribute("review", review);
 								
 			return "/review/updateForm.jsp";       
@@ -50,7 +50,7 @@ public class UpdateReviewController implements Controller {
 		);
 
 		ReviewManager manager = ReviewManager.getInstance();
-		manager.update(updateReview);
+		manager.updateReview(updateReview);
 
 		
         return "redirect:/review/list";

@@ -18,7 +18,7 @@ public class DeleteReviewController implements Controller {
 		ReviewManager manager = ReviewManager.getInstance();
 		String reviewId = request.getParameter("reviewId");
 
-		manager.remove(Integer.parseInt(reviewId));
+		manager.removeReview(Integer.parseInt(reviewId));
 
         return "redirect:/review/list";
 	}

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import controller.Controller;
 import model.ReviewComment;
-import model.service.CommentManager;
+import model.service.ReviewManager;
 
 public class CreateCommentController implements Controller {
 
@@ -29,8 +29,8 @@ public class CreateCommentController implements Controller {
 				null
 		);
 
-		CommentManager manager = CommentManager.getInstance();
-		manager.create(createComment, Integer.parseInt(reviewId));
+		ReviewManager manager = ReviewManager.getInstance();
+		manager.createComment(createComment, Integer.parseInt(reviewId));
 
 		
         return "redirect:/review/view";
