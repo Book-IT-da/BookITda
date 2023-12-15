@@ -73,7 +73,9 @@ a, button {
 
 <script>
 	function bookRegister() {
-		registerForm.submit();
+		if(confirm("정말로 추가하시겠습니까?")){
+			registerForm.submit();
+		}
 	}
 
 	//function bookDelete(targetUri){

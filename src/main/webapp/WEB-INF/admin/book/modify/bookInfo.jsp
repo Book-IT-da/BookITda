@@ -72,13 +72,18 @@ a, button {
 
 <script>
 	function bookModify() {
-		updateForm.submit();
+		if (confirm("정말로 수정하시겠습니까?") == true) {
+			updateForm.submit();
+		}
 	}
 
-	//function bookDelete(targetUri){
-	//	updateForm.action = targetUri;
-	//	updateForm.submit();
-	//}
+	function bookDelete(){
+		if (confirm("정말로 삭제하시겠습니까?")== true){
+			deleteForm.submit();
+		}
+		//updateForm.action = targetUri;
+		//updateForm.submit();
+	}
 </script>
 
 </script>
@@ -186,11 +191,12 @@ a, button {
 			<p />
 			<button type="button" id="btn_modify" onClick="bookModify()">수정</button>
 
-			<a
-				href="<c:url value='/admin/book/delete'>
-					   <c:param name='ISBN' value='${book.ISBN}'/>
-			 		   </c:url>">
-				<button type="button" id="btn_delete">삭제</button>
+		</form>
+
+		<form name="deleteForm" method="GET"
+			action="<c:url value='/admin/book/delete' />">
+			<input type="hidden" name="ISBN" value="${book.ISBN}">
+			<button type="button" id="btn_delete" onClick="bookDelete()">삭제</button>
 			</a>
 		</form>
 	</center>
