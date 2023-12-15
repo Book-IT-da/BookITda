@@ -27,15 +27,17 @@
 		}  
 	   	   .bigContainer {
 			    width: 800px; 
-			    height: 650px; 
+			    height: 800px; 
 			    position: absolute;
-			    top: 80%;
+			    top: 90%;
 			    left: 50%;
 			    transform: translate(-50%, -50%);
 			    background-color: #f7e6ff;
 			    border-radius: 10%;
 			    overflow: hidden; 
 			    transition: width 0.5s, height 0.5s; 
+			    flex-direction: column; /* 세로 방향으로 배치 */
+   			 	align-items: center; /* 가운데 정렬 */
 			}
 			
 /* 			.bigContainer:hover {
@@ -52,9 +54,9 @@
 			}
 	        .container {
 	            width: 600px;
-	            height: 50%;
+	            height: auto;
 	            position: absolute; 
-			    top: 30%; 
+			    top: 15%; 
 			    left: 13%; 
 	            display: flex;
 	            justify-content: center;
@@ -65,21 +67,21 @@
                 border-spacing:0;
                 margin: auto;
                 width: 50%;
-                height: 80%;
-                margin-top: 30px;
-                margin-bottom: 30px;
+                height: 60%;
+                margin-top: 10px;
+                margin-bottom: 10px;
             }
             .book_box td{
                 border-color:#f7e6ff;
                 border-style:solid;
                 border-width:1px;
-                padding:10px 5px;
+                padding:5px 5px;
                 word-break:normal;
             }
             .book {
 	        	width: 130px;
-	            padding: 10px;
-	            margin: 10px;
+	            padding: 5px;
+	            margin: 5px;
 	            align-items: center;
 	        }
 	        .bookImg {
