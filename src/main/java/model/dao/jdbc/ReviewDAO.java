@@ -211,36 +211,36 @@ public class ReviewDAO {
         StringBuilder query = new StringBuilder();
         
         query.append("INSERT INTO review ");
-        query.append("VALUES(Sequence_reviewId.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE);");
+        query.append("VALUES(Sequence_reviewId.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE) ");
         
         jdbcUtil.setSqlAndParameters(query.toString(), 
                 new Object[]{review.getStars(), review.getLevel(), review.getPurpose(), 
                         review.getRecommObj(), review.getKeyword(), review.getOnelineReview(),
                         review.getMultilineReview(), review.getUserId(), review.getISBN()});
-        
+
         try {               
             int result;
             
             result = jdbcUtil.executeUpdate(); 
             
-          //책 평점 매기기
-            Float starAvg = this.setupBookStar(review.getISBN());
-            //팩 평점 수정
-            if(starAvg != -1) {
-                StringBuilder query2 = new StringBuilder();
-                query2.append("UPDATE Book set AVGSTAR = ? ");
-                query2.append("WHERE ISBN =?");
-                
-                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{starAvg, review.getISBN()});
-                jdbcUtil.executeUpdate();      
-            }else {
-                StringBuilder query2 = new StringBuilder();
-                query2.append("UPDATE Book set AVGSTAR = NULL ");
-                query2.append("WHERE ISBN =?");
-                
-                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{review.getISBN()});
-                jdbcUtil.executeUpdate();
-            }
+//          //책 평점 매기기
+//            Float starAvg = this.setupBookStar(review.getISBN());
+//            //팩 평점 수정
+//            if(starAvg != -1) {
+//                StringBuilder query2 = new StringBuilder();
+//                query2.append("UPDATE Book set AVGSTAR = ? ");
+//                query2.append("WHERE ISBN =?");
+//                
+//                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{starAvg, review.getISBN()});
+//                jdbcUtil.executeUpdate();      
+//            }else {
+//                StringBuilder query2 = new StringBuilder();
+//                query2.append("UPDATE Book set AVGSTAR = NULL ");
+//                query2.append("WHERE ISBN =?");
+//                
+//                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{review.getISBN()});
+//                jdbcUtil.executeUpdate();
+//            }
             
             return result;
         } catch (Exception ex) {

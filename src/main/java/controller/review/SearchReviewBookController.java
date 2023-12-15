@@ -7,7 +7,6 @@ import controller.Controller;
 import model.Book;
 import model.service.BookManager;
 
-//검색한 결과의 책 리스트를 가져오기 위한 컨트롤러
 public class SearchReviewBookController implements Controller {
 
 	@Override

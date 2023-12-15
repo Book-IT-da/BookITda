@@ -121,13 +121,15 @@
                 <form name="form"  method="post" action="<c:url value='/review/create'/>">
                     <div align="right">
                         <input type="button" value="올리기" onClick="reviewCreate()">
+						<input type="hidden" name="userId" value="${userId}">
                     </div>
                     <table class="book_box">
                         <tbody>
                             <tr>
                                 <td>제목</td>
                                 <td>
-                                    <input class="input_text" name="title" type="text" placeholder="제목을 검색하세요" disabled>
+                   					<input type="hidden" id="ISBN" name="ISBN"/>
+                                    <input class="input_text" id="title" name="title" type="text" placeholder="제목을 검색하세요" disabled>
                         			<input type="button" value="검색하기" onClick="findBook()">
                                 </td>
                             </tr>

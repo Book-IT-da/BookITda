@@ -60,7 +60,26 @@ public class Review {
         this.createDate = createDate; 
     }
     
-    // 리뷰 상세 조회
+    // 리뷰 생성
+    public Review(int reviewId, int stars, String level, String purpose,
+            String recommObj, String keyword, 
+            String onelineReview, String multilineReview, 
+            String userId, String ISBN, Date createDate) {
+        super();
+        this.reviewId = reviewId;
+        this.stars = stars;
+        this.level = level;
+        this.purpose = purpose;
+        this.recommObj = recommObj;
+        this.keyword = keyword;
+        this.onelineReview = onelineReview;
+        this.multilineReview = multilineReview;
+        this.userId = userId;
+        this.ISBN = ISBN;
+        this.createDate = createDate; 
+    }
+    
+    // 리뷰 상세 조회 & 리뷰 수정
     public Review(int reviewId, int stars, String level, String purpose,
             String recommObj, String keyword, 
             String onelineReview, String multilineReview, 

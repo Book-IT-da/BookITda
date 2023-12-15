@@ -17,16 +17,15 @@ public class CreateReviewController implements Controller {
 		
 		if (request.getMethod().equals("GET")) {	
     		// GET 
-								
 			return "/review/createForm.jsp";       
 	    }	
     	
-		String reviewId = request.getParameter("reviewId");
-		Date createDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("createDate"));
+		String userId = request.getParameter("userId");
+		String ISBN = request.getParameter("ISBN");
 		
 		// POST request
 		Review createReview = new Review(
-				Integer.parseInt(reviewId),
+				0, 
 				Integer.parseInt(request.getParameter("stars")), 
 				request.getParameter("level"), 
 				request.getParameter("purpose"), 
@@ -34,13 +33,9 @@ public class CreateReviewController implements Controller {
 				request.getParameter("keyword"), 
 				request.getParameter("onelineReview"), 
 				request.getParameter("multilineReview"), 
-				request.getParameter("title"), 
-				request.getParameter("cover_path"),
-				request.getParameter("userId"), 
-				request.getParameter("nickname"), 
-				request.getParameter("author"),
-				request.getParameter("publisher"),
-				createDate
+				userId, 
+				ISBN, 
+				null
 		);
 
 		ReviewManager manager = ReviewManager.getInstance();

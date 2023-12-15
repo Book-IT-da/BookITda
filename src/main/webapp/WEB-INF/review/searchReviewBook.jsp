@@ -53,6 +53,11 @@
 			}
 			searchBookForm.submit();
 		}
+		function closeChild(isbn, title) {
+			opener.document.getElementById("ISBN").value = isbn;
+			opener.document.getElementById("title").value = title;
+			window.close();
+		}
 	</script>
 </head>
 <body>
@@ -80,7 +85,7 @@
 	            </tr>
 	            <c:forEach var="book" items="${bookList}"> 
 		            <tr>
-		                <td>${book.title}</td>
+		                <td><a href="#" onclick="closeChild('${book.ISBN}', '${book.title}')">${book.title}</a></td>
 		                <td>${book.ISBN}</td>
 		                <td>${book.author}</td>
 		                <td>${book.publisher}</td>
