@@ -127,7 +127,7 @@
     	<jsp:param name="selected" value="review" />
 	</jsp:include>
 	<main>
-		<c:if test="${sessionScope.userId == review.userId}">
+		<c:if test="${sessionScope.userId == review.userId or sessionScope.userId == 'admin'}">
             <div align="right">
 			<form name="updateReviewForm" method="GET"
 				action="<c:url value='/review/update' />">
@@ -231,7 +231,7 @@
 	                            <td class="comment_nick">${comment.nickname}</td>
 	                            <td>${comment.createDate}</td>
 	                            <td>
-									<c:if test="${sessionScope.userId == comment.userId}">
+									<c:if test="${sessionScope.userId == comment.userId or sessionScope.userId == 'admin'}">
 							            <form name="deleteCommentForm" method="GET"
 											action="<c:url value='/review/comment/delete' />">
 											<input type="hidden" name="reviewId" value="${review.reviewId}">
