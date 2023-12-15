@@ -87,6 +87,10 @@
 		}
 
 		function createReview() {
+			if (createReviewForm.userId.value == "") {
+				alert("로그인해야 이용가능한 서비스입니다.");
+				return false;
+			}
 			createReviewForm.submit();
 		}
 	</script>
@@ -117,6 +121,7 @@
             <div align="right">
 				<form name="createReviewForm" method="GET"
 					action="<c:url value='/review/create' />">
+					<input type="hidden" name="userId" value="${userId}">
                 	<input type="button" onClick="createReview()" value="작성하기">
             	</form>
             </div>
