@@ -166,7 +166,7 @@ public class ReviewDAO {
         
         StringBuilder query = new StringBuilder();
         
-        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, onelineReview, detailReview, title, cover_path, review.userId, nickname, author, publisher, createdate ");
+        query.append("SELECT reviewId, starScore, itLevel, purpose, recommObj, keyword, onelineReview, detailReview, title, cover_path, review.userId, nickname, author, publisher, review.ISBN, createdate ");
         query.append("FROM review ");
         query.append("INNER JOIN member ON review.userId = member.userId ");
         query.append("INNER JOIN book ON review.isbn = book.isbn ");
@@ -193,6 +193,7 @@ public class ReviewDAO {
                         rs.getString("nickname"), 
                         rs.getString("author"), 
                         rs.getString("publisher"), 
+                        rs.getString("ISBN"), 
                         rs.getDate("createDate")
                     );   
                 return review;        
@@ -264,13 +265,14 @@ public class ReviewDAO {
         query.append("recommObj = ?, ");
         query.append("keyword = ?, ");
         query.append("onelineReview = ?, ");
-        query.append("detailReview = ? ");
+        query.append("detailReview = ?, ");
+        query.append("ISBN = ? ");
         query.append("WHERE reviewId = ?");
 
 		jdbcUtil.setSqlAndParameters(query.toString(), 
 		    new Object[]{review.getStars(), review.getLevel(), review.getPurpose(), 
 		        review.getRecommObj(), review.getKeyword(), review.getOnelineReview(),
-		        review.getMultilineReview(), review.getReviewId()});
+		        review.getMultilineReview(), review.getISBN(), review.getReviewId()});
 
         try {
             int result = jdbcUtil.executeUpdate();

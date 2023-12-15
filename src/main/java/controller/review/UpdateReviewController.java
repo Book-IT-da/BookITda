@@ -45,6 +45,7 @@ public class UpdateReviewController implements Controller {
 				request.getParameter("nickname"), 
 				request.getParameter("author"),
 				request.getParameter("publisher"),
+				request.getParameter("ISBN"),
 				createDate
 		);
 

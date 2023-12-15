@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%
 	Review review = (Review)request.getAttribute("review");
 %>
@@ -54,6 +55,12 @@
             }
         </style>
         <script>
+	    	function findBook() {
+	    		window.name = "parentForm";
+	            
+	            openWin = window.open("${contextPath}/review/book/search", "childForm", "width=800, height=500, resizable = no, scrollbars = no");  
+	    	}
+        
 			function reviewModify() {
 				if (form.title.value == "") {
 					alert("제목을 입력하세요.");
@@ -124,13 +131,10 @@
                             <tr>
                                 <td>제목</td>
                                 <td>
-                                	<%=review.getTitle()%>
                     				<input type="hidden" name="reviewId" value="<%=review.getReviewId()%>"/>
-                   	 				<input type="hidden" name="title" value="<%=review.getTitle()%>"/>
-                   	 				<input type="hidden" name="author" value="<%=review.getAuthor()%>"/>
-                   	 				<input type="hidden" name="publisher" value="<%=review.getPublisher()%>"/>
-                                    <%-- <input class="input_text" type="text" value="<%=review.getTitle()%>" placeholder="제목을 검색하세요">
-                                    <button>검색하기</button> --%>
+                   					<input type="hidden" id="ISBN" name="ISBN"  value="<%=review.getISBN()%>"/>
+                                    <input class="input_text" id="title" name="title" type="text" value="<%=review.getTitle()%>" placeholder="제목을 검색하세요" disabled>
+                        			<input type="button" value="검색하기" onClick="findBook()">
                                 </td>
                             </tr>
                             <tr>

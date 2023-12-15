@@ -83,7 +83,7 @@ public class Review {
     public Review(int reviewId, int stars, String level, String purpose,
             String recommObj, String keyword, 
             String onelineReview, String multilineReview, 
-            String title, String cover_path, String userId, String nickname, String author, String publisher, Date createDate) {
+            String title, String cover_path, String userId, String nickname, String author, String publisher, String ISBN, Date createDate) {
         super();
         this.reviewId = reviewId;
         this.stars = stars;
@@ -99,6 +99,7 @@ public class Review {
         this.nickname = nickname;
 		this.author = author;
 		this.publisher = publisher;
+        this.ISBN = ISBN;
         this.createDate = createDate; 
     }
 
