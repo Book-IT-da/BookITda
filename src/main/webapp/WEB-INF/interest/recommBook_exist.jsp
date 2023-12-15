@@ -22,29 +22,26 @@
 	<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
     <title>추천 도서 보기</title>
     <style>  
+	    html, body {
+	    	position: relative;
+		    height: 100%;
+		    margin: 0;
+		    padding: 0;
+		}
 		li a {
 		    color: black;
 		}  
 	   	   .bigContainer {
 			    width: 800px; 
 			    height: 800px; 
-			    position: absolute;
-			    top: 90%;
-			    left: 50%;
-			    transform: translate(-50%, -50%);
+			    position: relative;
+			    top: 5%;
+			    left: 25%;
 			    background-color: #f7e6ff;
 			    border-radius: 10%;
-			    overflow: hidden; 
-			    transition: width 0.5s, height 0.5s; 
-			    flex-direction: column; /* 세로 방향으로 배치 */
-   			 	align-items: center; /* 가운데 정렬 */
+			    flex-direction: column; 
+   			 	align-items: center; 
 			}
-			
-/* 			.bigContainer:hover {
-			    width: 800px; 
-			    height: 650px; 
-			} */
-			
 			.question {
 			    width: 500px;
 			    position: absolute;
@@ -96,12 +93,18 @@
 	        .author {
 	            font-style: italic;
 	            font-size: 13px;
-	            margin: 0 0; /* 간격을 줄임 */
+	            margin: 0 0; 
 	        }
 	        .grade {
 	        	font-size: 7px;
-	        	margin: 0 0; /* 간격을 줄임 */
+	        	margin: 0 0; 
 	        }
+	        .menubar {
+	        	position: relative;
+			    top: 0%;
+			    left: 0.5%;
+			    z-index: 1;
+			}
         </style>
 </head>
 
@@ -111,21 +114,22 @@
 			<jsp:include page="../top/userMenubar.jsp" />
 		</div>
 		<div>
-			<jsp:include page="../top/logo.jsp" /> 
+			<jsp:include page="../top/logo.jsp" />
 		</div>
 	</header>
-	<jsp:include page="../top/menubar.jsp">
-    	<jsp:param name="selected" value="recomm" />
-	</jsp:include>
-    <main>
+		<div class="menubar">
+			<jsp:include page="../top/menubar.jsp">
+		    	<jsp:param name="selected" value="recomm" />
+			</jsp:include>
+		</div>
         <div align="right">
 	        <form action="${contextPath}/get/categoryList" method="POST">
 			    <button type="submit">관심사 재설정</button>
 			</form>
            <%-- <a href="${contextPath}/get/categoryList"><button>관심사 재설정</button></a> --%>
         </div>
-        <div class = "bigContainer">
-			<h2 class="question">${userId}님께 어울리는 책을 소개할게요</h2><br>
+        <div class = "bigContainer" align="center">
+			<h2 class="question">${userId}님께 어울리는 책을 추천할게요</h2><br>
 			 <div class="container">
 	            <table class="book_box">
 	                <c:forEach var="recommBook" items="${recommBookList}" varStatus="loop">
