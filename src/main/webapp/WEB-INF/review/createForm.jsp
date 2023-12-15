@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -54,7 +56,7 @@
         	function findBook() {
         		window.name = "parentForm";
                 
-                openWin = window.open("Child.html", "childForm", "width=570, height=350, resizable = no, scrollbars = no");  
+                openWin = window.open("${contextPath}/review/book/search", "childForm", "width=800, height=500, resizable = no, scrollbars = no");  
         	}
         	
 			function reviewCreate() {
