@@ -46,7 +46,4 @@ public class InterestManager {
    public Interest findInterestById(String userId) throws SQLException {
        return interestDAO.findInterestById(userId);
    }
-   public List<Category> findCategoryList() throws SQLException {
-	   return interestDAO.findCategoryList();	
-   }
 }
