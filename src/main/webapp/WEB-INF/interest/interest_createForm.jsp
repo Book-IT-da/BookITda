@@ -120,8 +120,8 @@
             background-color: black;
         }
         tr, td {
-        	   border: 1px solid black;
-        
+        	   border: 1px solid gray;
+        	   border-radius: 10px;
         }
         .td1 {
         	width: 100px;
@@ -156,6 +156,9 @@
         	margin-top: 30px;
 			width: 100px;
             height: 30px;
+		}
+		.button_container {
+			margin-left: 35px;
 		}
     </style>
 <script>

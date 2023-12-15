@@ -147,6 +147,9 @@
 <link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
 <title>관심사 수정</title>
 <style>
+		li a {
+		    color: black;
+		}  
         hr {
             margin-top: 30px;
             margin-bottom: 25px;

@@ -139,7 +139,7 @@
         <div class = "bigContainer" align="center">
 			<h2 class="question">${userId}님께 어울리는 책을 추천할게요</h2><br>
 	        <div class="question-info">
-	            사용자의 수준에 일치하는 책 중 관심 분야 및 수준에 더 일치하는 순서로 제시하였습니다.
+	            사용자의 수준에 일치하는 책 중 관심 분야 및 언어에 더 일치하는 순서로 제시하였습니다.
 	        </div>
 			 <div class="container">
 	            <table class="book_box">
