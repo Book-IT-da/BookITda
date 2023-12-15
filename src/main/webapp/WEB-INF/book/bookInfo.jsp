@@ -8,8 +8,11 @@
 <meta charset="UTF-8">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
-	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
-	<link rel=stylesheet href="<c:url value='/css/review/bookInfo_reviewList.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />"
+	type="text/css">
+<link rel=stylesheet
+	href="<c:url value='/css/review/bookInfo_reviewList.css' />"
+	type="text/css">
 <title>도서 정보 열람</title>
 
 <style>
@@ -108,7 +111,7 @@ a, button {
 	<jsp:include page="../top/menubar.jsp">
 		<jsp:param name="selected" value="search" />
 	</jsp:include>
-	
+
 	<br>
 	<!--도서 정보-->
 	<div id="first">| &nbsp; ${book.category} &nbsp; | &nbsp;
@@ -170,16 +173,22 @@ a, button {
 
 		<p>#${book.keyword1} &nbsp; &nbsp; #${book.keyword2} &nbsp; &nbsp;
 			#${book.keyword3}</p>
-
-
-		<jsp:include page="../review/bookInfo_reviewList.jsp" /> 
+			
 		
-		<a
-			href="<c:url value='/admin/book/modify'>
+		<c:if test="${sessionScope.userId == 'admin'}">
+			<a
+				href="<c:url value='/admin/book/modify'>
 					   <c:param name='ISBN' value='${book.ISBN}'/>
 			 		   </c:url>">
-			<button type="button" id="btn_bookInfo_modify">도서 정보 변경</button>
-		</a>
+				<button type="button" id="btn_bookInfo_modify">도서 정보 변경</button>
+			</a>
+		</c:if>
+		
+		<hr>
+		<br><br>
+
+		<jsp:include page="../review/bookInfo_reviewList.jsp" />
+
 
 		<!-- <button type="button" id="btn_bookInfo_delete">삭제</button> -->
 		<br> <br>
