@@ -70,7 +70,7 @@
                 margin-bottom: 30px;
             }
             .book_box td{
-                border-color:black;
+                border-color:#f7e6ff;
                 border-style:solid;
                 border-width:1px;
                 padding:10px 5px;
@@ -127,7 +127,7 @@
 			 <div class="container">
 	            <table class="book_box">
 	                <c:forEach var="recommBook" items="${recommBookList}" varStatus="loop">
-	                   <c:if test="${loop.index % 4 == 0}">
+	                   <c:if test="${loop.index % 3 == 0}">
 				            <tr>
 				        </c:if>
 				        <td>
@@ -143,7 +143,7 @@
 				            </div>
 				           </a>
 				        </td>
-				        <c:if test="${loop.index % 4 == 3 or loop.last}">
+				        <c:if test="${loop.index % 3 == 2 or loop.last}">
 				            </tr>
 				        </c:if>
 	                </c:forEach>

@@ -516,18 +516,34 @@ public class BookDAO {
          * query.append("ORDER BY b.avgstar DESC ");
          */
         
-        query.append("SELECT DISTINCT b.isbn, b.title, b.cover_path, b.author, b.avgstar, ");
-        query.append("CASE "
-                + "WHEN ic.categoryId IS NOT NULL AND il.languageId IS NOT NULL THEN 1 "
-                + "WHEN ic.categoryId IS NOT NULL OR il.languageId IS NOT NULL THEN 2 "
-                + "ELSE 3 "
-                + "END as custom_order ");
-        query.append("FROM Book b ");
-        query.append("JOIN Member m ON m.levelId = b.levelId ");
-        query.append("LEFT JOIN InterestCat ic ON ic.userId = m.userId AND ic.categoryId = b.categoryId ");
-        query.append("LEFT JOIN InterestLang il ON il.userId = m.userId AND il.languageId = b.languageId ");
-        query.append("WHERE m.userId = ? ");
-        query.append("ORDER BY custom_order ");
+        /*
+         * query.
+         * append("SELECT DISTINCT b.isbn, b.title, b.cover_path, b.author, b.avgstar, "
+         * ); query.append("CASE " +
+         * "WHEN ic.categoryId IS NOT NULL AND il.languageId IS NOT NULL THEN 1 " +
+         * "WHEN ic.categoryId IS NOT NULL OR il.languageId IS NOT NULL THEN 2 " +
+         * "ELSE 3 " + "END as custom_order "); query.append("FROM Book b ");
+         * query.append("JOIN Member m ON m.levelId = b.levelId "); query.
+         * append("LEFT JOIN InterestCat ic ON ic.userId = m.userId AND ic.categoryId = b.categoryId "
+         * ); query.
+         * append("LEFT JOIN InterestLang il ON il.userId = m.userId AND il.languageId = b.languageId "
+         * ); query.append("WHERE m.userId = ? ");
+         * query.append("ORDER BY custom_order ");
+         */
+        query.append("SELECT * FROM (");
+        query.append("    SELECT DISTINCT b.isbn, b.title, b.cover_path, b.author, b.avgstar, ");
+        query.append("    CASE "
+                    + "    WHEN ic.categoryId IS NOT NULL AND il.languageId IS NOT NULL THEN 1 "
+                    + "    WHEN ic.categoryId IS NOT NULL OR il.languageId IS NOT NULL THEN 2 "
+                    + "    ELSE 3 "
+                    + "    END as custom_order ");
+        query.append("    FROM Book b ");
+        query.append("    JOIN Member m ON m.levelId = b.levelId ");
+        query.append("    LEFT JOIN InterestCat ic ON ic.userId = m.userId AND ic.categoryId = b.categoryId ");
+        query.append("    LEFT JOIN InterestLang il ON il.userId = m.userId AND il.languageId = b.languageId ");
+        query.append("    WHERE m.userId = ? ");
+        query.append("    ORDER BY custom_order ");
+        query.append(") WHERE ROWNUM <= 6");
         
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userId}); 
         try {
