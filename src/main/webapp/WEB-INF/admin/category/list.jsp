@@ -51,11 +51,33 @@ tr {
 
 <script>
 	function modifyCate() {
-		modifyCateForm.submit();
+		if (modifyCateForm.originalCate.value == ""){
+			alert("수정될 카테고리를 입력해주세요.")
+		}
+		else if (modifyCateForm.renew.value == ""){
+			alert("수정할 카테고리를 입력해주세요.")
+		}
+		else if(confirm("정말로 수정하시겠습니까?")== true){
+			modifyCateForm.submit();
+		}
 	}
 
 	function registerCate() {
-		registerCateForm.submit();
+		if (registerCateForm.newCate.value ==""){
+			alert("추가할 카테고리를 입력해주세요.");
+		}
+		else if(confirm("정말로 추가하시겠습니까?")== true){
+			registerCateForm.submit();
+		}
+	}
+	
+	function deleteCategory(){
+		if (deleteCategoryForm.deleteCate.value ==""){
+			alert("삭제할 카테고리를 입력해주세요.");
+		}
+		else if(confirm("정말로 삭제하시겠습니까?")== true){
+			deleteCategoryForm.submit();
+		}
 	}
 
 </script>
@@ -121,7 +143,7 @@ tr {
 				<form name="deleteCategoryForm" method="GET"
 					action="<c:url value='/admin/category/delete' />">
 					<input type="text" class="textType" name="deleteCate">
-					<button type="submit" class="endButton">삭제</button>
+					<button type="button" class="endButton" onClick="deleteCategory()">삭제</button>
 				</form>
 
 			</div>
