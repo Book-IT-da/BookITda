@@ -73,7 +73,15 @@
             }
             .review_date{
                 font-size: 12px;
-            	
+            }
+            .no_review{
+                font-size: 50px;
+                color: #D7D7D7;
+                -webkit-touch-callout: none;
+			    user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    -webkit-user-select: none;
             }
         </style>
 	<script type="text/javascript">
@@ -129,7 +137,17 @@
                 	<input type="button" onClick="createReview()" value="작성하기">
             	</form>
             </div>
-            <div>                
+            <div>           
+            	<c:if test="${reviewList eq '[]'}">
+	            	<div align="center">
+	            		<br/>
+	            		<br/>
+	            		<br/>
+	            		<br/>
+	            		<br/>
+	            		<a class="no_review">해당되는 책의 리뷰가 아직 없습니다.</a>    
+            		</div> 
+            	</c:if>
             	<c:forEach var="review" items="${reviewList}"> 
 	                <div>
 	                    <table class="book_box">
