@@ -104,11 +104,11 @@
 				form.submit();
 			}
 			
-			function commentRemove(){
+			function commentRemove(formElement){
 				var answer = confirm("정말 삭제하시겠습니까?");
 
 				if(answer){
-					deleteCommentForm.submit();
+					formElement.submit();
 				}
 				return false;
 			}
@@ -236,7 +236,7 @@
 											action="<c:url value='/review/comment/delete' />">
 											<input type="hidden" name="reviewId" value="${review.reviewId}">
 							    			<input type="hidden" name="commentId" value="${comment.commentId}">
-							                <input type="button" value="삭제"  onClick="commentRemove()">
+							                <input type="button" value="삭제"  onClick="commentRemove(this.form)">
 							            </form>
 							            <form name="updateCommentForm" method="GET"
 											action="<c:url value='/comment/update' />">
