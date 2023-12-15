@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.Controller;
+import model.User;
 import model.service.UserManager;
 
 public class LoginController implements Controller {
@@ -13,11 +14,14 @@ public class LoginController implements Controller {
     	String userId = request.getParameter("userId");
     	String password = request.getParameter("password");
     	try {
-    		UserManager.getInstance().login(userId, password);
-    		
-
+    		UserManager userMan = UserManager.getInstance();
+    		userMan.login(userId, password);
+    		    
         	HttpSession session = request.getSession();
         	session.setAttribute("userId", userId);
+        	
+        	User user = userMan.findUser(userId);
+        	session.setAttribute("userName", user.getName());
         	
         	return "redirect:/";
     	} catch (Exception e) {
