@@ -178,7 +178,7 @@
         .input-container input {
 		    margin-right: 10px; 
 		}
-        input[type="submit"] {
+        input[type="button"] {
             margin-top: 30px;
             width: 80px;
             height: 30px;
@@ -189,8 +189,40 @@
         }
     </style>
 <script>
-function updateInterest() {	
-	form.submit();
+function updateInterestCat() {	
+    var categoryCheckboxes = document.getElementsByName("interestCategory");
+
+    if (!isAtLeastOneChecked(categoryCheckboxes)) {
+        alert("관심 분야를 설정해주세요.");
+        return false;
+    }
+    var form = document.getElementById("interestCatForm");
+    form.submit();
+}
+
+function updateInterestLang() {	
+    var categoryCheckboxes = document.getElementsByName("interestLanguages");
+
+    if (!isAtLeastOneChecked(categoryCheckboxes)) {
+        alert("관심 언어를 설정해주세요.");
+        return false;
+    }
+    var form = document.getElementById("interestLangForm");
+    form.submit();
+}
+
+function updateUserLevel() {	
+    var form = document.getElementById("userLevelForm");
+    form.submit();
+}
+
+function isAtLeastOneChecked(checkboxes) {
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            return true;
+        }
+    }
+    return false;
 }
 </script>
 </head>
@@ -209,12 +241,12 @@ function updateInterest() {
 	<center>
 		<br>
         <table>
-        	<form method="POST" action="<c:url value='/user/update/interest/category'/>" onClick="updateInterest()">
+        	<form id="interestCatForm" method="POST" action="<c:url value='/user/update/interest/category'/>">
                 <tr>
         			<td colspan="2">&nbsp;&nbsp;&nbsp;관심사를 수정하세요!</td>
         		</tr>
                 <tr>
-                    <td class="td1">관심 분야 <input type="submit" value="수정 완료"></td>
+                    <td class="td1">관심 분야 <input type="button" value="수정 완료" onClick="updateInterestCat()"></td>
 					<td class="td2">
 					    <c:forEach var="category" items="${interestCategories}" varStatus="loop">
 					        <c:if test="${loop.index % 4 == 0 && loop.index != 0}">
@@ -227,9 +259,9 @@ function updateInterest() {
 					</td>
                 </tr>
              </form>
-             <form action="<c:url value='/user/update/interest/language'/>" onClick="updateInterest()">
+             <form id="interestLangForm" action="<c:url value='/user/update/interest/language'/>">
                 <tr>
-                    <td class="td1">관심 언어 <input type="submit" value="수정 완료"></td>
+                    <td class="td1">관심 언어<input type="button" value="수정 완료" onClick="updateInterestLang()"></td>
                     <td class="td2">
 					<c:forEach var="language" items="${interestLanguages}" varStatus="loop">
 						<c:if test="${loop.index % 4 == 0 && loop.index != 0}">
@@ -242,9 +274,9 @@ function updateInterest() {
 					</td>
                 </tr>
                </form>
-               <form action="<c:url value='/user/update/interest/level'/>" onClick="updateInterest()">
+               <form id="userLevelForm" action="<c:url value='/user/update/interest/level'/>" ">
                 <tr>
-                    <td class="td1">it 수준<input type="submit" value="수정 완료"></td>
+                    <td class="td1">it 수준<input type="button" value="수정 완료" onClick="updateUserLevel()"></td>
                     <td class="td2">
 					<c:forEach var="level" items="${userLevel}" varStatus="loop">
 						<c:if test="${loop.index % 4 == 0 && loop.index != 0}">
