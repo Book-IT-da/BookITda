@@ -154,7 +154,7 @@
                         <td colspan="5"><%=review.getTitle()%></td>
                       </tr>
                       <tr>
-                        <td class="book_pic" rowspan="6"><%-- <img class="book_cover" src="<c:url value='/images/bookCover/${review.cover_path}' />" /> --%></td>
+                        <td class="book_pic" rowspan="6"><img class="book_cover" src="<c:url value='${review.cover_path}' />" /></td>
                         <td>저자</td>
                         <td colspan="3"><%=review.getAuthor()%></td>
                       </tr>

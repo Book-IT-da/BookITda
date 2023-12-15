@@ -153,7 +153,7 @@
 	                    <table class="book_box">
 	                        <thead>
 	                        <tr>
-	                            <td class="book_pic" rowspan="5"><%-- <img class="book_cover" src="<c:url value='/images/bookCover/${review.cover_path}' />" /> --%></td>
+	                            <td class="book_pic" rowspan="5"><img class="book_cover" src="<c:url value='${review.cover_path}' />" /></td>
 	                            <td class="review_date">${review.createDate }</td>
 	                        </tr>
 	                        <tr>
