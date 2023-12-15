@@ -118,7 +118,7 @@ a, button {
 		<table>
 			<tr>
 				<th rowspan="9"><img id="book_cover"
-					src="<c:url value='/images/bookCover/${book.cover_path}' />" /></th>
+					src="<c:url value='${book.cover_path}' />" /></th>
 				<td>&nbsp; ISBN : ${book.ISBN}</td>
 			</tr>
 

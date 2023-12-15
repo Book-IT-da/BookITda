@@ -101,7 +101,7 @@ a {
 			 		   </c:url>">
 				<figure class="book">
 					<img id="book_cover"
-						src="<c:url value='/images/bookCover/${b.cover_path}' />" />
+						src="<c:url value='${b.cover_path}' />" />
 					<figcaption>
 						<p>[ ${b.title} ]</p>
 						<p>[ ${b.author} ] &nbsp; &lt; ${b.publisher} &gt;</p>
