@@ -73,7 +73,7 @@ tr {
 		</div>
 	</header>
 	<jsp:include page="../../top/menubar.jsp">
-		<jsp:param name="selected" value="search" />
+		<jsp:param name="selected" value="cateman" />
 	</jsp:include>
 	
 	<br>

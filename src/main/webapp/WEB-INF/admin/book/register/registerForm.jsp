@@ -98,7 +98,7 @@ a, button {
 		</div>
 	</header>
 	<jsp:include page="../../../top/menubar.jsp">
-		<jsp:param name="selected" value="search" />
+		<jsp:param name="selected" value="bookman" />
 	</jsp:include>
 
 	<br>
