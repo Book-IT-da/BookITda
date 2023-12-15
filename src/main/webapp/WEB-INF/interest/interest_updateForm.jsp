@@ -155,8 +155,8 @@
             background-color: black;
         }
         tr, td {
-        	   border: 1px solid black;
-        
+        	   border: 1px solid gray;
+        	   border-radius: 10px;
         }
         .td1 {
         	width: 100px;
