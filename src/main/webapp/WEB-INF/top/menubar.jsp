@@ -15,17 +15,19 @@
                     <li class="${selected eq 'review' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/review/list">도서 리뷰</a></li>
                     <li>|</li>
                     <li class="${selected eq 'qna' ? 'selectedPage' : 'notSelectedPage'}"><a href="${contextPath}/question/list">&nbsp;&nbsp; Q&A &nbsp;&nbsp;</a></li>
-                	<li>|</li>
-                	<li class="notSelectedPage">
-          				<a id="mana">&nbsp;&nbsp; 관리 &nbsp;&nbsp;</a>
-						<ul class="sub_menu">
-							<li class="${selected eq 'userman' ? 'selectedPage' : 'notSelectedPage'}"><a href="">회원 관리</a></li><br/>
-							<li class="${selected eq 'bookman' ? 'selectedPage' : 'notSelectedPage'}"><a href="<c:url value='/admin/book/register/form'>
-			 		   </c:url>">도서 추가</a></li><br/>
-							<li class="${selected eq 'cateman' ? 'selectedPage' : 'notSelectedPage'}"><a href="<c:url value='/admin/category/list'>
-			 		   </c:url>">카테고리 관리</a></li><br/>
-						</ul>
-			        </li>
+                	<c:if test="${sessionScope.userId == 'admin'}">
+	                	<li>|</li>
+	                	<li class="notSelectedPage">
+	          				<a id="mana">&nbsp;&nbsp; 관리 &nbsp;&nbsp;</a>
+							<ul class="sub_menu">
+								<li class="${selected eq 'userman' ? 'selectedPage' : 'notSelectedPage'}"><a href="">회원 관리</a></li><br/>
+								<li class="${selected eq 'bookman' ? 'selectedPage' : 'notSelectedPage'}"><a href="<c:url value='/admin/book/register/form'>
+				 		   </c:url>">도서 추가</a></li><br/>
+								<li class="${selected eq 'cateman' ? 'selectedPage' : 'notSelectedPage'}"><a href="<c:url value='/admin/category/list'>
+				 		   </c:url>">카테고리 관리</a></li><br/>
+							</ul>
+				        </li>
+			        </c:if>
                 </ul>
             </div>    
         </nav>
