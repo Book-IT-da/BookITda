@@ -303,21 +303,19 @@ public class BookDAO {
 	public List<Book> findBookByKeyword(String keyword) throws SQLException {
 		int keywordId = 0;
 		StringBuilder query1 = new StringBuilder();
-		query1.append("SELECT keywordId FROM keyword WHERE keyword=?");
-		jdbcUtil.setSqlAndParameters(query1.toString(), new Object[] { keyword });
+	
+		query1.append("SELECT DISTINCT ISBN, title, cover_path, author, publisher, AVGSTAR ");
+		query1.append("FROM Book b ");
+		query1.append("Where b.keywordid1 IN (Select keywordid from Keyword Where keyword LIKE ?) OR ");
+		query1.append("b.keywordid2 IN (Select keywordid from Keyword Where keyword LIKE ?) OR ");
+		query1.append("b.keywordid3 IN (Select keywordid from Keyword Where keyword LIKE ?)");
+		query1.append("ORDER BY ISBN");
+		
+		String likeKeyword = "%" + keyword + "%";
+		
+		jdbcUtil.setSqlAndParameters(query1.toString(), new Object[] { likeKeyword, likeKeyword, likeKeyword });
 
 		try {
-			ResultSet rs4 = jdbcUtil.executeQuery();
-			if (rs4.next()) {
-				keywordId = rs4.getInt("keywordId");
-			}
-			System.out.print("  !!!!!! " + keywordId + " !!!!!!!!!!");
-
-			StringBuilder query2 = new StringBuilder();
-			query2.append("SELECT ISBN, title, cover_path, author, publisher, AVGSTAR " + "FROM Book "
-					+ "Where keywordId1 = ? OR keywordId2 = ? OR keywordId3 = ? " + "ORDER BY ISBN");
-			jdbcUtil.setSqlAndParameters(query2.toString(), new Object[] { keywordId, keywordId, keywordId });
-
 			ResultSet rs = jdbcUtil.executeQuery();
 			List<Book> bookList = new ArrayList<Book>();
 			while (rs.next()) {
