@@ -39,7 +39,7 @@ public class CreateReviewController implements Controller {
 		);
 
 		ReviewManager manager = ReviewManager.getInstance();
-		manager.create(createReview);
+		manager.createReview(createReview);
 
 		
         return "redirect:/review/list";

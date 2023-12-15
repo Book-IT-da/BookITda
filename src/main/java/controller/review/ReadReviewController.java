@@ -9,7 +9,6 @@ import controller.Controller;
 import model.Review;
 import model.ReviewComment;
 import model.service.ReviewManager;
-import model.service.CommentManager;
 
 public class ReadReviewController implements Controller {
 
@@ -17,7 +16,6 @@ public class ReadReviewController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		ReviewManager reManager = ReviewManager.getInstance();
-		CommentManager coManager = CommentManager.getInstance();
 		
 		String reviewId = request.getParameter("reviewId");
 		
@@ -29,8 +27,8 @@ public class ReadReviewController implements Controller {
 		Review review = null;
 		List<ReviewComment> commentList = null;
 		
-		review = reManager.read(Integer.parseInt(reviewId));
-		commentList = coManager.findCommentList(Integer.parseInt(reviewId));
+		review = reManager.readReview(Integer.parseInt(reviewId));
+		commentList = reManager.findCommentList(Integer.parseInt(reviewId));
 
 		request.setAttribute("review", review);
 		request.setAttribute("commentList", commentList);
