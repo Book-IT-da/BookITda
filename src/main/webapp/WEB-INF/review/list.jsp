@@ -93,6 +93,10 @@
 			}
 			createReviewForm.submit();
 		}
+		
+		function loginAlert(){
+			alert("로그인해야 이용가능한 서비스입니다.");
+		}
 	</script>
 </head>
 
@@ -136,10 +140,18 @@
 	                        </tr>
 	                        <tr>
 	                        	<td class="book_title">
-		                            <a href="<c:url value='/review/view'>
-									   <c:param name='reviewId' value='${review.reviewId}'/>
-							 		 </c:url>">
-	                            	${review.title} </a>
+		                        	<c:choose>
+										<c:when  test="${sessionScope.userId != null}">
+				                            <a href="<c:url value='/review/view'>
+											   <c:param name='reviewId' value='${review.reviewId}'/>
+									 		 </c:url>">
+			                            	${review.title} </a>
+		                            	</c:when>
+		                            	<c:otherwise>
+		                            		<a href="javascript:void(0);" onclick="loginAlert()">
+				                            ${review.title} </a>
+		                            	</c:otherwise>
+	                            	</c:choose>
 	                            </td>
 	                        </tr>
 	                        <tr>
