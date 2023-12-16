@@ -1,0 +1,48 @@
+li a {
+	color: black;
+}
+
+#top {
+	margin: 10px 0 15px 30px;
+}
+
+#logo {
+	margin: 25px 30px;
+	text-align: center;
+}
+
+#comment_input {
+	font-size: 16px;
+	width: 325px;
+	padding: 10px;
+}
+
+.book_box {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: auto;
+	width: 50%;
+	height: 80%;
+	margin-top: 200px;
+	margin-bottom: 30px;
+}
+
+.ment {
+	font-weight: bold;
+	font-size: 25px;
+	margin: 5px 0 0 0;
+	text-align: center;
+}
+.custom-button {
+	display: block;
+	margin: 30px auto 0 auto;
+	width: 200px;
+	height: 30px;
+	border: 0;
+	border-radius: 6px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}

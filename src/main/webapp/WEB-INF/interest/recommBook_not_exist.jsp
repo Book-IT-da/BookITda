@@ -7,77 +7,11 @@
 		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
     	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">  
+		<link rel=stylesheet
+		      href="<c:url value='/css/interest/recommBook_not_exist.css' />"
+		      type="text/css">
         <meta charset="UTF-8">
         <title>추천 도서 보기</title>
-        <style>
-        	li a {
-                color: black;
-            } 
-            #top {
-                margin: 10px 0 15px 30px;
-            }        
-            #logo {
-                margin: 25px 30px;
-                text-align: center;
-            }
-            #comment_input {
-                font-size: 16px;
-                width: 325px;
-                padding: 10px;
-            }     
-            .book_box  {
-                border-collapse:collapse;
-                border-spacing:0;
-                margin: auto;
-                width: 50%;
-                height: 80%;
-                margin-top: 200px;
-                margin-bottom: 30px;
-            }
-	        .ment {
-	            font-weight: bold;
-	            font-size: 25px;
-	            margin: 5px 0 0 0;
-	            text-align: center;
-	        }
-	        /* input[type="submit"] {
-	       		margin: 0 auto; 
-    			display: block;
-	            margin-top: 30px;
-	            width: 200px;
-	            height: 30px;
-	            border-width: 0px;
-	            border-radius: 6px;
-	            font-size: 20px;
-	            font-weight: bold;
-        	} */
-        	.custom-button {
-	            display: block;
-	            margin: 30px auto 0 auto;
-	            width: 200px;
-	            height: 30px;
-	            border: 0;
-	            border-radius: 6px;
-	            font-size: 20px;
-	            font-weight: bold;
-	            text-align: center;
-	            text-decoration: none;
-	            cursor: pointer;
-	        }
-        </style>
-<%-- 		<script>
-		    function updateInterest() {
-		        var userId = '<%= session.getAttribute("userId") %>';
-		        
-		        if (userId === '' || userId === null) {
-		            console.log("userId is empty or null: " + userId);
-		            window.location.href = '${contextPath}/user/login/form';
-		        } else {
-		            console.log("userId: " + userId);
-		            window.location.href = '${contextPath}/user/get/interest';
-		        }
-		    }
-	</script> --%>
     </head>
 
     <body>

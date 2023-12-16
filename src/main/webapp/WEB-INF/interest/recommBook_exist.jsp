@@ -20,100 +20,10 @@
     <link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
     <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 	<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+	<link rel=stylesheet
+	  href="<c:url value='/css/interest/recommBook_exist.css' />"
+	  type="text/css">
     <title>추천 도서 보기</title>
-    <style>  
-	    html, body {
-	    	position: relative;
-		    height: 100%;
-		    margin: 0;
-		    padding: 0;
-		}
-		li a {
-		    color: black;
-		}  
-	   	   .bigContainer {
-			    width: 800px; 
-			    height: 800px; 
-			    position: relative;
-			    top: 5%;
-			    left: 25%;
-			    background-color: #f7e6ff;
-			    border-radius: 10%;
-			    flex-direction: column; 
-   			 	align-items: center; 
-			}
-			.question {
-			    width: 500px;
-			    position: absolute;
-			    top: 5%;
-			    left: 18%;
-			    text-align: center;
-			}
-		    .question-info {
-		    	position: absolute;
-			    top: 12.5%;
-			    left: 25%;
-			    text-align: center;
-			    color: gray;
-			    font-size: 10px;
-		    }
-	        .container {
-	            width: 600px;
-	            height: auto;
-	            position: absolute; 
-			    top: 15%; 
-			    left: 13%; 
-	            display: flex;
-	            justify-content: center;
-	            align-items: center; 
-	        }  
-            .book_box  {
-                border-collapse:collapse;
-                border-spacing:0;
-                margin: auto;
-                width: 50%;
-                height: 60%;
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
-            .book_box td{
-                border-color:#f7e6ff;
-                border-style:solid;
-                border-width:1px;
-                padding:5px 5px;
-                word-break:normal;
-            }
-            .book {
-	        	width: 130px;
-	            padding: 5px;
-	            margin: 5px;
-	            align-items: center;
-	        }
-	        .bookImg {
-	        	width: 120px;
-	            height: 150px;
-	        }
-	        .title {
-	            font-weight: bold;
-	            font-size: 17px;
-	            margin: 5px 0 0 0;
-	        }
-	        .author {
-	            font-style: italic;
-	            font-size: 13px;
-	            margin: 0 0; 
-	        }
-	        .grade {
-	        	font-size: 7px;
-	        	margin: 0 0; 
-	        }
-	        .menubar {
-	        	position: relative;
-			    top: 0%;
-			    left: 0.5%;
-			    z-index: 1;
-			}
-        </style>
 </head>
 
 <body>

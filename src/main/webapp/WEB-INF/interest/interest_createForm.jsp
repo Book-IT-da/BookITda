@@ -110,57 +110,11 @@
     <link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
     <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 	<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+	<link rel=stylesheet
+	href="<c:url value='/css/interest/createForm.css' />"
+	type="text/css">
 <title>관심사 설정</title>
-	<style>
-        hr {
-            margin-top: 30px;
-            margin-bottom: 25px;
-            width: 580px;
-            height: 2px;
-            background-color: black;
-        }
-        tr, td {
-        	   border: 1px solid gray;
-        	   border-radius: 10px;
-        }
-        .td1 {
-        	width: 100px;
-        }
-        td {
-       	 	width: 500px;
-            height: 55px;
-            padding: 30px 0 30px 0;
-            font-size: 20px;
-            text-align: center;
-        }
-        input {
-        	width: 15px;
-        	height: 15px;
-            border-radius: 3px;
-            border-width: 1px;
-            border-color: #CCCCCC;
-        }
-        .input-container input {
-		    margin-right: 10px; 
-		}
-        input[type="submit"] {
-            margin-top: 30px;
-            width: 100px;
-            height: 30px;
-            border-width: 0px;
-            border-radius: 6px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        input[type="button"] {
-        	margin-top: 30px;
-			width: 100px;
-            height: 30px;
-		}
-		.button_container {
-			margin-left: 35px;
-		}
-    </style>
+
 <script>
 	function createInterest() {	
 	    var categoryCheckboxes = document.getElementsByName("interestCategory");
