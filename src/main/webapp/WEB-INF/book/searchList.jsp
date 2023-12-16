@@ -31,16 +31,18 @@
 
 .book {
 	border: 1px solid;
-	width: 320px;
-	height: 340px;
+	width: 360px;
+	height: 370px;
 	margin: 10px;
 	padding: 7px;
 	display: inline-block;
+	vertical-align: top;
 }
 
 #book_cover {
 	width: 150px;
 	height: 200px;
+	border: 1px solid;
 }
 
 figure {
@@ -71,6 +73,11 @@ a {
 	text-decoration: none;
 	color: black;
 }
+
+b{
+	font-size: large;
+}
+
 </style>
 </head>
 
@@ -100,11 +107,13 @@ a {
 					   <c:param name='ISBN' value='${b.ISBN}'/>
 			 		   </c:url>">
 				<figure class="book">
+					<br>
 					<img id="book_cover"
 						src="<c:url value='${b.cover_path}' />" />
 					<figcaption>
-						<p>[ ${b.title} ]</p>
-						<p>[ ${b.author} ] &nbsp; &lt; ${b.publisher} &gt;</p>
+					<br>
+						<b>${b.title}</b> <br><br>
+						[ ${b.author} ] &nbsp; &lt; ${b.publisher} &gt;
 						<p class="starScore">
 							<img src="<c:url value='/images/search_star.PNG' />" />
 							${b.averageStar}

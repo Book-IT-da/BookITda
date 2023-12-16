@@ -49,6 +49,7 @@ p {
 #book_cover {
 	width: 250px;
 	height: 300px;
+	border: 1px solid;
 }
 
 #bookInfo {
@@ -152,7 +153,7 @@ a, button {
 				</td>
 			</tr>
 		</table>
-
+		<br>
 		<hr>
 
 		<p>[책소개]</p>
