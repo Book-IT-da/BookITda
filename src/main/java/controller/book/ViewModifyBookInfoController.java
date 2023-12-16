@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.Controller;
 import model.Book;
+import model.Category;
 import model.service.BookManager;
+import model.service.CategoryManager;
 
 //책을 수정하기 위한 컨트롤러
 public class ViewModifyBookInfoController implements Controller {
@@ -23,6 +25,13 @@ public class ViewModifyBookInfoController implements Controller {
 
 			request.setAttribute("book", book);
 			System.out.print("modift info에 왔음");
+			
+			CategoryManager cateM = CategoryManager.getInstance();
+
+			List<Category> categories = null;
+
+			categories = cateM.findAllCategory();
+			request.setAttribute("categories", categories);
 
 			return "/admin/book/modify/bookInfo.jsp";
 		}
