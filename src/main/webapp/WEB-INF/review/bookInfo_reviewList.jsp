@@ -8,10 +8,18 @@
 	                   <tbody>
 	                       <tr>
 	                         <th colspan="2" align="right">
-	                           <a href="<c:url value='/review/view'>
-									   <c:param name='reviewId' value='${review.reviewId}'/>
-							 		 </c:url>">
-	                            	상세보기 </a>
+		                        	<c:choose>
+										<c:when  test="${sessionScope.userId != null}">	                         
+				                           <a href="<c:url value='/review/view'>
+												   <c:param name='reviewId' value='${review.reviewId}'/>
+										 		 </c:url>">
+				                            	상세보기 </a>
+		                            	</c:when>
+		                            	<c:otherwise>
+		                            		<a href="javascript:void(0);" onclick="loginAlert()">
+				                            상세보기 </a>
+		                            	</c:otherwise>
+	                            	</c:choose>
 	                         </th>
 	                       </tr>
 	                       <tr>

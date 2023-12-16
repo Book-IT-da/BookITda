@@ -95,6 +95,11 @@ a, button {
 	cursor: pointer;
 }
 </style>
+<script>
+	function loginAlert(){
+		alert("로그인해야 이용가능한 서비스입니다.");
+	}
+</script>
 </head>
 <body>
 	<header>
