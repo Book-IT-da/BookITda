@@ -101,7 +101,6 @@
                             <tr>
                                 <td>별점</td>
                                 <td>
-                                    <input type="radio" name="stars" value="0" <% if (review.getStars() == 0) { %> checked <% } %>>☆☆☆☆☆
                                     <input type="radio" name="stars" value="1" <% if (review.getStars() == 1) { %> checked <% } %>>★☆☆☆☆
                                     <input type="radio" name="stars" value="2" <% if (review.getStars() == 2) { %> checked <% } %>>★★☆☆☆
                                     <input type="radio" name="stars" value="3" <% if (review.getStars() == 3) { %> checked <% } %>>★★★☆☆

@@ -96,7 +96,6 @@
                             <tr>
                                 <td>별점</td>
                                 <td>
-                                    <input type="radio" name="stars" value="0">☆☆☆☆☆
                                     <input type="radio" name="stars" value="1">★☆☆☆☆
                                     <input type="radio" name="stars" value="2">★★☆☆☆
                                     <input type="radio" name="stars" value="3">★★★☆☆
