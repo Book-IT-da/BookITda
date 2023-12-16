@@ -19,7 +19,7 @@ public class ReviewDAO {
     
     // book 정보의 평점을 구하기 위한 star 평균 구하기
     public float setupBookStar(String ISBN) throws SQLException {
-        float starAvg = 0;
+        float starAvg = -1;
         
         StringBuilder query = new StringBuilder();
         
@@ -38,7 +38,6 @@ public class ReviewDAO {
         }catch (Exception ex) {
             ex.printStackTrace();
         } finally {     
-            jdbcUtil.close();   
         }  
         return -1;
     }
@@ -224,24 +223,24 @@ public class ReviewDAO {
             
             result = jdbcUtil.executeUpdate(); 
             
-//          //책 평점 매기기
-//            Float starAvg = this.setupBookStar(review.getISBN());
-//            //팩 평점 수정
-//            if(starAvg != -1) {
-//                StringBuilder query2 = new StringBuilder();
-//                query2.append("UPDATE Book set AVGSTAR = ? ");
-//                query2.append("WHERE ISBN =?");
-//                
-//                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{starAvg, review.getISBN()});
-//                jdbcUtil.executeUpdate();      
-//            }else {
-//                StringBuilder query2 = new StringBuilder();
-//                query2.append("UPDATE Book set AVGSTAR = NULL ");
-//                query2.append("WHERE ISBN =?");
-//                
-//                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{review.getISBN()});
-//                jdbcUtil.executeUpdate();
-//            }
+          //책 평점 매기기
+            Float starAvg = this.setupBookStar(review.getISBN());
+            //팩 평점 수정
+            if(starAvg != -1) {
+                StringBuilder query2 = new StringBuilder();
+                query2.append("UPDATE Book set AVGSTAR = ? ");
+                query2.append("WHERE ISBN =?");
+                
+                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{starAvg, review.getISBN()});
+                jdbcUtil.executeUpdate();      
+            }else {
+                StringBuilder query2 = new StringBuilder();
+                query2.append("UPDATE Book set AVGSTAR = NULL ");
+                query2.append("WHERE ISBN =?");
+                
+                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{review.getISBN()});
+                jdbcUtil.executeUpdate();
+            }
             
             return result;
         } catch (Exception ex) {
@@ -277,24 +276,25 @@ public class ReviewDAO {
         try {
             int result = jdbcUtil.executeUpdate();
             
-//          //책 평점 매기기
-//            Float starAvg = this.setupBookStar(review.getISBN());
-//            //팩 평점 수정
-//            if(starAvg != -1) {
-//                StringBuilder query2 = new StringBuilder();
-//                query2.append("UPDATE Book set AVGSTAR = ? ");
-//                query2.append("WHERE ISBN =?");
-//                
-//                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{starAvg, review.getISBN()});
-//                jdbcUtil.executeUpdate();      
-//            }else {
-//                StringBuilder query2 = new StringBuilder();
-//                query2.append("UPDATE Book set AVGSTAR = NULL ");
-//                query2.append("WHERE ISBN =?");
-//                
-//                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{review.getISBN()});
-//                jdbcUtil.executeUpdate();
-//            }
+          //책 평점 매기기
+            Float starAvg = this.setupBookStar(review.getISBN());
+            //팩 평점 수정
+            if(starAvg != -1) {
+                StringBuilder query2 = new StringBuilder();
+                query2.append("UPDATE Book set AVGSTAR = ? ");
+                query2.append("WHERE ISBN =?");
+                
+                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{starAvg, review.getISBN()});
+                jdbcUtil.executeUpdate();      
+            }else {
+                StringBuilder query2 = new StringBuilder();
+                query2.append("UPDATE Book set AVGSTAR = NULL ");
+                query2.append("WHERE ISBN =?");
+                
+                jdbcUtil.setSqlAndParameters(query2.toString(), new Object[]{review.getISBN()});
+                jdbcUtil.executeUpdate();
+            }
+            
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
@@ -328,24 +328,24 @@ public class ReviewDAO {
         try {               
             int result = jdbcUtil.executeUpdate();  
             
-//            //책 평점 매기기
-//            Float starAvg = this.setupBookStar(ISBN);
-//            //팩 평점 수정
-//            if(starAvg != -1) {
-//                StringBuilder query3 = new StringBuilder();
-//                query3.append("UPDATE Book set AVGSTAR = ? ");
-//                query3.append("WHERE ISBN =?");
-//                
-//                jdbcUtil.setSqlAndParameters(query3.toString(), new Object[]{starAvg, ISBN});
-//                jdbcUtil.executeUpdate();      
-//            }else {
-//                StringBuilder query3 = new StringBuilder();
-//                query3.append("UPDATE Book set AVGSTAR = NULL ");
-//                query3.append("WHERE ISBN =?");
-//                
-//                jdbcUtil.setSqlAndParameters(query3.toString(), new Object[]{ISBN});
-//                jdbcUtil.executeUpdate();
-//            }
+            //책 평점 매기기
+            Float starAvg = this.setupBookStar(ISBN);
+            //팩 평점 수정
+            if(starAvg != -1) {
+                StringBuilder query3 = new StringBuilder();
+                query3.append("UPDATE Book set AVGSTAR = ? ");
+                query3.append("WHERE ISBN =?");
+                
+                jdbcUtil.setSqlAndParameters(query3.toString(), new Object[]{starAvg, ISBN});
+                jdbcUtil.executeUpdate();      
+            }else {
+                StringBuilder query3 = new StringBuilder();
+                query3.append("UPDATE Book set AVGSTAR = NULL ");
+                query3.append("WHERE ISBN =?");
+                
+                jdbcUtil.setSqlAndParameters(query3.toString(), new Object[]{ISBN});
+                jdbcUtil.executeUpdate();
+            }
             
             return result;
         } catch (Exception ex) {
