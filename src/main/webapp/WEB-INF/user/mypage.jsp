@@ -74,7 +74,8 @@ h1 {
 				</ul>
 				<ul>
 					<h2>나의 게시글</h2>
-					<li><a href="">리뷰</a></li>
+					<li><a href="<c:url value='/user/review'><c:param name='userId' value='${userId}'/></c:url>">리뷰</a></li>
+					<li><a href="<c:url value='/user/review/comment'><c:param name='userId' value='${userId}'/></c:url>">리뷰 댓글</a></li>
 					<li><a
 						href="<c:url value='/user/question'><c:param name='userId' value='${userId}'/></c:url>">Q&A
 							게시글 - 질문</a></li>
