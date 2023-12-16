@@ -9,25 +9,6 @@
 <%@ page import="model.Category" %>
 
 	<%
-    /* List<String> selectedCategories = new ArrayList<>();
-    selectedCategories.add("1");
-    selectedCategories.add("2"); */
-
-    /*  String[] categoryData = {
-        "1", "프로그래밍",
-        "2", "OS",
-        "3", "네트워크",
-        "4", "해킹",
-        "5", "보안",
-        "6", "모바일",
-        "7", "DB",
-        "8", "시스템 서버",
-        "9", "컴퓨터 공학",
-        "10", "게임",
-        "11", "WEB",
-        "12", "그래픽"
-    }; */
-    
  // categoryTable에 있는 categoryList 불러오기
     List<Category> categoryList = (List<Category>) session.getAttribute("categoryList");   
     String[] categoryData = new String[categoryList.size() * 2]; 
@@ -68,10 +49,6 @@
             "11", "Node.js",
             "12", "TypeScript"
         };
-
-        /* List<String> selectedLanguages = new ArrayList<>();
-        selectedLanguages.add("3");
-        selectedLanguages.add("4"); */
         
         List<Map<String, String>> interestLanguages = new ArrayList<>();
 
@@ -94,9 +71,6 @@
                 "2", "중급자",
                 "3", "상급자"
             };
-
-            /* List<String> selectedLevel = new ArrayList<>();
-            selectedLevel.add("3"); */
             
             List<Map<String, String>> userLevel = new ArrayList<>();
 
@@ -137,7 +111,6 @@
             request.setAttribute("selectedLanguages", selectedLanguages);
             request.setAttribute("userLevel", userLevel);
             request.setAttribute("selectedLevel", selectedLevel);
-            /* session.setAttribute("userId2", "lulu"); */
 	%>
 <html>
 <head>
@@ -145,52 +118,11 @@
 <link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+<link rel=stylesheet
+	  href="<c:url value='/css/interest/updateForm.css' />"
+	  type="text/css">
 <title>관심사 수정</title>
-<style>
-		li a {
-		    color: black;
-		}  
-        hr {
-            margin-top: 30px;
-            margin-bottom: 25px;
-            width: 580px;
-            height: 2px;
-            background-color: black;
-        }
-        tr, td {
-        	   border: 1px solid gray;
-        	   border-radius: 10px;
-        }
-        .td1 {
-        	width: 100px;
-        }
-        td {
-       	 	width: 500px;
-            height: 55px;
-            padding: 30px 0 30px 0;
-            font-size: 20px;
-            text-align: center;
-        }
-        input {
-        	width: 15px;
-        	height: 15px;
-            border-radius: 3px;
-            border-width: 1px;
-            border-color: #CCCCCC;
-        }
-        .input-container input {
-		    margin-right: 10px; 
-		}
-        input[type="button"] {
-            margin-top: 30px;
-            width: 80px;
-            height: 30px;
-            border-width: 0px;
-            border-radius: 6px;
-            font-size: 15px;
-            font-weight: bold;
-        }
-    </style>
+
 <script>
 function updateInterestCat() {	
     var categoryCheckboxes = document.getElementsByName("interestCategory");
