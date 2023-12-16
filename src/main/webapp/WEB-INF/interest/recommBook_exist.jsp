@@ -48,6 +48,7 @@ request.setAttribute("recommBookList", recommBookList);
 			<button type="submit">관심사 재설정</button>
 		</form>
 	</div>
+	<center>
 	<div class="bigContainer" align="center">
 		<h2 class="question">${userId}님께어울리는 책을 추천할게요</h2>
 		<br>
@@ -78,6 +79,7 @@ request.setAttribute("recommBookList", recommBookList);
 			</table>
 		</div>
 	</div>
+	</center>
 </body>
 
 </html>
