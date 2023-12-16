@@ -73,7 +73,22 @@ a, button {
 
 <script>
 	function bookRegister() {
-		if (confirm("정말로 추가하시겠습니까?")) {
+		if(registerForm.ISBN.value.length != 13){
+			alert("[ISBN] 13자리가 아닙니다.")
+		}
+		else if(registerForm.title.value == ""){
+			alert("제목을 입력하세요.")
+		}
+		else if(registerForm.author.value == ""){
+			alert("저자를 입력하세요.")
+		}
+		else if(registerForm.publisher.value == ""){
+			alert("출판사를 입력하세요.")
+		}
+		else if(registerForm.bookInfo.value == ""){
+			alert("책 소개를 입력하세요.")
+		}
+		else if(confirm("정말로 추가하시겠습니까?")) {
 			registerForm.submit();
 		}
 	}
@@ -108,6 +123,7 @@ a, button {
 
 	<center>
 		<h3>&lt; 도서 정보 추가 &gt;</h3>
+		
 		<form name="registerForm" method="POST"
 			action="<c:url value='/admin/book/register' />">
 			<table>
@@ -116,19 +132,19 @@ a, button {
 					<td>&nbsp;<input type="text" name="cover_path"></td>
 				</tr>
 				<tr>
-					<th>ISBN</th>
+					<th>ISBN *</th>
 					<td>&nbsp;<input type="text" name="ISBN"></td>
 				</tr>
 				<tr>
-					<th>제목</th>
+					<th>제목 *</th>
 					<td>&nbsp;<input type="text" name="title"></td>
 				</tr>
 				<tr>
-					<th>저자</th>
+					<th>저자 *</th>
 					<td>&nbsp;<input type="text" name="author"></td>
 				</tr>
 				<tr>
-					<th>출판사</th>
+					<th>출판사 *</th>
 					<td>&nbsp;<input type="text" name="publisher"></td>
 				</tr>
 				<tr>
@@ -139,7 +155,7 @@ a, button {
 				</tr>
 				<tr>
 				<tr id="longInfo">
-					<th>책 소개</th>
+					<th>책 소개 *</th>
 					<td><textarea id="longinput" type="text" name="bookInfo"></textarea></td>
 				</tr>
 				<tr id="longInfo">
@@ -151,12 +167,11 @@ a, button {
 					<td><textarea id="longinput" type="text" name="authorInfo"></textarea></td>
 				</tr>
 			</table>
-
 			<br> <br>
 
 			<table>
 				<tr class="bookType_cate">
-					<th>카테고리</th>
+					<th>카테고리 *</th>
 					<td>
 						&nbsp;	
 						<select name="category">

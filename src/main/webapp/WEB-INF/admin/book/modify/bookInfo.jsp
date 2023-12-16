@@ -72,7 +72,22 @@ a, button {
 
 <script>
 	function bookModify() {
-		if (confirm("정말로 수정하시겠습니까?") == true) {
+		if(updateForm.ISBN.value.length != 13){
+			alert("[ISBN] 13자리가 아닙니다.")
+		}
+		else if(updateForm.title.value == ""){
+			alert("제목을 입력하세요.")
+		}
+		else if(updateForm.author.value == ""){
+			alert("저자를 입력하세요.")
+		}
+		else if(updateForm.publisher.value == ""){
+			alert("출판사를 입력하세요.")
+		}
+		else if(updateForm.bookInfo.value == ""){
+			alert("책 소개를 입력하세요.")
+		}
+		else if (confirm("정말로 수정하시겠습니까?") == true) {
 			updateForm.submit();
 		}
 	}
@@ -127,21 +142,21 @@ String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨�
 						value="${book.cover_path}"></td>
 				</tr>
 				<tr>
-					<th>ISBN</th>
+					<th>ISBN *</th>
 					<td>&nbsp;<input type="text" name="ISBN" value="${book.ISBN}"></td>
 				</tr>
 				<tr>
-					<th>제목</th>
+					<th>제목 *</th>
 					<td>&nbsp;<input type="text" name="title"
 						value="${book.title}"></td>
 				</tr>
 				<tr>
-					<th>저자</th>
+					<th>저자 *</th>
 					<td>&nbsp;<input type="text" name="author"
 						value="${book.author}"></td>
 				</tr>
 				<tr>
-					<th>출판사</th>
+					<th>출판사 *</th>
 					<td>&nbsp;<input type="text" name="publisher"
 						value="${book.publisher}"></td>
 				</tr>
@@ -153,7 +168,7 @@ String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨�
 				</tr>
 				<tr>
 				<tr id="longInfo">
-					<th>책 소개</th>
+					<th>책 소개 *</th>
 					<td><textarea id="longinput type=" text"" name="bookInfo"> ${book.bookInfo} </textarea></td>
 				</tr>
 				<tr id="longInfo">
@@ -170,7 +185,7 @@ String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨�
 
 			<table>
 				<tr class="bookType_cate">
-					<th>카테고리</th>
+					<th>카테고리 *</th>
 					<td>
 						&nbsp
 						<select name="category">
