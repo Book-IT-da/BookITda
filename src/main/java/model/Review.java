@@ -28,9 +28,10 @@ public class Review {
     public Review() { }
     
     
-    public Review(int reviewId, int stars, 
+    public Review(int reviewId, String title, int stars, 
             String onelineReview, Date createDate) {
         this.reviewId = reviewId;
+        this.title = title;
         this.stars = stars;
         this.onelineReview = onelineReview;
         this.createDate = createDate;
