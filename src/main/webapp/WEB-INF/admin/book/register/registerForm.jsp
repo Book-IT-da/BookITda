@@ -59,7 +59,7 @@ textarea {
 }
 
 .bookType_cate {
-	height: 90px;
+	height: 50px;
 }
 
 .bookType {
@@ -73,21 +73,22 @@ a, button {
 
 <script>
 	function bookRegister() {
-		if(confirm("정말로 추가하시겠습니까?")){
+		if (confirm("정말로 추가하시겠습니까?")) {
 			registerForm.submit();
 		}
 	}
-
-	//function bookDelete(targetUri){
-	//	updateForm.action = targetUri;
-	//	updateForm.submit();
-	//}
-</script>
-
 </script>
 
 </head>
 <body>
+	<%
+	String[] level = { "초보자", "중급자", "상급자" };
+
+	String[] lan = { "java", "python", "c", "c++", "kotlin", "lua", "css", "javaScript", "swift", "c#", "node.js",
+			"typeScript", };
+	
+	String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨어", "알고리즘", "학습 사이트 제공", "비전공자", "게임"};
+	%>
 	<header>
 		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
 			type="text/css">
@@ -112,46 +113,42 @@ a, button {
 			<table>
 				<tr>
 					<th>표지(경로)</th>
-					<td>&nbsp;<input type="text" name="cover_path"
-						value="${book.cover_path}" placeholder="ex)파일명.jpg"></td>
+					<td>&nbsp;<input type="text" name="cover_path"></td>
 				</tr>
 				<tr>
 					<th>ISBN</th>
-					<td>&nbsp;<input type="text" name="ISBN" value="${book.ISBN}"></td>
+					<td>&nbsp;<input type="text" name="ISBN"></td>
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td>&nbsp;<input type="text" name="title"
-						value="${book.title}"></td>
+					<td>&nbsp;<input type="text" name="title"></td>
 				</tr>
 				<tr>
 					<th>저자</th>
-					<td>&nbsp;<input type="text" name="author"
-						value="${book.author}"></td>
+					<td>&nbsp;<input type="text" name="author"></td>
 				</tr>
 				<tr>
 					<th>출판사</th>
-					<td>&nbsp;<input type="text" name="publisher"
-						value="${book.publisher}"></td>
+					<td>&nbsp;<input type="text" name="publisher"></td>
 				</tr>
 				<tr>
 					<th>출판 날짜</th>
 					<td>&nbsp;<input type="text" name="publicationDate"
-						value="${book.publicationDate }" placeholder="ex)2023-01-10">
+						placeholder="ex)2023-01-10">
 					</td>
 				</tr>
 				<tr>
 				<tr id="longInfo">
 					<th>책 소개</th>
-					<td><textarea id="longinput type=" text"" name="bookInfo"> ${book.bookInfo} </textarea></td>
+					<td><textarea id="longinput" type="text" name="bookInfo"></textarea></td>
 				</tr>
 				<tr id="longInfo">
 					<th>목차</th>
-					<td><textarea id="longinput type=" text"" name="bookIndex"> ${book.bookIndex} </textarea></td>
+					<td><textarea id="longinput" type="text" name="bookIndex"></textarea></td>
 				</tr>
 				<tr id="longInfo">
 					<th>저자 소개</th>
-					<td><textarea id="longinput type=" text"" name="authorInfo"> ${book.authorInfo} </textarea></td>
+					<td><textarea id="longinput" type="text" name="authorInfo"></textarea></td>
 				</tr>
 			</table>
 
@@ -160,29 +157,71 @@ a, button {
 			<table>
 				<tr class="bookType_cate">
 					<th>카테고리</th>
-					<td>&nbsp;<input type="text" name="category"
-						value="${book.category}" placeholder="모바일">
+					<td>
+						&nbsp;	
+						<select name="category">
+							<c:forEach var="c" items="${categories}">
+								<option value="${c.category}">${c.category}
+							</c:forEach>
+						</select>
 					</td>
 				</tr>
 				<tr class="bookType">
 					<th>수준</th>
-					<td>&nbsp;<input type="text" name="itLevel"
-						value="${book.itLevel}" placeholder="초보자"></td>
+					<td>
+						<%
+						for (int i = 0; i < level.length; i++) { %> 
+						&nbsp;<input type="radio" name="itLevel" value="<%=level[i]%>"><%=level[i]%> 
+						<%} %>
+					</td>
 				</tr>
 				<tr class="bookType">
 					<th>언어</th>
-					<td>&nbsp;<input type="text" name="language"
-						value="${book.language}" placeholder="kotlin">
+					<td>
+					<br>
+						<% for (int i = 0; i < lan.length; i++) { %>
+							&nbsp;<input type="radio" name="language" value="<%=lan[i]%>"><%=lan[i]%> &emsp;&emsp;
+							<% if(i!=0 && i%5==0) { %>
+								<br>
+							<%} %>
+						<%} %>
+						<br><br>
 					</td>
 				</tr>
 				<tr class="bookType">
 					<th>키워드 <br> (최대 3개)
 					</th>
-					<td>1. <input type="text" name="keyword1"
-						value="${book.keyword1}" placeholder="자바 입문"> 2. <input
-						type="text" name="keyword2" value="${book.keyword2}"
-						placeholder="없다면 X(엑스)"> 3. <input type="text"
-						name="keyword3" value="${book.keyword3}">
+					<td>1. <select name="keyword1">
+						<% for (int i = 0; i < keywords.length; i++) { 
+							if (i==0) {%>
+								<option value="<%=keywords[i]%>" selected><%=keywords[i]%>
+							<%} else {%>
+							<option value="<%=keywords[i]%>"><%=keywords[i]%>
+							<%} %>
+						<%}%>
+						</select> 
+						&nbsp;&nbsp;
+						
+						2. <select name="keyword2">
+						<% for (int i = 0; i < keywords.length; i++) { 
+							if (i==0) {%>
+								<option value="<%=keywords[i]%>" selected><%=keywords[i]%>
+							<%} else {%>
+							<option value="<%=keywords[i]%>"><%=keywords[i]%>
+							<%} %>
+						<%}%>
+						</select> 
+						&nbsp;&nbsp;
+						
+						3. <select name="keyword3">
+						<% for (int i = 0; i < keywords.length; i++) { 
+							if (i==0) {%>
+								<option value="<%=keywords[i]%>" selected><%=keywords[i]%>
+							<%} else {%>
+							<option value="<%=keywords[i]%>"><%=keywords[i]%>
+							<%} %>
+						<%}%>
+						</select>
 					</td>
 				</tr>
 			</table>

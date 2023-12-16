@@ -63,7 +63,7 @@ public class RequestMapping {
         mappings.put("/admin/book/modify", new ViewModifyBookInfoController()); //책 정보 수정
         mappings.put("/admin/book/delete", new DeleteBookController()); //책 삭제
         mappings.put("/admin/book/register", new RegisterBookController()); //책 추가
-        mappings.put("/admin/book/register/form",new ForwardController("/admin/book/register/registerForm.jsp")); //책 추가 폼으로 가기 
+        mappings.put("/admin/book/register/form", new LoadCategoryController()); //책 추가 폼으로 가기 
         mappings.put("/book/allList", new ViewAllBookController()); // 메뉴바 도서 검색 (모든 도서 리스트)
         
         ////카테고리 관련
