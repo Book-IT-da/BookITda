@@ -5,45 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">	
+<link rel=stylesheet href="<c:url value='/css/review/searchReviewBook.css' />" type="text/css">		
 <title>책 제목 검색</title>
-	<style>
-	#logo {
-		margin: 25px 30px;
-		text-align: center;
-		}
-	
-	#logo a {
-	    text-decoration: none;
-	    color: black;
-	}  
-	#searchText {
-    	font-size: 16px;
-        width: 325px;
-        padding: 10px;
-        border: 0.5px;
-    }
-    #search_button {
-        width: 100px;
-        height: 35px;
-        background: #1b5ac2;
-        outline: none;
-        color: #ffffff;
-    }
-    table {
-        width: 800px;
-    }
-    th, td {
-        height: 50px;
-        text-align: center;
-    }
-    th {
-        border-bottom: 1.5px solid black;
-    }
-    a {
-        text-decoration-line: none;
-         color: black;
-    }
-	</style>
 	<script type="text/javascript">
 		function searchBook() {
 			if (searchBookForm.searchText.value == "") {

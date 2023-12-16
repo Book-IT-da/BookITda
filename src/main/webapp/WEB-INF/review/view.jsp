@@ -13,78 +13,8 @@
 		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+		<link rel=stylesheet href="<c:url value='/css/review/view.css' />" type="text/css">
 		<title>상세보기</title>
-		<style>     
-            li a {
-                color: black;
-            } 
-            #comment_input {
-                font-size: 16px;
-                width: 325px;
-                padding: 10px;
-            }
-            .book_box  {
-                border-collapse:collapse;
-                border-spacing:0;
-                margin: auto;
-                width: 50%;
-                height: 80%;
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
-            .book_box td{
-                border-color:black;
-                border-style:solid;
-                border-width:1px;
-                padding:10px 5px;
-                word-break:normal;
-            }
-            .book_box th{
-                border-color:black;
-                border-style:solid;
-                border-width:1px;
-                padding:10px 5px;
-            }
-            .book_pic{
-                width: 20%;
-            }
-            .book_cover{
-				width: 200px;
-            }
-            .book_multiline_review{
-                height: 100px;
-            }
-            .comment_box  {
-                border-collapse:collapse;
-                border-spacing:0;
-                margin: auto;
-                width: 50%;
-                height: 80%;
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
-            .comment_box td{
-                border-color:black;
-                border-style:solid;
-                border-width:1px;
-                padding:10px 5px;
-            }
-            .comment_box th{
-                border-color:black;
-                border-style:solid;
-                border-width:1px;
-                padding:10px 5px;
-            }
-            .comment_detail{
-                height: 100px;
-            }
-            .comment_nick{
-            	width: 500px;
-            }
-            td form { 
-            	float: right; 
-            }
-        </style>
         <script>
 			function reviewRemove() {
 				var answer = confirm("정말 삭제하시겠습니까?");
