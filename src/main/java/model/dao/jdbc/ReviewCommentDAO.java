@@ -90,7 +90,7 @@ public class ReviewCommentDAO {
         StringBuilder query = new StringBuilder();
         
         query.append("UPDATE ReviewComment SET ");
-        query.append("rContent = ?, ");
+        query.append("rContent = ? ");
         query.append("WHERE commentId = ? ");
         
         jdbcUtil.setSqlAndParameters(query.toString(), 

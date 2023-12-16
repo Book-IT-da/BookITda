@@ -112,6 +112,58 @@
 				}
 				return false;
 			}
+			
+			function commentModify(commentId){
+				var updateCommentForm = document.forms["updateCommentForm_" + commentId];
+				if (updateCommentForm.rContent.value == "") {
+					alert("댓글을 입력하세요.");
+					updateCommentForm.rContent.focus();
+					return false;
+				}
+				updateCommentForm.submit();
+			}
+			
+			function commentModifyInput(commentId){
+				 var commentUpdate = document.getElementById('commentUpdate_' + commentId);
+				 var commentRead = document.getElementById('commentRead_' + commentId);
+				 var commentDelete = document.getElementById('commentDelete_' + commentId);
+				 var commentChange = document.getElementById('commentChange_' + commentId);
+				 
+				 var commentCancel = document.getElementById('commentCancel_' + commentId);
+				 var commentMod = document.getElementById('commentMod_' + commentId);
+				 
+				 commentRead.style.display = 'none';
+				 commentDelete.style.display = 'none';
+				 commentChange.style.display = 'none';
+				 
+				 commentUpdate.style.display = 'table-cell';
+				 commentCancel.style.display = 'table-cell';
+				 commentMod.style.display = 'table-cell';
+			}
+			
+			function commentModifyCancel(commentId){
+				
+				
+				 var commentUpdate = document.getElementById('commentUpdate_' + commentId);
+				 var commentRead = document.getElementById('commentRead_' + commentId);
+				 var commentDelete = document.getElementById('commentDelete_' + commentId);
+				 var commentChange = document.getElementById('commentChange_' + commentId);
+				 
+				 var commentCancel = document.getElementById('commentCancel_' + commentId);
+				 var commentMod = document.getElementById('commentMod_' + commentId);
+				 
+				 commentRead.style.display = 'table-cell';
+				 commentDelete.style.display = 'table-cell';
+				 commentChange.style.display = 'table-cell';
+				 
+				 commentUpdate.style.display = 'none';
+				 commentCancel.style.display = 'none';
+				 commentMod.style.display = 'none';
+				 
+				 var updateForm = document.forms["updateCommentForm_" + commentId];
+				    
+				 updateForm.rContent.value = commentRead.innerHTML.trim();
+			}
 			</script>
 	</head>
 <body>
@@ -236,20 +288,29 @@
 											action="<c:url value='/review/comment/delete' />">
 											<input type="hidden" name="reviewId" value="${review.reviewId}">
 							    			<input type="hidden" name="commentId" value="${comment.commentId}">
-							                <input type="button" value="삭제"  onClick="commentRemove(this.form)">
+							                <input type="button" value="삭제" id="commentDelete_${comment.commentId}" onClick="commentRemove(this.form)">
 							            </form>
-							            <form name="updateCommentForm" method="GET"
-											action="<c:url value='/comment/update' />">
-							    			<input type="hidden" name="commentId" value="">
-							                <input type="button" value="수정"  onClick="commentModify()">
-							            </form>
+							                <input type="button" value="수정" id="commentChange_${comment.commentId}" onClick="commentModifyInput(${comment.commentId})">
+							                <input type="button" value="완료" id="commentMod_${comment.commentId}" style="display: none;" onClick="commentModify(${comment.commentId})">
+							                <input type="button" value="취소" id="commentCancel_${comment.commentId}" style="display: none;" onClick="commentModifyCancel(${comment.commentId})">	
 						            </c:if>
 	                            </td>
 	                          </tr>
 	                        </thead>
 	                        <tbody>
 	                          <tr>
-	                            <td class="comment_detail" colspan="3">${comment.rContent}</td>
+ 							    <form name="updateCommentForm_${comment.commentId}" method="GET"
+									action="<c:url value='/review/comment/update' />">
+									<input type="hidden" name="userId" value="${userId}">
+									<input type="hidden" name="reviewId" value="${review.reviewId}">
+							    	<input type="hidden" name="commentId" value="${comment.commentId}">
+									<td class="comment_detail" colspan="3" id="commentUpdate_${comment.commentId}" style="display: none;">
+											<textarea id="comment_input" name="rContent" required>${comment.rContent}</textarea>	
+		                            </td>
+								</form>
+	                            <td class="comment_detail" colspan="3" id="commentRead_${comment.commentId}">
+	                            	${comment.rContent}
+	                            </td>
 	                          </tr>
 	                        </tbody>
 	                    </table>
