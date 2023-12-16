@@ -10,48 +10,8 @@
 		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
-		<title>리뷰 작성</title>
-		<style>     
-            li a {
-                color: black;
-            } 
-            #comment_input {
-                font-size: 16px;
-                width: 325px;
-                padding: 10px;
-            }
-            .book_box  {
-                border-collapse:collapse;
-                border-spacing:0;
-                margin: auto;
-                width: 50%;
-                height: 80%;
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
-            .book_box td{
-                border-color:black;
-                border-style:solid;
-                border-width:1px;
-                padding:10px 5px;
-                word-break:normal;
-            }
-            .input_text {
-                width: 80%;
-                line-height: 20px;
-            }
-            .book_box th{
-                border-color:black;
-                border-style:solid;
-                border-width:1px;
-                padding:10px 5px;
-            }
-            .book_multiline_review{
-                height: 200px;
-                width: 99%;
-            }
-        </style>
-        
+		<link rel=stylesheet href="<c:url value='/css/review/createForm.css' />" type="text/css">
+		<title>리뷰 작성</title>       
         <script>
         	function findBook() {
         		window.name = "parentForm";

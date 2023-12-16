@@ -8,82 +8,8 @@
 		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+		<link rel=stylesheet href="<c:url value='/css/review/list.css' />" type="text/css">
 		<title>도서 리뷰</title>
-		<style>     
-            li a {
-                color: black;
-            } 
-            #reviewTitle_input {
-                font-size: 16px;
-                width: 325px;
-                padding: 10px;
-                border: 0.5px;
-            }
-            #search_button {
-                width: 100px;
-                height: 35px;
-                background: #1b5ac2;
-                outline: none;
-                color: #ffffff;
-            }
-            .book_box  {
-                border-collapse:collapse;
-                border-spacing:0;
-                margin: auto;
-                width: 60%;
-                height: 225px;
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
-            .book_box td{
-                border-color:black;
-                border-style:solid;
-                border-width:1px;
-                padding:10px 5px;
-                word-break:normal;
-            }
-            .book_box td a{
-    			text-decoration: none;
-    			color: black;
-            }
-            .book_box th{
-                border-color:black;
-                border-style:solid;
-                border-width:1px;
-                padding:10px 5px;
-            }
-            .book_pic{
-                width: 20%;
-            }
-            .book_cover {
-				width: 200px;
-			}
-            .book_title{
-                font-size: 18px;
-                font-weight: bold;
-            }
-            .book_author{
-                font-size: 16px;
-            }
-            .book_stars{
-                font-size: 16px;
-            }
-            .book_oneline_review{
-                font-size: 16px;
-            }
-            .review_date{
-                font-size: 12px;
-            }
-            .no_review{
-                font-size: 50px;
-                color: #D7D7D7;
-                -webkit-touch-callout: none;
-			    user-select: none;
-			    -moz-user-select: none;
-			    -ms-user-select: none;
-			    -webkit-user-select: none;
-            }
-        </style>
 	<script type="text/javascript">
 		function searchReview() {
 			if (searchReviewForm.reviewTitle_input.value == "") {
