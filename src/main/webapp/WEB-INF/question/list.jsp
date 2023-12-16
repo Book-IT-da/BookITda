@@ -24,6 +24,9 @@
 		form.method = "GET";
 		form.submit();
 	}
+	function loginAlert() {
+		alert('로그인해야 이용가능한 서비스입니다.')
+	}
 </script>
 
 <style>
@@ -111,11 +114,13 @@ a {
 				</tr>
 				<c:forEach var="ques" items="${questionList}">
 					<tr>
-						<td><a
-							href="<c:url value='/question/view'>
-					   <c:param name='qId' value='${ques.qId}'/>
-			 		 </c:url>">
-								${ques.title}</a></td>
+						<td>
+						<c:if test="${sessionScope.userId!=null}">
+						<a href="<c:url value='/question/view'><c:param name='qId' value='${ques.qId}'/></c:url>">${ques.title}</a></c:if>
+						<c:if test="${sessionScope.userId==null}">
+						<a href="javascript:void(0);" onclick="loginAlert()">${ques.title}</a>
+						</c:if>
+						</td>
 						<td>${ques.views}</td>
 						<td>${ques.nickname}</td>
 						<td>${ques.createDate}</td>
