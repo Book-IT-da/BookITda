@@ -141,7 +141,7 @@ public class ReviewCommentDAO {
     // 마이페이지 - 사용자가 작성한 모든 리뷰 댓글 List에 저장 및 반환 -> ReviewCommentDAO 
     public List<ReviewComment> findReviewCommentByUser(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
-        query.append("SELECT commentId, rcontent, c.reviewId, c.createDate ");
+        query.append("SELECT commentId, c.reviewId, c.userId, rContent, c.createDate ");
         query.append("FROM REVIEWCOMMENT c ");
         query.append("JOIN REVIEW r ON c.reviewId = r.reviewId ");
         query.append("JOIN MEMBER m ON c.userId = m.userId ");
@@ -157,7 +157,7 @@ public class ReviewCommentDAO {
                         rs.getInt("commentId"),
                         rs.getInt("reviewId"),
                         rs.getString("userId"),
-                        rs.getString("rcontent"),
+                        rs.getString("rContent"),
                         rs.getDate("createDate"));
                 reviewComments.add(reviewComment);
             }
