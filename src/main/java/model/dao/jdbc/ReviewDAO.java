@@ -362,9 +362,10 @@ public class ReviewDAO {
  // 마이페이지 - 사용자가 작성한 모든 리뷰 List에 저장 및 반환 -> ReviewDAO
     public List<Review> findReviewByUser(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
-        query.append("SELECT reviewId, starscore, onelineReview, createDate ");
-        query.append("FROM REVIEW r JOIN MEMBER m ");
-        query.append("ON r.USERID = m.USERID ");
+        query.append("SELECT reviewId, b.title, starscore, onelineReview, createDate ");
+        query.append("FROM REVIEW r ");
+        query.append("JOIN MEMBER m ON r.USERID = m.USERID ");
+        query.append("JOIN book b ON r.isbn = b.isbn ");
         query.append("WHERE m.userId = ? ");
         
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userId});
@@ -375,6 +376,7 @@ public class ReviewDAO {
             while(rs.next()) {
                 Review review = new Review(
                         rs.getInt("reviewId"),
+                        rs.getString("title"),
                         rs.getInt("starscore"),
                         rs.getString("onelineReview"),
                         rs.getDate("createDate"));
