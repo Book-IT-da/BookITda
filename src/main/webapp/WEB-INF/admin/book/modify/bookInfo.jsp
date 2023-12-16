@@ -90,6 +90,15 @@ a, button {
 
 </head>
 <body>
+<%
+String[] level = { "초보자", "중급자", "상급자" };
+
+String[] lan = { "java", "python", "c", "c++", "kotlin", "lua", "css", "javaScript", "swift", "c#", "node.js",
+		"typeScript", };
+
+String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨어", "알고리즘", "학습 사이트 제공", "비전공자", "게임"};
+
+%>
 	<header>
 		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
 			type="text/css">
@@ -162,28 +171,107 @@ a, button {
 			<table>
 				<tr class="bookType_cate">
 					<th>카테고리</th>
-					<td>&nbsp;<input type="text" name="category"
-						value="${book.category}">
+					<td>
+						&nbsp
+						<select name="category">
+							<c:forEach var="c" items="${categories}">
+								<c:choose>
+									<c:when test="${c.category eq book.category}">
+										<option value="${c.category}" selected>${c.category}
+									</c:when>
+									<c:otherwise>
+										<option value="${c.category}">${c.category}
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select> 
 					</td>
 				</tr>
 				<tr class="bookType">
 					<th>수준</th>
-					<td>&nbsp;<input type="text" name="itLevel"
-						value="${book.itLevel}"></td>
+					<td>
+					<% for (int i = 0; i < level.length; i++) { %>
+						<c:set var="levelT" value="<%=level[i]%>"/> 
+						<c:choose>
+							<c:when test="${levelT eq book.itLevel}">
+								&nbsp;<input type="radio" name="itLevel" value="${levelT }" checked>${levelT}
+							</c:when>
+							<c:otherwise>
+								&nbsp;<input type="radio" name="itLevel" value="${levelT }">${levelT }
+							</c:otherwise>
+						</c:choose>
+					<%} %>
+					</td>
 				</tr>
 				<tr class="bookType">
 					<th>언어</th>
-					<td>&nbsp;<input type="text" name="language"
-						value="${book.language}">
+					<td>
+						<br>
+						<% for (int i = 0; i < lan.length; i++) { %>
+						<c:set var="lanT" value="<%=lan[i]%>"/> 
+						<c:choose>
+							<c:when test="${lanT eq book.language}">
+								&nbsp;<input type="radio" name="language" value="${lanT }" checked>${lanT}&emsp;&emsp;
+							</c:when>
+							<c:otherwise>
+								&nbsp;<input type="radio" name="language" value="${lanT }">${lanT }&emsp;&emsp;
+							</c:otherwise>
+						</c:choose>
+						
+						<% if(i!=0 && i%5==0) { %>
+								<br>
+						<%} %>
+					<%} %>
+					<br><br>				
 					</td>
 				</tr>
 				<tr class="bookType">
 					<th>키워드 <br> (최대 3개)
 					</th>
-					<td>1. <input type="text" name="keyword1"
-						value="${book.keyword1}"> 2. <input type="text"
-						name="keyword2" value="${book.keyword2}"> 3. <input
-						type="text" name="keyword3" value="${book.keyword3}">
+					<td> &nbsp; 
+						1. <select name="keyword1">
+								<% for (int i = 0; i < keywords.length; i++) { %>
+								<c:set var="keyT" value="<%=keywords[i]%>"/> 
+								<c:choose>
+									<c:when test="${keyT eq book.keyword1}">
+										<option value="${ keyT }" selected>${ keyT }
+									</c:when>
+									<c:otherwise>
+										<option value="${ keyT }">${ keyT }
+									</c:otherwise>
+								</c:choose>
+							<%} %>
+						</select> 
+						&nbsp;&nbsp;
+						
+						2. <select name="keyword2">
+								<% for (int i = 0; i < keywords.length; i++) { %>
+								<c:set var="keyT" value="<%=keywords[i]%>"/> 
+								<c:choose>
+									<c:when test="${keyT eq book.keyword2}">
+										<option value="${ keyT }" selected>${ keyT }
+									</c:when>
+									<c:otherwise>
+										<option value="${ keyT }">${ keyT }
+									</c:otherwise>
+								</c:choose>
+							<%} %>
+						</select> 
+						&nbsp;&nbsp;
+						
+						3. <select name="keyword3">
+								<% for (int i = 0; i < keywords.length; i++) { %>
+								<c:set var="keyT" value="<%=keywords[i]%>"/> 
+								<c:choose>
+									<c:when test="${keyT eq book.keyword3}">
+										<option value="${ keyT }" selected>${ keyT }
+									</c:when>
+									<c:otherwise>
+										<option value="${ keyT }">${ keyT }
+									</c:otherwise>
+								</c:choose>
+							<%} %>
+						</select> 
 					</td>
 				</tr>
 			</table>
