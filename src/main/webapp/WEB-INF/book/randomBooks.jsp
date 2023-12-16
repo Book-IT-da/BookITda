@@ -21,14 +21,21 @@
 	height: 40px;
 }
 
-/*
 .btnMoveToTop {
-	position: fixed;
-	width: 30px;
-	height: 50px;
-	background-image: url(./img/moveToTop.PNG);
+	height:40px;
+    width:40px;
+    color: #555;
+    font-size:14px;
+    position:fixed;
+    bottom:10px;
+    right: 10px;
+    z-index:999;
+    -webkit-box-shadow: 0 1px 2px 0 #777;
+    box-shadow: 0 1px 2px 0 #777;
+    background-color:#ccc;
+    text-align : center;
+    cursor:pointer;
 }
-*/
 
 #bookInfoList {
 	border: 0px;
@@ -144,7 +151,7 @@ b{
 		</c:forEach>
 	</div>
 
-	<div class="btnMoveToTop" />
+	<div class="btnMoveToTop" onclick="window.scrollTo(0,0);">TOP   ↑</div>
 
 </body>
 </html>

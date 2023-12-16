@@ -84,16 +84,26 @@ hr {
 	background-color: yellow;
 }
 
-#btn_bookInfo_delete {
-	width: 120px;
-	height: 50px;
-	background-color: red;
-}
-
 a, button {
 	text-decoration: none;
 	color: black;
 	cursor: pointer;
+}
+
+.btnMoveToTop {
+	height:40px;
+    width:40px;
+    color: #555;
+    font-size:14px;
+    position:fixed;
+    bottom:10px;
+    right: 10px;
+    z-index:999;
+    -webkit-box-shadow: 0 1px 2px 0 #777;
+    box-shadow: 0 1px 2px 0 #777;
+    background-color:#ccc;
+    text-align : center;
+    cursor:pointer;
 }
 </style>
 <script>
@@ -196,7 +206,7 @@ a, button {
 		<jsp:include page="../review/bookInfo_reviewList.jsp" />
 
 
-		<!-- <button type="button" id="btn_bookInfo_delete">삭제</button> -->
+		<div class="btnMoveToTop" onclick="window.scrollTo(0,0);">TOP   ↑</div>
 		<br> <br>
 
 	</div>
