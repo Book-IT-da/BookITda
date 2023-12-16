@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />"
+	type="text/css">
 
 <title>로그인</title>
 
@@ -27,6 +28,9 @@ function userCreate(targetUri) {
 	form.action = targetUri;
 	form.method = "GET";
 	form.submit();
+}
+function loginAlert() {
+	alert('${msg}')
 }
 </script>
 <style>
@@ -55,6 +59,13 @@ input[type="submit"] {
 a {
 	text-decoration-line: none;
 }
+
+.loginFailure {
+	width: 300px;
+	height: 30px;
+	padding-top: 7px;
+	background-color: skyblue;
+}
 </style>
 </head>
 
@@ -62,7 +73,7 @@ a {
 	<div>
 		<%@ include file="../top/logo.jsp"%>
 	</div>
-	<center>
+	<div align="center">
 		<form name="form" method="POST" action="<c:url value='/user/login'/>">
 			<h2>로그인</h2>
 			<div>
@@ -74,13 +85,15 @@ a {
 				<input type="button" value="로그인" onClick="login()"> <br>
 			</div>
 		</form>
-
+		<c:if test="${loginFailed}">
+			<p class="loginFailure">${msg}</p>
+		</c:if>
 		<div class="links">
 			<a href="">아이디 찾기</a> | <a href="">비밀번호 찾기</a> | <input type="button"
 				value="회원가입"
 				onClick="userCreate(
 								'<c:url value='/user/register'/>')">
 		</div>
-	</center>
+	</div>
 </body>
 </html>

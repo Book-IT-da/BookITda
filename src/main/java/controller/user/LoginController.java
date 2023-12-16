@@ -27,6 +27,7 @@ public class LoginController implements Controller {
     	} catch (Exception e) {
     		request.setAttribute("loginFailed", true);
     		request.setAttribute("exception", e);
+            request.setAttribute("msg", "아이디나 비밀번호가 틀립니다.");
     		return "/user/loginForm.jsp";
     	}
     }
