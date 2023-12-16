@@ -16,24 +16,24 @@ public class UpdateCommentController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-
-		
 		ReviewComment reviewComment = null;
 		String commentId = request.getParameter("commentId");
+		String reviewId = request.getParameter("reviewId");
 		String userId = request.getParameter("userId");
-		Date createDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("createDate"));
 		
-		// POST request
+		HttpSession session = request.getSession();
+		session.setAttribute("reviewId", reviewId);
+		
 		ReviewComment updateComment = new ReviewComment(
-				0,
 				Integer.parseInt(commentId),
-				request.getParameter("rContent"),
+				Integer.parseInt(reviewId),
 				userId,
+				request.getParameter("rContent"),
 				null
 		);
 
 		ReviewManager manager = ReviewManager.getInstance();
-		manager.updateComment(reviewComment, Integer.parseInt(commentId));
+		manager.updateComment(updateComment, Integer.parseInt(commentId));
 
 		
         return "redirect:/review/view";
