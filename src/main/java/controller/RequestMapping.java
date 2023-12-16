@@ -32,6 +32,8 @@ public class RequestMapping {
        mappings.put("/user/mypage", new ForwardController("/user/mypage.jsp"));
        mappings.put("/user/update", new UpdateUserController());
        mappings.put("/user/delete", new DeleteUserController());
+       mappings.put("/user/review", new ReviewUserController());
+       mappings.put("/user/review/comment", new CommentUserController());
        mappings.put("/user/question", new QuestionUserController());
        mappings.put("/user/answer", new AnswerUserController());
 	
