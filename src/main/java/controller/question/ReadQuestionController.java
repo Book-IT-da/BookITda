@@ -20,19 +20,20 @@ public class ReadQuestionController implements Controller {
 		
 		String value = request.getParameter("qId");
 	
+		if (value == null) {
+		    HttpSession session = request.getSession();
+		    value = (String) session.getAttribute("qId");
+		}
 		Question ques = null;
 		List<Answer> answerList = null;
 		
-		try {
-			int qId = Integer.parseInt(value);
-			ques = quesMan.read(qId);
-			answerList = ansMan.findAnswerList(qId);
-		    request.setAttribute("answerList", answerList);
-			
-		} catch (Exception e) {
-			return "redirect:/question/list";
-		}
+		int qId = Integer.parseInt(value);
+        ques = quesMan.read(qId);
+        answerList = ansMan.findAnswerList(qId);
+        
+        request.setAttribute("answerList", answerList);
 		request.setAttribute("ques", ques);
+		
 		return "/question/view.jsp";
 	}
 }
