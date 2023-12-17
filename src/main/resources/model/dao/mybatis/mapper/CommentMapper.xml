@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.dao.mybatis.mapper.CommentMapper">
+	<cache />
+	
+	<select id="findCommentList" parameterType="int" resultType="ReviewComment">
+		SELECT r.commentId, 
+		rContent, 
+		r.reviewId, 
+		r.userId, 
+		member.nickname, 
+		r.createDate 
+		FROM reviewComment r 
+		INNER JOIN member ON r.userId = member.userId 
+		INNER JOIN review ON r.reviewId = review.reviewId 
+		WHERE review.reviewId = #{reviewId}
+		ORDER BY r.createdate DESC 
+    </select>
+    
+	<insert id="createComment" parameterType="ReviewComment">
+		INSERT INTO reviewComment 
+		VALUES(sequence_commentid.nextval, #{rContent}, #{reviewId}, #{userId}, SYSDATE)
+	</insert>    
+
+	<update id="modifyComment" parameterType="ReviewComment">
+		UPDATE ReviewComment SET 
+		rContent = #{rContent} 
+		WHERE commentId = #{commentId} 		
+	</update>    
+	
+	<delete id="removeComment" parameterType="int">
+		DELETE FROM ReviewComment 
+		WHERE commentId = #{commentId}
+	</delete>
+		
+</mapper>

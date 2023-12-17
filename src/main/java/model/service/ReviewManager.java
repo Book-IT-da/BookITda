@@ -7,16 +7,19 @@ import model.Review;
 import model.ReviewComment;
 import model.dao.jdbc.ReviewCommentDAO;
 import model.dao.jdbc.ReviewDAO;
+import model.dao.mybatis.CommentDAO;
 
 public class ReviewManager {
 	private static ReviewManager reviewMan = new ReviewManager();
 	private ReviewDAO reviewDAO;
 	private ReviewCommentDAO reviewCommentDAO;
+	private CommentDAO commentDAO;
 
 	private ReviewManager() {
 		try {
 			reviewDAO = new ReviewDAO();
 			reviewCommentDAO = new ReviewCommentDAO();
+			commentDAO = new CommentDAO();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}			
@@ -68,22 +71,22 @@ public class ReviewManager {
 	
     // 리뷰 조회 시 하단에 있는 리뷰 댓글 조회
     public List<ReviewComment> findCommentList(int reviewId){
-    	return reviewCommentDAO.findCommentList(reviewId);
+    	return commentDAO.findCommentList(reviewId);
     }
 
     // 리뷰 댓글 생성
-    public int createComment(ReviewComment reviewComment) {
-    	return reviewCommentDAO.createComment(reviewComment);
+    public ReviewComment createComment(ReviewComment reviewComment) {
+    	return commentDAO.createComment(reviewComment);
     }
     
     // 리뷰 댓글 수정
     public int updateComment(ReviewComment reviewComment) {
-    	return reviewCommentDAO.modifyComment(reviewComment);
+    	return commentDAO.modifyComment(reviewComment);
     }
 
     //리뷰 댓글 삭제
     public int removeComment (int commentId) {
-    	return reviewCommentDAO.removeComment(commentId);
+    	return commentDAO.removeComment(commentId);
     }
     
     // 마이페이지 - 사용자가 작성한 모든 리뷰 댓글 
