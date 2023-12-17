@@ -44,7 +44,7 @@ public class RequestMapping {
         mappings.put("/question/update", new UpdateQuestionController());
         mappings.put("/question/delete", new DeleteQuestionController());
         mappings.put("/answer/create", new CreateAnswerController());
-        // mappings.put("/answer/update", new UpdateAnswerController()); 구현해야 함.
+        mappings.put("/answer/update", new UpdateAnswerController());
         mappings.put("/answer/delete", new DeleteAnswerController());
 
         // 리뷰&댓글 관련
