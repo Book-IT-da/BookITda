@@ -31,6 +31,7 @@
 		<div align="center">
 			<table>
 				<tr>
+					<td>번호</td>
 					<td>사용자 ID</td>
 					<td>닉네임</td>
 					<td>이메일</td>
@@ -38,8 +39,8 @@
 				<c:forEach var="user" items="${userList}" varStatus="status">
 					<tr>
 						<td>${status.index + 1}</td>
-						<td>${user.userId}</td>
-						<td><a href="">${user.nickname}</a></td>
+						<td><a href="<c:url value='/admin/user/view'><c:param name='userId' value='${user.userId}'/></c:url>">${user.userId}</a></td>
+						<td>${user.nickname}</td>
 						<td>${user.email}</td>
 					</tr>
 				</c:forEach>
