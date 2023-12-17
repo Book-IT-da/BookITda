@@ -16,9 +16,14 @@ public class UpdateUserController implements Controller {
 			
 			UserManager userMan = UserManager.getInstance();
 			User user = userMan.findUser(updateId);
-			request.setAttribute("user", user);
 			
-			HttpSession session = request.getSession();
+	        HttpSession session = request.getSession();
+            request.setAttribute("user", user);
+
+			if (UserSessionUtils.isLoginUser("admin", session)) {
+	             return "/admin/user/updateForm.jsp"; 
+			}
+			
 			if (UserSessionUtils.isLoginUser(updateId, session)) {
 				return "/user/updateForm.jsp"; 
 			}
@@ -36,11 +41,15 @@ public class UpdateUserController implements Controller {
 		
 		UserManager userMan = UserManager.getInstance();
 		userMan.update(updateUser);
-		
-		// 닉네임 수정 갱신
+
         HttpSession session = request.getSession();
+
+		if (UserSessionUtils.isLoginUser("admin", session)) {
+            return "redirect:/admin/user/view";
+        }          
+		// 닉네임 수정 갱신
 		session.setAttribute("nickname", request.getParameter("nickname"));
-		
+	
 		return "redirect:/user/mypage";
 	}
 }
