@@ -30,7 +30,7 @@ public class CreateCommentController implements Controller {
 		);
 
 		ReviewManager manager = ReviewManager.getInstance();
-		manager.createComment(createComment, Integer.parseInt(reviewId));
+		manager.createComment(createComment);
 
 		
         return "redirect:/review/view";
