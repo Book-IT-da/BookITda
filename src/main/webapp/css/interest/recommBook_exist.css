@@ -5,6 +5,11 @@ html, body {
 	padding: 0;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 li a {
 	color: black;
 }
@@ -94,6 +99,7 @@ li a {
 .grade {
 	font-size: 7px;
 	margin: 0 0;
+	text-decoration: none;
 }
 
 .menubar {
