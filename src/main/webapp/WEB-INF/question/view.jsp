@@ -14,10 +14,6 @@
 <title>질문 글 상세보기</title>
 
 <script>
-	function questionRemove() {
-		return confirm("정말 삭제하시겠습니까?");
-	}
-
 	function answerCreate() {
 		if (form.content.value == "") {
 			alert("답변을 입력하세요.");
@@ -25,6 +21,35 @@
 			return false;
 		}
 		form.submit();
+	}
+	
+	function answerContent() {
+		var content = document.getElementById('ansContent');
+		var form = document.getElementById('ansForm');
+		var answer = document.getElementById('answer');
+		var answer_form = document.getElementById('content_form');
+		if (content.style.display !== 'none') {
+			content.style.display = 'none';
+			form.style.display = 'block';
+			answer.style.display = 'none';
+			answer_form.style.display = 'block';
+		}
+	}
+	function ansForm() {
+		var content = document.getElementById('ansContent');
+		var form = document.getElementById('ansForm');
+		var answer = document.getElementById('answer');
+		var answer_form = document.getElementById('content_form');
+		var updateAns = document.getElementById('updateAns').value;
+		if (form.style.display !== 'none') {
+			content.style.display = 'block';
+			form.style.display = 'none';
+			answer.style.display = 'block';
+			answer_form.style.display = 'none';
+			answer.innerText = updateAns;
+		}
+		
+		form2.submit();
 	}
 </script>
 <style>
@@ -77,6 +102,14 @@ a {
 	height: 100px;
 	padding: 10px;
 }
+
+#ansForm {
+	display: none;
+}
+#content_form {
+	display: none;
+}
+
 </style>
 </head>
 <body>
@@ -148,16 +181,33 @@ a {
 							<td>작성자: ${answer.nickname}</td>
 							<td>등록일: ${answer.createDate}</td>
 							<c:if test="${sessionScope.userId == answer.userId}">
-								<td><a
-									href="<c:url value='/answer/update'><c:param name='aId' value='${answer.aId}'/></c:url>"
-									onclick="">수정</a> <a
+								<td id ="button1"><div id="ansContent">
+								<input type="button"
+									
+									onclick="answerContent()" value="수정"> <a
 									href="<c:url value='/answer/delete'><c:param name='aId' value='${answer.aId}'/></c:url>"
-									onclick="">삭제</a></td>
+									onclick="ansRemoveAlert()">삭제</a>
+									</div>
+									<div id="ansForm">
+										<input type="button" onClick="ansForm()" value="완료">
+										<input type="button" onClick="" value="취소">
+									</div>
+									</td>
 							</c:if>
 						</tr>
 						<tr>
-							<td colspan="3">글 내용
+							<td colspan="3">
+							<div id="answer">
 								<p /> ${answer.answer}
+							</div>
+							<div id="content_form">
+								<form name="form2" method="GET" action="<c:url value='/answer/update'/>">
+									<input type="hidden" name="userId" value="${answer.userId}">
+									<input type="hidden" name="qId" value="${ques.qId}">
+									<input type="hidden" name="aId" value="${answer.aId}">
+									<textarea id="updateAns" name="answer">${answer.answer}</textarea>
+								</form>
+							</div>
 							</td>
 						</tr>
 					</c:forEach>
