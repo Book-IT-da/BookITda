@@ -29,6 +29,10 @@ public class UpdateQuestionController implements Controller {
 		 }
 		
 		 String value = request.getParameter("qId");
+		 
+         HttpSession session = request.getSession();
+		 session.setAttribute("qId", value);
+		 
 		 int updateQId = Integer.parseInt(value);
 		 
 		 Question updateQues = new Question(
