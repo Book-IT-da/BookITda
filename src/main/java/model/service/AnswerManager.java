@@ -32,6 +32,11 @@ public class AnswerManager {
 	    return answerDAO.createAnswer(qId, ans);
 	}
 	
+	// 답변 수정
+	public int update(Answer ans) throws SQLException {
+	    return answerDAO.updateAnswer(ans);
+	}
+	
 	// 답변 삭제
 	public int remove(int aId) throws SQLException {
 	    return answerDAO.removeAnswer(aId);
