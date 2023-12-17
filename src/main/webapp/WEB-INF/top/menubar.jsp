@@ -20,7 +20,8 @@
 	                	<li class="notSelectedPage">
 	          				<a id="mana">&nbsp;&nbsp; 관리 &nbsp;&nbsp;</a>
 							<ul class="sub_menu">
-								<li class="${selected eq 'userman' ? 'selectedPage' : 'notSelectedPage'}"><a href="">회원 관리</a></li><br/>
+								<li class="${selected eq 'userman' ? 'selectedPage' : 'notSelectedPage'}"><a href="<c:url value='/admin/user/list'>
+				 		   </c:url>"">회원 관리</a></li><br/>
 								<li class="${selected eq 'bookman' ? 'selectedPage' : 'notSelectedPage'}"><a href="<c:url value='/admin/book/register/form'>
 				 		   </c:url>">도서 추가</a></li><br/>
 								<li class="${selected eq 'cateman' ? 'selectedPage' : 'notSelectedPage'}"><a href="<c:url value='/admin/category/list'>
