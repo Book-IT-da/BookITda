@@ -11,21 +11,19 @@ import model.service.AnswerManager;
 public class CreateAnswerController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String value = request.getParameter("qId");
-        int qId = Integer.parseInt(value);
         
         HttpSession session = request.getSession();
         String userId = (String) session.getAttribute("userId");
+        session.setAttribute("qId", value);
         
+        int qId = Integer.parseInt(value);
+
         Answer ans = new Answer(
                 0, request.getParameter("content"),
                 qId, userId, null);
         
-        try {
-            AnswerManager ansMan = AnswerManager.getInstance();
-            ansMan.create(qId, ans);
-            return "redirect:/question/view";
-        } catch (Exception e) {
-            return "question/view.jsp";
-        }
+        AnswerManager ansMan = AnswerManager.getInstance();
+        ansMan.create(qId, ans);
+        return "redirect:/question/view";
     }
 }
