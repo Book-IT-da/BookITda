@@ -121,7 +121,7 @@ input[type="submit"] {
 				<tr>
 					<td>닉네임</td>
 					<td><input type="text" placeholder="닉네임을 입력해주세요"
-						name="nickname" value="${user.userId}" required></td>
+						name="nickname" value="${user.nickname}" required></td>
 				</tr>
 
 				<tr>

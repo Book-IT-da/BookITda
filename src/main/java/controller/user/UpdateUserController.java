@@ -36,6 +36,11 @@ public class UpdateUserController implements Controller {
 		
 		UserManager userMan = UserManager.getInstance();
 		userMan.update(updateUser);
+		
+		// 닉네임 수정 갱신
+        HttpSession session = request.getSession();
+		session.setAttribute("nickname", request.getParameter("nickname"));
+		
 		return "redirect:/user/mypage";
 	}
 }
