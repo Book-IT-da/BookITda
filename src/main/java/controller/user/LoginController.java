@@ -21,7 +21,7 @@ public class LoginController implements Controller {
         	session.setAttribute("userId", userId);
         	
         	User user = userMan.findUser(userId);
-        	session.setAttribute("userName", user.getName());
+        	session.setAttribute("nickname", user.getNickname());
         	
         	return "redirect:/";
     	} catch (Exception e) {

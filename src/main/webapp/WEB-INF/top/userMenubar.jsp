@@ -3,9 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div>
 	<ul class="user_menu">
-		<c:set var="userName" value="${sessionScope.userName}" />
+		<c:set var="nickname" value="${sessionScope.nickname}" />
 		<c:if test="${sessionScope.userId!=null}">
-			<li><strong>${userName}님</strong></li>
+			<li><strong>${nickname}님</strong></li>
 		</c:if>
 		<c:if test="${sessionScope.userId!=null}">
 			<li><a href="<c:url value='/user/mypage'/>">마이페이지</a></li>
