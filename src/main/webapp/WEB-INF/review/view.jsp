@@ -210,7 +210,14 @@
 	                    <table class="comment_box">
 	                        <thead>
 	                          <tr>
-	                            <td class="comment_nick">${comment.nickname}</td>
+								<c:choose> 
+									<c:when test="${review.userId eq comment.userId}">
+	                            		<td class="comment_nick_same">${comment.nickname}</td>
+	                            	</c:when>
+									<c:otherwise>
+	                            		<td class="comment_nick">${comment.nickname}</td>
+									</c:otherwise> 
+								</c:choose>
 	                            <td>${comment.createDate}</td>
 	                            <td>
 									<c:if test="${sessionScope.userId == comment.userId or sessionScope.userId == 'admin'}">
