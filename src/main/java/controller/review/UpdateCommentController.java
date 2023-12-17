@@ -33,7 +33,7 @@ public class UpdateCommentController implements Controller {
 		);
 
 		ReviewManager manager = ReviewManager.getInstance();
-		manager.updateComment(updateComment, Integer.parseInt(commentId));
+		manager.updateComment(updateComment);
 
 		
         return "redirect:/review/view";

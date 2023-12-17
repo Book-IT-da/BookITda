@@ -77,8 +77,8 @@ public class ReviewManager {
     }
     
     // 리뷰 댓글 수정
-    public int updateComment(ReviewComment reviewComment, int commentId) {
-    	return reviewCommentDAO.modifyComment(reviewComment, commentId);
+    public int updateComment(ReviewComment reviewComment) {
+    	return reviewCommentDAO.modifyComment(reviewComment);
     }
 
     //리뷰 댓글 삭제

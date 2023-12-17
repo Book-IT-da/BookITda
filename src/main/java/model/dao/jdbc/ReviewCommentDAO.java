@@ -63,7 +63,6 @@ public class ReviewCommentDAO {
         query.append("INSERT INTO reviewComment ");
         query.append("VALUES(sequence_commentid.nextval, ?, ?, ?, SYSDATE)");
         
-        System.out.println("확확 " + reviewComment.getrContent() + " " +  reviewId + " " +  reviewComment.getUserId());
         jdbcUtil.setSqlAndParameters(query.toString(), 
                 new Object[]{reviewComment.getrContent(), reviewId, reviewComment.getUserId()});
         
@@ -85,7 +84,7 @@ public class ReviewCommentDAO {
     }
     
     // 리뷰 댓글 수정
-    public int modifyComment(ReviewComment reviewComment, int commentId) {
+    public int modifyComment(ReviewComment reviewComment) {
         
         StringBuilder query = new StringBuilder();
         
@@ -94,7 +93,7 @@ public class ReviewCommentDAO {
         query.append("WHERE commentId = ? ");
         
         jdbcUtil.setSqlAndParameters(query.toString(), 
-                new Object[]{reviewComment.getrContent(), commentId});
+                new Object[]{reviewComment.getrContent(), reviewComment.getCommentId()});
 
         try {
             int result;
