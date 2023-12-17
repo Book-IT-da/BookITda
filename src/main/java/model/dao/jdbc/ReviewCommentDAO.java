@@ -55,7 +55,7 @@ public class ReviewCommentDAO {
     }
     
     // 리뷰 댓글 생성
-    public int createComment(ReviewComment reviewComment, int reviewId) {
+    public int createComment(ReviewComment reviewComment) {
         
 
         StringBuilder query = new StringBuilder();
@@ -64,7 +64,7 @@ public class ReviewCommentDAO {
         query.append("VALUES(sequence_commentid.nextval, ?, ?, ?, SYSDATE)");
         
         jdbcUtil.setSqlAndParameters(query.toString(), 
-                new Object[]{reviewComment.getrContent(), reviewId, reviewComment.getUserId()});
+                new Object[]{reviewComment.getrContent(), reviewComment.getReviewId(), reviewComment.getUserId()});
         
         try {               
             int result;

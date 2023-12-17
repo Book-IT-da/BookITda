@@ -72,8 +72,8 @@ public class ReviewManager {
     }
 
     // 리뷰 댓글 생성
-    public int createComment(ReviewComment reviewComment, int reviewId) {
-    	return reviewCommentDAO.createComment(reviewComment, reviewId);
+    public int createComment(ReviewComment reviewComment) {
+    	return reviewCommentDAO.createComment(reviewComment);
     }
     
     // 리뷰 댓글 수정
