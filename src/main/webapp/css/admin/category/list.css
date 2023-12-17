@@ -1,0 +1,35 @@
+table {
+	border: 1px solid;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+th {
+	width: 200px;
+}
+
+tr {
+	height: 40px;
+	border: 1px solid;
+}
+
+#first {
+	background-color: antiquewhite;
+}
+
+.number {
+	width: 50px
+}
+
+#mainDiv {
+	width: 280px;
+}
+
+.textType {
+	width: 90px;
+	height: 20px;
+}
+
+#subDiv {
+	text-align: left;
+}

@@ -9,71 +9,8 @@
 	type="text/css">
 <link rel=stylesheet href="<c:url value='/css/logo.css' />"
 	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/admin/book/updateForm.css' />" type="text/css">
 <title>관리자 책 정보 수정</title>
-<style>
-table {
-	border: 1px solid;
-	border-collapse: collapse;
-}
-
-th {
-	border: 1px solid;
-	width: 100px;
-}
-
-td {
-	border: 1px solid;
-	width: 600px;
-}
-
-textarea {
-	width: 595px;
-	height: 115px;
-}
-
-#longInfo {
-	height: 150px;
-}
-
-textarea {
-	width: 590px;
-	border: 0;
-	resize: none;
-}
-
-#longTextarea {
-	height: 100px;
-}
-
-#btn_modify {
-	background-color: green;
-	height: 50px;
-	width: 100px;
-}
-
-#btn_delete {
-	background-color: red;
-	height: 50px;
-	width: 100px;
-}
-
-.bookType_cate {
-	height: 90px;
-}
-
-.bookType {
-	height: 50px;
-}
-
-a, button {
-	cursor: pointer;
-}
-
-.smallText{
-	width: 500px;
-	border:0px;
-}
-</style>
 
 <script>
 	function bookModify() {
@@ -150,13 +87,13 @@ String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨�
 			type="text/css">
 
 		<div>
-			<jsp:include page="../../../top/userMenubar.jsp" />
+			<jsp:include page="../../top/userMenubar.jsp" />
 		</div>
 		<div>
-			<jsp:include page="../../../top/logo.jsp" />
+			<jsp:include page="../../top/logo.jsp" />
 		</div>
 	</header>
-	<jsp:include page="../../../top/menubar.jsp">
+	<jsp:include page="../../top/menubar.jsp">
 		<jsp:param name="selected" value="search" />
 	</jsp:include>
 

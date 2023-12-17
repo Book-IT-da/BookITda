@@ -1,0 +1,62 @@
+table {
+	border: 1px solid;
+	border-collapse: collapse;
+}
+
+th {
+	border: 1px solid;
+	width: 100px;
+}
+
+td {
+	border: 1px solid;
+	width: 600px;
+}
+
+textarea {
+	width: 595px;
+	height: 115px;
+}
+
+#longInfo {
+	height: 150px;
+}
+
+textarea {
+	width: 590px;
+	border: 0;
+	resize: none;
+}
+
+#longTextarea {
+	height: 100px;
+}
+
+#btn_modify {
+	background-color: green;
+	height: 50px;
+	width: 100px;
+}
+
+#btn_delete {
+	background-color: red;
+	height: 50px;
+	width: 100px;
+}
+
+.bookType_cate {
+	height: 50px;
+}
+
+.bookType {
+	height: 50px;
+}
+
+a, button {
+	cursor: pointer;
+}
+
+.smallText{
+	width: 500px;
+	border:0px;
+}

@@ -18,6 +18,6 @@ public class LoadCategoryController implements Controller{
 		categories = manager.findAllCategory();
 		request.setAttribute("categories", categories);
 
-		return "/admin/book/register/registerForm.jsp";
+		return "/admin/book/registerForm.jsp";
 	}
 }

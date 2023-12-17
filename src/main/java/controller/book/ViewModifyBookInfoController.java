@@ -33,7 +33,7 @@ public class ViewModifyBookInfoController implements Controller {
 			categories = cateM.findAllCategory();
 			request.setAttribute("categories", categories);
 
-			return "/admin/book/modify/bookInfo.jsp";
+			return "/admin/book/updateForm.jsp";
 		}
 		else {
 			System.out.println("controller에서 "+request.getParameter("itLevel"));

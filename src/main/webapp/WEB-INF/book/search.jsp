@@ -4,44 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
+<link rel=stylesheet href="<c:url value='/css/book/search.css' />" type="text/css">
 <title>검색 창</title>
-
-<style>
-#logo {
-	margin: 25px 30px;
-	text-align: center;
-}
-
-#searchClick {
-	width: 100px;
-	height: 35px;
-	background: #1b5ac2;
-	outline: none;
-	color: #ffffff;
-	
-}
-
-#searchText {
-	font-size: 16px;
-	width: 325px;
-	padding: 10px;
-	border: 0.5px;
-}
-
-input {
-	vertical-align: middle;
-}
-
-a, button {
-	text-decoration: none;
-	color: black;
-	cursor: pointer;
-}
-</style>
 </head>
 <body>
-</head>
 
 <script type="text/javascript">
 	function search() {

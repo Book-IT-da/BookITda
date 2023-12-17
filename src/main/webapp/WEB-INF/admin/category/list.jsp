@@ -7,45 +7,9 @@
 <meta charset="UTF-8">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
-	<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/admin/category/list.css' />" type="text/css">
 <title>관리자 - 카테고리 리스트</title>
-<style>
-table {
-	border: 1px solid;
-	border-collapse: collapse;
-	text-align: center;
-}
-
-th {
-	width: 200px;
-}
-
-tr {
-	height: 40px;
-	border: 1px solid;
-}
-
-#first {
-	background-color: antiquewhite;
-}
-
-.number {
-	width: 50px
-}
-
-#mainDiv {
-	width: 280px;
-}
-
-.textType {
-	width: 90px;
-	height: 20px;
-}
-
-#subDiv {
-	text-align: left;
-}
-</style>
 
 </head>
 
