@@ -77,6 +77,12 @@ li a {
 	width: 500px;
 }
 
+
+.comment_nick_same{
+	width: 500px;
+	color:cornflowerblue;
+}
+
 td form { 
 	float: right; 
 }
