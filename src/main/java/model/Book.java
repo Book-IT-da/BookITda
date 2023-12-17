@@ -148,7 +148,7 @@ public class Book {
 	}
 	
 	public String getBookIndex() {
-		return bookInfo;
+		return bookIndex;
 	}
 	
 	public void setAuthorInfo(String authorInfo) {
