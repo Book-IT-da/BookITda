@@ -13,11 +13,12 @@
 <link rel=stylesheet
 	href="<c:url value='/css/review/bookInfo_reviewList.css' />"
 	type="text/css">
-<link rel=stylesheet href="<c:url value='/css/book/bookInfo.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/book/bookInfo.css' />"
+	type="text/css">
 <title>도서 정보 열람</title>
 
 <script>
-	function loginAlert(){
+	function loginAlert() {
 		alert("로그인해야 이용가능한 서비스입니다.");
 	}
 </script>
@@ -69,7 +70,14 @@
 
 			<tr>
 				<td>&nbsp <img src="<c:url value='/images/search_star.PNG' />" />
-					${book.averageStar}
+					<c:set var="star" value="${book.averageStar}" /> <c:choose>
+						<c:when test="${star >= 0.1}">
+							${book.averageStar}
+						</c:when>
+						<c:otherwise>
+							리뷰가 존재하지 않습니다.
+						</c:otherwise>
+					</c:choose>
 				</td>
 			</tr>
 		</table>
@@ -99,8 +107,8 @@
 
 		<p>#${book.keyword1} &nbsp; &nbsp; #${book.keyword2} &nbsp; &nbsp;
 			#${book.keyword3}</p>
-			
-		
+
+
 		<c:if test="${sessionScope.userId == 'admin'}">
 			<a
 				href="<c:url value='/admin/book/modify'>
@@ -109,14 +117,15 @@
 				<button type="button" id="btn_bookInfo_modify">도서 정보 변경</button>
 			</a>
 		</c:if>
-		
+
 		<hr>
-		<br><br>
+		<br>
+		<br>
 
 		<jsp:include page="../review/bookInfo_reviewList.jsp" />
 
 
-		<div class="btnMoveToTop" onclick="window.scrollTo(0,0);">TOP   ↑</div>
+		<div class="btnMoveToTop" onclick="window.scrollTo(0,0);">TOP ↑</div>
 		<br> <br>
 
 	</div>

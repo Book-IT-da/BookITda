@@ -47,7 +47,15 @@
 						[ ${b.author} ] &nbsp; &lt; ${b.publisher} &gt;
 						<p class="starScore">
 							<img src="<c:url value='/images/search_star.PNG' />" />
-							${b.averageStar}
+							<c:set var="star" value="${b.averageStar}"/>
+							<c:choose>
+								<c:when test ="${star >= 0.1}">
+									${b.averageStar}
+								</c:when>
+								<c:otherwise>
+									리뷰가 존재하지 않습니다.
+								</c:otherwise>
+							</c:choose>
 						</p>
 					</figcaption>
 				</figure>
