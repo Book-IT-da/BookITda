@@ -68,26 +68,57 @@ textarea {
 a, button {
 	cursor: pointer;
 }
+
+.smallText{
+	width: 500px;
+	border:0px;
+}
 </style>
 
 <script>
 	function bookModify() {
+		var pubD = updateForm.publicationDate.value;
+		
 		if(updateForm.ISBN.value.length != 13){
 			alert("[ISBN] 13자리가 아닙니다.")
 		}
 		else if(updateForm.title.value == ""){
 			alert("제목을 입력하세요.")
 		}
+		else if(updateForm.title.value.length > 40){
+			alert("[제목] 40자를 초과했습니다.")
+		}
 		else if(updateForm.author.value == ""){
 			alert("저자를 입력하세요.")
+		}
+		else if(updateForm.author.value.length > 15){
+			alert("[저자] 15자를 초과했습니다.")
 		}
 		else if(updateForm.publisher.value == ""){
 			alert("출판사를 입력하세요.")
 		}
+		else if(updateForm.publisher.value.length > 15){
+			alert("[출판사] 15자를 초과했습니다.")
+		}
+		else if(updateForm.publicationDate.value.length > 20){
+			alert("[출판날짜] 20자를 초과했습니다.")
+		}
+		else if(pubD.charAt(4) != "-" || pubD.charAt(7) != "-"){
+			alert("[출판날짜] 형식이 다릅니다. ex) 2023-01-10")
+		}
 		else if(updateForm.bookInfo.value == ""){
 			alert("책 소개를 입력하세요.")
 		}
-		else if (confirm("정말로 수정하시겠습니까?") == true) {
+		else if(updateForm.bookInfo.value.length > 1999){
+			alert("[책 소개] 1999자를 초과했습니다.")
+		}
+		else if(updateForm.bookIndex.value.length > 1999){
+			alert("[목차] 1999자를 초과했습니다.")
+		}
+		else if(updateForm.authorInfo.value.length > 1999){
+			alert("[저자 소개] 1999자를 초과했습니다.")
+		}
+		else if(confirm("정말로 수정하시겠습니까?")) {
 			updateForm.submit();
 		}
 	}
@@ -138,46 +169,46 @@ String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨�
 			<table>
 				<tr>
 					<th>표지(경로)</th>
-					<td>&nbsp;<input type="text" name="cover_path"
-						value="${book.cover_path}"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="cover_path"
+						value="${book.cover_path}" placeholder="https://image.aladin.co.kr/product/9405/99/cover500/8968487316_1.jpg"></td>
 				</tr>
 				<tr>
 					<th>ISBN *</th>
-					<td>&nbsp;<input type="text" name="ISBN" value="${book.ISBN}"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="ISBN" value="${book.ISBN}"></td>
 				</tr>
 				<tr>
 					<th>제목 *</th>
-					<td>&nbsp;<input type="text" name="title"
-						value="${book.title}"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="title"
+						value="${book.title}" placeholder="최대 40자"></td>
 				</tr>
 				<tr>
 					<th>저자 *</th>
-					<td>&nbsp;<input type="text" name="author"
-						value="${book.author}"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="author"
+						value="${book.author}" placeholder="최대 15자"></td>
 				</tr>
 				<tr>
 					<th>출판사 *</th>
-					<td>&nbsp;<input type="text" name="publisher"
-						value="${book.publisher}"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="publisher"
+						value="${book.publisher}" placeholder="최대 15자"></td>
 				</tr>
 				<tr>
-					<th>출판 날짜</th>
-					<td>&nbsp;<input type="text" name="publicationDate"
-						value="${book.publicationDate }">
+					<th>출판 날짜 *</th>
+					<td>&nbsp;<input type="text" class="smallText" name="publicationDate"
+						value="${book.publicationDate }" placeholder="ex)2023-01-10">
 					</td>
 				</tr>
 				<tr>
 				<tr id="longInfo">
 					<th>책 소개 *</th>
-					<td><textarea id="longinput type=" text"" name="bookInfo"> ${book.bookInfo} </textarea></td>
+					<td><textarea id="longinput type=" text"" name="bookInfo" placeholder="최대 1999자"> ${book.bookInfo} </textarea></td>
 				</tr>
 				<tr id="longInfo">
 					<th>목차</th>
-					<td><textarea id="longinput type=" text"" name="bookIndex"> ${book.bookIndex} </textarea></td>
+					<td><textarea id="longinput type=" text"" name="bookIndex" placeholder="최대 1999자"> ${book.bookIndex} </textarea></td>
 				</tr>
 				<tr id="longInfo">
 					<th>저자 소개</th>
-					<td><textarea id="longinput type=" text"" name="authorInfo"> ${book.authorInfo} </textarea></td>
+					<td><textarea id="longinput type=" text"" name="authorInfo" placeholder="최대 1999자"> ${book.authorInfo} </textarea></td>
 				</tr>
 			</table>
 
@@ -203,7 +234,7 @@ String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨�
 					</td>
 				</tr>
 				<tr class="bookType">
-					<th>수준</th>
+					<th>수준 *</th>
 					<td>
 					<% for (int i = 0; i < level.length; i++) { %>
 						<c:set var="levelT" value="<%=level[i]%>"/> 
@@ -219,7 +250,7 @@ String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨�
 					</td>
 				</tr>
 				<tr class="bookType">
-					<th>언어</th>
+					<th>언어 *</th>
 					<td>
 						<br>
 						<% for (int i = 0; i < lan.length; i++) { %>

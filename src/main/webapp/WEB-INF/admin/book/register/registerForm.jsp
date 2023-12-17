@@ -69,24 +69,56 @@ textarea {
 a, button {
 	cursor: pointer;
 }
+
+.smallText{
+	width: 500px;
+	border:0px;
+}
+
 </style>
 
 <script>
 	function bookRegister() {
+		var pubD = registerForm.publicationDate.value;
+		
 		if(registerForm.ISBN.value.length != 13){
 			alert("[ISBN] 13자리가 아닙니다.")
 		}
 		else if(registerForm.title.value == ""){
 			alert("제목을 입력하세요.")
 		}
+		else if(registerForm.title.value.length > 40){
+			alert("[제목] 40자를 초과했습니다.")
+		}
 		else if(registerForm.author.value == ""){
 			alert("저자를 입력하세요.")
+		}
+		else if(registerForm.author.value.length > 15){
+			alert("[저자] 15자를 초과했습니다.")
 		}
 		else if(registerForm.publisher.value == ""){
 			alert("출판사를 입력하세요.")
 		}
+		else if(registerForm.publisher.value.length > 15){
+			alert("[출판사] 15자를 초과했습니다.")
+		}
+		else if(registerForm.publicationDate.value.length > 10){
+			alert("[출판날짜] 10자를 초과했습니다.")
+		}
+		else if(pubD.charAt(4) != "-" || pubD.charAt(7) != "-"){
+			alert("[출판날짜] 형식이 다릅니다. ex) 2023-01-10")
+		}
 		else if(registerForm.bookInfo.value == ""){
 			alert("책 소개를 입력하세요.")
+		}
+		else if(registerForm.bookInfo.value.length > 1999){
+			alert("[책 소개] 1999자를 초과했습니다.")
+		}
+		else if(registerForm.bookIndex.value.length > 1999){
+			alert("[목차] 1999자를 초과했습니다.")
+		}
+		else if(registerForm.authorInfo.value.length > 1999){
+			alert("[저자 소개] 1999자를 초과했습니다.")
 		}
 		else if(confirm("정말로 추가하시겠습니까?")) {
 			registerForm.submit();
@@ -129,42 +161,42 @@ a, button {
 			<table>
 				<tr>
 					<th>표지(경로)</th>
-					<td>&nbsp;<input type="text" name="cover_path"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="cover_path" placeholder="https://image.aladin.co.kr/product/9405/99/cover500/8968487316_1.jpg"></td>
 				</tr>
 				<tr>
 					<th>ISBN *</th>
-					<td>&nbsp;<input type="text" name="ISBN"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="ISBN"></td>
 				</tr>
 				<tr>
 					<th>제목 *</th>
-					<td>&nbsp;<input type="text" name="title"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="title" placeholder="최대 40자"></td>
 				</tr>
 				<tr>
 					<th>저자 *</th>
-					<td>&nbsp;<input type="text" name="author"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="author" placeholder="최대 15자"></td>
 				</tr>
 				<tr>
 					<th>출판사 *</th>
-					<td>&nbsp;<input type="text" name="publisher"></td>
+					<td>&nbsp;<input type="text" class="smallText" name="publisher" placeholder="최대 15자"></td>
 				</tr>
 				<tr>
-					<th>출판 날짜</th>
-					<td>&nbsp;<input type="text" name="publicationDate"
+					<th>출판 날짜 *</th>
+					<td>&nbsp;<input type="text" class="smallText" name="publicationDate"
 						placeholder="ex)2023-01-10">
 					</td>
 				</tr>
 				<tr>
 				<tr id="longInfo">
 					<th>책 소개 *</th>
-					<td><textarea id="longinput" type="text" name="bookInfo"></textarea></td>
+					<td><textarea id="longinput" type="text" name="bookInfo" placeholder="최대 1999자"></textarea></td>
 				</tr>
 				<tr id="longInfo">
 					<th>목차</th>
-					<td><textarea id="longinput" type="text" name="bookIndex"></textarea></td>
+					<td><textarea id="longinput" type="text" name="bookIndex" placeholder="최대 1999자"></textarea></td>
 				</tr>
 				<tr id="longInfo">
 					<th>저자 소개</th>
-					<td><textarea id="longinput" type="text" name="authorInfo"></textarea></td>
+					<td><textarea id="longinput" type="text" name="authorInfo" placeholder="최대 1999자"></textarea></td>
 				</tr>
 			</table>
 			<br> <br>
@@ -182,20 +214,28 @@ a, button {
 					</td>
 				</tr>
 				<tr class="bookType">
-					<th>수준</th>
+					<th>수준 *</th>
 					<td>
 						<%
-						for (int i = 0; i < level.length; i++) { %> 
-						&nbsp;<input type="radio" name="itLevel" value="<%=level[i]%>"><%=level[i]%> 
+						for (int i = 0; i < level.length; i++) { 
+							if (i==0) {%>
+								&nbsp;<input type="radio" name="itLevel" value="<%=level[i]%>" checked><%=level[i]%>
+							<%} else {%> 
+								&nbsp;<input type="radio" name="itLevel" value="<%=level[i]%>"><%=level[i]%> 
+							<% } %>
 						<%} %>
 					</td>
 				</tr>
 				<tr class="bookType">
-					<th>언어</th>
+					<th>언어 *</th>
 					<td>
 					<br>
-						<% for (int i = 0; i < lan.length; i++) { %>
-							&nbsp;<input type="radio" name="language" value="<%=lan[i]%>"><%=lan[i]%> &emsp;&emsp;
+						<% for (int i = 0; i < lan.length; i++) { 
+							if (i==0) {%>
+								&nbsp;<input type="radio" name="language" value="<%=lan[i]%>" checked><%=lan[i]%> &emsp;&emsp;
+							<%} else {%>
+								&nbsp;<input type="radio" name="language" value="<%=lan[i]%>"><%=lan[i]%> &emsp;&emsp;
+							<%} %>
 							<% if(i!=0 && i%5==0) { %>
 								<br>
 							<%} %>
