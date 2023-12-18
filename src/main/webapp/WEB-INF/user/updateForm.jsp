@@ -9,7 +9,7 @@
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/user/updateForm.css' />" type="text/css">
-<title>회원가입</title>
+<title>회원 수정</title>
 
 <script>
 function userCreate() {
