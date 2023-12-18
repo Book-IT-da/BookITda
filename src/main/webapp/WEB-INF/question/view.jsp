@@ -72,6 +72,20 @@
 		
 		document.forms.form2.submit();
 	}
+	
+	function cancelBtn() {
+		var content = document.getElementById('ansContent');
+		var form = document.getElementById('ansForm');
+		var answer = document.getElementById('answer');
+		var answer_form = document.getElementById('content_form');
+		
+		if (form.style.display !== 'none') {
+			form.style.display = 'none';
+			content.style.display = 'block';
+			answer.style.display = 'block';
+			answer_form.style.display = 'none';
+		}
+	}
 </script>
 <style>
 table {
@@ -227,7 +241,7 @@ a {
 									<div id="ansForm">
 										&nbsp;
 										<input type="button" onClick="ansForm()" value="완료">
-										<input type="button" onClick="" value="취소">
+										<input type="button" onClick="cancelBtn()" value="취소">
 									</div>
 								</td>
 							</c:if>
