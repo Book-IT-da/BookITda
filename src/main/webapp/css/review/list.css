@@ -17,21 +17,30 @@ li a {
 	color: #ffffff;
 }
 
+.book_box_div {
+	border: 1px solid gray; 
+  	background-color: white; 
+  	border-radius: 16px;
+  	box-shadow: inset 0 0 8px gray;
+	width: 55%;
+	height: 300px;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
 .book_box  {
 	border-collapse:collapse;
 	border-spacing:0;
 	margin: auto;
-	width: 60%;
-	height: 225px;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 15px;
+	width: 90%;
+	height: 90%;
 }
 
 .book_box td{
-	border-color:black;
-	border-style:solid;
 	border-width:1px;
-	padding:10px 5px;
+	padding: 0px 5px;
 	word-break:normal;
 }
 
@@ -41,14 +50,12 @@ li a {
 }
 
 .book_box th{
-	border-color:black;
-	border-style:solid;
 	border-width:1px;
-	padding:10px 5px;
+	padding:5px 5px;
 }
 
 .book_pic{
-	width: 20%;
+	width: 225PX;
 }
 
 .book_cover {
@@ -56,24 +63,30 @@ li a {
 }
 
 .book_title{
-	font-size: 18px;
+	font-size: 25px;
 	font-weight: bold;
+	height: 30%;
+	margin-top: 10px;
 }
 
 .book_author{
-	font-size: 16px;
+	font-size: 18px;
 }
 
  .book_stars{
 	font-size: 16px;
+	color: goldenrod;
 }
 
 .book_oneline_review{
-	font-size: 16px;
+	font-size: 20px;
+	height: 30%;
 }
 
 .review_date{
-	font-size: 12px;
+	font-size: 13px;
+	text-align: right;
+	height: 10px;
 }
 
 .no_review{
