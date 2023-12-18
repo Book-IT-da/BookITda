@@ -1,0 +1,23 @@
+table {
+	width: 60%;
+	border-collapse: collapse; 
+}
+
+tr:nth-child(even) td {
+  background: #f0f8ff;
+}
+
+th, td {
+	height: 50px;
+	text-align: center;
+}
+
+th {
+	font-size: 20px;
+	border-bottom: 1.5px solid black;
+}
+
+a {
+	text-decoration-line: none;
+	color: black;
+}
