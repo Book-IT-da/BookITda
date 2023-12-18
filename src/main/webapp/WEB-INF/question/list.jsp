@@ -101,9 +101,17 @@ a {
 			</div>
 			<hr>
 			<div align="right">
-				<button id="btn">
-					<a href="<c:url value='/question/create'/>">작성하기</a>
-				</button>
+				<c:if test="${sessionScope.userId!=null}">
+					<button>
+						<a href="<c:url value='/question/create'/>">작성하기</a>
+					</button>
+				</c:if>
+				<c:if test="${sessionScope.userId==null}">
+					<button>
+						<a href="javascript:void(0);" onClick="loginAlert()">작성하기</a>
+					</button>
+	
+				</c:if>
 			</div>
 			<table>
 				<tr>
