@@ -23,7 +23,18 @@
 		form.submit();
 	}
 	
-	function ansRemoveAlert(formName) {
+	function quesremoveAlert() {
+		var msg = confirm("정말 삭제하시겠습니까?");
+		
+		if (msg) {
+			return true;
+		}
+		else {
+			return false;			
+		}
+	}
+	
+	function removeAlert(formName) {
 		var msg = confirm("정말 삭제하시겠습니까?");
 		
 		if (msg) {
@@ -50,15 +61,16 @@
 		var answer = document.getElementById('answer');
 		var answer_form = document.getElementById('content_form');
 		var updateAns = document.getElementById('updateAns').value;
+		
 		if (form.style.display !== 'none') {
-			content.style.display = 'block';
 			form.style.display = 'none';
+			content.style.display = 'block';
 			answer.style.display = 'block';
 			answer_form.style.display = 'none';
 			answer.innerText = updateAns;
 		}
 		
-		form2.submit();
+		document.forms.form2.submit();
 	}
 </script>
 <style>
@@ -111,6 +123,10 @@ a {
 	height: 100px;
 	padding: 10px;
 }
+#ansContent {
+ 	display: flex;
+	align-items: center; 
+}
 
 #ansForm {
 	display: none;
@@ -118,7 +134,6 @@ a {
 #content_form {
 	display: none;
 }
-
 </style>
 </head>
 <body>
@@ -163,7 +178,7 @@ a {
 				class="button">수정</a>
 			<a
 				href="<c:url value='/question/delete'><c:param name='qId' value='${ques.qId}'/></c:url>"
-				onclick="return questionRemove();" class="button">삭제</a>
+				onclick="return quesremoveAlert();" class="button">삭제</a>
 		</c:if>
 		<a href="<c:url value='/question/list'/>" class="button">목록</a>
 
@@ -190,19 +205,22 @@ a {
 							<td>작성자: ${answer.nickname}</td>
 							<td>등록일: ${answer.createDate}</td>
 							<c:if test="${sessionScope.userId == answer.userId or sessionScope.userId == 'admin'}">
-								<td id ="button1"><div id="ansContent">
-								<input type="button" onclick="answerContent()" value="수정"> 
-								<form name="ansRemove" method="GET" action="<c:url value='/answer/delete' />">
-									<input type="hidden" name="qId" value="${ques.qId}">
-									<input type="hidden" name="aId" value="${answer.aId}">
-									<input type="button" value="삭제" onClick="ansRemoveAlert(this.form)">
-								</form>
+								<td id ="button1">
+									<div id="ansContent">
+										&nbsp;
+										<input type="button" onclick="answerContent()" value="수정"> &nbsp;
+										<form name="ansRemove" method="GET" action="<c:url value='/answer/delete' />">
+											<input type="hidden" name="qId" value="${ques.qId}">
+											<input type="hidden" name="aId" value="${answer.aId}">
+										<input type="button" value="삭제" onClick="removeAlert(this.form)">
+										</form>
 									</div>
 									<div id="ansForm">
+										&nbsp;
 										<input type="button" onClick="ansForm()" value="완료">
 										<input type="button" onClick="" value="취소">
 									</div>
-									</td>
+								</td>
 							</c:if>
 						</tr>
 						<tr>
