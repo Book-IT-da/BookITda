@@ -10,6 +10,8 @@
 <link rel=stylesheet href="<c:url value='/css/logo.css' />"
 	type="text/css">
 <link rel=stylesheet href="<c:url value='/css/admin/book/updateForm.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
 <title>관리자 책 정보 수정</title>
 
 <script>
@@ -64,11 +66,7 @@
 		if (confirm("정말로 삭제하시겠습니까?")== true){
 			deleteForm.submit();
 		}
-		//updateForm.action = targetUri;
-		//updateForm.submit();
 	}
-</script>
-
 </script>
 
 </head>
@@ -85,8 +83,6 @@ String[] keywords = {"X", "게임", "도커", "라즈베리파이", "리눅스/�
 
 %>
 	<header>
-		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
-			type="text/css">
 
 		<div>
 			<jsp:include page="../../top/userMenubar.jsp" />

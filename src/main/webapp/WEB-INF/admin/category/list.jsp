@@ -9,6 +9,8 @@
 	type="text/css">
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/admin/category/list.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
 <title>관리자 - 카테고리 리스트</title>
 
 </head>
@@ -57,9 +59,7 @@
 
 <body>
 	<header>
-		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
-			type="text/css">
-
+		
 		<div>
 			<jsp:include page="../../top/userMenubar.jsp" />
 		</div>
@@ -123,8 +123,6 @@
 
 		</div>
 	</center>
-
-
 
 </body>
 </html>

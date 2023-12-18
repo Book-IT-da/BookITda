@@ -10,6 +10,8 @@
 <link rel=stylesheet href="<c:url value='/css/logo.css' />"
 	type="text/css">
 <link rel=stylesheet href="<c:url value='/css/admin/book/registerForm.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
 <title>관리자 책 정보 추가</title>
 
 <script>
@@ -74,8 +76,6 @@
 				"하드웨어", "학습 사이트 제공"};
 	%>
 	<header>
-		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
-			type="text/css">
 
 		<div>
 			<jsp:include page="../../top/userMenubar.jsp" />

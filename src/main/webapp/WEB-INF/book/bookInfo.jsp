@@ -15,6 +15,8 @@
 	type="text/css">
 <link rel=stylesheet href="<c:url value='/css/book/bookInfo.css' />"
 	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
+			type="text/css">
 <title>도서 정보 열람</title>
 
 <script>
@@ -22,11 +24,10 @@
 		alert("로그인해야 이용가능한 서비스입니다.");
 	}
 </script>
+
 </head>
 <body>
 	<header>
-		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
-			type="text/css">
 
 		<div>
 			<jsp:include page="../top/userMenubar.jsp" />
@@ -123,7 +124,6 @@
 		<br>
 
 		<jsp:include page="../review/bookInfo_reviewList.jsp" />
-
 
 		<div class="btnMoveToTop" onclick="window.scrollTo(0,0);">TOP ↑</div>
 		<br> <br>
