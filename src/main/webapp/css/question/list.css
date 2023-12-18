@@ -1,0 +1,42 @@
+#search_input {
+	font-size: 16px;
+	width: 325px;
+	padding: 10px;
+	border: 0.5px;
+}
+
+#search_button {
+	width: 100px;
+	height: 35px;
+	background: #1b5ac2;
+	outline: none;
+	color: #ffffff;
+}
+
+li {
+	list-style: none;
+}
+
+table {
+	width: 60%;
+	border-collapse: collapse; 
+}
+
+tr:nth-child(even) td {
+  background: #f0f8ff;
+}
+
+th, td {
+	height: 50px;
+	text-align: center;
+}
+
+th {
+	font-size: 20px;
+	border-bottom: 1.5px solid black;
+}
+
+a {
+	text-decoration-line: none;
+	color: black;
+}

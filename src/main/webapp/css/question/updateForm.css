@@ -1,0 +1,40 @@
+table {
+	margin-top: 30px;
+	width: 900px;
+	border: 1px solid black;
+}
+
+th, td {
+	height: 50px;
+	margin: auto;
+	border: 1px solid #444444;
+	border-left: 1px solid #444444;
+}
+
+th {
+	text-align: center;
+}
+
+td:nth-child(2n+1) {
+	width: 800px;
+	text-align: center;
+}
+
+tr:last-child {
+	text-align: center;
+}
+
+textarea {
+	width: 800px;
+	height: 500px;
+}
+
+input[type="submit"] {
+	width: 80px;
+	height: 40px;
+	border: none;
+	border-radius: 6px;
+	background-color: skyblue;
+	font-size: 25px;
+	color: white;
+}
