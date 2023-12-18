@@ -4,60 +4,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel=stylesheet href="<c:url value='/css/logo.css' />"
-	type="text/css">
-
+<meta charset="UTF-8">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/user/mypage.css' />" type="text/css">
 <title>마이페이지</title>
-<style>
-ul {
-	list-style-type: none;
-	padding: 0px;
-	margin: 50px;
-	width: 200px;
-	height: 100%;
-}
-
-li a {
-	text-decoration: none;
-	padding: 10px;
-	display: block;
-	color: #000;
-	font-weight: bold;
-}
-
-li a:hover {
-	background: #333;
-	color: #fff;
-}
-
-.box {
-	width: 60%;
-	height: 150px;
-	color: white;
-	background-color: skyblue;
-}
-
-.content {
-	border: 1px solid skyblue;
-}
-
-h1 {
-	padding-top: 40px;
-	font-size: 50px;
-}
-
-.menu {
-	display: flex;
-	justify-content: center;
-}
-</style>
 </head>
 <body>
 	<header>
 		<div>
-			<%@ include file="../top/logo.jsp"%>
+			<jsp:include page="../top/userMenubar.jsp" />
+		</div>
+		<div>
+			<jsp:include page="../top/logo.jsp" /> 
 		</div>
 	</header>
+	<jsp:include page="../top/menubar.jsp">
+    	<jsp:param name="selected" value="" />
+	</jsp:include>
 	<main>
 		<div align="center">
 			<div class="box">

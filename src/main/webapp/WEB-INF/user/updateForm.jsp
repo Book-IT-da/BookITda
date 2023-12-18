@@ -4,9 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel=stylesheet href="<c:url value='/css/logo.css' />"
-	type="text/css">
-
+<meta charset="UTF-8">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
 <title>회원가입</title>
 
 <script>
@@ -85,15 +86,23 @@ input[type="submit"] {
 
 <%-- 아이디, 닉네임 중복 확인 구현 필요함  --%>
 <body>
-	<div>
-		<%@ include file="../top/logo.jsp"%>
-	</div>
-	<center>
+	<header>
+		<div>
+			<jsp:include page="../top/userMenubar.jsp" />
+		</div>
+		<div>
+			<jsp:include page="../top/logo.jsp" /> 
+		</div>
+	</header>
+	<jsp:include page="../top/menubar.jsp">
+    	<jsp:param name="selected" value="" />
+	</jsp:include>
+	<div align="center">
 		<h1>회원수정</h1>
 		<hr>
-		<table>
-			<form name="form" method="POST"
+		<form name="form" method="POST"
 				action="<c:url value='/user/update'/>">
+		<table>
 				<tr>
 					<td>아이디</td>
 					<td><input type="text" placeholder=" 아이디를 입력해주세요"
@@ -129,9 +138,9 @@ input[type="submit"] {
 					<td><input type="email" placeholder="예: itbook@itbook.com"
 						name="email" value="${user.email}" required></td>
 				</tr>
-			</form>
-		</table>
+			</table>
+		</form>
 		<input type="button" value="수정" onClick="userCreate()">
-	</center>
+	</div>
 </body>
 </html>
