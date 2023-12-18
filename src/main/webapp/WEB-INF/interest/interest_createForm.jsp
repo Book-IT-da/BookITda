@@ -38,7 +38,7 @@ for (int i = 0; i < categoryData.length; i += 2) {
 request.setAttribute("interestCategories", interestCategories);
 
 String[] languageData = {"1", "Java", "2", "Python", "3", "C", "4", "C++", "5", "Kotlin", "6", "Lua", "7", "CSS", "8",
-		"JavaScript", "9", "Swift", "10", "C#", "11", "Node.js", "12", "TypeScript"};
+		"JavaScript", "9", "Swift", "10", "C#", "11", "Node.js", "12", "TypeScript", "13", "기타"};
 
 List<Map<String, String>> interestLanguages = new ArrayList<>();
 
