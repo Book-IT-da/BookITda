@@ -37,37 +37,37 @@ for (int i = 0; i < categoryData.length; i += 2) {
 }
 request.setAttribute("interestCategories", interestCategories);
 
-String[] languageData = {"1", "Java", "2", "Python", "3", "C", "4", "C++", "5", "Kotlin", "6", "Lua", "7", "CSS", "8",
-		"JavaScript", "9", "Swift", "10", "C#", "11", "Node.js", "12", "TypeScript", "13", "기타"};
+String[] languageData = { "1", "Java", "2", "Python", "3", "C", "4", "C++", "5", "Kotlin", "6", "Lua", "7", "CSS", "8",
+        "JavaScript", "9", "Swift", "10", "C#", "11", "Node.js", "12", "TypeScript", "13", "기타" };
 
 List<Map<String, String>> interestLanguages = new ArrayList<>();
 
 for (int i = 0; i < languageData.length; i += 2) {
-	String value = languageData[i];
-	String label = languageData[i + 1];
+    String value = languageData[i];
+    String label = languageData[i + 1];
 
-	Map<String, String> languageMap = new HashMap<>();
-	languageMap.put("value", value);
-	languageMap.put("label", label);
+    Map<String, String> languageMap = new HashMap<>();
+    languageMap.put("value", value);
+    languageMap.put("label", label);
 
-	interestLanguages.add(languageMap);
+    interestLanguages.add(languageMap);
 }
 
 request.setAttribute("interestLanguages", interestLanguages);
 
-String[] levelData = {"1", "초보자", "2", "중급자", "3", "상급자"};
+String[] levelData = { "1", "초보자", "2", "중급자", "3", "상급자" };
 
 List<Map<String, String>> userLevel = new ArrayList<>();
 
 for (int i = 0; i < levelData.length; i += 2) {
-	String value = levelData[i];
-	String label = levelData[i + 1];
+    String value = levelData[i];
+    String label = levelData[i + 1];
 
-	Map<String, String> levelMap = new HashMap<>();
-	levelMap.put("value", value);
-	levelMap.put("label", label);
+    Map<String, String> levelMap = new HashMap<>();
+    levelMap.put("value", value);
+    levelMap.put("label", label);
 
-	userLevel.add(levelMap);
+    userLevel.add(levelMap);
 }
 
 request.setAttribute("userLevel", userLevel);
@@ -112,7 +112,7 @@ session.setAttribute("userId2", "lulu2");
 	}
 
 	function skip() {
-		window.location.href = "${contextPath}/book/searchList";
+		window.location.href = "${contextPath}/book/randomBooks";
 	}
 </script>
 </head>
