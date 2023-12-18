@@ -85,3 +85,19 @@ li a {
 	-ms-user-select: none;
 	-webkit-user-select: none;
 }
+
+.btnMoveToTop {
+    height:40px;
+    width:40px;
+    color: #555;
+    font-size:14px;
+    position:fixed;
+    bottom:10px;
+    right: 10px;
+    z-index:999;
+    -webkit-box-shadow: 0 1px 2px 0 #777;
+    box-shadow: 0 1px 2px 0 #777;
+    background-color:#ccc;
+    text-align : center;
+    cursor:pointer;
+}
