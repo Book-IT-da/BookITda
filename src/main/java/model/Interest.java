@@ -7,6 +7,12 @@ public class Interest {
     List<Integer> languageList;
     int levelId;
 
+    public Interest() { 
+        this.categoryList = null;
+        this.languageList = null;
+        this.levelId = 0;
+    }
+    
     public Interest(List<Integer> categoryList, List<Integer> languageList, int levelId) {
         super();
         this.categoryList = categoryList;
