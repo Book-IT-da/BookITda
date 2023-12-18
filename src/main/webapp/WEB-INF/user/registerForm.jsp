@@ -52,12 +52,15 @@ function userCreate() {
 	<div>
 		<%@ include file="../top/logo.jsp"%>
 	</div>
-	<center>
+	<div align="center">
 		<h1>회원가입</h1>
 		<hr>
-		<table>
-			<form name="form" method="POST"
+		<form name="form" method="POST"
 				action="<c:url value='/user/register'/>">
+			<c:if test="${registerFailed}"> 
+				<c:out value="${exception.getMessage()}" />
+			</c:if>
+			<table>
 				<tr>
 					<td>아이디</td>
 					<td><input type="text" placeholder=" 아이디를 입력해주세요"
@@ -94,9 +97,9 @@ function userCreate() {
 						name="email" required>
 					</td>
 				</tr>
-			</form>
-		</table>
+			</table>
+		</form>
 		<input type="button" value="가입하기" onClick="userCreate()">
-	</center>
+	</div>
 </body>
 </html>
