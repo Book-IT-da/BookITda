@@ -6,8 +6,9 @@
 <head>
 <link rel=stylesheet href="<c:url value='/css/logo.css' />"
 	type="text/css">
-
-<title>회원가입</title>
+<link rel=stylesheet href="<c:url value='/css/user/updateForm.css' />"
+	type="text/css">
+<title>회원 수정</title>
 
 <script>
 function userCreate() {
@@ -40,47 +41,6 @@ function userCreate() {
 	form.submit();
 }
 </script>
-<style>
-hr {
-	margin-top: 30px;
-	margin-bottom: 25px;
-	width: 580px;
-	height: 2px;
-	background-color: black;
-}
-
-td {
-	height: 55px;
-}
-
-td:nth-child(2n+1) {
-	width: 160px;
-}
-
-input {
-	width: 250px;
-	height: 30px;
-	border-radius: 3px;
-	border-width: 1px;
-	border-color: #CCCCCC;
-}
-
-input[type="button"] {
-	width: 80px;
-}
-
-input[type="submit"] {
-	margin-top: 50px;
-	width: 200px;
-	height: 50px;
-	border-width: 0px;
-	border-radius: 6px;
-	background-color: skyblue;
-	font-size: 30px;
-	font-weight: bold;
-	color: white;
-}
-</style>
 </head>
 
 <%-- 아이디, 닉네임 중복 확인 구현 필요함  --%>
