@@ -1,6 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="java.util.List"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%
+List<Integer> interestCategories = (List<Integer>) request.getSession().getAttribute("interestCategories");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,21 +42,40 @@
 					</td>
 				</tr>
 				<tr>
-					<td><c:if test="${sessionScope.userId!=null}">
-							<form id="postForm" action="<c:url value='/get/categoryList'/>"
-								method="post">
-								<button class="custom-button" type="button"
-									onclick="submitForm()">관심사 수정하기</button>
-							</form>
+					<td><c:if test="${sessionScope.userId != null}">
+							<c:choose>
+								<c:when test="${interestCategories != null}">
+									<form id="postForm" action="<c:url value='/get/categoryList'/>"
+										method="post">
+										<button class="custom-button" type="button"
+											onclick="submitForm()">관심사 수정하기</button>
+									</form>
 
-							<script>
-								function submitForm() {
-									document.getElementById("postForm")
-											.submit();
-								}
-							</script>
-						</c:if> <c:if test="${sessionScope.userId==null}">
-							<a class="custom-button" href="<c:url value='/user/login/form'/>">로그인하러 가기</a>
+									<script>
+										function submitForm() {
+											document.getElementById("postForm")
+													.submit();
+										}
+									</script>
+								</c:when>
+								<c:otherwise>
+									<form id="createForm"
+										action="<c:url value='/get/categoryList'/>" method="get">
+										<button class="custom-button" type="button"
+											onclick="createForm()">관심사 생성하기</button>
+									</form>
+
+									<script>
+										function createForm() {
+											document.getElementById(
+													"createForm").submit();
+										}
+									</script>
+								</c:otherwise>
+							</c:choose>
+						</c:if> <c:if test="${sessionScope.userId == null}">
+							<a class="custom-button" href="<c:url value='/user/login/form'/>">로그인하러
+								가기</a>
 						</c:if></td>
 				</tr>
 			</table>
