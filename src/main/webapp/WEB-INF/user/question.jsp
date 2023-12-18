@@ -8,6 +8,7 @@
 <link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/user/mypage_list.css' />" type="text/css">
 <title>Q&A 게시글</title>
 </head>
 <body>
@@ -22,30 +23,32 @@
 	<jsp:include page="../top/menubar.jsp">
     	<jsp:param name="selected" value="" />
 	</jsp:include>
-	<table>
-		<tr>
-			<td>작성한 질문 글들</td>
-		</tr>
-	</table>
-	<br>
-	<table>
-		<tr>
-			<td>제목</td>
-			<td>조회수</td>
-			<td>작성일</td>
-		</tr>
-		
-		<c:forEach var="question" items="${questionList}">
+	<div align="center">
+		<table>
 			<tr>
-				<td><a
-					href="<c:url value='/question/view'>
-					   <c:param name='qId' value='${question.qId}'/>
-			 		 </c:url>">
-						${question.title}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>${question.views}</td>
-				<td>${question.createDate}</td>
+				<td><h3>작성한 질문 글들</h3></td>
 			</tr>
-		</c:forEach>
-	</table>
+		</table>
+		<br>
+		<table>
+			<tr>
+				<th>제목</th>
+				<th>조회수</th>
+				<th>작성일</th>
+			</tr>
+			
+			<c:forEach var="question" items="${questionList}">
+				<tr>
+					<td><a
+						href="<c:url value='/question/view'>
+						   <c:param name='qId' value='${question.qId}'/>
+				 		 </c:url>">
+							${question.title}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td>${question.views}</td>
+					<td>${question.createDate}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 </html>

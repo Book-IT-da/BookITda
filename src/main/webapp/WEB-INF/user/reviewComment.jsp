@@ -8,6 +8,7 @@
 <link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/user/mypage_list.css' />" type="text/css">
 <title>리뷰 댓글</title>
 </head>
 <body>
@@ -22,28 +23,30 @@
 	<jsp:include page="../top/menubar.jsp">
     	<jsp:param name="selected" value="" />
 	</jsp:include>
-	<table>
-		<tr>
-			<td>작성한 리뷰 댓글</td>
-		</tr>
-	</table>
-	<br>
-	<table>
-		<tr>
-			<td>댓글</td>
-			<td>작성일</td>
-		</tr>
-		
-		<c:forEach var="reviewCmt" items="${reviewComment}">
+	<div align="center">
+		<table>
 			<tr>
-				<td><a
-					href="<c:url value='/review/view'>
-					   <c:param name='reviewId' value='${reviewCmt.reviewId}'/>
-			 		 </c:url>">
-						${reviewCmt.rContent}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>${reviewCmt.createDate}</td>
+				<td><h3>작성한 리뷰 댓글</h3></td>
 			</tr>
-		</c:forEach>
-	</table>
+		</table>
+		<br>
+		<table>
+			<tr>
+				<th>댓글</th>
+				<th>작성일</th>
+			</tr>
+			
+			<c:forEach var="reviewCmt" items="${reviewComment}">
+				<tr>
+					<td><a
+						href="<c:url value='/review/view'>
+						   <c:param name='reviewId' value='${reviewCmt.reviewId}'/>
+				 		 </c:url>">
+							${reviewCmt.rContent}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td>${reviewCmt.createDate}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 </html>
