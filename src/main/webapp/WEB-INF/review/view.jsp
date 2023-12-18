@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%
 	Review review = (Review)request.getAttribute("review");
 %>
@@ -218,7 +219,7 @@
 	                            		<td class="comment_nick">${comment.nickname}</td>
 									</c:otherwise> 
 								</c:choose>
-	                            <td>${comment.createDate}</td>
+	                            <td><fmt:formatDate value="${comment.createDate}" pattern="yyyy-MM-dd" /></td>
 	                            <td>
 									<c:if test="${sessionScope.userId == comment.userId or sessionScope.userId == 'admin'}">
 							            <form name="deleteCommentForm" method="GET"
