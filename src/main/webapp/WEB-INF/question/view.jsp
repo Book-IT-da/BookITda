@@ -148,7 +148,7 @@ a {
 			</tr>
 		</table>
 		<p />
-		<c:if test="${sessionScope.userId == ques.userId}">
+		<c:if test="${sessionScope.userId == ques.userId or sessionScope.userId == 'admin'}">
 			<a
 				href="<c:url value='/question/update'><c:param name='qId' value='${ques.qId}'/></c:url>"
 				class="button">수정</a>
@@ -180,7 +180,7 @@ a {
 						<tr>
 							<td>작성자: ${answer.nickname}</td>
 							<td>등록일: ${answer.createDate}</td>
-							<c:if test="${sessionScope.userId == answer.userId}">
+							<c:if test="${sessionScope.userId == answer.userId or sessionScope.userId == 'admin'}">
 								<td id ="button1"><div id="ansContent">
 								<input type="button"
 									
