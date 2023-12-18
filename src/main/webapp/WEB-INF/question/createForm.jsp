@@ -10,7 +10,8 @@
 	type="text/css">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
-
+<link rel=stylesheet href="<c:url value='/css/question/createForm.css' />"
+	type="text/css">
 <title>질문 글 작성</title>
 
 <script>
@@ -28,48 +29,6 @@
 		form.submit();
 	}
 </script>
-<style>
-table {
-	margin-top: 30px;
-	width: 900px;
-	border: 1px solid black;
-}
-
-th, td {
-	height: 50px;
-	margin: auto;
-	border: 1px solid #444444;
-	border-left: 1px solid #444444;
-}
-
-th {
-	text-align: center;
-}
-
-td:nth-child(2n+1) {
-	width: 800px;
-	text-align: center;
-}
-
-tr:last-child {
-	text-align: center;
-}
-
-textarea {
-	width: 800px;
-	height: 500px;
-}
-
-input[type="submit"] {
-	width: 80px;
-	height: 40px;
-	border: none;
-	border-radius: 6px;
-	background-color: skyblue;
-	font-size: 25px;
-	color: white;
-}
-</style>
 </head>
 <body>
 	<header>
@@ -83,7 +42,7 @@ input[type="submit"] {
 	<jsp:include page="../top/menubar.jsp">
 	    	<jsp:param name="selected" value="qna" />
 	</jsp:include>
-	<center>
+	<div align="center">
 		<hr>
 		<form name="form" method="POST"
 			action="<c:url value='/question/create'/>">
@@ -105,7 +64,7 @@ input[type="submit"] {
 				</tr>
 			</table>
 		</form>
-	</center>
+	</div>
 </body>
 
 </html>

@@ -10,6 +10,8 @@
 	type="text/css">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/question/list.css' />"
+	type="text/css">	
 <title>Q&A 게시판</title>
 <script>
 	function search() {
@@ -28,51 +30,6 @@
 		alert('로그인해야 이용가능한 서비스입니다.')
 	}
 </script>
-
-<style>
-#search_input {
-	font-size: 16px;
-	width: 325px;
-	padding: 10px;
-	border: 0.5px;
-}
-
-#search_button {
-	width: 100px;
-	height: 35px;
-	background: #1b5ac2;
-	outline: none;
-	color: #ffffff;
-}
-
-li {
-	list-style: none;
-}
-
-table {
-	width: 60%;
-	border-collapse: collapse; 
-}
-
-tr:nth-child(even) td {
-  background: #f0f8ff;
-}
-
-th, td {
-	height: 50px;
-	text-align: center;
-}
-
-th {
-	font-size: 20px;
-	border-bottom: 1.5px solid black;
-}
-
-a {
-	text-decoration-line: none;
-	color: black;
-}
-</style>
 </head>
 <body>
 	<header>
