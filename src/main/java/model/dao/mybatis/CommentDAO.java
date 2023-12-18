@@ -2,6 +2,7 @@ package model.dao.mybatis;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -78,5 +79,16 @@ public class CommentDAO {
 		}
     }
 
+    // 마이페이지 - 사용자가 작성한 모든 리뷰 댓글 List에 저장 및 반환 
+    public List<ReviewComment> findReviewCommentByUser(String userId){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.getMapper(CommentMapper.class).findReviewCommentByUser(userId);			
+		} finally {
+			sqlSession.close();
+		}
+    }
+   
+    
 	
 }

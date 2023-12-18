@@ -8,6 +8,7 @@
   	</settings>
   	<typeAliases>
 		<typeAlias type="model.ReviewComment" alias="ReviewComment" />
+		<typeAlias type="model.Interest" alias="Interest" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -22,5 +23,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="model/dao/mybatis/mapper/CommentMapper.xml" />
+		<mapper resource="model/dao/mybatis/mapper/InterestMapper.xml" />
 	</mappers>
 </configuration>

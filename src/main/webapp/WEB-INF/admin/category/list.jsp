@@ -21,6 +21,12 @@
 		else if (modifyCateForm.renew.value == ""){
 			alert("수정할 카테고리를 입력해주세요.")
 		}
+		else if (modifyCateForm.originalCate.value.length > 15){
+			alert("15자를 초과하였습니다")
+		}
+		else if (modifyCateForm.renew.value.length > 15){
+			alert("15자를 초과하였습니다")
+		}
 		else if(confirm("정말로 수정하시겠습니까?")== true){
 			modifyCateForm.submit();
 		}
@@ -29,6 +35,9 @@
 	function registerCate() {
 		if (registerCateForm.newCate.value ==""){
 			alert("추가할 카테고리를 입력해주세요.");
+		}
+		else if (registerCateForm.newCate.value.length > 15){
+			alert("15자를 초과하였습니다")
 		}
 		else if(confirm("정말로 추가하시겠습니까?")== true){
 			registerCateForm.submit();

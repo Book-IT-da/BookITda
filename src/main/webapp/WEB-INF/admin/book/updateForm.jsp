@@ -77,7 +77,7 @@
 String[] level = { "초보자", "중급자", "상급자" };
 
 String[] lan = { "java", "python", "c", "c++", "kotlin", "lua", "css", "javaScript", "swift", "c#", "node.js",
-		"typeScript", };
+		"typeScript", "기타", };
 
 String[] keywords = {"X", "자바 입문", "클라우드 서비스","하드웨어", "알고리즘", "학습 사이트 제공", "비전공자", "게임"};
 

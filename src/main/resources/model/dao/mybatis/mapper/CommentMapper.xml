@@ -10,7 +10,7 @@
 		r.reviewId, 
 		r.userId, 
 		member.nickname, 
-		r.createDate 
+    	r.createDate 
 		FROM reviewComment r 
 		INNER JOIN member ON r.userId = member.userId 
 		INNER JOIN review ON r.reviewId = review.reviewId 
@@ -33,5 +33,17 @@
 		DELETE FROM ReviewComment 
 		WHERE commentId = #{commentId}
 	</delete>
+	
+	<select id="findReviewCommentByUser" parameterType="String" resultType="ReviewComment">
+		SELECT commentId, 
+		c.reviewId, 
+		c.userId, 
+		rContent, 
+		c.createDate 
+		FROM REVIEWCOMMENT c 
+		JOIN REVIEW r ON c.reviewId = r.reviewId 
+		JOIN MEMBER m ON c.userId = m.userId 
+		WHERE m.userId = #{userId}
+    </select>
 		
 </mapper>

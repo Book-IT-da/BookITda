@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.dao.mybatis.mapper.InterestMapper">
+	<cache />
+<!-- 	
+    <insert id="createUserInterest" parameterType="Interest">
+        <foreach collection="categoryList" item="category">
+            INSERT INTO INTERESTCAT VALUES(sequence_interestCatId.nextval, #{userId}, #{category})
+        </foreach>
+        <foreach collection="languageList" item="language">
+            INSERT INTO INTERESTLANG VALUES(sequence_interestLangId.nextval, #{userId}, #{language})
+        </foreach>
+        UPDATE MEMBER SET levelId=#{levelId} WHERE userId=#{userId}
+    </insert>
+
+    <delete id="modifyInterestCat">
+        DELETE FROM INTERESTCAT WHERE userId=#{param1}
+        <foreach collection="categoryList" item="category">
+            INSERT INTO INTERESTCAT VALUES(sequence_interestCatId.nextval, #{param1}, #{category})
+        </foreach>
+    </delete>
+
+    <delete id="modifyInterestLang">
+        DELETE FROM INTERESTLANG WHERE userId=#{userId}
+        <foreach collection="languageList" item="language">
+            INSERT INTO INTERESTLANG VALUES(sequence_interestLangId.nextval, #{userId}, #{language})
+        </foreach>
+    </delete> -->
+    
+	<resultMap id="interestResultMap" type="model.Interest">
+	    <result property="levelId" column="levelId" />
+	    <collection property="categoryList" ofType="int">
+	        <result column="categoryId" />
+	    </collection>
+	    <collection property="languageList" ofType="int">
+	        <result column="languageId" />
+	    </collection>
+	</resultMap>
+	
+	<select id="findInterestById" parameterType="String" resultMap="interestResultMap">
+	    SELECT 
+	    	m.levelId,
+	        c.categoryId, 
+	        l.languageId
+	    FROM INTERESTCAT c
+	    LEFT JOIN INTERESTLANG l ON c.userId = l.userId
+	    LEFT JOIN MEMBER m ON c.userId = m.userId
+	    WHERE c.userId = #{userId}
+	</select>
+
+</mapper>
