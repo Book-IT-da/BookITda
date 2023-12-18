@@ -21,7 +21,7 @@ public class DeleteQuestionController implements Controller {
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
 		
-		if (userId.equals(ques.getUserId())) {
+		if (userId.equals(ques.getUserId()) || (userId.equals("admin"))) {
 			quesMan.remove(qId);
 			return "redirect:/question/list";
 		}
