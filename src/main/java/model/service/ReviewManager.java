@@ -91,6 +91,6 @@ public class ReviewManager {
     
     // 마이페이지 - 사용자가 작성한 모든 리뷰 댓글 
     public List<ReviewComment> findReviewCommentByUser(String userId) throws SQLException {
-    	return reviewCommentDAO.findReviewCommentByUser(userId);
+    	return commentDAO.findReviewCommentByUser(userId); 
     }
 }
