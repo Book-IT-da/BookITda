@@ -75,12 +75,12 @@
             		</div> 
             	</c:if>
             	<c:forEach var="review" items="${reviewList}"> 
-	                <div>
+	                <div class="book_box_div">
 	                    <table class="book_box">
 	                        <thead>
 	                        <tr>
 	                            <td class="book_pic" rowspan="5"><img class="book_cover" src="<c:url value='${review.cover_path}' />" /></td>
-	                            <td class="review_date">${review.createDate }</td>
+	                        	<td class="review_date">${review.createDate }</td>
 	                        </tr>
 	                        <tr>
 	                        	<td class="book_title">
