@@ -2,9 +2,9 @@ package controller.question;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.Controller;
-import model.Answer;
 import model.service.AnswerManager;
 
 public class DeleteAnswerController implements Controller {
@@ -13,12 +13,12 @@ public class DeleteAnswerController implements Controller {
         String value = request.getParameter("aId");
         int aId = Integer.parseInt(value);
         
+        HttpSession session = request.getSession();
+        session.setAttribute("qId", request.getParameter("qId"));
+
         AnswerManager ansMan = AnswerManager.getInstance();
         int result = ansMan.remove(aId);
       
-        if (result != 1) {
-            return "/question/view.jsp";
-        }
         return "redirect:/question/view";
     }
 }
