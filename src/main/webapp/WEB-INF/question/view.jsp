@@ -110,6 +110,10 @@ a {
 	color: blue;
 }
 
+.nickname {
+	color:cornflowerblue;
+}
+
 #title {
 	border-top: 1.0px solid black;
 	text-align: center;
@@ -202,7 +206,12 @@ a {
 				<table>
 					<c:forEach var="answer" items="${answerList}">
 						<tr>
-							<td>작성자: ${answer.nickname}</td>
+							<td>
+								<c:if test="${sessionScope.userId != answer.userId}">
+								작성자: ${answer.nickname}</c:if>
+								<c:if test="${sessionScope.userId == answer.userId}">
+								작성자: <span class="nickname">${answer.nickname}</span></c:if>
+							</td>
 							<td>등록일: ${answer.createDate}</td>
 							<c:if test="${sessionScope.userId == answer.userId or sessionScope.userId == 'admin'}">
 								<td id ="button1">
