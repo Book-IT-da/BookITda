@@ -98,30 +98,27 @@ public class CategoryDAO {
 		return -1;
 	}
 	
-	//카테고리 리스트 반환
-		public List<Category> findAllCategory() throws SQLException{
-			System.out.println("DAO에 왔음.");
-			StringBuilder query = new StringBuilder();
-			query.append( "SELECT categoryId, category FROM Category");
-			jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {});
-			
-			try {
-				ResultSet rs = jdbcUtil.executeQuery();					
-				List<Category> categoryList = new ArrayList<Category>();	
-				while (rs.next()) {
-					Category cate = new Category(	
-							rs.getInt("categoryId"),
-							rs.getString("category")
-						);	
-					categoryList.add(cate);			
-				}			
-				return categoryList;	
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			} finally {
-				jdbcUtil.close();		
+	// 카테고리 리스트 반환
+	public List<Category> findAllCategory() throws SQLException {
+		System.out.println("DAO에 왔음.");
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT categoryId, category FROM Category");
+		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {});
+
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();
+			List<Category> categoryList = new ArrayList<Category>();
+			while (rs.next()) {
+				Category cate = new Category(rs.getInt("categoryId"), rs.getString("category"));
+				categoryList.add(cate);
 			}
-			return null;
-		}	
+			return categoryList;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();
+		}
+		return null;
+	}
 	
 }

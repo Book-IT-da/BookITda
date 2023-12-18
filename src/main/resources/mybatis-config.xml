@@ -9,6 +9,7 @@
   	<typeAliases>
 		<typeAlias type="model.ReviewComment" alias="ReviewComment" />
 		<typeAlias type="model.Interest" alias="Interest" />
+		<typeAlias type="model.Category" alias="Category" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -24,5 +25,6 @@
 	<mappers>
 		<mapper resource="model/dao/mybatis/mapper/CommentMapper.xml" />
 		<mapper resource="model/dao/mybatis/mapper/InterestMapper.xml" />
+		<mapper resource="model/dao/mybatis/mapper/CategoryMapper.xml" />
 	</mappers>
 </configuration>

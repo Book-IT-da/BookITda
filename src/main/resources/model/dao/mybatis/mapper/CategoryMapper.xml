@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.dao.mybatis.mapper.CategoryMapper">
+	<cache />
+	
+	<insert id="createCategory" parameterType="String">
+		<selectKey keyProperty="categoryId" resultType="int" order="BEFORE">
+			SELECT sequence_categoryid.nextval AS categoryId FROM DUAL
+		</selectKey>
+		INSERT INTO Category VALUES(#{categoryId}, #{category})
+	</insert>
+	
+	<update id="modifyCategory" parameterType="String">
+		UPDATE Category SET category = #{category} WHERE category= #{renew}
+	</update>
+	
+	<delete id="deleteCategory" parameterType="String">
+		DELETE FROM Category WHERE category= #{category}
+	</delete>
+	
+	<select id="findCategoryId" parameterType="String" resultType="String">
+		SELECT categoryId, category FROM Category WHERE category= #{category}
+	</select>
+	
+	<select id="findAllCategory" resultType="Category">
+		SELECT categoryId, category FROM Category
+	</select>
+
+</mapper>
