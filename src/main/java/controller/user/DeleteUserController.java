@@ -19,7 +19,7 @@ public class DeleteUserController implements Controller {
 			request.setAttribute("user", user);
 			
 			HttpSession session = request.getSession();
-			if (UserSessionUtils.isLoginUser(deleteId, session)) {
+			if (UserSessionUtils.isLoginUser("admin", session) || UserSessionUtils.isLoginUser(deleteId, session)) {
 				return "/user/delete.jsp";
 			}
 			request.setAttribute("deleteFailed", true);
@@ -27,8 +27,14 @@ public class DeleteUserController implements Controller {
 		}
 				
 		HttpSession session = request.getSession();
-		String deleteId = (String) session.getAttribute("userId");
-		UserManager userMan = UserManager.getInstance();
+	    String deleteId = (String) session.getAttribute("userId");
+	    UserManager userMan = UserManager.getInstance();
+
+		if (UserSessionUtils.isLoginUser("admin", session)) {
+		    String a_deleteId = (String) request.getParameter("userId");
+		    userMan.delete(a_deleteId);
+		    return "redirect:/admin/user/list";
+		}
 		
 		if (UserSessionUtils.isLoginUser(deleteId, session)) {
 			userMan.delete(deleteId);
