@@ -69,7 +69,15 @@ request.setAttribute("recommBookList", recommBookList);
 									src="<c:url value='${recommBook.cover_path}' />">
 								<h2 class="title">${recommBook.title}</h2>
 								<p class="author">${recommBook.author}</p>
-								<p class="avgStar">★${recommBook.avgstar}</p>
+								<c:set var="star" value="${recommBook.avgstar}"/>
+	                            <c:choose>
+	                                <c:when test ="${star >= 0.1}">
+	                                    ${recommBook.avgstar}
+	                                </c:when>
+	                                <c:otherwise>
+	                                    리뷰가 존재하지 않습니다.
+	                                </c:otherwise>
+	                            </c:choose>
 							</div>
 					</a></td>
 					<c:if test="${loop.index % 3 == 2 or loop.last}">
