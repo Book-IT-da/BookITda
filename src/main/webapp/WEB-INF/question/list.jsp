@@ -102,7 +102,7 @@ a {
 			<hr>
 			<div align="right">
 				<button id="btn">
-					<a href="<c:url value='/question/create'/>">글쓰기</a>
+					<a href="<c:url value='/question/create'/>">작성하기</a>
 				</button>
 			</div>
 			<table>
