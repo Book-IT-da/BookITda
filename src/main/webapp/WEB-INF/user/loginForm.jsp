@@ -6,7 +6,8 @@
 <head>
 <link rel=stylesheet href="<c:url value='/css/logo.css' />"
 	type="text/css">
-
+<link rel=stylesheet href="<c:url value='/css/user/loginForm.css' />"
+	type="text/css">
 <title>로그인</title>
 
 <script>
@@ -33,40 +34,6 @@ function loginAlert() {
 	alert('${msg}')
 }
 </script>
-<style>
-input[type="text"], input[type="password"] {
-	margin-bottom: 10px;
-	width: 300px;
-	height: 45px;
-	border-radius: 3px;
-	border-width: 1px;
-	border-color: #CCCCCC;
-}
-
-input[type="submit"] {
-	margin-top: 25px;
-	margin-bottom: 15px;
-	width: 300px;
-	height: 50px;
-	border: 2px solid skyblue;
-	border-radius: 6px;
-	background-color: skyblue;
-	font-size: 30px;
-	font-weight: bold;
-	color: white;
-}
-
-a {
-	text-decoration-line: none;
-}
-
-.loginFailure {
-	width: 300px;
-	height: 30px;
-	padding-top: 7px;
-	background-color: skyblue;
-}
-</style>
 </head>
 
 <body>
