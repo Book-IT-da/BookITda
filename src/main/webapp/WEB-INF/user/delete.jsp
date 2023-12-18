@@ -24,6 +24,7 @@
 	</jsp:include>
 	<h2>탈퇴</h2>
 	<form name="form" method="POST" action="<c:url value='/user/delete'/>">
+		<input type="hidden" name="userId" value="${user.userId}">
 		<input type="submit" value="탈퇴">
 	</form>
 </body>
