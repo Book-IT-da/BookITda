@@ -23,6 +23,15 @@
 		form.submit();
 	}
 	
+	function ansRemoveAlert(formName) {
+		var msg = confirm("정말 삭제하시겠습니까?");
+		
+		if (msg) {
+			formName.submit();
+		}
+		return false;
+	}
+	
 	function answerContent() {
 		var content = document.getElementById('ansContent');
 		var form = document.getElementById('ansForm');
@@ -182,11 +191,12 @@ a {
 							<td>등록일: ${answer.createDate}</td>
 							<c:if test="${sessionScope.userId == answer.userId or sessionScope.userId == 'admin'}">
 								<td id ="button1"><div id="ansContent">
-								<input type="button"
-									
-									onclick="answerContent()" value="수정"> <a
-									href="<c:url value='/answer/delete'><c:param name='aId' value='${answer.aId}'/></c:url>"
-									onclick="ansRemoveAlert()">삭제</a>
+								<input type="button" onclick="answerContent()" value="수정"> 
+								<form name="ansRemove" method="GET" action="<c:url value='/answer/delete' />">
+									<input type="hidden" name="qId" value="${ques.qId}">
+									<input type="hidden" name="aId" value="${answer.aId}">
+									<input type="button" value="삭제" onClick="ansRemoveAlert(this.form)">
+								</form>
 									</div>
 									<div id="ansForm">
 										<input type="button" onClick="ansForm()" value="완료">
