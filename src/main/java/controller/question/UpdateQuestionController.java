@@ -22,7 +22,7 @@ public class UpdateQuestionController implements Controller {
 			 HttpSession session = request.getSession();
 			 String userId = (String) session.getAttribute("userId");
 			 
-			 if (userId.equals(ques.getUserId())) {
+			 if (userId.equals(ques.getUserId()) || (userId.equals("admin"))) {
 				 return "/question/updateForm.jsp";
 			 }
 			 return "/question/view.jsp";
