@@ -390,21 +390,26 @@ public class BookDAO {
 		return null;
 	}
 
-	// 리스트에서 특정 책을 클릭(책 자세히 보기)
+	// 리스트에서 특정 책을 클릭(책 자세히 보기)	
 	public Book findBookInfo(String ISBN) throws SQLException {
 		System.out.println("!!! " + ISBN + " !!");
 		StringBuilder query = new StringBuilder();
-		query.append("SELECT ISBN,title, cover_path, author, publisher, publicationDate, "
-				+ "bookInfo, bookIndex, authorInfo, keywordId1, AVGSTAR, "
-				+ "categoryId , LEVELID, languageId, keywordId2, keywordId3 ");
-		query.append("FROM Book ");
+		query.append("SELECT ISBN, title, cover_path, author, publisher, publicationDate, ");
+		query.append("bookInfo, bookIndex, authorInfo, AVGSTAR, ");
+		query.append("c.category, i.ITLEVEL, l.LANGUAGE, ");
+		query.append("k1.keyword AS keyword1, k2.keyword  AS keyword2, k3.keyword AS keyword3 ");
+		query.append("FROM Book b ");
+		query.append("JOIN category c ON b.categoryid = c.categoryid ");
+		query.append("JOIN itlevel i ON b.levelid = i.levelid ");
+		query.append("JOIN language l ON b.languageid = l.languageid ");
+		query.append("JOIN keyword k1 ON b.keywordid1 = k1.keywordid ");
+		query.append("JOIN keyword k2 ON b.keywordid2 = k2.keywordid ");
+		query.append("JOIN keyword k3 ON b.keywordid3 = k3.keywordid ");
 		query.append("WHERE ISBN = ?");
 		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { ISBN });
 
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
-			String cateN, levelName, lanName, k1Name, k2Name, k3Name;
-			cateN = levelName = lanName = k1Name = k2Name = k3Name = null;
 			if (rs.next()) {
 
 				String title = rs.getString("title");
@@ -417,74 +422,13 @@ public class BookDAO {
 				String authorInfo = rs.getString("authorInfo");
 				Float star = rs.getFloat("AVGSTAR");
 
-				String cateId = rs.getString("categoryId");
-				String levelId = rs.getString("levelId");
-				String languageId = rs.getString("languageId");
-				String k1 = rs.getString("keywordId1");
-				String k2 = rs.getString("keywordId2");
-				String k3 = rs.getString("keywordId3");
-
-				// 카테고리 name을 찾는다.
-				StringBuilder query1 = new StringBuilder();
-				System.out.println(cateId);
-				query1.append("SELECT category FROM Category WHERE categoryId=?");
-				jdbcUtil.setSqlAndParameters(query1.toString(), new Object[] { cateId });
-				ResultSet rs1 = jdbcUtil.executeQuery();
-				if (rs1.next()) {
-					cateN = rs1.getString("category");
-				}
-
-				// 레벨 name을 찾는다,
-				StringBuilder query2 = new StringBuilder();
-				System.out.println(levelId);
-				query2.append("SELECT itLevel FROM ItLevel WHERE levelId=?");
-				jdbcUtil.setSqlAndParameters(query2.toString(), new Object[] { levelId });
-				ResultSet rs2 = jdbcUtil.executeQuery();
-				if (rs2.next()) {
-					levelName = rs2.getString("itLevel");
-				}
-
-				// 언어 name을 찾는다,
-				StringBuilder query3 = new StringBuilder();
-				System.out.println(languageId);
-				query3.append("SELECT language FROM Language WHERE languageId=?");
-				jdbcUtil.setSqlAndParameters(query3.toString(), new Object[] { languageId });
-				ResultSet rs3 = jdbcUtil.executeQuery();
-				if (rs3.next()) {
-					lanName = rs3.getString("language");
-				}
-
-				// 키워드1 name을 찾는다,
-				StringBuilder query4 = new StringBuilder();
-				System.out.println(k1);
-				query4.append("SELECT keyword FROM keyword WHERE keywordId=?");
-				jdbcUtil.setSqlAndParameters(query4.toString(), new Object[] { k1 });
-				ResultSet rs4 = jdbcUtil.executeQuery();
-				if (rs4.next()) {
-					k1Name = rs4.getString("keyword");
-				}
-
-				// 키워드2 name을 찾는다,
-				StringBuilder query5 = new StringBuilder();
-
-				System.out.println(k2);
-				query5.append("SELECT keyword FROM keyword WHERE keywordId=?");
-				jdbcUtil.setSqlAndParameters(query5.toString(), new Object[] { k2 });
-				ResultSet rs5 = jdbcUtil.executeQuery();
-				if (rs5.next()) {
-					k2Name = rs5.getString("keyword");
-				}
-
-				// 키워드3 name을 찾는다,
-				StringBuilder query6 = new StringBuilder();
-				System.out.println(k3);
-				query6.append("SELECT keyword FROM keyword WHERE keywordId=?");
-				jdbcUtil.setSqlAndParameters(query6.toString(), new Object[] { k3 });
-				ResultSet rs6 = jdbcUtil.executeQuery();
-				if (rs6.next()) {
-					k3Name = rs6.getString("keyword");
-				}
-
+				String cateN = rs.getString("category");
+				String levelName = rs.getString("itlevel");
+				String lanName = rs.getString("language");
+				String k1Name = rs.getString("keyword1");
+				String k2Name = rs.getString("keyword2");
+				String k3Name = rs.getString("keyword3");
+				
 				Book book = new Book(ISBN, title, author, publisher, publicationDate, cover, bookInfo, bookIndex,
 						authorInfo, cateN, levelName, lanName, k1Name, k2Name, k3Name, star);
 				return book;
