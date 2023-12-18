@@ -49,7 +49,7 @@
 			</table>
 			<input type="hidden" name="userId" value="${user.userId}">
 			<a href="<c:url value='/user/update'><c:param name='userId' value='${user.userId}'/></c:url>">수정</a>
-			<a href="<c:url value='/admin/user/delete'><c:param name='userId' value='${user.userId}'/></c:url>">삭제</a>
+			<a href="<c:url value='/user/delete'><c:param name='userId' value='${user.userId}'/></c:url>">삭제</a>
 			<a href="<c:url value='/admin/user/list' />">목록</a>
 		</div>
 	</main>

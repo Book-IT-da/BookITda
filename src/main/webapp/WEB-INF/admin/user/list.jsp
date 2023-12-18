@@ -8,6 +8,7 @@
 		<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 		<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+		<link rel=stylesheet href="<c:url value='/css/user/mypage_list.css' />" type="text/css">
 		<title>사용자 목록</title>
 	<script type="text/javascript">
 		
@@ -31,10 +32,10 @@
 		<div align="center">
 			<table>
 				<tr>
-					<td>번호</td>
-					<td>사용자 ID</td>
-					<td>닉네임</td>
-					<td>이메일</td>
+					<th>번호</th>
+					<th>사용자 ID</th>
+					<th>닉네임</th>
+					<th>이메일</th>
 				</tr>
 				<c:forEach var="user" items="${userList}" varStatus="status">
 					<tr>
