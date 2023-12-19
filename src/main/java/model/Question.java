@@ -44,10 +44,11 @@ public class Question {
         this.createDate = createDate;
     }
 
-    public Question(int qId, String title, Date createDate) {
+    public Question(int qId, String title, int views, Date createDate) {
         super();
         this.qId = qId;
         this.title = title;
+        this.views = views;
         this.createDate = createDate;
     }
 
