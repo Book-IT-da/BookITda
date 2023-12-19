@@ -71,7 +71,6 @@ for (int i = 0; i < levelData.length; i += 2) {
 }
 
 request.setAttribute("userLevel", userLevel);
-session.setAttribute("userId2", "lulu2");
 %>
 <html>
 <head>
