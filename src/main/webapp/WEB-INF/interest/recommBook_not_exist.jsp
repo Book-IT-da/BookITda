@@ -2,9 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.List"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-<%
-List<Integer> interestCategories = (List<Integer>) request.getSession().getAttribute("interestCategories");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,37 +39,20 @@ List<Integer> interestCategories = (List<Integer>) request.getSession().getAttri
 					</td>
 				</tr>
 				<tr>
+					<!-- 관심사를 설정-> 추천 책이 무조건 있음 but 설정을 skip하면 -> this page -->
 					<td><c:if test="${sessionScope.userId != null}">
-							<c:choose>
-								<c:when test="${interestCategories != null}">
-									<form id="postForm" action="<c:url value='/get/categoryList'/>"
-										method="post">
-										<button class="custom-button" type="button"
-											onclick="submitForm()">관심사 수정하기</button>
-									</form>
+							<form id="createForm" action="<c:url value='/get/categoryList'/>"
+								method="get">
+								<button class="custom-button" type="button"
+									onclick="createForm()">관심사 생성하기</button>
+							</form>
 
-									<script>
-										function submitForm() {
-											document.getElementById("postForm")
-													.submit();
-										}
-									</script>
-								</c:when>
-								<c:otherwise>
-									<form id="createForm"
-										action="<c:url value='/get/categoryList'/>" method="get">
-										<button class="custom-button" type="button"
-											onclick="createForm()">관심사 생성하기</button>
-									</form>
-
-									<script>
-										function createForm() {
-											document.getElementById(
-													"createForm").submit();
-										}
-									</script>
-								</c:otherwise>
-							</c:choose>
+							<script>
+								function createForm() {
+									document.getElementById("createForm")
+											.submit();
+								}
+							</script>
 						</c:if> <c:if test="${sessionScope.userId == null}">
 							<a class="custom-button" href="<c:url value='/user/login/form'/>">로그인하러
 								가기</a>
