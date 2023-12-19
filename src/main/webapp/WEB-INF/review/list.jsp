@@ -52,7 +52,7 @@
 			<form name="searchReviewForm" method="GET"
 				action="<c:url value='/review/list' />">
 				<input id="reviewTitle_input" name="reviewTitle_input" type="text" placeholder="책 제목을 입력하세요">
-                <input type="button" id="search_button" onClick="searchReview()" value="검색하기">
+                <input type="button" id="search_button" onClick="searchReview()" value="검색">
             </form>
                 <hr/>
             </div>
