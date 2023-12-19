@@ -5,14 +5,17 @@ import java.util.List;
 
 import model.User;
 import model.dao.jdbc.UserDAO;
+import model.dao.mybatis.MyBatisUserDAO;
 
 public class UserManager {
 	private static UserManager userMan = new UserManager();
 	private UserDAO userDAO;
+	private MyBatisUserDAO user_DAO;
 
 	private UserManager() {
 		try {
 			userDAO = new UserDAO();
+			user_DAO = new MyBatisUserDAO();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}			
@@ -30,7 +33,7 @@ public class UserManager {
 	}
 	
 	public int update(User user) throws SQLException {
-		return userDAO.updateMember(user);
+		return user_DAO.modifyUser(user);
 	}
 	
 	public int delete(String userId) throws SQLException {
