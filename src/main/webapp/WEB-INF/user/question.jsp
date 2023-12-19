@@ -43,7 +43,7 @@
 						href="<c:url value='/question/view'>
 						   <c:param name='qId' value='${question.qId}'/>
 				 		 </c:url>">
-							${question.title}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							${question.title}</a></td>
 					<td>${question.views}</td>
 					<td>${question.createDate}</td>
 				</tr>

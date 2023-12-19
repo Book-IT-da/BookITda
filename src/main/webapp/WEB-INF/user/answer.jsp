@@ -43,7 +43,7 @@
 						href="<c:url value='/question/view'>
 						   <c:param name='qId' value='${answer.qId}'/>
 				 		 </c:url>">
-							${answer.answer}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							${answer.answer}</a></td>
 					<td><fmt:formatDate value="${answer.createDate}" pattern="yyyy-MM-dd" /></td>
 				</tr>
 			</c:forEach>
