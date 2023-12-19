@@ -139,6 +139,10 @@ public class QuestionDAO {
                         rs.getString("userId"),
                         rs.getString("nickname"),
                         rs.getDate("createDate"));
+                int views = rs.getInt("views");
+                views++;
+                countUpdate(views, qId);
+                ques.setViews(views);
             } 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -146,6 +150,31 @@ public class QuestionDAO {
             jdbcUtil.close();
         }
         return ques;
+    }
+    
+    // 조회수
+    public int countUpdate(int views, int qId) {
+        int result = 0;
+
+        StringBuilder query = new StringBuilder();
+        query.append("UPDATE QUESTION ");
+        query.append("SET views = ? ");
+        query.append("WHERE qId = ? ");
+        
+        Object[] param = new Object[] {views, qId};
+        jdbcUtil.setSqlAndParameters(query.toString(), param);
+        
+        try {
+            result = jdbcUtil.executeUpdate();
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();
+        }
+        return result;
     }
     
     // 제목으로 질문 글 검색
@@ -219,7 +248,7 @@ public class QuestionDAO {
     // 마이페이지 - 사용자가 작성한 모든 질문 글을 List에 저장 및 반환
     public List<Question> findQuestionByUser(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
-        query.append("SELECT qId, title, createDate ");
+        query.append("SELECT qId, title, views, createDate ");
         query.append("FROM QUESTION q JOIN MEMBER m ");
         query.append("ON q.USERID = m.USERID ");
         query.append("WHERE m.userId = ? ");
@@ -233,6 +262,7 @@ public class QuestionDAO {
                 Question question = new Question(
                         rs.getInt("qId"),
                         rs.getString("title"),
+                        rs.getInt("views"),
                         rs.getDate("createDate"));
                 questions.add(question);
             }
