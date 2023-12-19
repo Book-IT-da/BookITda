@@ -3,24 +3,6 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="model.dao.mybatis.mapper.InterestMapper">
 	<cache />
-	<!-- <insert id="createUserInterest" parameterType="Interest"> <foreach 
-		collection="categoryList" item="category"> INSERT INTO INTERESTCAT VALUES(sequence_interestCatId.nextval, 
-		#{userId}, #{category}) </foreach> <foreach collection="languageList" item="language"> 
-		INSERT INTO INTERESTLANG VALUES(sequence_interestLangId.nextval, #{userId}, 
-		#{language}) </foreach> UPDATE MEMBER SET levelId=#{levelId} WHERE userId=#{userId} 
-		</insert> <delete id="modifyInterestCat"> DELETE FROM INTERESTCAT WHERE userId=#{param1} 
-		<foreach collection="categoryList" item="category"> INSERT INTO INTERESTCAT 
-		VALUES(sequence_interestCatId.nextval, #{param1}, #{category}) </foreach> 
-		</delete> -->
-
-<!-- 	<delete id="modifyInterestLang" parameterType="hashmap">
-		DELETE FROM INTERESTLANG WHERE userId=#{userId}
-		<foreach collection="userInterest.languageList"
-			item="language">
-			INSERT INTO INTERESTLANG VALUES(sequence_interestLangId.nextval, #{userId},
-			#{language})
-		</foreach>
-	</delete> -->
 
 	<resultMap id="interestResultMap" type="model.Interest">
 		<result property="levelId" column="levelId" />
