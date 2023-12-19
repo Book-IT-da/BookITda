@@ -442,36 +442,9 @@ public class BookDAO {
 	}
 	
 	//도서 추천을 위함
-	///��õ å ����Ʈ ���������
 	public List<RecommBook> findRecommList(String userId) throws SQLException {
         StringBuilder query = new StringBuilder();
-        
-        /*
-         * query.append("SELECT DISTINCT isbn, title, cover_path, author, avgstar ");
-         * query.append("FROM Book b ");
-         * query.append("INNER JOIN InterestCat ic ON ic.categoryId = b.categoryId ");
-         * query.append("INNER JOIN InterestLang il ON il.languageId = b.languageId ");
-         * query.append("INNER JOIN Member m ON m.levelId = b.levelId ");
-         * query.append("WHERE m.userId = ? ");
-         * query.append("AND ic.userId = m.userId ");
-         * query.append("AND il.userId = m.userId ");
-         * query.append("ORDER BY b.avgstar DESC ");
-         */
-        
-        /*
-         * query.
-         * append("SELECT DISTINCT b.isbn, b.title, b.cover_path, b.author, b.avgstar, "
-         * ); query.append("CASE " +
-         * "WHEN ic.categoryId IS NOT NULL AND il.languageId IS NOT NULL THEN 1 " +
-         * "WHEN ic.categoryId IS NOT NULL OR il.languageId IS NOT NULL THEN 2 " +
-         * "ELSE 3 " + "END as custom_order "); query.append("FROM Book b ");
-         * query.append("JOIN Member m ON m.levelId = b.levelId "); query.
-         * append("LEFT JOIN InterestCat ic ON ic.userId = m.userId AND ic.categoryId = b.categoryId "
-         * ); query.
-         * append("LEFT JOIN InterestLang il ON il.userId = m.userId AND il.languageId = b.languageId "
-         * ); query.append("WHERE m.userId = ? ");
-         * query.append("ORDER BY custom_order ");
-         */
+
         query.append("SELECT * FROM (");
         query.append("    SELECT DISTINCT b.isbn, b.title, b.cover_path, b.author, b.avgstar, ");
         query.append("    CASE "
