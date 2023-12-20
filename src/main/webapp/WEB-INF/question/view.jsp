@@ -10,6 +10,8 @@
 	type="text/css">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />"
 	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/question/view.css' />"
+	type="text/css">
 
 <title>질문 글 상세보기</title>
 
@@ -21,6 +23,16 @@
 			return false;
 		}
 		form.submit();
+	}
+	
+	function ansUpdate(aId) {
+		var updateAnswerForm = document.forms["updateForm_" + aId];
+		if (updateAnswerForm.aContent.value == "") {
+			alert("답변을 입력하세요.");
+			updateAnswerForm.aContent.focus();
+			return false;
+		}
+		updateAnswerForm.submit();
 	}
 	
 	function quesremoveAlert() {
@@ -43,116 +55,46 @@
 		return false;
 	}
 	
-	function answerContent() {
-		var content = document.getElementById('ansContent');
-		var form = document.getElementById('ansForm');
-		var answer = document.getElementById('answer');
-		var answer_form = document.getElementById('content_form');
-		if (content.style.display !== 'none') {
-			content.style.display = 'none';
-			form.style.display = 'block';
-			answer.style.display = 'none';
-			answer_form.style.display = 'block';
-		}
-	}
-	function ansForm() {
-		var content = document.getElementById('ansContent');
-		var form = document.getElementById('ansForm');
-		var answer = document.getElementById('answer');
-		var answer_form = document.getElementById('content_form');
-		var updateAns = document.getElementById('updateAns').value;
+	function updateAnswer(aId) {
+		var answerUpdate = document.getElementById('answerUpdate_' + aId);
+		var answerContent = document.getElementById('answerContent_' + aId);
+		var answerDelete = document.getElementById('answerDelete_' + aId);
+		var answerChange = document.getElementById('answerChange_' + aId);
 		
-		if (form.style.display !== 'none') {
-			form.style.display = 'none';
-			content.style.display = 'block';
-			answer.style.display = 'block';
-			answer_form.style.display = 'none';
-			answer.innerText = updateAns;
-		}
+		var answerCancel = document.getElementById('answerCancel_' + aId);
+		var answerComplete = document.getElementById('answerComplete_' + aId);
 		
-		document.forms.form2.submit();
-	}
+		answerContent.style.display = 'none';
+		answerDelete.style.display = 'none';
+		answerChange.style.display = 'none';
+		
+		answerUpdate.style.display = 'block';
+		answerCancel.style.display = 'block';
+		answerComplete.style.display = 'block';
+	} 
 	
-	function cancelBtn() {
-		var content = document.getElementById('ansContent');
-		var form = document.getElementById('ansForm');
-		var answer = document.getElementById('answer');
-		var answer_form = document.getElementById('content_form');
+	function answerUpdateCancel(aId) {
+		var answerUpdate = document.getElementById('answerUpdate_' + aId);
+		var answerContent = document.getElementById('answerContent_' + aId);
+		var answerDelete = document.getElementById('answerDelete_' + aId);
+		var answerChange = document.getElementById('answerChange_' + aId);
 		
-		if (form.style.display !== 'none') {
-			form.style.display = 'none';
-			content.style.display = 'block';
-			answer.style.display = 'block';
-			answer_form.style.display = 'none';
-		}
+		var answerCancel = document.getElementById('answerCancel_' + aId);
+		var answerComplete = document.getElementById('answerComplete_' + aId);
+		
+		answerContent.style.display = 'block';
+		answerDelete.style.display = 'block';
+		answerChange.style.display = 'block';
+		
+		answerUpdate.style.display = 'none';
+		answerCancel.style.display = 'none';
+		answerComplete.style.display = 'none';
+		
+		var updateForm = document.forms("answerUpdate_" + aId);
+		
+		updateForm.aContent.value = answerContent.innerHTML.trim();
 	}
 </script>
-<style>
-table {
-	margin-top: 30px;
-	width: 1000px;
-	border-collapse: collapse;
-}
-
-td {
-	height: 50px;
-	border-top: 1px solid #444444;
-	border-bottom: 1px solid #444444;
-	border-left: 1px solid #444444;
-}
-
-td:first-child {
-	border-left: none;
-}
-
-textarea {
-	width: 500px;
-	height: 100px;
-}
-
-a {
-	text-decoration: none;
-}
-
-.button {
-	margin-top: 30px;
-	width: 100px;
-	height: 50px;
-	border: none;
-	border-radius: 6px;
-	font-size: 20px;
-	color: blue;
-}
-
-.nickname {
-	color:cornflowerblue;
-}
-
-#title {
-	border-top: 1.0px solid black;
-	text-align: center;
-	font-size: 20px;
-	font-weight: bold;
-}
-
-#answer_input {
-	font-size: 16px;
-	width: 500px;
-	height: 100px;
-	padding: 10px;
-}
-#ansContent {
- 	display: flex;
-	align-items: center; 
-}
-
-#ansForm {
-	display: none;
-}
-#content_form {
-	display: none;
-}
-</style>
 </head>
 <body>
 	<header>
@@ -184,7 +126,7 @@ a {
 				<td>조회수: ${ques.views}</td>
 			</tr>
 			<tr>
-				<td colspan="3">질문 내용
+				<td class="bottom_line" colspan="3">
 					<p /> ${ques.qContent}
 				</td>
 			</tr>
@@ -217,8 +159,8 @@ a {
 		<!-- 답변 글 보기  -->
 		<c:choose>
 			<c:when test="${not empty answerList}">
+			<c:forEach var="answer" items="${answerList}">
 				<table>
-					<c:forEach var="answer" items="${answerList}">
 						<tr>
 							<td>
 								<c:if test="${sessionScope.userId != answer.userId}">
@@ -226,43 +168,36 @@ a {
 								<c:if test="${sessionScope.userId == answer.userId}">
 								작성자: <span class="nickname">${answer.nickname}</span></c:if>
 							</td>
-							<td>등록일: ${answer.createDate}</td>
+							<td class="bottom_line">등록일: ${answer.createDate}</td>
 							<c:if test="${sessionScope.userId == answer.userId or sessionScope.userId == 'admin'}">
-								<td id ="button1">
-									<div id="ansContent">
-										&nbsp;
-										<input type="button" onclick="answerContent()" value="수정"> &nbsp;
+								<td class="bottom_line" id ="button1">
+										<input type="button" value="수정" id="answerChange_${answer.aId}" onClick="updateAnswer(${answer.aId})">
+										<input type="button" value="완료" id="answerComplete_${answer.aId}" style="display: none;" onClick="ansUpdate(${answer.aId})">
+										<input type="button" value="취소" id="answerCancel_${answer.aId}" style="display: none;" onClick="answerUpdateCancel('${answer.aId}')" >	
 										<form name="ansRemove" method="GET" action="<c:url value='/answer/delete' />">
 											<input type="hidden" name="qId" value="${ques.qId}">
 											<input type="hidden" name="aId" value="${answer.aId}">
-										<input type="button" value="삭제" onClick="removeAlert(this.form)">
+											<input type="button" value="삭제" id="answerDelete_${answer.aId}" onClick="removeAlert(this.form)">
 										</form>
-									</div>
-									<div id="ansForm">
-										&nbsp;
-										<input type="button" onClick="ansForm()" value="완료">
-										<input type="button" onClick="cancelBtn()" value="취소">
-									</div>
 								</td>
 							</c:if>
 						</tr>
 						<tr>
-							<td colspan="3">
-							<div id="answer">
+							<td class="last_element" colspan="3" id="answerContent_${answer.aId}">
 								<p /> ${answer.answer}
-							</div>
-							<div id="content_form">
-								<form name="form2" method="GET" action="<c:url value='/answer/update'/>">
-									<input type="hidden" name="userId" value="${answer.userId}">
-									<input type="hidden" name="qId" value="${ques.qId}">
-									<input type="hidden" name="aId" value="${answer.aId}">
-									<textarea id="updateAns" name="answer">${answer.answer}</textarea>
-								</form>
-							</div>
 							</td>
+							<form name="updateForm_${answer.aId}" method="GET" action="<c:url value='/answer/update'/>">
+								<input type="hidden" name="userId" value="${answer.userId}">
+								<input type="hidden" name="qId" value="${ques.qId}">
+								<input type="hidden" name="aId" value="${answer.aId}">
+								<td class="last_element" colspan="3" id="answerUpdate_${answer.aId}" style="display: none;">								
+									<textarea id="aContent" name="answer">${answer.answer}</textarea>
+								</td>
+							</form>
 						</tr>
-					</c:forEach>
+					
 				</table>
+				</c:forEach>
 			</c:when>
 			<c:otherwise>
 				<br>
