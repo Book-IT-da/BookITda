@@ -25,6 +25,7 @@ public class UserManager {
 		return userMan;
 	}
 	
+	// 사용자 생성
 	public int create(User user) throws SQLException, ExistingUserException {
 		if (userDAO.existingUser(user.getUserId()) == true) {
 			throw new ExistingUserException(user.getUserId() + "는 존재하는 아이디입니다.");
@@ -32,14 +33,17 @@ public class UserManager {
 		return userDAO.createMember(user);
 	}
 	
+	// 사용자 정보 수정
 	public int update(User user) throws SQLException {
 		return user_DAO.modifyUser(user);
 	}
 	
+	// 사용자 삭제(탈퇴)
 	public int delete(String userId) throws SQLException {
 		return userDAO.removeMember(userId);
 	}
 	
+	// 아이디로 사용자 찾기
 	public User findUser(String userId) throws SQLException, UserNotFoundException {
 		User user = userDAO.findUser(userId);
 		if (user == null) {
@@ -48,6 +52,7 @@ public class UserManager {
 		return user;
 	}
 	
+	// 전체 사용자 정보
 	public List<User> findUserList() throws SQLException {
 		return userDAO.findUserList();
 	}
@@ -61,7 +66,13 @@ public class UserManager {
 		return true;
 	}
 	
+	// 아이디 찾기
 	public String findUserId(String name, String email) throws SQLException {
 	    return userDAO.findUserId(name, email);
+	}
+	
+	// 비밀번호 찾기
+	public String findPasswd(String userId, String name, String email) throws SQLException {
+	    return userDAO.findPasswd(userId, name, email);
 	}
 }
