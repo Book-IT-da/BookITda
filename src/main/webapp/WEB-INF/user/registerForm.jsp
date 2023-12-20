@@ -47,7 +47,6 @@ function userCreate() {
 </script>
 </head>
 
-<%-- 아이디, 닉네임 중복 확인 구현 필요함  --%>
 <body>
 	<div>
 		<%@ include file="../top/logo.jsp"%>
