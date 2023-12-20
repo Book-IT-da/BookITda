@@ -194,4 +194,28 @@ public class UserDAO {
         return userId;
     }
     
+    // 비밀번호 찾기
+    public String findPasswd(String userId, String name, String email) throws SQLException {
+        String passwd = null;
+        
+        StringBuilder query = new StringBuilder();
+        query.append("SELECT password ");
+        query.append("FROM MEMBER ");
+        query.append("WHERE userId = ? AND name = ? AND email = ? ");
+        
+        Object[] param = new Object[] {userId, name, email};
+        jdbcUtil.setSqlAndParameters(query.toString(), param);
+        
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();
+            if (rs.next()) {
+                passwd = rs.getString("password");
+            } 
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();
+        }
+        return passwd;
+    }
 }
