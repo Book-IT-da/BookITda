@@ -168,4 +168,30 @@ public class UserDAO {
         }
         return false;
     }
+    
+    // 아이디 찾기
+    public String findUserId(String name, String email) throws SQLException {      
+        String userId = null;
+        
+        StringBuilder query = new StringBuilder();
+        query.append("SELECT userId ");
+        query.append("FROM MEMBER ");
+        query.append("WHERE name = ? AND email = ?");
+        
+        Object[] param = new Object[] {name, email};
+        jdbcUtil.setSqlAndParameters(query.toString(), param);
+        
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();
+            if (rs.next()) {
+                userId = rs.getString("userId");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();
+        }
+        return userId;
+    }
+    
 }
