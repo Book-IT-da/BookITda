@@ -60,4 +60,8 @@ public class UserManager {
 		}
 		return true;
 	}
+	
+	public String findUserId(String name, String email) throws SQLException {
+	    return userDAO.findUserId(name, email);
+	}
 }
