@@ -28,6 +28,8 @@ public class RequestMapping {
        mappings.put("/user/logout", new LogoutController());
        mappings.put("/user/findId", new FindUserIdController());
        mappings.put("/user/findUserIdResult", new ForwardController("/user/findUserIdResult.jsp"));
+       mappings.put("/user/findPasswd", new FindPasswordController());
+       mappings.put("/user/findPasswdResult", new ForwardController("/user/findPasswdResult.jsp"));
        mappings.put("/user/register", new RegisterUserController());
        mappings.put("/admin/user/list", new ListUserController());
        mappings.put("/admin/user/view", new ViewUserController());
