@@ -56,7 +56,7 @@ function loginAlert() {
 			<p class="loginFailure">${msg}</p>
 		</c:if>
 		<div class="links">
-			<a href="">아이디 찾기</a> | <a href="">비밀번호 찾기</a> | <input type="button"
+			<a href="<c:url value='/user/findId' />">아이디 찾기</a> | <input type="button" value="비밀번호 찾기"> | <input type="button"
 				value="회원가입"
 				onClick="userCreate(
 								'<c:url value='/user/register'/>')">
