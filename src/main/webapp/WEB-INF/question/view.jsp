@@ -90,7 +90,7 @@
 		answerCancel.style.display = 'none';
 		answerComplete.style.display = 'none';
 		
-		var updateForm = document.forms("answerUpdate_" + aId);
+		var updateForm = document.forms["updateForm_" + aId];
 		
 		updateForm.aContent.value = answerContent.innerHTML.trim();
 	}
@@ -173,7 +173,7 @@
 								<td class="bottom_line" id ="button1">
 										<input type="button" value="수정" id="answerChange_${answer.aId}" onClick="updateAnswer(${answer.aId})">
 										<input type="button" value="완료" id="answerComplete_${answer.aId}" style="display: none;" onClick="ansUpdate(${answer.aId})">
-										<input type="button" value="취소" id="answerCancel_${answer.aId}" style="display: none;" onClick="answerUpdateCancel('${answer.aId}')" >	
+										<input type="button" value="취소" id="answerCancel_${answer.aId}" style="display: none;" onClick="answerUpdateCancel(${answer.aId})" >	
 										<form name="ansRemove" method="GET" action="<c:url value='/answer/delete' />">
 											<input type="hidden" name="qId" value="${ques.qId}">
 											<input type="hidden" name="aId" value="${answer.aId}">
@@ -184,7 +184,7 @@
 						</tr>
 						<tr>
 							<td class="last_element" colspan="3" id="answerContent_${answer.aId}">
-								<p /> ${answer.answer}
+								${answer.answer}
 							</td>
 							<form name="updateForm_${answer.aId}" method="GET" action="<c:url value='/answer/update'/>">
 								<input type="hidden" name="userId" value="${answer.userId}">
