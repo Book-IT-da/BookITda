@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 import model.Answer;
-import model.service.AnswerManager;
+import model.service.QuestionManager;
 
 public class UpdateAnswerController implements Controller {
     @Override
@@ -25,8 +25,8 @@ public class UpdateAnswerController implements Controller {
                 userId, 
                 null);
                 
-        AnswerManager quesMan = AnswerManager.getInstance();
-        quesMan.update(updateAnswer);
+        QuestionManager quesMan = QuestionManager.getInstance();
+        quesMan.updateAnswer(updateAnswer);
         
         return "redirect:/question/view";
         

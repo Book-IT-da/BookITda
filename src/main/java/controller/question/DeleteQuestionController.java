@@ -22,7 +22,7 @@ public class DeleteQuestionController implements Controller {
 		String userId = (String) session.getAttribute("userId");
 		
 		if (userId.equals(ques.getUserId()) || (userId.equals("admin"))) {
-			quesMan.remove(qId);
+			quesMan.removeQuestion(qId);
 			return "redirect:/question/list";
 		}
 		

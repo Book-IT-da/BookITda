@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 import model.Answer;
-import model.service.AnswerManager;
+import model.service.QuestionManager;
 
 public class CreateAnswerController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -22,8 +22,8 @@ public class CreateAnswerController implements Controller {
                 0, request.getParameter("content"),
                 qId, userId, null);
         
-        AnswerManager ansMan = AnswerManager.getInstance();
-        ansMan.create(qId, ans);
+        QuestionManager quesMan = QuestionManager.getInstance();
+        quesMan.createAnswer(qId, ans);
         return "redirect:/question/view";
     }
 }

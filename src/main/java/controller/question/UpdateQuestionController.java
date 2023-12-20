@@ -41,7 +41,7 @@ public class UpdateQuestionController implements Controller {
 				 0, null, request.getParameter("nickname"), null);
 		 
 		 QuestionManager quesMan = QuestionManager.getInstance();
-		 quesMan.update(updateQues);
+		 quesMan.updateQuestion(updateQues);
 		 return "redirect:/question/view";
 				 
 	 }

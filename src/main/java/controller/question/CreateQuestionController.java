@@ -24,7 +24,7 @@ public class CreateQuestionController implements Controller {
 		
 		try {
 			QuestionManager quesMan = QuestionManager.getInstance();
-			quesMan.create(question);
+			quesMan.createQuestion(question);
 			System.out.println("Create Question");
 			return "redirect:/question/list"; 
 		} catch (Exception e) {

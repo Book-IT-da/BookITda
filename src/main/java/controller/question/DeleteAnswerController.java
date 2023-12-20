@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.Controller;
-import model.service.AnswerManager;
+import model.service.QuestionManager;
 
 public class DeleteAnswerController implements Controller {
     @Override
@@ -16,8 +16,8 @@ public class DeleteAnswerController implements Controller {
         HttpSession session = request.getSession();
         session.setAttribute("qId", request.getParameter("qId"));
 
-        AnswerManager ansMan = AnswerManager.getInstance();
-        int result = ansMan.remove(aId);
+        QuestionManager quesMan = QuestionManager.getInstance();
+        quesMan.removeAnswer(aId);
       
         return "redirect:/question/view";
     }
