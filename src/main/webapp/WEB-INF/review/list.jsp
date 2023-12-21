@@ -123,14 +123,6 @@
 	                </div>
 	  			</c:forEach>
             </div>
-<!--             <div align="center">
-                <hr/>
-                <button> &lt; </button>
-                <a>1</a>
-                <a>2</a>
-                <a>3</a>
-                <button> &gt; </button>
-            </div> -->
         </main>
         
 	<div class="btnMoveToTop" onclick="window.scrollTo(0,0);">TOP   ↑</div>
