@@ -19,9 +19,12 @@ th {
 
 a {
 	text-decoration-line: none;
-	color: black;
 }
 
 #notice {
     font-size: 30px;
+}
+
+#title {
+	color: blue;	
 }
