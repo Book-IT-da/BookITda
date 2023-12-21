@@ -26,7 +26,7 @@
 	<main>
 		<div align="center">
 			<div class="box">
-				<h1>MY PAGE</h1>
+				<h1>${nickname}'s MY PAGE</h1>
 			</div>
 			<div align="center" class="menu">
 				<ul>
