@@ -68,7 +68,7 @@ li a {
 	border-color: #f7e6ff;
 	border-style: solid;
 	border-width: 1px;
-	padding: 20px 35px 2px 35px;
+	padding: 0px 0px;
 	word-break: normal;
 }
 
@@ -80,8 +80,8 @@ li a {
 }
 
 .bookImg {
-	width: 120px;
-	height: 150px;
+	width: 150px;
+	height: 200px;
 }
 
 .title {

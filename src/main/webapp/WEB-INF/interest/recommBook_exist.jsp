@@ -67,24 +67,27 @@ request.setAttribute("recommBookList", recommBookList);
 						<tr>
 					</c:if>
 					<td><c:url var="bookInfoURL" value="../book/bookInfo">
-							<c:param name="ISBN" value="${recommBook.isbn}" />
-						</c:url> <a href="${bookInfoURL}">
-							<div class="book">
-								<img class="bookImg"
-									src="<c:url value='${recommBook.cover_path}' />">
-								<h2 class="title">${recommBook.title}</h2>
-								<p class="author">${recommBook.author}</p>
-								<c:set var="star" value="${recommBook.avgstar}"/>
-	                            <c:choose>
-	                                <c:when test ="${star >= 0.1}">
-	                                    ${recommBook.avgstar}
-	                                </c:when>
-	                                <c:otherwise>
-	                                    리뷰가 존재하지 않습니다.
-	                                </c:otherwise>
-	                            </c:choose>
-							</div>
-					</a></td>
+			            <c:param name="ISBN" value="${recommBook.isbn}" />
+			        </c:url>
+			        <a href="${bookInfoURL}">
+			            <figure>
+			                <img class="bookImg" src="<c:url value='${recommBook.cover_path}' />">
+			                <figcaption>
+			                    <h2 class="title">${recommBook.title}</h2>
+			                    <p class="author">${recommBook.author}</p>
+			                    ★
+			                    <c:set var="star" value="${recommBook.avgstar}" />
+			                    <c:choose>
+			                        <c:when test="${star >= 0.1}">
+			                            ${recommBook.avgstar}
+			                        </c:when>
+			                        <c:otherwise>
+			                            리뷰가 존재하지 않습니다.
+			                        </c:otherwise>
+			                    </c:choose>
+			                </figcaption>
+			            </figure>
+			        </a></td>
 					<c:if test="${loop.index % 3 == 2 or loop.last}">
 						</tr>
 					</c:if>
