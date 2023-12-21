@@ -68,7 +68,7 @@ public class RequestMapping {
         //// 도서 검색 관련
         mappings.put("/book/searchList", new ListBookController()); // 검색한 책 리스트
         mappings.put("/book/randomBooks", new RandomBookController()); //랜덤 책 리스트
-        mappings.put("/book/bookInfo", new BookInfoController()); //책 세부 정보 보기
+        mappings.put("/book/bookInfo", new ReadBookInfoController()); //책 세부 정보 보기
         mappings.put("/admin/book/modify", new ModifyBookInfoController()); //책 정보 수정
         mappings.put("/admin/book/delete", new DeleteBookController()); //책 삭제
         mappings.put("/admin/book/register", new RegisterBookController()); //책 추가

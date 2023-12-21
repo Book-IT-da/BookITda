@@ -10,7 +10,7 @@ import model.service.BookManager;
 import model.service.ReviewManager;
 
 //선택한 책의 상세 정보를 보기 위한 컨트롤러
-public class BookInfoController implements Controller {
+public class ReadBookInfoController implements Controller {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

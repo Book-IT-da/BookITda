@@ -51,7 +51,6 @@ public class ModifyBookInfoController implements Controller {
 					request.getParameter("keyword2"),
 					request.getParameter("keyword3"),
 					3
-					//Float.parseFloat(request.getParameter("averageStar"))
 			);
 			request.setAttribute("book", book);
 			manager.modifyBook(book);
