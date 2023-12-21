@@ -53,7 +53,7 @@
 			</tr>
 
 			<tr>
-				<td>&nbsp; 제목 : ${book.title}</td>
+				<td>&nbsp; 제목 : <b>${book.title}</b></td>
 			</tr>
 
 			<tr>
