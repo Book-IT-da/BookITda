@@ -128,9 +128,9 @@
                 <table class="book_box">
                     <tbody>
                       <tr>
-                        <td>작정자</td>
+                        <td id="info">작정자</td>
                         <td colspan="2"><%=review.getNickname()%></td>
-                        <td>작성일</td>
+                        <td id="info">작성일</td>
                         <td><%=review.getCreateDate()%></td>
                       </tr>
                       <tr>
@@ -138,15 +138,15 @@
                       </tr>
                       <tr>
                         <td class="book_pic" rowspan="6"><img class="book_cover" src="<c:url value='${review.cover_path}' />" /></td>
-                        <td>저자</td>
+                        <td id="info">저자</td>
                         <td colspan="3"><%=review.getAuthor()%></td>
                       </tr>
                       <tr>
-                        <td>출판사</td>
+                        <td id="info">출판사</td>
                         <td colspan="3"><%=review.getPublisher()%></td>
                       </tr>
                       <tr>
-                        <td>별점</td>
+                        <td id="info">별점</td>
                         <td>
                         <c:choose> 
 							<c:when test="${review.getStars() eq 0}">☆☆☆☆☆</c:when> 
@@ -159,7 +159,7 @@
 							</c:otherwise> 
 						</c:choose> 
 						</td>
-                        <td>난이도</td>
+                        <td id="info">난이도</td>
                         <td>
                         <c:choose> 
 							<c:when test="${review.getLevel() eq 1}">초급</c:when> 
@@ -171,24 +171,24 @@
                         </td>
                       </tr>
                       <tr>
-                        <td>독서 목적</td>
+                        <td id="info">독서 목적</td>
                         <td><%=review.getPurpose()%></td>
-                        <td>추천 대상</td>
+                        <td id="info">추천 대상</td>
                         <td><%=review.getRecommObj()%></td>
                       </tr>
                       <tr>
-                        <td>키워드</td>
+                        <td id="info">키워드</td>
                         <td colspan="3"><%=review.getKeyword()%></td>
                       </tr>
                       <tr>
-                        <td>한줄평</td>
+                        <td id="info">한줄평</td>
                         <td colspan="3"><%=review.getOnelineReview()%></td>
                       </tr>
                       <tr>
                         <td colspan="5"></td>
                       </tr>
                       <tr>
-                        <td colspan="5">상세 리뷰</td>
+                        <td colspan="5" id="info">상세 리뷰</td>
                       </tr>
                       <tr>
                         <td class="book_multiline_review" colspan="5"><%=review.getMultilineReview()%></td>
@@ -219,9 +219,16 @@
 	                            		<td class="comment_nick">${comment.nickname}</td>
 									</c:otherwise> 
 								</c:choose>
-	                            <td><fmt:formatDate value="${comment.createDate}" pattern="yyyy-MM-dd" /></td>
-	                            <td>
-									<c:if test="${sessionScope.userId == comment.userId or sessionScope.userId == 'admin'}">
+								<c:choose> 
+									<c:when test="${sessionScope.userId == comment.userId or sessionScope.userId == 'admin'}">
+	                            		<td><fmt:formatDate value="${comment.createDate}" pattern="yyyy-MM-dd" /></td>
+	                            	</c:when>
+									<c:otherwise>
+	                            		<td colspan="2"><fmt:formatDate value="${comment.createDate}" pattern="yyyy-MM-dd" /></td>
+									</c:otherwise> 
+								</c:choose>
+								<c:if test="${sessionScope.userId == comment.userId or sessionScope.userId == 'admin'}">
+	                            	<td>
 							            <form name="deleteCommentForm" method="GET"
 											action="<c:url value='/review/comment/delete' />">
 											<input type="hidden" name="reviewId" value="${review.reviewId}">
@@ -231,8 +238,8 @@
 							                <input type="button" value="수정" id="commentChange_${comment.commentId}" onClick="commentModifyInput(${comment.commentId})">
 							                <input type="button" value="완료" id="commentMod_${comment.commentId}" style="display: none;" onClick="commentModify(${comment.commentId})">
 							                <input type="button" value="취소" id="commentCancel_${comment.commentId}" style="display: none;" onClick="commentModifyCancel(${comment.commentId})">	
-						            </c:if>
-	                            </td>
+						      		</td>
+						      	</c:if>
 	                          </tr>
 	                        </thead>
 	                        <tbody>

@@ -80,13 +80,13 @@
             <div>
                 <form name="form"  method="post" action="<c:url value='/review/create'/>">
                     <div align="right">
-                        <input type="button" value="올리기" onClick="reviewCreate()">
+                        <input type="button" id="buttonSt" value="올리기" onClick="reviewCreate()">
 						<input type="hidden" name="userId" value="${userId}">
                     </div>
                     <table class="book_box">
                         <tbody>
                             <tr>
-                                <td>제목</td>
+                                <td id="info">제목</td>
                                 <td>
                    					<input type="hidden" id="ISBN" name="ISBN"/>
                                     <input class="input_text" id="title" name="title" type="text" placeholder="제목을 검색하세요" disabled>
@@ -94,7 +94,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>별점</td>
+                                <td id="info">별점</td>
                                 <td>
                                     <input type="radio" name="stars" value="1">★☆☆☆☆
                                     <input type="radio" name="stars" value="2">★★☆☆☆
@@ -104,7 +104,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>난이도</td>
+                                <td id="info">난이도</td>
                                 <td>
                                     <input type="radio" name="level" value="1">초급
                                     <input type="radio" name="level" value="2">중급
@@ -112,31 +112,31 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>독서 목적</td>
+                                <td id="info">독서 목적</td>
                                 <td>
                                     <input class="input_text" name="purpose" type="text" placeholder="독서 목적을 작성해주세요">
                                 </td>
                             </tr>
                             <tr>
-                                <td>추천 대상</td>
+                                <td id="info">추천 대상</td>
                                 <td>
                                     <input class="input_text" name="recommObj" type="text" placeholder="추천 대상을 작성해주세요">
                                 </td>
                             </tr>
                             <tr>
-                                <td>키워드</td>
+                                <td id="info">키워드</td>
                                 <td>
                                     <input class="input_text" name="keyword" type="text" placeholder="키워드를 작성해주세요">
                                 </td>
                             </tr>
                             <tr>
-                                <td>한줄평</td>
+                                <td id="info">한줄평</td>
                                 <td>
                                     <input class="input_text" name="onelineReview" type="text" placeholder="한줄평을 작성해주세요">
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">상세리뷰</td>
+                                <td colspan="2" id="info">상세리뷰</td>
                             </tr>
                             <tr>
                                 <td colspan="2">

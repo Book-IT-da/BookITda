@@ -2,6 +2,11 @@ li a {
 	color: black;
 }
 
+#info{
+	color: darkslategray;
+	font-weight: bold;
+}
+
 #buttonSt{
 	border-radius: 3px;
 	border-width: 1px;
@@ -104,12 +109,14 @@ li a {
 
 .comment_nick{
 	width: 500px;
+	font-weight: bold;
 }
 
 
 .comment_nick_same{
 	width: 500px;
 	color:cornflowerblue;
+	font-weight: bold;
 }
 
 td form { 
