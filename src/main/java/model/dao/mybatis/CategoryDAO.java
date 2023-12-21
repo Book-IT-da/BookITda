@@ -13,10 +13,10 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import model.Category;
 import model.dao.mybatis.mapper.CategoryMapper;
 
-public class CategorryDAO {
+public class CategoryDAO {
 	private SqlSessionFactory sqlSessionFactory;
 
-	public CategorryDAO() {
+	public CategoryDAO() {
 		String resource = "mybatis-config.xml";
 		InputStream inputStream;
 		try {
