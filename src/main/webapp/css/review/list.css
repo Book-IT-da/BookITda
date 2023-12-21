@@ -2,6 +2,17 @@ li a {
 	color: black;
 } 
 
+input[type="button"] {
+	width: 15px;
+	height: 15px;
+	border-radius: 3px;
+	border-width: 1px;
+	border-color: #CCCCCC;
+	margin-top: 30px;
+	width: 100px;
+	height: 30px;
+} 
+
 #reviewTitle_input {
 	font-size: 16px;
 	width: 325px;

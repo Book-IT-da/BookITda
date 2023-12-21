@@ -115,12 +115,12 @@
 			<form name="updateReviewForm" method="GET"
 				action="<c:url value='/review/update' />">
     			<input type="hidden" name="reviewId" value="<%=review.getReviewId()%>">
-    			<button type="submit">수정하기</button>
+    			<button type="submit" id="buttonSt">수정하기</button>
             </form>
             <form name="deleteReviewForm" method="GET"
 				action="<c:url value='/review/delete' />">
     			<input type="hidden" name="reviewId" value="<%=review.getReviewId()%>">
-                <input type="button" value="삭제하기"  onClick="reviewRemove()">
+                <input type="button" value="삭제하기" id="buttonSt" onClick="reviewRemove()">
             </form>
             </div>
        </c:if> 
@@ -134,7 +134,7 @@
                         <td><%=review.getCreateDate()%></td>
                       </tr>
                       <tr>
-                        <td colspan="5"><%=review.getTitle()%></td>
+                        <td colspan="5" class="book_title"><%=review.getTitle()%></td>
                       </tr>
                       <tr>
                         <td class="book_pic" rowspan="6"><img class="book_cover" src="<c:url value='${review.cover_path}' />" /></td>
@@ -203,7 +203,7 @@
 					<input type="hidden" name="userId" value="${userId}">
 					<textarea id="comment_input" name="rContent" placeholder="답변을 입력해주세요"
 						required></textarea>
-					<input type="button" value="작성" onClick="commentCreate()">
+					<input type="button" id="commentB" value="작성" onClick="commentCreate()">
 				</form>
                 
                 <c:forEach var="comment" items="${commentList}"> 
@@ -243,7 +243,7 @@
 									<input type="hidden" name="reviewId" value="${review.reviewId}">
 							    	<input type="hidden" name="commentId" value="${comment.commentId}">
 									<td class="comment_detail" colspan="3" id="commentUpdate_${comment.commentId}" style="display: none;">
-											<textarea id="comment_input" name="rContent" required>${comment.rContent}</textarea>	
+											<textarea id="comment_input2" name="rContent" required>${comment.rContent}</textarea>	
 		                            </td>
 								</form>
 	                            <td class="comment_detail" colspan="3" id="commentRead_${comment.commentId}">
