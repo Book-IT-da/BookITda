@@ -16,7 +16,7 @@ li a {
 
 .bigContainer {
 	width: 800px;
-	height: 900px;
+	height: 870px;
 	position: relative;
 	top: 5%;
 	left: 0%;
@@ -68,7 +68,7 @@ li a {
 	border-color: #f7e6ff;
 	border-style: solid;
 	border-width: 1px;
-	padding: 5px 35px;
+	padding: 20px 35px 2px 35px;
 	word-break: normal;
 }
 
@@ -106,4 +106,21 @@ li a {
 	top: 0%;
 	left: 0.5%;
 	z-index: 1;
+}
+
+input {
+	width: 15px;
+	height: 15px;
+	border-radius: 3px;
+	border-width: 1px;
+	border-color: #CCCCCC;
+}
+
+.input-container input {
+	margin-right: 10px;
+}
+
+input[type="button"] {
+	width: 100px;
+	height: 30px;
 }
