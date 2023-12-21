@@ -75,16 +75,18 @@ request.setAttribute("recommBookList", recommBookList);
 			                <figcaption>
 			                    <h2 class="title">${recommBook.title}</h2>
 			                    <p class="author">${recommBook.author}</p>
-			                    ★
-			                    <c:set var="star" value="${recommBook.avgstar}" />
-			                    <c:choose>
-			                        <c:when test="${star >= 0.1}">
-			                            ${recommBook.avgstar}
-			                        </c:when>
-			                        <c:otherwise>
-			                            리뷰가 존재하지 않습니다.
-			                        </c:otherwise>
-			                    </c:choose>
+			                    <p class="grade">
+				                    ★
+				                    <c:set var="star" value="${recommBook.avgstar}" />
+				                    <c:choose>
+				                        <c:when test="${star >= 0.1}">
+				                            ${recommBook.avgstar}
+				                        </c:when>
+				                        <c:otherwise>
+				                            리뷰가 존재하지 않습니다.
+				                        </c:otherwise>
+				                    </c:choose>
+				                    </p>
 			                </figcaption>
 			            </figure>
 			        </a></td>

@@ -92,13 +92,14 @@ li a {
 
 .author {
 	font-style: italic;
-	font-size: 13px;
+	font-size: 14px;
 	margin: 0 0;
 }
 
 .grade {
-	font-size: 7px;
+	font-size: 13px;
 	margin: 0 0;
+	color: red;
 }
 
 .menubar {
