@@ -9,6 +9,15 @@
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
 <title>탈퇴</title>
+<script>
+	function withdraw(formName) {
+		var msg = confirm("정말 탈퇴하시겠습니까?");
+		if (msg) {
+			formName.submit();
+		}
+		return false;			
+	}
+</script>
 </head>
 <body>	
 	<header>
@@ -22,10 +31,13 @@
 	<jsp:include page="../top/menubar.jsp">
     	<jsp:param name="selected" value="" />
 	</jsp:include>
-	<h2>탈퇴</h2>
-	<form name="form" method="POST" action="<c:url value='/user/delete'/>">
-		<input type="hidden" name="userId" value="${user.userId}">
-		<input type="submit" value="탈퇴">
-	</form>
+	<div align="center">
+		<h2>탈퇴</h2>
+		<p>탈퇴를 원하면 아래 버튼을 클릭해주세요</p>
+		<form name="deleteForm" method="POST" action="<c:url value='/user/delete'/>">
+			<input type="hidden" name="userId" value="${user.userId}">
+			<input type="button" value="탈퇴" onClick="withdraw(this.form)">
+		</form>
+	</div>
 </body>
 </html>
