@@ -316,7 +316,7 @@ public class BookDAO {
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT ISBN,title, cover_path, author, publisher, AVGSTAR ");
 		query.append("FROM (select * FROM book order by dbms_random.random) ");
-		query.append("where rownum<=6");
+		query.append("where rownum<=10");
 		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {});
 
 		try {
