@@ -55,7 +55,7 @@ public class ReviewCommentDAO {
     }
     
     // 리뷰 댓글 생성
-    public int createComment(ReviewComment reviewComment) {
+    public ReviewComment createComment(ReviewComment reviewComment) {
         
 
         StringBuilder query = new StringBuilder();
@@ -71,7 +71,7 @@ public class ReviewCommentDAO {
             
             result = jdbcUtil.executeUpdate(); 
             
-            return result;
+            return null;
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
@@ -80,7 +80,7 @@ public class ReviewCommentDAO {
             jdbcUtil.close();   
         }       
         
-        return 0;
+        return null;
     }
     
     // 리뷰 댓글 수정
