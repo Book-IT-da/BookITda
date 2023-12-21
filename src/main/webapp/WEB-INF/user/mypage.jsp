@@ -42,11 +42,9 @@
 					<li><a href="<c:url value='/user/review'><c:param name='userId' value='${userId}'/></c:url>">리뷰</a></li>
 					<li><a href="<c:url value='/user/review/comment'><c:param name='userId' value='${userId}'/></c:url>">리뷰 댓글</a></li>
 					<li><a
-						href="<c:url value='/user/question'><c:param name='userId' value='${userId}'/></c:url>">Q&A
-							게시글 - 질문</a></li>
+						href="<c:url value='/user/question'><c:param name='userId' value='${userId}'/></c:url>">Q&A - 질문</a></li>
 					<li><a
-						href="<c:url value='/user/answer'><c:param name='userId' value='${userId}'/></c:url>">Q&A
-							게시글 - 댓글</a></li>
+						href="<c:url value='/user/answer'><c:param name='userId' value='${userId}'/></c:url>">Q&A - 답변</a></li>
 				</ul>
 			</div>
 		</div>
