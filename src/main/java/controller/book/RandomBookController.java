@@ -7,18 +7,19 @@ import controller.Controller;
 import model.Book;
 import model.service.BookManager;
 
-//모든 책 리스트를 가져오기 위한 컨트롤러
-public class ViewAllBookController implements Controller {
-	
+// 랜덤 책 리스트를 가져오기 위한 컨트롤러
+public class RandomBookController implements Controller {
+
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		BookManager manager = BookManager.getInstance();
 
 		List<Book> books = null;
+		books = manager.findRandomBook();
 
-		books = manager.findAllBook();
 		request.setAttribute("books", books);
 
-		return "/book/searchList.jsp";
+		return "/book/randomBooks.jsp";
 	}
 }

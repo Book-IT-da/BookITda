@@ -10,7 +10,7 @@ import model.service.BookManager;
 import model.service.CategoryManager;
 
 //책을 수정하기 위한 컨트롤러
-public class ViewModifyBookInfoController implements Controller {
+public class ModifyBookInfoController implements Controller {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
