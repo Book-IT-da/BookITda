@@ -12,7 +12,6 @@ public class ModifyCategoryController implements Controller{
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse respone) throws Exception{
-		System.out.println("ModifyCategory controlloer OK");
 		CategoryManager manager = CategoryManager.getInstance();
 		
 		String category = request.getParameter("originalCate");

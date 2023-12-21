@@ -5,13 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel=stylesheet href="<c:url value='/css/menu.css' />"
-	type="text/css">
-<link rel=stylesheet href="<c:url value='/css/logo.css' />"
-	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/admin/book/registerForm.css' />" type="text/css">
-<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
-			type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <title>관리자 책 정보 추가</title>
 
 <script>
@@ -76,7 +73,6 @@
 				"하드웨어", "학습 사이트 제공"};
 	%>
 	<header>
-
 		<div>
 			<jsp:include page="../../top/userMenubar.jsp" />
 		</div>
@@ -87,7 +83,6 @@
 	<jsp:include page="../../top/menubar.jsp">
 		<jsp:param name="selected" value="bookman" />
 	</jsp:include>
-
 	<br>
 
 	<center>
@@ -218,10 +213,8 @@
 				</tr>
 			</table>
 
-			<p />
+			<p/>
 			<button type="button" id="btn_modify" onClick="bookRegister()">추가</button>
-
-			</a>
 		</form>
 	</center>
 

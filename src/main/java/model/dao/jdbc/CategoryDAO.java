@@ -22,7 +22,6 @@ public class CategoryDAO {
 		
 		try {				
 			int result = jdbcUtil.executeUpdate();	
-			System.out.println(result);
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
@@ -44,7 +43,6 @@ public class CategoryDAO {
 		
 		try {
 			int result = jdbcUtil.executeUpdate();
-			System.out.println("result는 "+result);
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
@@ -100,7 +98,6 @@ public class CategoryDAO {
 	
 	// 카테고리 리스트 반환
 	public List<Category> findAllCategory() throws SQLException {
-		System.out.println("DAO에 왔음.");
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT categoryId, category FROM Category");
 		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {});

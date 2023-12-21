@@ -10,7 +10,6 @@ import model.service.CategoryManager;
 public class LoadCategoryController implements Controller{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ListCategoryList controlloer OK");
 		CategoryManager manager = CategoryManager.getInstance();
 
 		List<Category> categories = null;

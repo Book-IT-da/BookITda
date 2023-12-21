@@ -14,7 +14,6 @@ public class ViewModifyBookInfoController implements Controller {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ViewModifyBookInfoController OK");
 		BookManager manager = BookManager.getInstance();
 	
 		if(request.getMethod().equals("GET")) {
@@ -24,7 +23,6 @@ public class ViewModifyBookInfoController implements Controller {
 			book = manager.findBookInfo(ISBN);
 
 			request.setAttribute("book", book);
-			System.out.print("modift info에 왔음");
 			
 			CategoryManager cateM = CategoryManager.getInstance();
 
@@ -36,7 +34,6 @@ public class ViewModifyBookInfoController implements Controller {
 			return "/admin/book/updateForm.jsp";
 		}
 		else {
-			System.out.println("controller에서 "+request.getParameter("itLevel"));
 			Book book = new Book(
 					request.getParameter("ISBN"),
 					request.getParameter("title"),
@@ -57,7 +54,6 @@ public class ViewModifyBookInfoController implements Controller {
 					//Float.parseFloat(request.getParameter("averageStar"))
 			);
 			request.setAttribute("book", book);
-			System.out.print("modift info_post에 왔음");
 			manager.modifyBook(book);
 			
 			return "redirect:/book/allList";

@@ -5,13 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel=stylesheet href="<c:url value='/css/menu.css' />"
-	type="text/css">
-<link rel=stylesheet href="<c:url value='/css/logo.css' />"
-	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/admin/book/updateForm.css' />" type="text/css">
-<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
-			type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <title>관리자 책 정보 수정</title>
 
 <script>
@@ -83,7 +80,6 @@ String[] keywords = {"X", "게임", "도커", "라즈베리파이", "리눅스/�
 
 %>
 	<header>
-
 		<div>
 			<jsp:include page="../../top/userMenubar.jsp" />
 		</div>
@@ -94,7 +90,6 @@ String[] keywords = {"X", "게임", "도커", "라즈베리파이", "리눅스/�
 	<jsp:include page="../../top/menubar.jsp">
 		<jsp:param name="selected" value="search" />
 	</jsp:include>
-
 	<br>
 
 	<center>
@@ -146,8 +141,7 @@ String[] keywords = {"X", "게임", "도커", "라즈베리파이", "리눅스/�
 					<td><textarea id="longinput type=" text"" name="authorInfo" placeholder="최대 1999자"> ${book.authorInfo} </textarea></td>
 				</tr>
 			</table>
-
-			<br> <br>
+			<br><br>
 
 			<table>
 				<tr class="bookType_cate">
@@ -257,9 +251,8 @@ String[] keywords = {"X", "게임", "도커", "라즈베리파이", "리눅스/�
 				</tr>
 			</table>
 
-			<p />
+			<p/>
 			<button type="button" id="btn_modify" onClick="bookModify()">수정</button>
-
 		</form>
 
 		<form name="deleteForm" method="GET"

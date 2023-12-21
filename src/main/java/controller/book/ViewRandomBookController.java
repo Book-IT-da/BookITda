@@ -12,7 +12,6 @@ public class ViewRandomBookController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("randomBook controlloer OK");
 		
 		BookManager manager = BookManager.getInstance();
 
@@ -20,7 +19,6 @@ public class ViewRandomBookController implements Controller {
 		books = manager.findRandomBook();
 
 		request.setAttribute("books", books);
-		System.out.print("randomBook 왔음");
 
 		return "/book/randomBooks.jsp";
 	}

@@ -12,7 +12,6 @@ public class RegisterCategoryController implements Controller {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse respone) throws Exception{
-		System.out.println("RegisterCategory controlloer OK");
 		CategoryManager manager = CategoryManager.getInstance();
 		
 		String newCate = request.getParameter("newCate");

@@ -4,15 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script  type="text/javascript"
-	 src="http://code.jquery.com/jquery-latest.js"></script>
+<script  type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <meta charset="UTF-8">
-<link rel=stylesheet href="<c:url value='/css/menu.css' />"
-	type="text/css">
-<link rel=stylesheet href="<c:url value='/css/book/searchList.css' />"
-	type="text/css">
-<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
-	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/book/searchList.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <title>검색 후 결과 화면(도서 리스트)</title>
 </head>
 

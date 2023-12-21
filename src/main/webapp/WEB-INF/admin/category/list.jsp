@@ -5,12 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel=stylesheet href="<c:url value='/css/menu.css' />"
-	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/menu.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/admin/category/list.css' />" type="text/css">
-<link rel=stylesheet href="<c:url value='/css/userMenu.css' />"
-			type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <title>관리자 - 카테고리 리스트</title>
 
 </head>
@@ -59,7 +57,6 @@
 
 <body>
 	<header>
-		
 		<div>
 			<jsp:include page="../../top/userMenubar.jsp" />
 		</div>
@@ -70,7 +67,6 @@
 	<jsp:include page="../../top/menubar.jsp">
 		<jsp:param name="selected" value="cateman" />
 	</jsp:include>
-	
 	<br>
 
 	<center>
@@ -93,8 +89,7 @@
 							<c:set var="i" value="${i+1}" />
 						</c:forEach>
 				</table>
-				<br> <br>
-
+				<br><br>
 			</center>
 
 			<div id="subDiv">
@@ -104,25 +99,23 @@
 					<input type="text" class="textType" name="renew">
 					<button type="button" class="endButton" onClick="modifyCate()">수정</button>
 				</form>
-
 				<br>
+				
 				<form name="registerCateForm" method="GET"
 					action="<c:url value='/admin/category/register' />">
 					<input type="text" class="textType" name="newCate">
 					<button type="button" class="endButton" onClick="registerCate()">추가</button>
 				</form>
-
 				<br>
+				
 				<form name="deleteCategoryForm" method="GET"
 					action="<c:url value='/admin/category/delete' />">
 					<input type="text" class="textType" name="deleteCate">
 					<button type="button" class="endButton" onClick="deleteCategory()">삭제</button>
 				</form>
-
 			</div>
-
 		</div>
 	</center>
-
+	
 </body>
 </html>

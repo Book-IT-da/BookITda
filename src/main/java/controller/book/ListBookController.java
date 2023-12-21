@@ -12,7 +12,6 @@ public class ListBookController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("listBook controlloer OK");
 		BookManager manager = BookManager.getInstance();
 		String searchType = request.getParameter("searchType");
 		String searchText = request.getParameter("searchText");

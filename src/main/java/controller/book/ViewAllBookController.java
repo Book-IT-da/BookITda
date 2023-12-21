@@ -12,7 +12,6 @@ public class ViewAllBookController implements Controller {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("AlllistBook controlloer OK");
 		BookManager manager = BookManager.getInstance();
 
 		List<Book> books = null;

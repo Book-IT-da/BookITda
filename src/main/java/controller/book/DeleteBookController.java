@@ -15,7 +15,6 @@ public class DeleteBookController implements Controller {
 		BookManager manager = BookManager.getInstance();
 		String ISBN =request.getParameter("ISBN");
 
-		System.out.print("책 삭제 컨트롤러에 왔음");
 		manager.deleteBook(ISBN);
 
 		return "redirect:/book/allList";

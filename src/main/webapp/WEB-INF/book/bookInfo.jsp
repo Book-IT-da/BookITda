@@ -28,7 +28,6 @@
 </head>
 <body>
 	<header>
-
 		<div>
 			<jsp:include page="../top/userMenubar.jsp" />
 		</div>
@@ -109,7 +108,6 @@
 		<p>#${book.keyword1} &nbsp; &nbsp; #${book.keyword2} &nbsp; &nbsp;
 			#${book.keyword3}</p>
 
-
 		<c:if test="${sessionScope.userId == 'admin'}">
 			<a
 				href="<c:url value='/admin/book/modify'>
@@ -127,7 +125,6 @@
 
 		<div class="btnMoveToTop" onclick="window.scrollTo(0,0);">TOP ↑</div>
 		<br> <br>
-
 	</div>
 
 </body>

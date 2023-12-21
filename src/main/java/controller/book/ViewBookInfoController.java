@@ -14,7 +14,6 @@ public class ViewBookInfoController implements Controller {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ViewBookInfoController OK");	
 		BookManager manager = BookManager.getInstance();
 		String ISBN = request.getParameter("ISBN");
 
@@ -22,7 +21,6 @@ public class ViewBookInfoController implements Controller {
 		book = manager.findBookInfo(ISBN);
 
 		request.setAttribute("book", book);
-		System.out.print("info에 왔음");
 		
 		// 도서 정보 하단 리뷰 목록
 		ReviewManager rManager = ReviewManager.getInstance();

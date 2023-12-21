@@ -69,18 +69,6 @@ public class BookManager {
 		return books;
 	}
 
-	// 도서 상세 정보
-//	public Book findBookInfo() throws SQLException {
-//		Book book = null;
-//
-//		book = bookDAO.findBookInfo(null);
-//		if (book == null) {
-//			System.out.println("book은 null이다.");
-//		}
-//
-//		return book;
-//	}
-
 	// 도서 삭제
 	public int deleteBook(String ISBN) throws SQLException {
 		return bookDAO.removeBook(ISBN);

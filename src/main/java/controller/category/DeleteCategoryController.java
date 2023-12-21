@@ -12,7 +12,6 @@ public class DeleteCategoryController implements Controller{
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse respone) throws Exception{
-		System.out.println("DeleteCategory controlloer OK");
 		CategoryManager manager = CategoryManager.getInstance();
 		
 		String deleteCate = request.getParameter("deleteCate");

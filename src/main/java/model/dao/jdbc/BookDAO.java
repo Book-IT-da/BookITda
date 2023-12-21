@@ -26,26 +26,22 @@ public class BookDAO {
 		try {
 			// 카테고리 id를 찾는다.
 			StringBuilder query1 = new StringBuilder();
-			System.out.println("c:" + c);
 			query1.append("SELECT categoryId FROM Category WHERE category=?");
 
 			jdbcUtil.setSqlAndParameters(query1.toString(), new Object[] { c });
 			ResultSet rs = jdbcUtil.executeQuery();
 			if (rs.next()) {
 				category = rs.getInt("categoryId");
-				System.out.println("1" + category);
 			}
 
 			// 레벨 id를 찾는다,
 			StringBuilder query2 = new StringBuilder();
-			System.out.println("le:" + le);
 			;
 			query2.append("SELECT levelId FROM ItLevel WHERE itLevel=?");
 			jdbcUtil.setSqlAndParameters(query2.toString(), new Object[] { le });
 			ResultSet rs2 = jdbcUtil.executeQuery();
 			if (rs2.next()) {
 				level = rs2.getInt("levelId");
-				System.out.println("2" + level);
 			}
 
 			// 언어 id를 찾는다,
@@ -55,7 +51,6 @@ public class BookDAO {
 			ResultSet rs3 = jdbcUtil.executeQuery();
 			if (rs3.next()) {
 				language = rs3.getInt("languageId");
-				System.out.println("3" + language);
 			}
 
 			// 키워드1 id를 찾는다,
@@ -65,7 +60,6 @@ public class BookDAO {
 			ResultSet rs4 = jdbcUtil.executeQuery();
 			if (rs4.next()) {
 				keyword1 = rs4.getInt("keywordId");
-				System.out.println("4" + keyword1);
 			}
 
 			// 키워드2 id를 찾는다,
@@ -75,7 +69,6 @@ public class BookDAO {
 			ResultSet rs5 = jdbcUtil.executeQuery();
 			if (rs5.next()) {
 				keyword2 = rs5.getInt("keywordId");
-				System.out.println("5" + keyword2);
 			}
 
 			// 키워드3 id를 찾는다,
@@ -85,7 +78,6 @@ public class BookDAO {
 			ResultSet rs6 = jdbcUtil.executeQuery();
 			if (rs6.next()) {
 				keyword3 = rs6.getInt("keywordId");
-				System.out.println(keyword3);
 			}
 
 		} catch (Exception ex) {
@@ -104,13 +96,11 @@ public class BookDAO {
 
 		// date로 포맷
 		String stringDate = book.getPublicationDate();
-		System.out.println(stringDate);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");	
 		java.sql.Date date = null;
 		try {
 		    Date buffDate = sdf.parse(stringDate);
 		    date = new java.sql.Date(buffDate.getTime());
-		    System.out.println(date);
 		} catch (ParseException e) {
 		    e.printStackTrace();
 		}
@@ -130,7 +120,6 @@ public class BookDAO {
 		
 		try {
 			int result = jdbcUtil.executeUpdate();
-			System.out.print("!!!result!는 "+result+"이다");
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
@@ -146,12 +135,10 @@ public class BookDAO {
 	// 책 정보 수정
 	public int ModifyBook(Book book) throws SQLException {
 		// id들 찾기
-		System.out.print("문제1");
 		findId(book.getCategory(), book.getItLevel(), book.getLanguage(), book.getKeyword1(), book.getKeyword2(),
 				book.getKeyword3());
 
 		// 책 수정
-		System.out.print("문제2");
 		StringBuilder query = new StringBuilder();
 		query.append("UPDATE Book set TITLE=?, AUTHOR=?, PUBLISHER=?, PUBLICATIONDATE=?, ");
 		query.append("COVER_PATH=?, BOOKINFO=?, BOOKINDEX=?, AUTHORINFO=?, ");
@@ -159,29 +146,24 @@ public class BookDAO {
 		query.append("KEYWORDID2=?, KEYWORDID3=? WHERE ISBN=? ");
 	
 		String stringDate = book.getPublicationDate();
-		System.out.println(stringDate);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");	
 		java.sql.Date date = null;
 		try {
 		    Date buffDate = sdf.parse(stringDate);
 		    date = new java.sql.Date(buffDate.getTime());
-		    System.out.println(date);
 		} catch (ParseException e) {
 		    e.printStackTrace();
 		}
 
-		System.out.print("문제3");
 		Object[] param = new Object[] { book.getTitle(), book.getAuthor(), book.getPublisher(), 
 				date, book.getcover_path(), book.getBookInfo(), book.getBookIndex(), 
 				book.getAuthorInfo(), keyword1, category,
 				level, language, keyword2, keyword3, book.getISBN() };
-		System.out.print("문제4");
 		
 		jdbcUtil.setSqlAndParameters(query.toString(), param);
 
 		try {
 			int result = jdbcUtil.executeUpdate();
-			System.out.println("result = " + result);
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
@@ -227,7 +209,6 @@ public class BookDAO {
 			ResultSet rs = jdbcUtil.executeQuery();
 			List<Book> bookList = new ArrayList<Book>();
 			while (rs.next()) {
-				System.out.print("sql 결과 있음");
 				Book book = new Book(rs.getString("ISBN"), rs.getString("title"), rs.getString("author"),
 						rs.getString("publisher"), rs.getString("cover_path"), rs.getFloat("AVGSTAR"));
 				bookList.add(book);
@@ -244,7 +225,6 @@ public class BookDAO {
 
 	// 저자로 책 검색
 	public List<Book> findBookByAuthor(String author) throws SQLException {
-		System.out.print("sql 결과 findBookByAuthor");
 
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT ISBN, title, cover_path, author, publisher, AVGSTAR " + "FROM Book "
@@ -274,7 +254,6 @@ public class BookDAO {
 	public List<Book> findBookByPublisher(String publisher) throws SQLException {
 		StringBuilder query = new StringBuilder();
 
-		System.out.print("sql 결과 findBookByAuthor");
 
 		query.append("SELECT ISBN,title, cover_path, author, publisher, AVGSTAR " + "FROM Book "
 				+ "Where publisher LIKE ? " + "ORDER BY publisher");
@@ -301,7 +280,6 @@ public class BookDAO {
 
 	// 키워드로 책 검색
 	public List<Book> findBookByKeyword(String keyword) throws SQLException {
-		int keywordId = 0;
 		StringBuilder query1 = new StringBuilder();
 	
 		query1.append("SELECT DISTINCT ISBN, title, cover_path, author, publisher, AVGSTAR ");
@@ -335,7 +313,6 @@ public class BookDAO {
 
 	// 랜던 책 리스트
 	public List<Book> findRandomBook() throws SQLException {
-		System.out.println("BookDAO의 findRandomBook");
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT ISBN,title, cover_path, author, publisher, AVGSTAR ");
 		query.append("FROM (select * FROM book order by dbms_random.random) ");
@@ -343,7 +320,6 @@ public class BookDAO {
 		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {});
 
 		try {
-			System.out.print("execute 전");
 			ResultSet rs = jdbcUtil.executeQuery();
 
 			List<Book> bookList = new ArrayList<Book>();
@@ -352,7 +328,6 @@ public class BookDAO {
 						rs.getString("publisher"), rs.getString("cover_path"), rs.getFloat("AVGSTAR"));
 				bookList.add(book);
 			}
-			System.out.print("execute 완료");
 			return bookList;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -364,14 +339,12 @@ public class BookDAO {
 	
 	//모든 책 리스트
 	public List<Book> findAllBook() throws SQLException {
-		System.out.println("BookDAO의 findAllBook");
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT ISBN,title, cover_path, author, publisher, AVGSTAR ");
 		query.append("FROM Book");
 		jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {});
 
 		try {
-			System.out.print("execute 전");
 			ResultSet rs = jdbcUtil.executeQuery();
 
 			List<Book> bookList = new ArrayList<Book>();
@@ -380,7 +353,6 @@ public class BookDAO {
 						rs.getString("publisher"), rs.getString("cover_path"), rs.getFloat("AVGSTAR"));
 				bookList.add(book);
 			}
-			System.out.print("execute 완료");
 			return bookList;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -392,7 +364,6 @@ public class BookDAO {
 
 	// 리스트에서 특정 책을 클릭(책 자세히 보기)	
 	public Book findBookInfo(String ISBN) throws SQLException {
-		System.out.println("!!! " + ISBN + " !!");
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT ISBN, title, cover_path, author, publisher, publicationDate, ");
 		query.append("bookInfo, bookIndex, authorInfo, AVGSTAR, ");
