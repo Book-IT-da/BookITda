@@ -27,6 +27,11 @@ request.setAttribute("recommBookList", recommBookList);
 	href="<c:url value='/css/interest/recommBook_exist.css' />"
 	type="text/css">
 <title>추천 도서 보기</title>
+<script>
+	function updateInterest() {
+		document.getElementById('interestForm').submit();
+	}
+</script>
 </head>
 
 <body>
@@ -44,8 +49,8 @@ request.setAttribute("recommBookList", recommBookList);
 		</jsp:include>
 	</div>
 	<div align="right">
-		<form action="${contextPath}/get/categoryList" method="POST">
-			<button type="submit">관심사 재설정</button>
+		<form action="<c:url value='/get/categoryList'/>" method="POST" id="interestForm">
+			<input type="button" value="관심사 재설정" onClick="updateInterest()">
 		</form>
 	</div>
 	<center>
