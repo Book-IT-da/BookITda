@@ -26,27 +26,31 @@
 	<div align="center">
 		<table>
 			<tr>
-				<td><h3>작성한 리뷰 댓글</h3></td>
+				<td><h3>${nickname}'s 리뷰 댓글</h3></td>
 			</tr>
 		</table>
 		<br>
-		<table>
-			<tr>
-				<th>댓글</th>
-				<th>작성일</th>
-			</tr>
-			
-			<c:forEach var="reviewCmt" items="${reviewComment}">
-				<tr>
-					<td><a
-						href="<c:url value='/review/view'>
-						   <c:param name='reviewId' value='${reviewCmt.reviewId}'/>
-				 		 </c:url>">
-							${reviewCmt.rContent}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>${reviewCmt.createDate}</td>
-				</tr>
-			</c:forEach>
-		</table>
+		<c:choose>
+			<c:when test="${not empty reviewComment}">
+				<table>
+					<tr>
+						<th>댓글</th>
+						<th>작성일</th>
+					</tr>
+					
+					<c:forEach var="reviewCmt" items="${reviewComment}">
+						<tr>
+							<td><a href="<c:url value='/review/view'><c:param name='reviewId' value='${reviewCmt.reviewId}'/></c:url>" id="title">
+							${reviewCmt.rContent}</a></td>
+							<td>${reviewCmt.createDate}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</c:when>
+			<c:otherwise>
+				<span id="notice">작성한 리뷰 댓글이 없습니다. 댓글을 작성해보세요!</span>
+			</c:otherwise>
+		</c:choose>
 	</div>
 </body>
 </html>

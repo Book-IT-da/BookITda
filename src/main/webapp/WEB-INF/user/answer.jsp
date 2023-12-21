@@ -27,27 +27,34 @@
 	<div align="center">
 		<table>
 			<tr>
-				<td><h3>작성한 댓글</h3></td>
+				<td><h3>${nickname}'s 답변</h3></td>
 			</tr>
 		</table>
 		<br>
-		<table>
-			<tr>
-				<th>내용</th>
-				<th>작성일</th>
-			</tr>
-	
-			<c:forEach var="answer" items="${answerList}">
-				<tr>
-					<td><a
-						href="<c:url value='/question/view'>
-						   <c:param name='qId' value='${answer.qId}'/>
-				 		 </c:url>">
-							${answer.answer}</a></td>
-					<td><fmt:formatDate value="${answer.createDate}" pattern="yyyy-MM-dd" /></td>
-				</tr>
-			</c:forEach>
-		</table>
+		<c:choose>
+			<c:when test="${not empty answerList}">
+				<table>
+					<tr>
+						<th>내용</th>
+						<th>작성일</th>
+					</tr>
+			
+					<c:forEach var="answer" items="${answerList}">
+						<tr>
+							<td><a
+								href="<c:url value='/question/view'>
+								   <c:param name='qId' value='${answer.qId}'/>
+						 		 </c:url>" id="title">
+									${answer.answer}</a></td>
+							<td><fmt:formatDate value="${answer.createDate}" pattern="yyyy-MM-dd" /></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</c:when>
+			<c:otherwise>
+				<span id="notice">작성한 답변이 없습니다. 멋진 답변을 기다려요!</span>
+			</c:otherwise>	
+		</c:choose>
 	</div>
 </body>
 </html>

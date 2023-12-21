@@ -42,7 +42,8 @@
 					
 					<c:forEach var="review" items="${review}">
 						<tr>
-							<td><a href="<c:url value='/review/view'><c:param name='reviewId' value='${review.reviewId}'/></c:url>">${review.title}</a></td>
+							<td><a href="<c:url value='/review/view'><c:param name='reviewId' value='${review.reviewId}'/></c:url>" id="title">
+							${review.title}</a></td>
 							<td>${review.stars}</td>
 							<td>${review.createDate}</td>
 							<td>${review.onelineReview}</td>
