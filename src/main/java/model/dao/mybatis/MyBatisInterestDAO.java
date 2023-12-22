@@ -25,28 +25,6 @@ public class MyBatisInterestDAO {
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
 
-    /*
-     * public void createUserInterest(String userId, Interest userInterest) {
-     * SqlSession sqlSession = sqlSessionFactory.openSession(); try {
-     * sqlSession.getMapper(InterestMapper.class).createUserInterest(userId,
-     * userInterest); sqlSession.commit(); } finally { sqlSession.close(); } }
-     * 
-     * public void modifyInterestCat(String userId, Interest userInterest) {
-     * SqlSession sqlSession = sqlSessionFactory.openSession(); try {
-     * sqlSession.getMapper(InterestMapper.class).modifyInterestCat(userId,
-     * userInterest); sqlSession.commit(); } finally { sqlSession.close(); } }
-     * 
-     * public void modifyInterestLang(String userId, Interest userInterest) {
-     * SqlSession sqlSession = sqlSessionFactory.openSession(); try {
-     * sqlSession.getMapper(InterestMapper.class).modifyInterestLang(userId,
-     * userInterest); sqlSession.commit(); } finally { sqlSession.close(); } }
-     * 
-     * public void modifyUserLevel(String userId, Interest userInterest) {
-     * SqlSession sqlSession = sqlSessionFactory.openSession(); try {
-     * sqlSession.getMapper(InterestMapper.class).modifyUserLevel(userId,
-     * userInterest); sqlSession.commit(); } finally { sqlSession.close(); } }
-     */
-
     public Interest findInterestById(String userId) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
