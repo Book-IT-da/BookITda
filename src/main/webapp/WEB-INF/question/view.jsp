@@ -163,9 +163,9 @@
 				<table>
 						<tr>
 							<td>
-								<c:if test="${sessionScope.userId != answer.userId}">
+								<c:if test="${ques.userId != answer.userId}">
 								작성자: ${answer.nickname}</c:if>
-								<c:if test="${sessionScope.userId == answer.userId}">
+								<c:if test="${ques.userId == answer.userId}">
 								작성자: <span class="nickname">${answer.nickname}</span></c:if>
 							</td>
 							<td class="bottom_line">등록일: ${answer.createDate}</td>
