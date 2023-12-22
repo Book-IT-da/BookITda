@@ -6,7 +6,7 @@
 <head>
 <link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
-
+<link rel=stylesheet href="<c:url value='/css/user/loginForm.css' />" type="text/css">
 <title>아이디 찾기</title>
 
 <script>
@@ -39,17 +39,17 @@ function find() {
 		</div>
 	</header>
 	<div align="center">
-		<form name="form" method="POST" action="<c:url value='/user/findId'/>">
-			<h2>아이디 찾기</h2>
-			<div>
-				<input type="text" placeholder=" 이름" name="name" required>
-				<br> <input type="email" placeholder=" 이메일" name="email"
-					required> <br>
-			</div>
-			<div>
-				<input type="button" value=찾기 onClick="find()"> <br>
-			</div>
-		</form>
+		<div class="box2">
+			<form name="form" method="POST" action="<c:url value='/user/findId'/>">
+				<h2>아이디 찾기</h2>
+				<div>
+					<input type="text" placeholder=" 이름" name="name" required>
+					<p/> <input type="email" placeholder=" 이메일" name="email"
+						required> <br>
+					<input type="button" value=찾기 id="loginBtn" onClick="find()"> <br>
+				</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

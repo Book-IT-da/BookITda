@@ -4,11 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel=stylesheet href="<c:url value='/css/logo.css' />"
-	type="text/css">
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/user/loginForm.css' />" type="text/css">
 <title>아아디 찾기 결과</title>
 </head>
 <body>
+	<header>
+		<div>
+			<jsp:include page="../top/userMenubar.jsp" />
+		</div>
+		<div>
+			<%@ include file="../top/logo.jsp"%>
+		</div>
+	</header>
 	<div align="center">
 		<h1>아이디 찾기</h1>
 		<c:choose>
@@ -19,8 +28,6 @@
 				회원가입 시 사용한 아이디는 <strong>${param.userId}</strong> 입니다.
 			</c:otherwise>
 		</c:choose>
-		<br>
-		<a href="<c:url value='/user/login/form' />">로그인</a>
 	</div>
 </body>
 </html>
