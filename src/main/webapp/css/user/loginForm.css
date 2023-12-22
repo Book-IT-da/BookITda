@@ -7,7 +7,7 @@ input[type="text"], input[type="password"] {
 	border-color: #CCCCCC;
 }
 
-input[type="submit"] {
+#loginBtn {
 	margin-top: 25px;
 	margin-bottom: 15px;
 	width: 300px;
@@ -20,6 +20,18 @@ input[type="submit"] {
 	color: white;
 }
 
+#resignBtn {
+	margin-top: 25px;
+	margin-bottom: 15px;
+	width: 80px;
+	height: 25px;
+	border: 2px solid skyblue;
+	border-radius: 6px;
+	font-size: 15px;
+	font-weight: bold;
+	color: black;
+}
+
 a {
 	text-decoration-line: none;
 }
@@ -29,4 +41,10 @@ a {
 	height: 30px;
 	padding-top: 7px;
 	background-color: skyblue;
+}
+
+.box {
+	width: 500px;
+	height: 450px;
+	border: 4px solid skyblue;
 }
