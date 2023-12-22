@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel=stylesheet href="<c:url value='/css/userMenu.css' />" type="text/css">
 <link rel=stylesheet href="<c:url value='/css/logo.css' />" type="text/css">
 
 <title>아이디 찾기</title>
@@ -29,9 +30,14 @@ function find() {
 </head>
 
 <body>
-	<div>
-		<%@ include file="../top/logo.jsp"%>
-	</div>
+	<header>
+		<div>
+			<jsp:include page="../top/userMenubar.jsp" />
+		</div>
+		<div>
+			<%@ include file="../top/logo.jsp"%>
+		</div>
+	</header>
 	<div align="center">
 		<form name="form" method="POST" action="<c:url value='/user/findId'/>">
 			<h2>아이디 찾기</h2>
