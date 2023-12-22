@@ -22,7 +22,7 @@
 			return false;
 		}
 		if (form.content.value == "") {
-			alter("내용을 입력하세요.");
+			alert("내용을 입력하세요.");
 			form.content.focus();
 			return false;
 		}
